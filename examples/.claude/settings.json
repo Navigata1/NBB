@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(src/**)",
+      "Write(tests/**)",
+      "Write(prisma/migrations/**)",
+      "Execute(npm run test)",
+      "Execute(npm run lint)",
+      "Execute(npm run build)",
+      "Execute(npx prisma generate)",
+      "Execute(npx prisma migrate dev --name *)",
+      "Execute(npx prisma db push)",
+      "Execute(git status)",
+      "Execute(git diff **)",
+      "Execute(git log --oneline -20)"
+    ],
+    "deny": [
+      "Write(src/components/ui/**)",
+      "Write(.env*)",
+      "Write(package.json)",
+      "Write(next.config.*)",
+      "Write(vercel.json)",
+      "Execute(git push *)",
+      "Execute(git commit *)",
+      "Execute(rm -rf *)",
+      "Execute(npm publish *)",
+      "Execute(npx prisma migrate deploy)"
+    ]
+  }
+}
