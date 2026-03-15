@@ -1,4 +1,4 @@
-# MASTER BUILD FRAMEWORK v2.0 — SEGMENT 1 of 4
+# MASTER BUILD FRAMEWORK v2.1 — SEGMENT 1 of 4
 ## MBF_PART_1_CORE
 ### Contents: Front Matter + Tier 1 (Cat 1-7) + Tier 2 (Cat 8-14)
 ### Lines: 1-1113 of original
@@ -8,7 +8,7 @@
 ---
 
 # THE 56-PHASE MASTER BUILD FRAMEWORK
-## v2.0 — January 2026
+## v2.1 — March 2026
 
 ---
 
@@ -20,17 +20,17 @@
 │  This document is ONE component of a three-part system:                     │
 │                                                                              │
 │  ┌─────────────┐     ┌─────────────────────┐     ┌─────────────────────┐    │
-│  │  BRIDGE.md  │────►│  NORTH STAR v6.0    │     │  MASTER BUILD v2.0  │    │
+│  │  BRIDGE.md  │────►│  NORTH STAR v6.1    │     │  MASTER BUILD v2.1  │    │
 │  │  Navigation │     │  Methodology        │     │  (This Document)    │    │
 │  └─────────────┘     │                     │     │                     │    │
 │        │             │  HOW to build       │     │  WHAT to build with │    │
-│        │             │  • Orchestration    │     │  • 60 categories    │    │
+│        │             │  • Orchestration    │     │  • 62 categories    │    │
 │        │             │  • Quality gates    │     │  • Tool matrices    │    │
 │        │             │  • Context mgmt     │     │  • Stack selection  │    │
 │        └─────────────┴─────────────────────┴─────┴─────────────────────┘    │
 │                                                                              │
 │  THIS DOCUMENT PROVIDES: Technology options, tool matrices, build patterns  │
-│  FOR ORCHESTRATION: See North Star Blueprint v6.0 (handoffs, confidence,    │
+│  FOR ORCHESTRATION: See North Star Blueprint v6.1 (handoffs, confidence,    │
 │                     context engineering, load balancing, quality gates)     │
 │  FOR NAVIGATION: See BRIDGE.md (routes you to the right document/section)   │
 │                                                                              │
@@ -60,12 +60,48 @@ This document is an **exhaustive, autonomous execution framework** designed to b
 
 - **8 Tiers** representing major domains
 - **7 Categories per Tier** for deep coverage
-- **56 Total Categories** — non-redundant, comprehensive
+- **62 Total Categories** — non-redundant, comprehensive
 - **Cross-Category Dependencies** mapped throughout
 
 ---
 
-# ALL 56 CATEGORIES AT A GLANCE
+# CODING AGENT BENCHMARKS & MODEL MATRIX
+
+```text
+CODING AGENT BENCHMARKS — MARCH 2026
+──────────────────────────────────────────────────────────────────────────────
+
+SWE-bench Verified (% of real GitHub issues resolved autonomously)
+  GPT-5 + Aider:          88.0% 
+  Cline + Claude Opus 4.6: 80.8%
+  Claude Code (native):    ~80%
+  GPT-4o + Cursor:         ~75%
+  Devin:                   67% PR merge rate on defined tasks
+
+Terminal-Bench 2.0
+  GPT-5.3:                 77.3%
+
+Real-World Production Metrics
+  Claude Code at Anthropic: ~90% of Claude Code's own code is written by Claude Code
+  Devin (enterprise):       67% PR merge rate on clearly scoped tasks
+  Nubank (multi-agent):     12x efficiency on multi-million LOC ETL migration
+
+Model Recommendation Matrix (NS Framework)
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Task Type                    │  Recommended Model                  │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │  Complex planning & design    │  Opus 4.6 (high effort mode)        │
+  │  Standard feature development │  Sonnet 4.6 (default, cost balance) │
+  │  Rapid codebase exploration   │  Haiku (via Explore sub-agent)      │
+  │  Research reports             │  Sonnet 4.6 or Opus 4.6            │
+  │  Parallel worker agents       │  Sonnet 4.6 (cost efficiency)       │
+  │  Planner/Judge roles          │  Opus 4.6 (quality critical)        │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+# ALL 62 CATEGORIES AT A GLANCE
 
 ## Tier 1: Build Targets (What You Create)
 1. **Web Applications** — SaaS, PWAs, dashboards, full-stack
@@ -1117,6 +1153,65 @@ Internal developer platforms, self-service infrastructure, golden paths, develop
 - **→ Category 12-13** (Infrastructure) — Infrastructure
 - **→ Category 43** (DevOps) — CI/CD
 - **→ Category 48** (Docs) — Documentation
+
+---
+
+## Category 58: AI-Native IDEs & Coding Agents
+
+### Scope
+Purpose-built AI coding environments, terminal agents, spec-driven IDEs,
+agent client protocols, IDE-agnostic coding agents.
+
+### Technology Stack — Exhaustive
+
+#### Terminal-Based Agents
+| Tool | Key Differentiator | Monthly Cost |
+|------|-------------------|-------------|
+| **Claude Code** | NS Framework native, hooks, skills, plugins, worktrees | $20-200/mo |
+| **Cline** | BYOK, 80.8% SWE-bench, VS Code extension, 5M installs | Free + API |
+| **OpenCode** | Open-source, multi-LLM, Go-based TUI, 95K stars | Free + API |
+| **Aider** | Repo maps, architect mode, 88% SWE-bench with GPT-5 | Free + API |
+
+#### IDE Environments
+| IDE | Key Differentiator | Price |
+|-----|-------------------|-------|
+| **Cursor** | FastRender planner/worker/judge, Claude + GPT-5 | $20/mo |
+| **Windsurf** | SWE-grep RL-trained search, $15/mo value play | $15/mo |
+| **Kiro (Amazon)** | Spec-driven development, event-driven hooks | TBD |
+| **Zed + ACP** | Rust/GPU editor, Agent Client Protocol, open standard | $10/mo |
+| **Google Antigravity** | Multi-agent visual dashboard, Gemini 3 Pro + Claude | Preview |
+
+#### Agent Client Protocol (ACP) — Open Standard
+| Aspect | Detail |
+|--------|--------|
+| Created by | Zed Industries |
+| Purpose | Standard for plugging external agents into any IDE |
+| Status | Open standard, growing adoption Feb 2026 |
+| Benefit | Write an agent once, use in any ACP-compatible IDE |
+
+### Selection Decision Tree
+```text
+Do you use Claude Code as primary agent? YES → Enhance with skills/plugins
+Need open-source, BYOK flexibility?    YES → OpenCode or Cline
+Need spec-driven workflow natively?    YES → Kiro
+Need GPU-accelerated Rust editor?      YES → Zed + ACP
+Need enterprise multi-agent dashboard? YES → Google Antigravity
+Want maximum SWE-bench performance?    YES → Aider with Opus 4.6
+```
+
+### Quality Gates
+```text
+□ Agent is connected to your test runner
+□ Hooks configured (at minimum: stop hook)
+□ Permissions pre-configured and committed to git
+□ claude.md or equivalent context file populated
+□ Repository map available for large codebases
+```
+
+### Cross-Category Dependencies
+- → Category 57 (Agent Orchestration) — for multi-agent coordination
+- → Category 43 (CI/CD) — for automated validation
+- → NS Part I (RPIT Loop) — feature development methodology
 
 ---
 

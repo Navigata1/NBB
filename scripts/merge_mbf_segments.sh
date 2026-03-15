@@ -6,9 +6,10 @@
 # MASTER_BUILD_FRAMEWORK_v2.1.md
 #
 # Usage:
-#   ./scripts/merge_mbf_segments.sh [output_file]
+#   ./scripts/merge_mbf_segments.sh [output_file] [source_dir]
 #
 # Default output: master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md
+# Default source: projects/Segment Mods/MBF2.0- Segments
 #
 # This script is for DEVELOPMENT OPERATIONS — not for end users.
 # End users receive the pre-built monolith file from the repository.
@@ -22,6 +23,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 OUTPUT_FILE="${1:-$REPO_ROOT/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md}"
+SOURCE_DIR="${2:-$REPO_ROOT/projects/Segment Mods/MBF2.0- Segments}"
 
 # Segment files in merge order
 SEGMENTS=(
@@ -42,9 +44,16 @@ echo "║  Master Build Framework — Segment Merge                  ║"
 echo "╚══════════════════════════════════════════════════════════╝"
 echo ""
 
+if [ ! -d "$SOURCE_DIR" ]; then
+  echo "?O ERROR: Source directory not found: $SOURCE_DIR"
+  echo ""
+  echo "   Usage: ./scripts/merge_mbf_segments.sh [output_file] [source_dir]"
+  exit 1
+fi
+
 MISSING=()
 for seg in "${SEGMENTS[@]}"; do
-  if [ ! -f "$REPO_ROOT/$seg" ]; then
+  if [ ! -f "$SOURCE_DIR/$seg" ]; then
     MISSING+=("$seg")
   fi
 done
@@ -55,7 +64,7 @@ if [ ${#MISSING[@]} -gt 0 ]; then
     echo "   → $m"
   done
   echo ""
-  echo "   Run from the repository root, or ensure all segments exist."
+  echo "   Check that source_dir contains all segment files."
   exit 1
 fi
 
@@ -71,7 +80,7 @@ echo ""
 
 for i in "${!SEGMENTS[@]}"; do
   seg="${SEGMENTS[$i]}"
-  filepath="$REPO_ROOT/$seg"
+  filepath="$SOURCE_DIR/$seg"
   line_count=$(wc -l < "$filepath")
 
   if [ "$i" -eq 0 ]; then

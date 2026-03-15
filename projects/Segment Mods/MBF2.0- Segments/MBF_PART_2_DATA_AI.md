@@ -17,7 +17,7 @@
 ### Scope
 SQL databases, PostgreSQL, MySQL, SQLite, transactional systems, migrations, ORMs.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Database Engines
 | Database | Best For |
@@ -59,9 +59,9 @@ SQL databases, PostgreSQL, MySQL, SQLite, transactional systems, migrations, ORM
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  Data layer
-- **â†' Category 22** (Caching)  -  Query caching
-- **â†' Category 43** (DevOps)  -  Backup automation
+- **→ Category 8** (APIs) — Data layer
+- **→ Category 22** (Caching) — Query caching
+- **→ Category 43** (DevOps) — Backup automation
 
 ---
 
@@ -70,7 +70,7 @@ SQL databases, PostgreSQL, MySQL, SQLite, transactional systems, migrations, ORM
 ### Scope
 Embeddings storage, similarity search, RAG retrieval, recommendation systems.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Vector Databases
 | Database | Best For |
@@ -110,9 +110,9 @@ Embeddings storage, similarity search, RAG retrieval, recommendation systems.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 29-31** (AI)  -  RAG systems
-- **â†' Category 15** (Relational)  -  Metadata storage
-- **â†' Category 11** (GPU)  -  Embedding compute
+- **→ Category 29-31** (AI) — RAG systems
+- **→ Category 15** (Relational) — Metadata storage
+- **→ Category 11** (GPU) — Embedding compute
 
 ---
 
@@ -121,7 +121,7 @@ Embeddings storage, similarity search, RAG retrieval, recommendation systems.
 ### Scope
 Document databases, key-value stores, graph databases, time-series.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Document Databases
 | Database | Best For |
@@ -155,8 +155,8 @@ Document databases, key-value stores, graph databases, time-series.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  Data layer
-- **â†' Category 22** (Caching)  -  Cache integration
+- **→ Category 8** (APIs) — Data layer
+- **→ Category 22** (Caching) — Cache integration
 
 ---
 
@@ -165,7 +165,7 @@ Document databases, key-value stores, graph databases, time-series.
 ### Scope
 Client-side databases, offline-first, sync engines, CRDTs.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Browser Databases
 | Database | Type |
@@ -195,9 +195,9 @@ Client-side databases, offline-first, sync engines, CRDTs.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 1-3** (Apps)  -  Client applications
-- **â†' Category 15** (Relational)  -  Server database
-- **â†' Category 24** (Real-time)  -  Sync layer
+- **→ Category 1-3** (Apps) — Client applications
+- **→ Category 15** (Relational) — Server database
+- **→ Category 24** (Real-time) — Sync layer
 
 ---
 
@@ -206,7 +206,7 @@ Client-side databases, offline-first, sync engines, CRDTs.
 ### Scope
 Cloud storage, file uploads, CDN for assets, presigned URLs.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Cloud Object Storage
 | Service | Best For |
@@ -236,9 +236,9 @@ Cloud storage, file uploads, CDN for assets, presigned URLs.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  Upload endpoints
-- **â†' Category 9** (Edge)  -  CDN delivery
-- **â†' Category 36-38** (Content)  -  Media processing
+- **→ Category 8** (APIs) — Upload endpoints
+- **→ Category 9** (Edge) — CDN delivery
+- **→ Category 36-38** (Content) — Media processing
 
 ---
 
@@ -247,7 +247,7 @@ Cloud storage, file uploads, CDN for assets, presigned URLs.
 ### Scope
 Analytics databases, OLAP, data lakes, ETL, business intelligence.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Cloud Data Warehouses
 | Warehouse | Best For |
@@ -286,9 +286,9 @@ Analytics databases, OLAP, data lakes, ETL, business intelligence.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 15-17** (Databases)  -  Source systems
-- **â†' Category 44** (Workflows)  -  Orchestration
-- **â†' Category 49** (Dashboards)  -  Visualization
+- **→ Category 15-17** (Databases) — Source systems
+- **→ Category 44** (Workflows) — Orchestration
+- **→ Category 49** (Dashboards) — Visualization
 
 ---
 
@@ -297,7 +297,7 @@ Analytics databases, OLAP, data lakes, ETL, business intelligence.
 ### Scope
 Full-text search, faceted search, autocomplete, typo tolerance.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Search Engines
 | Engine | Best For |
@@ -324,8 +324,8 @@ Full-text search, faceted search, autocomplete, typo tolerance.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  Search API
-- **â†' Category 16** (Vector)  -  Semantic search
+- **→ Category 8** (APIs) — Search API
+- **→ Category 16** (Vector) — Semantic search
 
 ---
 
@@ -339,7 +339,7 @@ Full-text search, faceted search, autocomplete, typo tolerance.
 ### Scope
 In-memory caching, distributed caching, CDN caching, query caching.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### In-Memory Caches
 | Cache | Best For |
@@ -366,39 +366,10 @@ In-memory caching, distributed caching, CDN caching, query caching.
 □ Failover tested
 ```
 
-#### Semantic Caching for LLMs
-
-Cache LLM responses based on semantic similarity, not exact string match.
-
-| Library | Language | Features |
-|---------|----------|----------|
-| **GPTCache** | Python | Multiple backends, built-in eval |
-| **Upstash Vector** | Any | Serverless, REST API |
-| **Redis + VSS** | Any | Vector similarity search |
-
-```typescript
-// Semantic cache check
-const cached = await cache.get(query);  // Uses embedding similarity
-if (cached) return cached;              // ~$0 cost
-
-const response = await llm.complete(query);  // ~$0.003 cost
-await cache.set(query, response, { ttl: 86400 });
-```
-
-**TTL Guidelines:**
-| Use Case | TTL | Similarity Threshold |
-|----------|-----|---------------------|
-| FAQ/Help | 7 days | 0.95 |
-| Code explanation | 24 hours | 0.90 |
-| Real-time chat | 5 minutes | 0.99 |
-
-**-> NS Part III §21.7**  -  Full implementation patterns
-
-
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  Response caching
-- **â†' Category 9** (Edge)  -  Edge caching
-- **â†' Category 15** (Databases)  -  Query caching
+- **→ Category 8** (APIs) — Response caching
+- **→ Category 9** (Edge) — Edge caching
+- **→ Category 15** (Databases) — Query caching
 
 ---
 
@@ -407,7 +378,7 @@ await cache.set(query, response, { ttl: 86400 });
 ### Scope
 Async messaging, job queues, event-driven architecture, pub/sub.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Message Queues
 | Queue | Best For |
@@ -441,9 +412,9 @@ Async messaging, job queues, event-driven architecture, pub/sub.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  Event triggers
-- **â†' Category 10** (Serverless)  -  Function triggers
-- **â†' Category 44** (Workflows)  -  Orchestration
+- **→ Category 8** (APIs) — Event triggers
+- **→ Category 10** (Serverless) — Function triggers
+- **→ Category 44** (Workflows) — Orchestration
 
 ---
 
@@ -452,7 +423,7 @@ Async messaging, job queues, event-driven architecture, pub/sub.
 ### Scope
 WebSocket servers, real-time updates, presence, collaboration.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Real-Time Platforms
 | Platform | Best For |
@@ -482,8 +453,8 @@ WebSocket servers, real-time updates, presence, collaboration.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  REST fallback
-- **â†' Category 50** (Auth)  -  Connection auth
+- **→ Category 8** (APIs) — REST fallback
+- **→ Category 50** (Auth) — Connection auth
 
 ---
 
@@ -492,7 +463,7 @@ WebSocket servers, real-time updates, presence, collaboration.
 ### Scope
 Scheduled tasks, cron jobs, recurring jobs, batch processing.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Serverless Scheduling
 | Service | Platform |
@@ -526,9 +497,9 @@ Scheduled tasks, cron jobs, recurring jobs, batch processing.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 10** (Serverless)  -  Job execution
-- **â†' Category 23** (Queues)  -  Job queuing
-- **â†' Category 55** (Monitoring)  -  Job monitoring
+- **→ Category 10** (Serverless) — Job execution
+- **→ Category 23** (Queues) — Job queuing
+- **→ Category 55** (Monitoring) — Job monitoring
 
 ---
 
@@ -537,7 +508,7 @@ Scheduled tasks, cron jobs, recurring jobs, batch processing.
 ### Scope
 Knowledge graphs, ontologies, graph algorithms, entity resolution.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Graph Databases
 | Database | Query Language |
@@ -562,8 +533,8 @@ Knowledge graphs, ontologies, graph algorithms, entity resolution.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 16** (Vector)  -  Semantic enrichment
-- **â†' Category 29** (RAG)  -  Knowledge retrieval
+- **→ Category 16** (Vector) — Semantic enrichment
+- **→ Category 29** (RAG) — Knowledge retrieval
 
 ---
 
@@ -572,7 +543,7 @@ Knowledge graphs, ontologies, graph algorithms, entity resolution.
 ### Scope
 Data pipelines, ETL/ELT, data cleaning, schema evolution.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### ETL/ELT Frameworks
 | Tool | Type |
@@ -645,277 +616,11 @@ stages:
       - models/model.pkl
 ``````
 
-
-#### Advanced DVC Pipelines
-
-```yaml
-# dvc.yaml - Complete ML pipeline with params and metrics
-stages:
-  # Data ingestion
-  ingest:
-    cmd: python src/ingest.py --source ${data.source}
-    deps:
-      - src/ingest.py
-    params:
-      - data.source
-      - data.format
-    outs:
-      - data/raw/:
-          cache: false    # Don't cache raw data
-
-  # Data preparation
-  prepare:
-    cmd: python src/prepare.py
-    deps:
-      - src/prepare.py
-      - data/raw/
-    params:
-      - prepare.split_ratio
-      - prepare.seed
-    outs:
-      - data/prepared/train.parquet
-      - data/prepared/test.parquet
-    plots:
-      - data/prepared/distribution.json:
-          x: feature
-          y: count
-
-  # Feature engineering
-  featurize:
-    cmd: python src/featurize.py
-    deps:
-      - src/featurize.py
-      - data/prepared/
-    params:
-      - features
-    outs:
-      - data/features/
-
-  # Model training
-  train:
-    cmd: python src/train.py
-    deps:
-      - src/train.py
-      - data/features/
-    params:
-      - train.epochs
-      - train.learning_rate
-      - train.batch_size
-    outs:
-      - models/model.pkl
-    metrics:
-      - metrics/train.json:
-          cache: false
-    plots:
-      - plots/loss.csv:
-          x: epoch
-          y: loss
-
-  # Model evaluation
-  evaluate:
-    cmd: python src/evaluate.py
-    deps:
-      - src/evaluate.py
-      - models/model.pkl
-      - data/features/
-    metrics:
-      - metrics/eval.json:
-          cache: false
-    plots:
-      - plots/confusion_matrix.csv:
-          template: confusion
-          x: predicted
-          y: actual
-```
-
-```yaml
-# params.yaml - Centralized parameters
-data:
-  source: s3://mybucket/raw/
-  format: parquet
-
-prepare:
-  split_ratio: 0.8
-  seed: 42
-
-features:
-  - feature_a
-  - feature_b
-  - feature_c
-
-train:
-  epochs: 100
-  learning_rate: 0.001
-  batch_size: 32
-```
-
-#### Remote Storage Configurations
-
-```bash
-# S3 remote
-dvc remote add -d s3remote s3://my-bucket/dvc-store
-dvc remote modify s3remote profile myprofile
-
-# Google Cloud Storage
-dvc remote add -d gcsremote gs://my-bucket/dvc-store
-dvc remote modify gcsremote credentialpath /path/to/creds.json
-
-# Azure Blob Storage
-dvc remote add -d azureremote azure://mycontainer/dvc-store
-dvc remote modify azureremote connection_string ${AZURE_STORAGE_CONNECTION_STRING}
-
-# SSH remote (self-hosted)
-dvc remote add -d sshremote ssh://user@server.com/path/to/dvc-store
-
-# Local remote (for testing)
-dvc remote add -d localremote /tmp/dvc-store
-```
-
-#### Experiment Tracking Integration
-
-```python
-# src/train.py - DVC Live integration
-import dvclive
-from dvclive import Live
-
-def train_model(params):
-    with Live(save_dvc_exp=True) as live:
-        # Log parameters
-        live.log_param("learning_rate", params["learning_rate"])
-        live.log_param("epochs", params["epochs"])
-        
-        for epoch in range(params["epochs"]):
-            # Training loop
-            train_loss, val_loss = train_epoch(model, data)
-            
-            # Log metrics
-            live.log_metric("train/loss", train_loss)
-            live.log_metric("val/loss", val_loss)
-            live.log_metric("epoch", epoch)
-            
-            # Log plots
-            if epoch % 10 == 0:
-                live.log_sklearn_plot(
-                    "confusion_matrix",
-                    y_true, y_pred,
-                    name="val/confusion_matrix"
-                )
-            
-            live.next_step()
-        
-        # Log final model
-        live.log_artifact("models/model.pkl", type="model")
-```
-
-```bash
-# Run experiments with parameter variations
-dvc exp run -S train.learning_rate=0.01
-dvc exp run -S train.learning_rate=0.001
-dvc exp run -S train.learning_rate=0.0001
-
-# Compare experiments
-dvc exp show --md
-
-# Apply best experiment to workspace
-dvc exp apply exp-abc12
-
-# Push experiment to remote
-dvc exp push origin exp-abc12
-```
-
-#### Data Versioning Strategies
-
-```bash
-# Strategy 1: Version entire directories
-dvc add data/training/
-git add data/training.dvc data/.gitignore
-git commit -m "Add training data v1"
-
-# Strategy 2: Version with metadata
-dvc add data/dataset.parquet --desc "Customer data Q1 2024"
-
-# Strategy 3: External data references (no copy)
-dvc import-url s3://source-bucket/large-dataset.parquet \
-    data/external/large-dataset.parquet
-
-# Strategy 4: Import from another DVC repo
-dvc import https://github.com/org/data-repo \
-    data/shared-features.parquet \
-    -o data/imported/
-```
-
-#### CI/CD Integration for Data Pipelines
-
-```yaml
-# .github/workflows/dvc-pipeline.yml
-name: DVC Pipeline
-
-on:
-  push:
-    paths:
-      - 'src/**'
-      - 'params.yaml'
-      - 'dvc.yaml'
-
-jobs:
-  reproduce:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup DVC
-        uses: iterative/setup-dvc@v1
-        
-      - name: Configure DVC Remote
-        run: |
-          dvc remote modify s3remote access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          dvc remote modify s3remote secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          
-      - name: Pull Data
-        run: dvc pull
-        
-      - name: Reproduce Pipeline
-        run: dvc repro
-        
-      - name: Push Results
-        if: github.ref == 'refs/heads/main'
-        run: |
-          dvc push
-          
-      - name: Comment Metrics
-        uses: iterative/cml@v0
-        with:
-          report: |
-            ## Metrics
-            $(dvc metrics show --md)
-            
-            ## Plots
-            ![](./plots/loss.png)
-```
-
-#### Quality Gates (Expanded)
-
-```
-[ ] Source validation implemented
-[ ] Data quality checks automated
-[ ] Idempotent transforms
-[ ] Audit logging enabled
-[ ] Data lineage tracked
-[ ] DVC pipelines reproducible (dvc repro succeeds)
-[ ] Remote storage configured and tested
-[ ] Experiment tracking integrated (dvclive)
-[ ] Data versioning strategy documented
-[ ] CI/CD pipeline validates data changes
-[ ] Metrics and plots automated
-```
-
 ### Cross-Category Dependencies
-- **-> Category 15-17** (Databases)  -  Source/target
-- **-> Category 20** (Warehousing)  -  Destination
-- **-> Category 28** (Feature Stores)  -  ML data management
-- **-> Category 44** (Workflows)  -  Orchestration
-- **-> NS Part III §22**  -  Checkpoint/restart for long pipelines
-
+- **→ Category 15-17** (Databases) — Source/target
+- **→ Category 20** (Warehousing) — Destination
+- **→ Category 44** (Workflows) — Orchestration
+```
 ---
 
 ## Category 28: Feature Stores & ML Data
@@ -923,7 +628,7 @@ jobs:
 ### Scope
 Feature engineering, feature stores, training data, experiment tracking.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Feature Stores
 | Store | Type |
@@ -942,34 +647,6 @@ Feature engineering, feature stores, training data, experiment tracking.
 ### Quality Gates
 
 ```
-
-### Data Drift Detection
-
-Monitor for distribution shifts between training and production data.
-
-| Drift Type | What Changes | Detection Tool |
-|------------|--------------|----------------|
-| **Data drift** | Input distribution | Evidently, NannyML |
-| **Concept drift** | Input→Output relationship | Arize, WhyLabs |
-| **Prediction drift** | Output distribution | Any monitoring |
-
-**Quick Setup (Evidently):**
-```python
-from evidently.metrics import DataDriftPreset
-from evidently.report import Report
-
-report = Report(metrics=[DataDriftPreset()])
-report.run(reference_data=train_df, current_data=prod_df)
-report.save_html("drift_report.html")
-
-# Threshold: Retrain if > 20% features drifted
-```
-
-**Monitoring Cadence:**
-• High-stakes models: Daily drift checks
-• Standard models: Weekly drift checks
-• Batch models: Every inference batch
-
 □ Feature definitions documented
 □ Training/serving parity verified
 □ Feature freshness monitored
@@ -977,8 +654,8 @@ report.save_html("drift_report.html")
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 11** (GPU)  -  Model training
-- **â†' Category 32** (Fine-tuning)  -  Training data
+- **→ Category 11** (GPU) — Model training
+- **→ Category 32** (Fine-tuning) — Training data
 
 ---
 
@@ -987,7 +664,7 @@ report.save_html("drift_report.html")
 ### Scope
 Retrieval-augmented generation, multi-hop reasoning, document processing.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### RAG Frameworks
 | Framework | Best For |
@@ -1051,6 +728,34 @@ def validate_chunks(chunks):
     return issues
 ```
 
+#### Context Management Systems
+
+Beyond memory stores, modern agent frameworks need active context management:
+
+| Pattern | Tool/Approach | Use Case |
+|---------|--------------|----------|
+| **Repo Maps** | tree-sitter + PageRank | Large codebase navigation |
+| **Context Compaction** | /clear, session management | Prevent context degradation |
+| **Progressive Disclosure** | Skills architecture | Load knowledge on demand |
+| **Structured Handoffs** | plan.md + session artifacts | Cross-session continuity |
+| **Context Budgets** | Context % monitoring | Proactive management |
+
+#### Repo Map Generation
+```bash
+# Install aider for repo map generation
+pip install aider-chat
+
+# Generate repo map (can be added to claude.md or BRIDGE context)
+aider --map-tokens 2048 --show-repo-map > docs/repo-map.txt
+```
+
+#### Context Efficiency Rules
+1. Never load both NSB and MBF simultaneously (BRIDGE handles routing)
+2. Link to files instead of embedding content in claude.md
+3. Use skills for specialized knowledge (loaded on demand)
+4. Clear context between distinct tasks, not just when stuck
+5. Keep plan.md updated so it serves as session state
+
 ---
 
 ### Quality Gates
@@ -1098,10 +803,10 @@ You are building an Agentic RAG system. Before writing code:
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 16** (Vector)  -  Retrieval
-- **â†' Category 30** (Agents)  -  Agent integration
-- **â†' Category 31** (MCPs)  -  Tool calling
-- **â†' Category 11** (GPU)  -  Inference
+- **→ Category 16** (Vector) — Retrieval
+- **→ Category 30** (Agents) — Agent integration
+- **→ Category 31** (MCPs) — Tool calling
+- **→ Category 11** (GPU) — Inference
 
 ---
 
@@ -1110,7 +815,7 @@ You are building an Agentic RAG system. Before writing code:
 ### Scope
 Task agents, workflow agents, multi-agent systems, tool use.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Agent Frameworks
 | Framework | Best For |
@@ -1156,17 +861,17 @@ You are building an autonomous agent. Before writing code:
    - Define agent objective
    - Plan tool requirements
    - Design state machine
-   - Set autonomy level (â†' NS Section 18: Autonomy Dial)
+   - Set autonomy level (→ NS Section 18: Autonomy Dial)
 
 2. SAFETY PHASE
    - Implement loop bounds
    - Add human-in-loop gates
    - Set resource limits
-   - Calibrate confidence thresholds (â†' NS Section 17)
+   - Calibrate confidence thresholds (→ NS Section 17)
 
 3. IMPLEMENTATION PHASE
    - Build tool integrations
-   - Implement memory (â†' NS Section 20: Memory Architecture)
+   - Implement memory (→ NS Section 20: Memory Architecture)
    - Add reflection
 
 4. EVALUATION PHASE
@@ -1179,99 +884,17 @@ You are building an autonomous agent. Before writing code:
    - Human oversight
    - Reliable tool use
    - Observable runs
-   - Handoff capability (â†' NS Section 23: Handoff Protocols)
+   - Handoff capability (→ NS Section 23: Handoff Protocols)
 
 FOR ORCHESTRATION METHODOLOGY: See North Star Blueprint v6.0
-  â†' Part IV (Sections 13-19): AI Orchestration
-  â†' Part V (Sections 20-23): Agent Composition
-```
-
-#### SDK for Custom Agents
-
-When off-the-shelf frameworks don't fit, build custom agents with the Anthropic SDK:
-
-```python
-import anthropic
-
-class CustomAgent:
-    def __init__(self, tools: list[dict], system_prompt: str):
-        self.client = anthropic.Anthropic()
-        self.tools = tools
-        self.system = system_prompt
-        self.max_iterations = 10  # Bounded execution
-    
-    def run(self, task: str) -> str:
-        messages = [{"role": "user", "content": task}]
-        
-        for i in range(self.max_iterations):
-            response = self.client.messages.create(
-                model="claude-sonnet-4-20250514",
-                max_tokens=4096,
-                system=self.system,
-                tools=self.tools,
-                messages=messages
-            )
-            
-            if response.stop_reason == "end_turn":
-                return response.content[0].text
-            
-            for block in response.content:
-                if block.type == "tool_use":
-                    result = self._execute_tool(block.name, block.input)
-                    messages.append({"role": "assistant", "content": response.content})
-                    messages.append({
-                        "role": "user",
-                        "content": [{"type": "tool_result", "tool_use_id": block.id, "content": result}]
-                    })
-        
-        raise RuntimeError("Agent exceeded max iterations")
-```
-
-#### Background Agent Tasks
-
-For long-running operations, use async patterns with checkpointing:
-
-```python
-from dataclasses import dataclass
-
-@dataclass
-class AgentCheckpoint:
-    task_id: str
-    state: dict
-    messages: list
-    iteration: int
-
-async def background_agent_task(task_id: str, task: str, checkpoint_store):
-    """Long-running agent with checkpoint/resume capability."""
-    checkpoint = await checkpoint_store.get(task_id)
-    if checkpoint:
-        messages = checkpoint.messages
-        start_iteration = checkpoint.iteration
-    else:
-        messages = [{"role": "user", "content": task}]
-        start_iteration = 0
-    
-    for i in range(start_iteration, MAX_ITERATIONS):
-        response = await run_agent_step(messages)
-        
-        await checkpoint_store.save(AgentCheckpoint(
-            task_id=task_id,
-            state=extract_state(response),
-            messages=messages,
-            iteration=i
-        ))
-        
-        if is_complete(response):
-            await checkpoint_store.delete(task_id)
-            return response
-    
-    return {"status": "max_iterations", "checkpoint": task_id}
+  → Part IV (Sections 13-19): AI Orchestration
+  → Part V (Sections 20-23): Agent Composition
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 29** (RAG)  -  Knowledge retrieval
-- **â†' Category 31** (MCPs)  -  Tool definitions
-- **â†' Category 44** (Workflows)  -  Orchestration
+- **→ Category 29** (RAG) — Knowledge retrieval
+- **→ Category 31** (MCPs) — Tool definitions
+- **→ Category 44** (Workflows) — Orchestration
 
 ---
 
@@ -1280,7 +903,7 @@ async def background_agent_task(task_id: str, task: str, checkpoint_store):
 ### Scope
 Model Context Protocol, function calling, tool definitions, skill manifests.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### MCP & Tool Frameworks
 | Framework | Provider |
@@ -1306,9 +929,9 @@ Model Context Protocol, function calling, tool definitions, skill manifests.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 8** (APIs)  -  Tool backends
-- **â†' Category 29-30** (AI)  -  Agent integration
-- **â†' Category 50** (Auth)  -  Tool authentication
+- **→ Category 8** (APIs) — Tool backends
+- **→ Category 29-30** (AI) — Agent integration
+- **→ Category 50** (Auth) — Tool authentication
 
 ---
 
@@ -1317,7 +940,7 @@ Model Context Protocol, function calling, tool definitions, skill manifests.
 ### Scope
 LLM fine-tuning, LoRA adapters, RLHF, domain adaptation.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Fine-Tuning Frameworks
 | Framework | Best For |
@@ -1355,33 +978,9 @@ LLM fine-tuning, LoRA adapters, RLHF, domain adaptation.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 11** (GPU)  -  Training compute
-- **â†' Category 28** (Feature Store)  -  Training data
-- **â†' Category 33** (Inference)  -  Deployment
-
-
-### Model Registry
-
-Central catalog for model artifacts, versions, and metadata.
-
-| Registry | Type | Best For |
-|----------|------|----------|
-| **MLflow Model Registry** | Open-source | General ML workflows |
-| **Weights & Biases** | SaaS | Experiment tracking |
-| **SageMaker Model Registry** | AWS | AWS ecosystem |
-| **Vertex AI Model Registry** | GCP | GCP ecosystem |
-| **Neptune.ai** | SaaS | Team collaboration |
-| **ClearML** | Open-source | End-to-end MLOps |
-
-**Minimum Required Metadata:**
-```
-□ Model version and training date
-□ Training data version (link to DVC/feature store)
-□ Evaluation metrics on test set
-□ Deployment status (staging/production)
-□ Model card (fairness, limitations, usage)
-□ Lineage (parent model, fine-tuning config)
-```
+- **→ Category 11** (GPU) — Training compute
+- **→ Category 28** (Feature Store) — Training data
+- **→ Category 33** (Inference) — Deployment
 
 ---
 
@@ -1390,7 +989,7 @@ Central catalog for model artifacts, versions, and metadata.
 ### Scope
 LLM inference, model deployment, quantization, batching, caching.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Inference Engines
 | Engine | Best For |
@@ -1430,9 +1029,9 @@ LLM inference, model deployment, quantization, batching, caching.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 11** (GPU)  -  Compute resources
-- **â†' Category 22** (Caching)  -  Response cache
-- **â†' Category 55** (Monitoring)  -  Inference metrics
+- **→ Category 11** (GPU) — Compute resources
+- **→ Category 22** (Caching) — Response cache
+- **→ Category 55** (Monitoring) — Inference metrics
 
 ---
 
@@ -1441,7 +1040,7 @@ LLM inference, model deployment, quantization, batching, caching.
 ### Scope
 Model selection, router logic, fallbacks, cost optimization, prompt management.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### LLM Gateways
 | Gateway | Features |
@@ -1468,225 +1067,10 @@ Model selection, router logic, fallbacks, cost optimization, prompt management.
 □ Observability complete
 ```
 
-#### Structured Output Schemas (JSON Mode)
-
-Force LLMs to return valid, typed JSON matching your schema.
-
-| Approach | Language | Library |
-|----------|----------|---------|
-| **Native JSON Mode** | Any | Provider API (`response_format`) |
-| **Zod + zodToJsonSchema** | TypeScript | `zod`, `zod-to-json-schema` |
-| **Pydantic** | Python | `pydantic` |
-| **Instructor** | Both | `instructor` (recommended) |
-
-```typescript
-// Instructor pattern (TypeScript)
-const result = await client.chat.completions.create({
-  model: 'gpt-4o',
-  response_model: { schema: SentimentSchema, name: 'Sentiment' },
-  max_retries: 3,
-  messages: [{ role: 'user', content: text }],
-});
-```
-
-**Benefits:**
-- Type-safe extraction with compile-time checking
-- Automatic retry on schema validation failures
-- Provider-agnostic schema definitions
-- Streaming support for partial objects
-
-**-> NS Part III §21.6**  -  Full implementation patterns
-
-
-
-#### Conversation Compaction Strategies
-
-Manage long conversations by intelligently summarizing history while preserving critical context.
-
-| Strategy | Description | Best For |
-|----------|-------------|----------|
-| **Rolling Summary** | Keep recent turns verbatim, summarize older | General purpose |
-| **Hierarchical** | Multi-level compression (more for older) | Long sessions |
-| **Semantic Chunking** | Group by topic, summarize completed topics | Task-oriented |
-
-**Compaction Triggers:**
-- Context usage > 70% of model limit
-- Conversation exceeds 30 turns
-- User requests session break/handoff
-
-**Always Preserve:**
-- Architectural decisions and rationale
-- Current task/goal statement
-- Active blockers
-- Code snippets in progress
-
-```typescript
-if (await compactor.shouldCompact(messages)) {
-  const result = await compactor.compact(messages);
-  console.log(`Compacted: ${result.beforeTokens} -> ${result.afterTokens} tokens`);
-}
-```
-
-**-> NS Part III §20.5**  -  Full implementation patterns
-
-
-#### RLM (Recursive Language Model) Patterns
-
-Self-referential prompting where LLM output becomes input for iterative refinement.
-
-| Pattern | Description | Use Case |
-|---------|-------------|----------|
-| **Generate-Critique-Refine** | Draft -> Critique -> Improve | Quality improvement |
-| **Recursive Decomposition** | Break down -> Solve -> Synthesize | Complex problems |
-| **Meta-Cognitive Reflection** | Reflect on reasoning -> Adjust | Strategy optimization |
-| **Chain-of-Verification** | Claim extraction -> Verify -> Revise | Fact-checking |
-| **Self-Consistency Voting** | Multiple samples -> Vote | High-stakes decisions |
-
-```typescript
-// Generate-Critique-Refine loop
-for (let i = 0; i < maxIterations; i++) {
-  const critique = await llm.complete(`Critique: ${current}`);
-  if (extractScore(critique) >= threshold) break;
-  current = await llm.complete(`Refine based on: ${critique}`);
-}
-```
-
-**Termination Conditions:**
-- Max iterations (safety limit)
-- Quality/confidence threshold met
-- No improvement detected
-- Token budget exhausted
-
-**-> NS Part III §22.5**  -  Full implementation patterns
-
-
-#### Proactive Context Gathering
-
-Anticipate information needs before they become blockers - gather context proactively.
-
-| Task Type | Proactive Context to Gather |
-|-----------|----------------------------|
-| **Bug Fix** | Error file, test file, recent changes, logs |
-| **New Feature** | Similar features, interfaces, design docs |
-| **Refactor** | All files to change, dependents, tests |
-| **Integration** | Both systems' code, API contracts |
-
-**Key Patterns:**
-- Dependency-aware reading (follow imports 2 levels deep)
-- Context prefetching for multi-step tasks
-- Token-budget-aware prioritization
-- Parallel file reads for speed
-
-```typescript
-// Analyze task and gather context before starting
-const plan = await gatherer.analyzeContextNeeds(task);
-const context = await gatherer.gatherContext(plan);
-// Now execute with full context loaded
-```
-
-**-> NS Part III §21.8**  -  Full implementation patterns
-
-
-#### Diff-Based Output Strategies
-
-Surgical edits beat full rewrites for token efficiency and reviewability.
-
-| Scenario | Strategy | Rationale |
-|----------|----------|-----------|
-| New file | Full output | No existing content |
-| File < 50 lines | Full output | Diff overhead not worth it |
-| File > 50 lines | Diff/search-replace | Token efficiency |
-| File > 200 lines | Always diff | Critical for large files |
-
-**Format Options:**
-- **Unified Diff**  -  Standard git/patch format, best for tooling
-- **Search-Replace**  -  `<search>...</search><replace>...</replace>`, best for LLM output
-- **Line-Based**  -  Insert/delete/replace by line number, best for precision
-
-```typescript
-// Search-replace format (LLM-friendly)
-const edit = {
-  filePath: "src/auth.ts",
-  search: "return null;",
-  replace: "throw new AuthError('Not found');"
-};
-const { result, applied } = applySearchReplace(content, edit);
-```
-
-**Always validate:** syntax check -> type check -> diff ratio warning -> rollback capability
-
-**-> NS Part III §21.9**  -  Full implementation patterns
-
-
-#### Custom Slash Commands Pattern
-
-Discoverable, type-safe shortcuts for common agent operations.
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/help` | Show available commands | `/help review` |
-| `/init` | Initialize agent context | `/init --deep` |
-| `/compact` | Compress conversation | `/compact --aggressive` |
-| `/checkpoint` | Save current state | `/checkpoint pre-refactor` |
-| `/review` | Code review (custom) | `/review PR #123` |
-
-**Command Definition Structure:**
-- `name`, `aliases`  -  Command triggers
-- `args`, `flags`  -  Typed parameters with autocomplete
-- `permissions`, `scope`  -  Access control
-- `handler`  -  Execution function
-
-```typescript
-// Custom command registration
-registry.register({
-  name: 'review',
-  aliases: ['r'],
-  args: [{ name: 'target', type: 'string', required: true }],
-  flags: [{ name: 'detailed', short: 'd', type: 'boolean' }],
-  handler: async (ctx, args, flags) => performReview(args.target, flags),
-});
-```
-
-**-> NS Part III §22.00**  -  Full implementation patterns
-
-
-#### Context Control Commands
-
-User-initiated commands for managing context window usage.
-
-| Command | Effect | When to Use |
-|---------|--------|-------------|
-| `/context` | Show token usage breakdown | Check current state |
-| `/compact` | Compress older messages | Context > 40% |
-| `/compact --aggressive` | Maximum compression | Context > 70% |
-| `/clear` | Reset conversation | Fresh start needed |
-| `/escape compact` | Skip auto-compaction | Override safety |
-
-**Automatic Threshold Handling:**
-- 40% -> Warning shown
-- 60% -> Compaction recommended  
-- 70% -> Auto-prompt to compact
-- 85% -> Critical: auto-compact or handoff
-
-```typescript
-// Check context and prompt user appropriately
-const threshold = await checkContextThreshold(ctx);
-if (threshold.action === 'critical') {
-  await generateEmergencyHandoff(ctx);
-}
-```
-
-**-> NS Part II §16.5**  -  Full implementation patterns
-**-> NS Part III §20.5**  -  Conversation Compaction Strategies
-
-
-
-
-
 ### Cross-Category Dependencies
-- **â†' Category 29-33** (AI)  -  Model backends
-- **â†' Category 22** (Caching)  -  Response cache
-- **â†' Category 55** (Monitoring)  -  LLM metrics
+- **→ Category 29-33** (AI) — Model backends
+- **→ Category 22** (Caching) — Response cache
+- **→ Category 55** (Monitoring) — LLM metrics
 
 ---
 
@@ -1695,7 +1079,7 @@ if (threshold.action === 'critical') {
 ### Scope
 Content moderation, output validation, jailbreak prevention, PII detection.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Guardrail Frameworks
 | Framework | Features |
@@ -1759,107 +1143,6 @@ guard = Guard().use_many(
 )
 ```
 
-#### Pre/Post Tool Hooks
-
-Validation gates that wrap tool execution for safety and auditability.
-
-| Hook Type | When | Purpose |
-|-----------|------|---------|
-| **Pre-Hook** | Before execution | Validate inputs, check permissions, rate limit |
-| **Post-Hook** | After execution | Validate outputs, log results, transform response |
-| **Error Hook** | On failure | Rollback, retry with backoff, alert |
-
-```typescript
-// Wrap any tool with validation hooks
-async function executeWithHooks<T>(
-  toolName: string,
-  input: unknown,
-  executor: () => Promise<T>
-): Promise<T> {
-  await preHook(toolName, input);   // Validate before
-  const result = await executor();   // Execute
-  return postHook(toolName, result); // Validate after
-}
-```
-
-#### Closed-Loop Prompt Contracts
-
-Treat prompts as APIs with typed input/output schemas.
-
-```typescript
-interface PromptContract<TInput, TOutput> {
-  inputSchema: z.ZodType<TInput>;
-  outputSchema: z.ZodType<TOutput>;
-  template: (input: TInput) => string;
-  maxRetries: number;
-}
-```
-
-**Benefits:**
-- Input validation before LLM call
-- Output validation after LLM response  
-- Automatic retry with exponential backoff
-- Testable prompt behavior
-
-**-> NS Part III §21.5**  -  Full implementation patterns
-
-#### Checkpoint/Restart State Machine
-
-State persistence for long-running agent tasks - enables pause, checkpoint, and resume.
-
-| State | Description |
-|-------|-------------|
-| **IDLE** | No active task, ready to start |
-| **RUNNING** | Task in progress, accepting checkpoints |
-| **PAUSED** | Task suspended, state persisted |
-| **COMPLETE** | Task finished successfully |
-| **ABORTED** | Task terminated (error/timeout/cancel) |
-
-**Key Features:**
-- Auto-checkpoint after each completed step
-- Resume skips already-completed steps
-- File-based or Redis storage backends
-- Zod schema validation on checkpoint data
-
-```typescript
-// Resume a paused task
-const checkpoint = await checkpointManager.resumeTask(taskId);
-console.log(`Resuming from step ${checkpoint.currentStep}`);
-```
-
-**-> NS Part III §22.4**  -  Full state machine implementation
-
-
-
-#### ULTRATHINK Escalation Protocol
-
-Extended thinking mode for complex reasoning - 10-100x more thinking tokens.
-
-| Budget Level | Tokens | Best For |
-|--------------|--------|----------|
-| **STANDARD** | 0 | Routine tasks |
-| **ELEVATED** | 10K | Moderate complexity |
-| **DEEP** | 32K | High complexity |
-| **ULTRATHINK** | 64K | Critical decisions |
-| **MAXIMUM** | 128K | Extreme complexity |
-
-**Escalation Triggers:**
-- Multiple failed attempts (confidence dropping)
-- Agent expresses uncertainty
-- 5+ interacting components
-- Security-critical decisions
-- Architecture with long-term implications
-
-```typescript
-// Enable extended thinking
-const response = await anthropic.messages.create({
-  model: 'claude-sonnet-4-20250514',
-  thinking: { type: 'enabled', budget_tokens: 32000 },
-  messages: [{ role: 'user', content: complexProblem }],
-});
-```
-
-**-> NS Part VII §14.2.3**  -  Full implementation patterns
 
 ---
 
@@ -1876,84 +1159,138 @@ const response = await anthropic.messages.create({
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 29-34** (AI)  -  AI systems to protect
-- **â†' Category 52** (Security)  -  Security integration
-- **â†' Category 56** (Compliance)  -  Regulatory compliance
+- **→ Category 29-34** (AI) — AI systems to protect
+- **→ Category 52** (Security) — Security integration
+- **→ Category 56** (Compliance) — Regulatory compliance
 
 ---
 
+## Category 57: Agent Orchestration Frameworks
 
+### Scope
+Multi-agent frameworks, visual agent builders, enterprise orchestration platforms,
+swarm architectures, multi-model agent coordination.
 
-## Category 54: Regulatory Compliance (L3)
+### Technology Stack — Exhaustive
 
-When you operate in regulated domains, treat compliance as **first‑class infrastructure**, not paperwork.
+#### Enterprise Platforms
+| Framework | Key Differentiator | Best For |
+|-----------|-------------------|----------|
+| **CrewAI AMP** | Visual editor + API, enterprise-grade, human-in-the-loop training | Enterprise teams, visual orchestration |
+| **Google ADK** | Open-source, polyglot (Python/TS), deploys to Vertex AI Agent Engine | Google Cloud stacks, polyglot teams |
+| **OpenAI Agents SDK** | Codex-1 (o3) reasoning, desktop command center for parallel agents | OpenAI-native stacks |
+| **Strands Agent (AWS)** | Apache-licensed, swarm architectures, Bedrock integration | AWS-native, cloud-centric |
+| **Agency Swarm** | Scalable MAS, simulation/visualization tools | Complex hierarchical agent systems |
+| **LangGraph** | Graph-based state machines, stateful workflows | Complex branching logic |
+| **AutoGen (Microsoft)** | Conversational agents, group chat, code execution | Research, prototyping |
 
-Coverage:
-- GDPR (EU)
-- HIPAA (US healthcare)
-- SOC2 (security controls)
-- EU AI Act (risk classification, auditability)
+#### Lightweight / Open Source
+| Framework | Stars | Key Differentiator |
+|-----------|-------|-------------------|
+| **OpenCode** | 95K+ | Open-source Claude Code alternative, multi-LLM |
+| **Cline** | 5M installs | BYOK, 80.8% SWE-bench with Opus 4.6 |
+| **Aider** | High | Terminal-based, repo maps, 88% SWE-bench |
+| **Agency Swarm** | Growing | Scalable, visualization |
 
-Patterns:
-- data classification labels (PII/PHI)
-- audit logging + immutable trails
-- retention & deletion policies
-- model/prompt change logs
-- documented risk assessments
+#### Claude Code Native Orchestration
+| Pattern | Implementation |
+|---------|---------------|
+| **Multi-Claude + Worktrees** | Built-in (`claude --worktree`) |
+| **Agent Teams** | Built-in (specialized role coordination) |
+| **Parallel Sub-Agents** | Built-in task sub-agent |
+| **RALPH Loop** | Ralph Loop plugin from Anthropic |
 
-Deliverables:
-- compliance checklist per release
-- evidence artifacts stored with versioned releases
+### Selection Matrix
+| Need | Recommended |
+|------|-------------|
+| Claude Code power user, multi-feature | Multi-Claude + Worktrees (built-in) |
+| Enterprise, visual management | CrewAI AMP |
+| Google Cloud native | Google ADK |
+| AWS native | Strands Agent |
+| Open-source maximum flexibility | OpenCode or Aider |
+| Complex stateful workflows | LangGraph |
 
+### Quality Gates
+```
+□ Agent isolation strategy defined (worktrees, containers, or sandboxes)
+□ Success criteria defined per agent before launch
+□ Human review points specified in orchestration plan
+□ Failure modes documented (what happens if agent gets stuck)
+□ Cost estimation done (parallel agents multiply token usage)
+□ Merge/integration strategy defined for parallel work
+```
 
-### Prompt Regression Testing (GQ3)
+### Benchmarks (March 2026)
+| System | SWE-bench Verified |
+|--------|-------------------|
+| GPT-5 + Aider | 88% |
+| Cline + Claude Opus 4.6 | 80.8% |
+| Claude Code (native) | ~80% |
+| Devin | 67% PR merge rate |
 
-Treat prompts like code:
-- version prompts (PromptOps)
-- maintain a **golden prompt suite**
-- run regression in CI before deploy
+### Cross-Category Dependencies
+- → Category 31 (Agent Frameworks) — foundational patterns
+- → Category 44 (Workflow Orchestration) — pipeline integration
+- → Category 58 (AI-Native IDEs) — development environment
+- → NS Part IV (AI Orchestration) — methodology
 
-Recommended approach:
-- define canonical inputs
-- assert output constraints (format, safety, correctness)
-- track drift over time
+---
 
-Tools:
-- DeepEval / RAGAS style evaluation harnesses
-- Langfuse / PromptLayer for prompt versioning + trace linking
+## Category 59: Prompt Orchestration & Evaluation
 
+### Scope
+Prompt versioning, A/B testing for prompts, LLM evaluation pipelines,
+production prompt management, regression testing for AI behavior.
 
-### Golden Dataset Management (GQ5)
+### Technology Stack — Exhaustive
 
-Your evaluation pipeline is only as good as your datasets.
+#### Prompt Management Platforms
+| Tool | Key Differentiator | Best For |
+|------|-------------------|----------|
+| **Vellum AI** | Prompt versioning + evaluation + controlled deployment | Production LLM deployments |
+| **PromptLayer** | Observability, A/B testing, cost tracking | Teams iterating on prompts |
+| **LangSmith** | LangChain-native, tracing, evaluation datasets | LangChain stacks |
+| **Weave (W&B)** | ML-native, experiment tracking for prompts | ML teams |
+| **Helicone** | Lightweight observability, caching, cost management | Cost-conscious teams |
 
-Best practices:
-- curate datasets by scenario (happy path, adversarial, long tail)
-- store dataset versions (DVC / Git LFS / object storage)
-- label provenance (source, date, policy)
-- define ownership + update cadence
+#### Evaluation Frameworks
+| Tool | Purpose |
+|------|---------|
+| **RAGAS** | RAG pipeline evaluation |
+| **DeepEval** | Unit tests for LLM outputs |
+| **Promptfoo** | CLI-based prompt testing, red-teaming |
+| **Inspect (UK AISI)** | Safety-focused evaluation |
 
-CI gate:
-- fail deploy if golden set performance drops beyond threshold.
+### Why This Category Matters (March 2026)
+  Prompt regressions are the silent killer of production AI apps.
+  A model update, a prompt change, or a new edge case can silently
+  degrade quality without anyone noticing for days.
+  
+  Treat prompts as code. Version them. Test them. Deploy them carefully.
 
+### Production Prompt Management Pattern
+```
+DEV (prompt draft)
+  → STAGING (evaluation against test dataset: 50-200 examples)
+  → CANARY (5% of production traffic)
+  → PRODUCTION (full rollout with monitoring)
+```
 
-### Agent Session / Trace / Span Model (GQ6)
+### Quality Gates
+```
+□ Prompts versioned in git or dedicated prompt management system
+□ Evaluation dataset created (min 50 representative examples)
+□ Automated regression test runs on every prompt change
+□ Cost per prompt tracked and budgeted
+□ Latency p95 monitored
+□ Rollback procedure documented
+```
 
-Define observability primitives:
-- **Session**: a user-initiated run (contains many traces)
-- **Trace**: one workflow execution (contains many spans)
-- **Span**: one step (LLM call, tool call, retrieval, write)
+### Cross-Category Dependencies
+- → Category 33 (LLM Providers) — models being prompted
+- → Category 35 (AI Safety) — safety evaluation
+- → Category 47 (Testing) — evaluation methodology
+- → Category 55 (Monitoring) — production observability
 
-Minimum fields:
-- ids: session_id, trace_id, span_id
-- timestamps
-- model/provider used
-- token/cost estimates
-- tool name + args (redacted)
-- outcome + error
+---
 
-This enables:
-- debugging
-- cost tracking
-- safety audits
-- regression detection

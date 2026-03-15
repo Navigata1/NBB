@@ -7,22 +7,6 @@
 > For BRIDGE routing: Sections 20-27 are in this segment.
 ---
 
-### Focused Agent Principle (M7)
-
-**One agent = one responsibility.**
-
-Why:
-- reduces context bloat
-- improves reliability
-- enables composability (chains of small agents)
-
-Patterns:
-- small specialist agents with strict inputs/outputs
-- explicit handoff contracts (what’s done, what’s next, what’s blocked)
-
-Anti‑patterns:
-- “monolith agent” that plans, codes, tests, deploys, writes docs, and manages infra in one loop
-- unbounded iteration without checkpoints
 # PART V: AGENT COMPOSITION & ORCHESTRATION
 
 ---
@@ -479,61 +463,6 @@ External API calls            │ API MCP / Built-in fetch
 Cloud operations              │ Cloud-specific MCP (AWS, GCP, etc.)
 Version control               │ Git MCP or built-in
 ```
-
-### 21.5 Focused Agent Principle
-
-> "One agent = one responsibility. Avoid monolithic 'do everything' agents."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       FOCUSED AGENT PRINCIPLE                                │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  CORE PHILOSOPHY                                                             │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  Single-purpose agents with clear boundaries outperform monolithic agents.  │
-│  Complexity emerges from composition, not from bloated prompts.             │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PRINCIPLES                                                                  │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PRINCIPLE            │ DESCRIPTION                                         │
-│  ─────────────────────┼───────────────────────────────────────────────────  │
-│  Single Purpose       │ Each agent has ONE well-defined job                 │
-│  Clear Boundaries     │ Explicit scope prevents scope creep                 │
-│  Composability        │ Small agents compose into complex workflows         │
-│  Handoff Protocols    │ Clear contracts between specialized agents          │
-│  Confidence Gates     │ Pause when approaching boundary of expertise        │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  ANTI-PATTERNS TO AVOID                                                      │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  ❌ "Swiss Army Knife" agents that try to do everything                     │
-│  ❌ Implicit assumptions about agent capabilities                           │
-│  ❌ Chaining without confidence gates                                       │
-│  ❌ Monolithic prompts with multiple objectives                             │
-│  ❌ Agents that "help with anything"                                        │
-│  ❌ No defined scope or boundary documentation                              │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  □ Agent has single, stated purpose in its definition                       │
-│  □ Boundaries documented in agent specification                             │
-│  □ Handoff protocol defined for multi-agent scenarios                       │
-│  □ Confidence thresholds set for each capability                            │
-│  □ Escalation path defined when out of scope                                │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** MBF Category 30 (Agent Frameworks)
 
 ---
 

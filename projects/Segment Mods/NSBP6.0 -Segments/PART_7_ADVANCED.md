@@ -532,6 +532,112 @@ Each loop iteration:
 
 ---
 
+### 56.4 The Retro Skill: Outer Improvement Architecture
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║           THE FEEDBACK LOOP — OUTER IMPROVEMENT ARCHITECTURE                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Most developers use AI as a tool. Power users use AI as a system that
+improves itself. The Feedback Loop is how the North Star Framework compounds
+over time — each build cycle makes the next one faster and higher quality.
+
+TWO LOOPS:
+  Inner Loop: RPIT (Research → Plan → Implement → Test) — per feature
+  Outer Loop: RETRO (Reflect → Extract → Improve → Encode) — per milestone
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE OUTER LOOP: RETRO PROTOCOL
+
+Run after every feature completion OR at the end of every work session.
+
+  PHASE 1: REFLECT
+    "Review our session: git log --oneline -20, test results, and conversation
+     history. Identify: What went well? What was slow? What went wrong?
+     What did I have to correct more than once?"
+
+  PHASE 2: EXTRACT
+    "Extract concrete learnings from the reflection. Format as:
+     - [PATTERN]: What Claude kept getting wrong
+     - [FIX]: What instruction would prevent it
+     - [TEMPLATE]: If a slash command would help, draft it
+     - [SKILL]: If specialized knowledge is needed, draft a skill.md"
+
+  PHASE 3: IMPROVE
+    "Based on extracted learnings, suggest specific updates to:
+     1. claude.md (rules Claude should always follow)
+     2. Existing slash commands (improvements)
+     3. New slash commands to create
+     4. New skills to create"
+
+  PHASE 4: ENCODE
+    Human reviews suggestions and approves changes.
+    Claude implements approved changes:
+    - Updates claude.md
+    - Creates/updates slash commands
+    - Creates new skill files
+    Commit: "chore: encode session learnings"
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE RETRO SKILL
+
+The retro skill automates the Outer Loop. Store in:
+`.claude/skills/retro/SKILL.md`
+
+```markdown
+---
+name: retro
+description: >
+  Run this skill after completing a feature or work session to reflect on
+  what was learned and improve the development system. Triggers when user
+  says "retro", "retrospective", "session review", or "what did we learn".
+  Also run automatically at the end of RPIT loops when complete.
+---
+
+# Retro Skill
+
+## Purpose
+Capture learnings from this session and encode them into the development
+system so future sessions benefit from this experience.
+
+## Steps
+
+1. GATHER CONTEXT
+   - Run: git log --oneline -20
+   - Run: cat test-results.txt (if exists)
+   - Review the conversation history
+   - Note any corrections the human made
+
+2. REFLECT
+   Generate a retro.md in /tmp/ with:
+   - What went smoothly
+   - What was slow or blocked
+   - What patterns kept recurring
+   - What the human had to correct
+
+3. EXTRACT LEARNINGS
+   For each pattern/problem, draft:
+   - A rule for claude.md
+   - A slash command if repetitive
+   - A skill if specialized knowledge needed
+
+4. PRESENT TO HUMAN
+   Show proposed changes and ask for approval.
+   Do NOT make changes without explicit approval.
+
+5. ENCODE APPROVED CHANGES
+   - Update claude.md with approved rules
+   - Create any approved slash commands
+   - Create any approved skill files
+   - Create a single commit: "chore(docs): encode session learnings"
+```
+```
+
+---
+
 ## PART XII SUMMARY
 
 ```

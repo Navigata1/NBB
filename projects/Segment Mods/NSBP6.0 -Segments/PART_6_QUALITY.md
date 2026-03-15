@@ -1026,6 +1026,172 @@ SECRET ROTATION:
 
 ---
 
+## 49.5 HOOKS ARCHITECTURE: DETERMINISM INJECTION SYSTEM
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              HOOKS ARCHITECTURE — DETERMINISM INJECTION SYSTEM              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+PRINCIPLE: AI workflows are probabilistic. Hooks are deterministic.
+           Use hooks to guarantee certain behaviors happen every time,
+           regardless of what the AI decides.
+
+Think of hooks as stitching a safety net into the fabric of your workflow —
+they catch what the AI might miss.
+
+────────────────────────────────────────────────────────────────────────────────
+
+HOOK EVENT LIFECYCLE
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                      CLAUDE CODE SESSION LIFECYCLE                      │
+  │                                                                         │
+  │  Session Start                                                          │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [PreSessionHook] → load context, check git status, verify deps        │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  User Prompt Received                                                   │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [PreToolUseHook] → validate before Claude uses a tool                 │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  Claude Executes Tool (bash, file write, etc.)                          │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [PostToolUseHook] → verify output, run checks                         │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  Claude Prepares Response                                               │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [StopHook] → ← THE MOST IMPORTANT HOOK                                │
+  │       │         Fires every time Claude stops responding                │
+  │       │         Use to: run tests, lint, enforce quality gates          │
+  │       ▼                                                                 │
+  │  [SessionEndHook] → commit work, update docs, clean up                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+IMPLEMENTATION: THE SUPER-HOOK PATTERN
+
+Instead of scattering logic, use a single controller script for the StopHook
+that multiplexes based on project state.
+
+1. Configure in claude.json:
+   {
+     "hooks": {
+       "stop": "bash .scripts/claude-stop-hook.sh"
+     }
+   }
+
+2. The multiplexer script (.scripts/claude-stop-hook.sh):
+   ```bash
+   #!/bin/bash
+   # Claude Code Stop Hook - Runs after every agent response
+   
+   echo "--- 🪝 HOOK: Quality Gates ---"
+   
+   # 1. Always format explicitly modified files
+   npm run format:staged --silent
+   
+   # 2. If it looks like a test was touched, run tests
+   if git diff --name-only HEAD | grep -q 'test'; then
+     echo "🧪 Tests detected, running suite..."
+     npm run test:fast
+   fi
+   
+   # 3. Prevent broken code from accumulating
+   if ! npm run typecheck --silent; then
+     echo "❌ ERROR: Type check failed. Claude, please fix this immediately."
+     # The echo output goes back to Claude
+   fi
+   ```
+
+THE MAGIC: Whatever the hook prints to stdout/stderr is automatically fed back
+to Claude as a system message. If your hook prints "Fix this:", Claude will
+initiate a self-correction loop without you typing anything.
+```
+
+---
+
+## 49.6 KIRO SPEC-DRIVEN DEVELOPMENT PATTERN
+
+```text
+KIRO SPEC-DRIVEN DEVELOPMENT PATTERN
+──────────────────────────────────────────────────────────────────────────────
+
+Kiro is an AI-native IDE that popularized spec-driven development with
+event-driven hooks. These patterns are now available in Claude Code workflows.
+
+CORE CONCEPT: Instead of manually triggering agent actions, define SPECS that
+              the agent follows, and HOOKS that fire on domain events.
+
+THE SPEC FILE:
+  A spec is a structured requirements document that Claude uses as its
+  north star. It is MORE opinionated than a plan.md — it defines:
+  - User stories
+  - Acceptance criteria
+  - Technical constraints
+  - Design decisions
+  
+  Template: `.claude/specs/[feature-name].spec.md`
+  
+  ```markdown
+  # Spec: User Authentication
+  
+  ## User Stories
+  - As a user, I can log in with email/password
+  - As a user, I stay logged in for 7 days
+  - As a user, I can reset my password via email
+  
+  ## Acceptance Criteria
+  - [ ] Login endpoint returns JWT on success
+  - [ ] JWT contains userId, email, roles
+  - [ ] Expired JWTs return 401, not 403
+  - [ ] Password reset emails sent within 30 seconds
+  
+  ## Technical Constraints
+  - Use existing auth middleware in /middleware/auth.ts
+  - JWT secret from environment, never hardcoded
+  - Passwords hashed with bcrypt, cost factor 12
+  
+  ## Out of Scope
+  - OAuth (phase 2)
+  - 2FA (phase 2)
+  ```
+
+EVENT-DRIVEN HOOKS PATTERN:
+  Beyond lifecycle hooks, Kiro-style hooks respond to domain events.
+  In Claude Code, these can be approximated with bash file watchers:
+  
+  ```bash
+  # .claude/hooks/on-spec-approved.sh
+  # Triggered when a spec file is moved to approved/
+  
+  SPEC_FILE=$1
+  FEATURE_NAME=$(basename $SPEC_FILE .spec.md)
+  
+  echo "Spec approved for $FEATURE_NAME"
+  echo "Starting RPIT loop..."
+  claude --message "Work on spec: .claude/specs/approved/$SPEC_FILE. 
+                    Follow the spec exactly. Use RPIT loop."
+  ```
+
+NS FRAMEWORK INTEGRATION:
+  → Store specs in `.claude/specs/draft/` (under review)
+  → Move to `.claude/specs/approved/` when reviewed and annotated
+  → Hook fires on approval, automatically starting the RPIT loop
+  → Completed features move spec to `.claude/specs/completed/`
+  → This creates a full spec audit trail in git
+```
+
+---
+
 ## 50. CI/CD PIPELINE ARCHITECTURE
 
 > "If it's not automated, it's broken."

@@ -6,7 +6,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│                              BRIDGE.md v2.0                                  │
+│                              BRIDGE.md v1.2                                  │
 │                                                                              │
 │                    The Navigation Layer for North Star                       │
 │                                                                              │
@@ -15,7 +15,7 @@
 │           "Don't read everything. Navigate to what you need."                │
 │                                                                              │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  North Star Blueprint v6.0  ←——— BRIDGE.md ———→  Master Build v2.0 │    │
+│  │  North Star Blueprint v6.1  ←——— BRIDGE.md ———→  Master Build v2.1 │    │
 │  │       (HOW to build)        (Navigation)      (WHAT to build with)  │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
@@ -64,8 +64,8 @@ BRIDGE.md is the **navigation layer** between the two core framework documents. 
 
 | Document | Provides | Size | When to Reference |
 |----------|----------|------|-------------------|
-| **North Star Blueprint v6.0** | HOW to build | ~910KB | Methodology, process, quality gates |
-| **Master Build Framework v2.0** | WHAT to build with | ~158KB | Technology selection, tool matrices |
+| **North Star Blueprint v6.1** | HOW to build | ~910KB | Methodology, process, quality gates |
+| **Master Build Framework v2.1** | WHAT to build with | ~158KB | Technology selection, tool matrices |
 
 **Rule:** Reference on demand. Never load both fully into context simultaneously.
 
@@ -88,6 +88,8 @@ CHOOSE TECHNOLOGY
 ├─ "What backend framework?"            → MBF Category 7-8
 ├─ "What AI/LLM provider?"              → MBF Category 33 + NS Section 13
 ├─ "What vector database?"              → MBF Category 16
+├─ "What model registry?"               → MBF Category 32-33 (MLflow, Vertex)  ← v2.0
+├─ "What caching solution?"             → MBF Category 22 (Redis, Upstash)     ← v2.0
 └─ "What auth provider?"                → MBF Category 50
 
 BUILD FEATURES
@@ -104,6 +106,8 @@ WORK WITH AI/AGENTS
 ├─ "How do I evaluate LLM outputs?"     → MBF Category 46 (AI Evaluation)
 ├─ "How do I manage prompts?"           → MBF Category 44B (PromptOps)      ← v2.0
 ├─ "How do I manage long contexts?"     → NS Section 19B (RLM Patterns)     ← v2.0
+├─ "How do I design agent memory?"      → NS Section 20 + MBF 31E (Memory)  ← v2.0
+├─ "How do I compress context?"         → NS Section 20.5 + MBF 34          ← v2.0
 └─ "How do I prevent runaway loops?"    → NS Section 19B (Confidence Cal.)  ← v2.0
 
 HUMAN-AI COLLABORATION                                                        ← v2.0
@@ -144,6 +148,37 @@ STUCK OR LOST
 ├─ "I don't know where to start"        → NS Section 0.5 (When Stuck)
 ├─ "I'm overwhelmed"                    → NS Section 0.4 (Load Balancing)
 └─ "Nothing is working"                 → NS Section 0.5 + Part IX
+
+WORK ASYNC / AWAY FROM DESK
+├─ "How do I trigger builds from my phone?"    → OpenClaw Bridge (ENH-002)
+├─ "How do I delegate and review later?"       → NS Section 0: Async Delegation
+├─ "Can Claude work while I sleep?"            → GitHub Action + RALPH Loop
+└─ "Multi-repo async management?"             → MBF Category 60 (OpenClaw)
+
+SPEC-DRIVEN DEVELOPMENT
+├─ "How do I prevent Claude writing wrong code?" → ENH-009: Plan.md Annotation
+├─ "What's the best feature development loop?"   → ENH-008: RPIT Loop (NS Part I)
+├─ "How do I define success before building?"    → NS Section 0: Spec Protocol
+└─ "Kiro-style event-driven automation?"         → ENH-015: Hooks Architecture
+
+MULTI-AGENT ORCHESTRATION
+├─ "Run multiple Claudes safely?"              → ENH-012: Git Worktrees
+├─ "Coordinate specialized agent roles?"       → ENH-013: Agent Teams
+├─ "Independent parallel features?"           → ENH-001: Multi-Agent Bootstrap
+└─ "What orchestration framework to use?"     → MBF Category 57
+
+CHOOSE TOOLING (new categories)
+├─ "Agent orchestration framework?"           → MBF Category 57 (CrewAI/ADK/Strands)
+├─ "AI-native IDE beyond VS Code?"            → MBF Category 58 (Kiro/Zed/Cline)
+├─ "Prompt evaluation and versioning?"        → MBF Category 59 (Vellum/PromptLayer)
+├─ "Life OS / async agent?"                   → MBF Category 60 (OpenClaw)
+└─ "Enterprise agent governance?"             → MBF Category 61 (ServiceNow/Boomi)
+
+SELF-IMPROVEMENT / CONTINUOUS LEARNING
+├─ "How does Claude learn from mistakes?"     → ENH-016: Retro Skill / Feedback Loop
+├─ "Auto-creating skills from sessions?"      → ENH-032: Claudeception Integration
+├─ "Improve claude.md automatically?"         → ENH-018: Living claude.md Protocol
+└─ "RALPH loop implementation?"               → NS Section 23 + MBF Category 44
 ```
 
 ---
@@ -152,7 +187,7 @@ STUCK OR LOST
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    NORTH STAR BLUEPRINT v6.0                                 │
+│                    NORTH STAR BLUEPRINT v6.1                                 │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  STRUCTURE: 14 Parts, ~65 Sections                                          │
@@ -177,7 +212,7 @@ STUCK OR LOST
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    MASTER BUILD FRAMEWORK v2.0                               │
+│                    MASTER BUILD FRAMEWORK v2.1                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  STRUCTURE: 9 Tiers, 60+ Categories                                         │
@@ -190,11 +225,19 @@ STUCK OR LOST
 │  Tier 6 (36-42)  → Content Generation                                      │
 │  Tier 7 (43-49)  → Operations & Business                                   │
 │  Tier 8 (50-56)  → Security & Compliance                                   │
-│  Tier 9 (57-60)  → Specialized & Niche                                     │
+│  Tier 9 (57-62)  → Specialized & Niche                                     │
 │                                                                              │
 │  NEW in v2.0:                                                               │
 │  • Category 44A → Kanban & Visual Task Management (HITL)                   │
 │  • Category 44B → PromptOps (Prompt Versioning & Management)               │
+│                                                                              │
+│  NEW in v2.1:                                                               │
+│  • Category 57 → Agent Orchestration Frameworks (CrewAI/ADK/Strands)       │
+│  • Category 58 → AI-Native IDEs & Coding Agents (Kiro/Zed/Cline)          │
+│  • Category 59 → Prompt Orchestration & Eval (Vellum/PromptLayer)          │
+│  • Category 60 → Life OS Agents (OpenClaw)                                 │
+│  • Category 61 → Enterprise Agent Governance (ServiceNow/Boomi)            │
+│  • Category 62 → Memory Infrastructure                                     │
 │                                                                              │
 │  FOCUS: Technology options, tool comparisons, stack selection               │
 │                                                                              │
@@ -261,6 +304,15 @@ MBF 44B (PromptOps) connects to:
 ├─ MBF 34 (Prompt tools)
 ├─ MBF 46 (Evaluation & regression testing)
 └─ MBF 29-35 (AI systems using prompts)
+
+NEW CATEGORY ROUTING (v2.1 additions)
+─────────────────────────────────────────────────────────────────
+Category 57 | Agent Orchestration Frameworks  | MBF_PART_2_DATA_AI
+Category 58 | AI-Native IDEs & Coding Agents  | MBF_PART_1_CORE
+Category 59 | Prompt Orchestration & Eval      | MBF_PART_2_DATA_AI
+Category 60 | Life OS Agents                   | MBF_PART_4_FOUNDATION
+Category 61 | Enterprise Agent Governance      | MBF_PART_4_FOUNDATION
+Category 62 | Memory Infrastructure            | MBF_PART_2_DATA_AI
 ```
 
 ### Data & Storage
@@ -495,6 +547,46 @@ STEP 4: Continuous Improvement
 └─ Track: Cost and latency per prompt version
 ```
 
+
+---
+
+# SECTION 6.7: TOP-25 WORKFLOW PLAYBOOK (Secondary Routes + Default Questions)
+
+Use this when you want **high precision routing** and consistent **Ask-User-Questions** behavior.
+
+**Rule of thumb**
+- If requirements are missing → ask **2–4 questions** before routing deeply.
+- If user requests “fast” → use Utility model; if “mission critical” → use Primary.
+
+| ID | Primary Route | Secondary Route | Default Clarifying Questions (2–4) |
+|----|---------------|----------------|------------------------------------|
+| W01 | BRIDGE 6.1 → NS 0.1/0.2 | NS 2 (tiers) | What are we building? target users? deadline? preferred stack? |
+| W02 | BRIDGE 6.2 → NS Part V + MBF 30/31 | NS 15 (tool schemas) | What tasks? what tools/APIs? single vs multi-agent? autonomy level? |
+| W03 | BRIDGE 6.3 → MBF 44A + NS 17 | NS 19B | What needs approval? who approves? confidence thresholds? escalation path? |
+| W04 | BRIDGE 6.5 → MBF 44B + MBF 46 | NS 14 | Where are prompts stored? eval dataset? regression gate? rollback plan? |
+| W05 | BRIDGE 6.4 → NS Part IV + MBF 29/33 | NS 20 | Chat vs RAG vs agents? data source? latency/cost constraints? |
+| W06 | NS 19B + MBF 16/29 | MBF 46 | What corpus? update frequency? chunking strategy? eval metric? |
+| W07 | MBF 46 + NS Part IX | MBF 44B | What’s the golden set? success metric? CI gate? drift threshold? |
+| W08 | MBF 35 + NS Part X | NS 17 | Risk level? sensitive data? injection threat model? allowed actions? |
+| W09 | MBF 28/55 | MBF 46 | Ground truth source? drift type? alerting channel? retrain trigger? |
+| W10 | MBF 32/33 | MBF 43 | Who promotes models? staging vs prod? rollback method? signing? |
+| W11 | MBF 22 + MBF 34 | MBF 55 | What to cache (embeddings/prompt/results)? TTL? invalidation rules? |
+| W12 | MBF 30/35 + NS Part III | NS 22 | Which tools? pre/post hook behavior? retries? non-blocking hooks? |
+| W13 | NS 20.5 + MBF 34 | NS 19B | Token budget? must-keep context? compression strategy? retrieval plan? |
+| W14 | Bootstrap 0–3 | GLOBAL_IDE_RULES | Team conventions? repo standard? approval policy? default autonomy? |
+| W15 | NS Part VIII + MBF 8 | MBF 50 | REST vs GraphQL? auth method? rate limits? error handling? |
+| W16 | NS Part XI + MBF 43 | MBF 46 | Target platform? deploy frequency? test gates? secrets strategy? |
+| W17 | MBF 55 | MBF 46 | What traces? spans? PII rules? dashboards? oncall alerts? |
+| W18 | NS 17–18 + Bootstrap 12 | MBF 44A | Allowed actions? confidence thresholds? HITL points? rollback? |
+| W19 | NS 13 + MBF 33 | MBF 22 | Cost ceiling? latency target? accuracy bar? safety constraints? |
+| W20 | MBF 44 + NS Part IV | MBF 44A | Workflow steps? state storage? human interrupts? timeouts? |
+| W21 | GLOBAL_IDE_RULES | NS Part VIII | Language? formatter/linter? commit rules? test standard? |
+| W22 | NS Part IX + MBF 46 | MBF 44B | Baseline? regression gate? golden set ownership? reporting? |
+| W23 | Bootstrap 8 + NS 0.4 | BRIDGE load balancing | When to delete scaffolds? submission protocol? backups? |
+| W24 | NS 13 + MBF 33 | MBF 22 | What’s “cheap enough”? what failure rate ok? routing policy? |
+| W25 | Ask-User-Questions | BRIDGE 3 | Who is user? what outcomes? scope? constraints? acceptance criteria? |
+
+
 ---
 
 # SECTION 7: COMBINED WORKFLOW EXAMPLES
@@ -591,7 +683,7 @@ PHASE 3: SAFETY & MONITORING
 │  4. Specific NS/MBF sections (on demand)                                    │
 │                                                                              │
 │  ANTI-PATTERN:                                                               │
-│  ✗ Loading NS v6.0 + MBF v2.0 + Bootstrap simultaneously                   │
+│  ✗ Loading NS v6.1 + MBF v2.1 + Bootstrap simultaneously                   │
 │  ✗ Reading entire framework before starting work                            │
 │  ✗ Keeping unused sections in context                                       │
 │                                                                              │
@@ -637,15 +729,23 @@ MAKING ARCHITECTURE DECISIONS
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  BRIDGE.md                                                                   │
-│  Version: 2.0                                                                │
-│  Updated: January 2026                                                       │
+│  Version: 1.2                                                                │
+│  Updated: March 2026                                                         │
 │                                                                              │
 │  COMPATIBLE WITH:                                                            │
-│  • North Star Blueprint v6.0                                                │
-│  • Master Build Framework v2.0                                              │
-│  • North Star Bootstrap v2.0                                                │
+│  • North Star Blueprint v6.1                                                │
+│  • Master Build Framework v2.1                                              │
+│  • North Star Bootstrap v1.4                                                │
 │                                                                              │
 │  CHANGELOG:                                                                  │
+│  v1.2 (March 2026)                                                          │
+│    • ENH-005: Added 6 new decision tree branches (async, spec-driven,       │
+│      multi-agent, tooling, self-improvement)                                │
+│    • ENH-006: Added MBF routing for new categories 57–62                    │
+│    • ENH-007: Added Section 12 — Creator-Proven Patterns (Boris Cherny)     │
+│    • ENH-034: Added OpenClaw Integration Guide addendum                     │
+│    • Updated version refs to Blueprint v6.1, MBF v2.1, Bootstrap v1.4      │
+│                                                                              │
 │  v2.0 (January 2026)                                                        │
 │    • Added routing for Category 44A (Kanban & HITL)                         │
 │    • Added routing for Category 44B (PromptOps)                             │
@@ -736,6 +836,227 @@ NORTH STAR vs ALTERNATIVES
 
 ---
 
+# SECTION 12: CREATOR-PROVEN PATTERNS
+
+```
+CREATOR-PROVEN PATTERNS — From the Claude Code Creator's Workflow
+──────────────────────────────────────────────────────────────────────────────
+
+Boris Cherny (Claude Code creator) shared his personal workflow in Jan 2026.
+These are the patterns he uses at Anthropic — the most battle-tested approaches
+available.
+
+PARALLEL CHECKOUTS (not worktrees):
+  → Cherny uses separate full git checkouts per session, NOT branches/worktrees
+  → Reason: Maximum isolation, no shared state, simplest to reason about
+  → Runs 5 local sessions + 5-10 remote on Anthropic's web app simultaneously
+  → Remote sessions started with & from CLI for background execution
+  → Uses --teleport to move sessions between web and local
+
+PATTERN: "5 local + 5-10 remote"
+  ┌──────────────────────────────────────────────────────────────┐
+  │  LOCAL (5 sessions)          REMOTE (5-10 sessions)          │
+  │  ─────────────────────       ──────────────────────          │
+  │  Complex features            Background tasks                 │
+  │  Needs testing/debugging     Fire-and-forget tasks            │
+  │  Requires local tools        Review-later PRs                 │
+  │  Sensitive code              Research/documentation           │
+  └──────────────────────────────────────────────────────────────┘
+
+SESSION ABANDONMENT STRATEGY:
+  → Cherny accepts ~10-20% session abandonment as normal
+  → If unexpected scenario arises, abandon and restart with better context
+  → This is NOT failure — it's efficient resource management
+
+NS FRAMEWORK RECOMMENDATION:
+  → Use worktrees for most multi-agent work (simpler, built into Claude Code)
+  → Use separate checkouts when you need maximum isolation for sensitive features
+  → Use remote sessions for all research, documentation, and async tasks
+```
+
+---
+
+# ADDENDUM: OPENCLAW INTEGRATION GUIDE
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              OPENCLAW INTEGRATION GUIDE — NS FRAMEWORK ADDENDUM             ║
+║                                                                              ║
+║         Connecting the Life OS Layer to Your Development Stack              ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+## WHAT IS OPENCLAW?
+
+OpenClaw is an open-source "Life OS" agent — a 24/7 personal AI assistant
+that lives on your machine and connects to messaging apps you already use.
+
+Created by Peter Steinberger (PSPDFKit founder) in Nov 2025. Reached 199K+
+GitHub stars by Feb 2026. Creator joined OpenAI in Feb 2026. Now maintained
+by an open-source foundation with OpenAI backing.
+
+IMPORTANT DISTINCTION:
+  OpenClaw ≠ Claude Code replacement
+  OpenClaw = the DISPATCH LAYER that makes Claude Code hands-free
+
+  Claude Code:  Coding agent. Lives in terminal. Does one thing excellently.
+  OpenClaw:     Life OS. Lives in messaging apps. Does everything else.
+
+────────────────────────────────────────────────────────────────────────────────
+
+## THE NS FRAMEWORK + OPENCLAW ARCHITECTURE
+
+                    YOUR PHONE OR MESSAGING APP
+                           │
+                    WhatsApp / Telegram / Slack
+                           │
+                    ┌──────▼──────────┐
+                    │  OpenClaw       │
+                    │  (always-on     │
+                    │   daemon)       │
+                    └──────┬──────────┘
+                           │ Routes intent to action
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+        ┌─────▼────┐ ┌─────▼────┐ ┌───▼──────┐
+        │ Claude   │ │ Calendar │ │ Email    │
+        │ Code     │ │ /Notion  │ │ / Slack  │
+        │ (RPIT)   │ │ (tasks)  │ │ (comms)  │
+        └─────┬────┘ └──────────┘ └──────────┘
+              │
+        ┌─────▼────┐
+        │ GitHub   │
+        │ (PRs,    │
+        │ Issues)  │
+        └──────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+## 5 HIGH-VALUE USE CASES FOR NS FRAMEWORK USERS
+
+### USE CASE 1: Async Claude Code Triggering
+Mobile-triggered development. Delegate without being at your desk.
+
+  You send (WhatsApp): "Fix the bug in issue #47 and create a PR"
+  OpenClaw executes:   claude --model sonnet "Work on GitHub issue #47.
+                       Read it first. Use RPIT loop. When done, create PR."
+  You receive:         "PR #83 created: Fix: resolved auth timeout bug in #47"
+
+Setup:
+  1. Create OpenClaw skill: dev-delegate
+  2. Skill watches for: "fix", "implement", "work on", "build"
+  3. Routes to: claude CLI with structured prompt
+  4. Reports back: PR URL or error summary
+
+### USE CASE 2: Multi-Repo Morning Briefing
+Start every day knowing where all your projects stand.
+
+  6:00 AM cron: OpenClaw runs briefing
+  7:30 AM (you wake up and check Telegram):
+    "DAILY BRIEFING:
+     • project-alpha: 2 open PRs ready for review (#45, #46)
+     • project-beta: Build failing on main (3 commits since fix)
+     • project-gamma: 5 issues assigned to you, 2 due this week
+     • Most urgent: project-beta build needs attention"
+
+Setup:
+  1. OpenClaw skill: morning-dev-briefing
+  2. Runs at 6 AM via cron
+  3. Uses GitHub CLI to fetch status across repos
+  4. Formats and sends to your Telegram
+
+### USE CASE 3: RALPH Loop Completion Notifications
+Know when overnight builds complete without checking constantly.
+
+  Night: You start RALPH loop on a complex refactor
+  2:47 AM: RALPH completes successfully  
+  Morning:  Telegram: "RALPH loop complete ✅
+             52 iterations | 3 failures resolved
+             Tests: 847/847 passing
+             PR #91 created — ready for your review"
+
+Setup:
+  1. Add session-end hook to Claude Code that sends HTTP request
+  2. OpenClaw skill receives webhook → formats → sends Telegram
+
+### USE CASE 4: Spec-to-Issue Pipeline
+Convert voice/text ideas into GitHub issues instantly.
+
+  Sunday 9 PM (on couch): 
+    WhatsApp: "we should add export to CSV on the data table, mobile-friendly,
+               under 3 seconds, include filters"
+  
+  OpenClaw → Claude API:
+    - Parses intent
+    - Formats as GitHub issue with acceptance criteria
+    - Creates: gh issue create --title "Feature: CSV export for data table"
+               --body "[formatted spec]" --label "feature"
+  
+  Monday AM: Issue #52 waiting for you in GitHub
+
+### USE CASE 5: Cross-Platform Context Bridge
+Capture ideas wherever you are, automatically available in Claude Code.
+
+  Meeting notes → OpenClaw → Creates .context/meeting-[date].md in repo
+  When you start Claude Code: "There are new meeting notes from today,
+                               shall I review them before we begin?"
+
+────────────────────────────────────────────────────────────────────────────────
+
+## SHOULD YOU USE OPENCLAW?
+
+Do you frequently think of dev tasks away from your desk?    YES → worth trying
+Are you running multi-day parallel agent workflows?          YES → high value
+Do you want to delegate without opening terminal?            YES → good fit
+Is your primary pain point coding quality, not delegation?   NO  → skip for now
+Are you concerned about security/data privacy?               → read security section
+Are you a team of 1 building solo?                          → medium value
+
+────────────────────────────────────────────────────────────────────────────────
+
+## SECURITY AND PRIVACY
+
+OpenClaw has full system access by design. This is powerful and risky.
+
+MINIMUM SECURITY SETUP:
+  □ Run OpenClaw in Docker container with explicit volume mounts
+  □ Create a dedicated user with minimal permissions
+  □ Never run as root
+  □ Whitelist only the directories it needs (your project repos, not /)
+  □ Review each ClawHub skill source code before installing
+  □ Use local LLM (Ollama + Kimi 2.5 or Llama 3.3) for anything sensitive
+  □ Separate OpenClaw instance for work vs personal if mixing contexts
+
+DATA SOVEREIGNTY OPTIONS:
+  → Cloud models (Claude/GPT): your messages leave your machine
+  → Local models (Ollama): completely offline, slower, comparable quality
+
+────────────────────────────────────────────────────────────────────────────────
+
+## GETTING STARTED
+
+1. Install OpenClaw: github.com/OpenClaw-AI/OpenClaw
+2. Connect one messaging app (start with Telegram — easiest setup)
+3. Install one skill: dev-status (shows your GitHub notifications)
+4. Verify it works before connecting to Claude Code automation
+5. Add one automation: morning briefing (low risk, high value)
+6. Then: async Claude Code triggering (higher risk — test thoroughly)
+
+For the ClawHub skill registry: clawhu.b.io (5,700+ community skills)
+
+────────────────────────────────────────────────────────────────────────────────
+
+## SEE ALSO
+- MBF Category 60: Life OS Agents (full technology matrix)
+- ENH-002: Bootstrap async delegation bridge
+- ENH-012: Parallel agent orchestration
+- ENH-016: Feedback loop + RALPH completion notifications
+```
+
+---
+
 # QUICK REFERENCE CARD
 
 ```
@@ -745,8 +1066,8 @@ NORTH STAR vs ALTERNATIVES
 │                                                                              │
 │  START HERE:           NORTH_STAR_BOOTSTRAP.md (ignition key)               │
 │  NAVIGATE WITH:        BRIDGE.md (this document)                            │
-│  HOW TO BUILD:         North Star Blueprint v6.0                            │
-│  WHAT TO BUILD WITH:   Master Build Framework v2.0                          │
+│  HOW TO BUILD:         North Star Blueprint v6.1                            │
+│  WHAT TO BUILD WITH:   Master Build Framework v2.1                          │
 │  PROJECT STATE:        claude.md (your project's file)                      │
 │                                                                              │
 │  ─────────────────────────────────────────────────────────────────────────  │
@@ -771,4 +1092,4 @@ NORTH STAR vs ALTERNATIVES
 
 ---
 
-*End of BRIDGE.md v2.0*
+*End of BRIDGE.md v1.2*

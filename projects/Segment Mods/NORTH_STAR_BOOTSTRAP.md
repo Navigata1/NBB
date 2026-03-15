@@ -8,7 +8,7 @@
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                                                                              ║
 ║                         NORTH STAR BOOTSTRAP                                 ║
-║                              v1.3                                            ║
+║                              v1.4                                            ║
 ║                                                                              ║
 ║              The Ignition Key for Production-Ready Development               ║
 ║                                                                              ║
@@ -66,8 +66,8 @@ This Bootstrap provides:
 
 Full framework documents are fetched on-demand from:
 • BRIDGE.md — Navigation layer
-• NORTH_STAR_BLUEPRINT_v6.0.md — HOW to build (methodology)
-• MASTER_BUILD_FRAMEWORK_v2.0.md — WHAT to build with (technology)
+• NORTH_STAR_BLUEPRINT_v6.1.md — HOW to build (methodology)
+• MASTER_BUILD_FRAMEWORK_v2.1.md — WHAT to build with (technology)
 • GLOBAL_IDE_RULES.md — Persistent cross-project rules (optional)
 
 ┌─────────────────────┐
@@ -80,7 +80,7 @@ Full framework documents are fetched on-demand from:
 ┌─────────────────────────────────────────────────────────────────┐
 │                        /build SCAFFOLDING                        │
 │  ┌─────────────┐  ┌──────────────────┐  ┌────────────────────┐  │
-│  │  BRIDGE.md  │  │  NORTH STAR v6.0 │  │  MASTER BUILD v2.0 │  │
+│  │  BRIDGE.md  │  │  NORTH STAR v6.1 │  │  MASTER BUILD v2.1 │  │
 │  │  Navigation │  │  Methodology     │  │  Technology        │  │
 │  └─────────────┘  └──────────────────┘  └────────────────────┘  │
 │                                                                  │
@@ -108,16 +108,16 @@ SCAFFOLDING FETCH URLS
 ─────────────────────────────────────────────────────────────────────────────
 
 BRIDGE.md (Navigation):
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_6.0/main/BRIDGE.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/BRIDGE.md
 
-NORTH STAR BLUEPRINT v6.0 (Methodology):
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_6.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.0.md
+NORTH STAR BLUEPRINT v6.1 (Methodology):
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md
 
-MASTER BUILD FRAMEWORK v2.0 (Technology):
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_6.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.0.md
+MASTER BUILD FRAMEWORK v2.1 (Technology):
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md
 
 GLOBAL IDE RULES (Optional - for persistent cross-project rules):
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_6.0/main/GLOBAL_IDE_RULES.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/GLOBAL_IDE_RULES.md
 ```
 
 ### Local Path (After Scaffolding Setup)
@@ -126,8 +126,8 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_6.0/main/GLOBAL_IDE_R
 project/
 └── build/
     ├── BRIDGE.md
-    ├── NORTH_STAR_BLUEPRINT_v6.0.md
-    └── MASTER_BUILD_FRAMEWORK_v2.0.md
+    ├── NORTH_STAR_BLUEPRINT_v6.1.md
+    └── MASTER_BUILD_FRAMEWORK_v2.1.md
 ```
 
 ---
@@ -356,7 +356,7 @@ If no existing global rules are detected:
      
   2. FETCH NS Build global rules
      Download from:
-     https://raw.githubusercontent.com/Navigata1/NorthStarBuild_6.0/main/GLOBAL_IDE_RULES.md
+     https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/GLOBAL_IDE_RULES.md
      
   3. SAVE to appropriate path
      Save as: ~/.claude/CLAUDE.md
@@ -392,6 +392,43 @@ After completing Steps 0.1-0.3, verify:
 ─────────────────────────────────────────────────────────────────────────────
 
 ONCE COMPLETE: Proceed to Section 1 for per-project scaffolding.
+
+PERMISSION CONFIGURATION (do once, commit to git)
+──────────────────────────────────────────────────────────────────────────────
+
+❌ NEVER: claude --dangerously-skip-permissions
+   This bypasses all safety guards. It has "dangerous" in the name for a reason.
+
+✅ INSTEAD: Pre-configure exactly what Claude needs
+
+STEP 1: Identify required permissions for your project
+  Common: bash commands, file read/write, git operations, specific CLIs
+
+STEP 2: Configure in .claude/settings.json
+  {
+    "permissions": {
+      "allow": [
+        "bash:git *",
+        "bash:npm *",
+        "bash:npx *",
+        "file:read:**",
+        "file:write:src/**"
+      ],
+      "deny": [
+        "bash:rm -rf /",
+        "file:write:.env"
+      ]
+    }
+  }
+
+STEP 3: Commit to git
+  git add .claude/settings.json
+  git commit -m "chore: configure Claude Code permissions"
+
+BENEFIT: Claude runs autonomously within safe guardrails.
+         Other team members (and future you) inherit the same config.
+
+─────────────────────────────────────────────────────────────────────────────
 
 This Section 0 needs to be executed only ONCE, ever.
 On subsequent projects, agents should CHECK if global rules exist
@@ -440,8 +477,8 @@ STEP 2: FETCH FRAMEWORK DOCUMENTS
 STEP 3: VERIFY SCAFFOLDING
   ./build/
   ├── BRIDGE.md               ✓
-  ├── NORTH_STAR_BLUEPRINT_v6.0.md  ✓
-  └── MASTER_BUILD_FRAMEWORK_v2.0.md  ✓
+  ├── NORTH_STAR_BLUEPRINT_v6.1.md  ✓
+  └── MASTER_BUILD_FRAMEWORK_v2.1.md  ✓
 
 STEP 4: GENERATE PROJECT INTELLIGENCE FILE
   Use template in Section 3 below
@@ -509,6 +546,86 @@ See Section 8 for removal protocol.
 │  The ./build folder is temporary — it leaves when you're done.              │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+MULTI-AGENT START SEQUENCE (for parallel feature development)
+──────────────────────────────────────────────────────────────────────────────
+
+WHEN TO USE: Building 2+ independent features simultaneously, or when
+you want to delegate while continuing to work.
+
+STEP 1: Identify parallel tracks
+  → List features/tasks that have no shared file dependencies
+  → Assign each to an isolated worktree
+
+STEP 2: Bootstrap primary session (main orchestrator)
+  → claude --model opus [or sonnet]
+  → Load Bootstrap → BRIDGE → claude.md as normal
+
+STEP 3: Spawn parallel worktree sessions
+  → claude --worktree  [creates isolated branch automatically]
+  → OR in Desktop App: New Session → check "Use worktree"
+  → Each worktree lands in .claude/worktrees/<branch-name>/
+
+STEP 4: Brief each agent
+  → Give each agent its GitHub issue number or task description
+  → Include: success criteria, files it owns, test commands
+  → Do NOT give agents overlapping file ownership
+
+STEP 5: Monitor via Desktop App or status line
+  → Use sidebar session list to track progress
+  → Each agent can run tests independently before PR creation
+
+STEP 6: Merge protocol
+  → Each agent creates a PR when feature is complete + tested
+  → Review PRs before merging to prevent conflicts
+  → Merge in dependency order
+
+┌─────────────────────────────────────────────────────────────────┐
+│  CONDUCTOR MINDSET                                              │
+│  You are no longer a pair programmer.                           │
+│  You are the conductor of an AI orchestra.                      │
+│  Your job: clear briefs, success criteria, review PRs.         │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+```
+ASYNC DELEGATION VIA OPENCLAW (Optional — Advanced)
+──────────────────────────────────────────────────────────────────────────────
+
+OpenClaw is a local-first AI life OS that connects messaging apps to AI agents.
+It is NOT a coding tool — it is a dispatch layer. When combined with Claude Code
+(which IS the coding tool), you get mobile-triggered autonomous development.
+
+USE CASE: You're away from your desk. You think of a bug fix or feature.
+You send a WhatsApp message → OpenClaw triggers a Claude Code loop → 
+you come back to a PR ready to review.
+
+SETUP OVERVIEW:
+  1. Install OpenClaw on your dev machine (runs as a daemon)
+  2. Connect your preferred messaging app (WhatsApp/Telegram/Slack)
+  3. Create a skill in OpenClaw that triggers claude CLI commands
+  4. Send task descriptions from your phone → PR appears on GitHub
+
+EXAMPLE OPENCLAW SKILL TRIGGER (conceptual):
+  Message: "Fix the auth bug in issue #47 and create a PR"
+  OpenClaw routes to: claude --resume-or-new "Work on GitHub issue #47.
+                       Use RPIT loop. Create PR when done."
+
+NORTH STAR + OPENCLAW STACK:
+  ┌────────────────────┐    ┌────────────────────┐    ┌────────────────────┐
+  │  Your Phone        │───▶│  OpenClaw Daemon   │───▶│  Claude Code       │
+  │  (WhatsApp/TG)     │    │  (Local Machine)   │    │  (NS Framework)    │
+  │                    │    │  Routes message    │    │  RPIT Loop         │
+  │  "Fix issue #47"   │    │  → claude CLI      │    │  Creates PR        │
+  └────────────────────┘    └────────────────────┘    └────────────────────┘
+
+⚠️  SECURITY NOTE: OpenClaw has full system access. Scope permissions to only
+    the directories and commands needed. Never run with root privileges.
+
+→ See ENH-034: OpenClaw Integration Guide (BRIDGE Addendum) for full details.
+→ See MBF Category 60 for OpenClaw ecosystem tool matrix.
 ```
 
 ---
@@ -686,8 +803,8 @@ Use this template for ALL instruction files. Only the filename changes:
 > **FRAMEWORK REFERENCE:**
 > • Scaffolding: ./build/ (temporary, removed on completion)
 > • Navigation: ./build/BRIDGE.md
-> • Methodology: ./build/NORTH_STAR_BLUEPRINT_v6.0.md
-> • Technology: ./build/MASTER_BUILD_FRAMEWORK_v2.0.md
+> • Methodology: ./build/NORTH_STAR_BLUEPRINT_v6.1.md
+> • Technology: ./build/MASTER_BUILD_FRAMEWORK_v2.1.md
 
 > This file provides guidance for AI agents working on this project.
 > The ./build folder contains full framework reference — consult via BRIDGE.md routing.
@@ -1019,12 +1136,12 @@ REMOVAL STEPS:
     Please submit via ONE of these methods:
     
     OPTION A: GitHub Pull Request
-    1. Fork: https://github.com/Navigata1/NorthStarBuild_6.0
+    1. Fork: https://github.com/Navigata1/NorthStarBuild_5.0
     2. Add file: projects/[your-project-name].md
     3. Submit PR with title: 'Project Intelligence: [Project Name]'
     
     OPTION B: GitHub Issue
-    1. Go to: https://github.com/Navigata1/NorthStarBuild_6.0/issues
+    1. Go to: https://github.com/Navigata1/NorthStarBuild_5.0/issues
     2. Create new issue with label: 'project-intelligence'
     3. Paste your project intelligence summary
     
@@ -1045,8 +1162,8 @@ REMOVAL STEPS:
    
    This removes:
    • BRIDGE.md
-   • NORTH_STAR_BLUEPRINT_v6.0.md
-   • MASTER_BUILD_FRAMEWORK_v2.0.md
+   • NORTH_STAR_BLUEPRINT_v6.1.md
+   • MASTER_BUILD_FRAMEWORK_v2.1.md
    
 3.5 CODE CLEANUP (Claude Code Users)
 	If using Claude Code, run the code-simplifier agent before final commit:
@@ -1584,7 +1701,7 @@ Global rules provide baseline behavior across ALL projects.
 They ensure consistency without repeating configuration in every project.
 
 GITHUB RAW URL:
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_6.0/main/GLOBAL_IDE_RULES.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/GLOBAL_IDE_RULES.md
 
 ─────────────────────────────────────────────────────────────────────────────
 
@@ -1682,8 +1799,8 @@ Built with North Star Framework Ecosystem
 
 FRAMEWORK VERSIONS:
   Bootstrap: 2.0
-  North Star Blueprint: 6.0
-  Master Build Framework: 2.0
+  North Star Blueprint: 6.1
+  Master Build Framework: 2.1
 
 PROJECT DETAILS:
   Name: [Project Name]
@@ -1694,7 +1811,7 @@ PROJECT DETAILS:
 LICENSE:
   Framework: CC BY-NC-SA 4.0
   Attribution: North Star Build
-  Repository: https://github.com/Navigata1/NorthStarBuild_6.0
+  Repository: https://github.com/Navigata1/NorthStarBuild_5.0
 
 PURPOSE:
   This file serves as provenance for reproducibility.
@@ -1729,7 +1846,17 @@ To rebuild with same framework:
 
 ---
 
-*North Star Bootstrap v1.3*
-*https://github.com/Navigata1/NorthStarBuild_6.0*
+*North Star Bootstrap v1.4*
+*https://github.com/Navigata1/NorthStarBuild_5.0*
 *License: CC BY-NC-SA 4.0*
 *"North Star Build" is a trademark.*
+
+
+### “No RALPH until manual reps” (L5)
+
+Do not automate a workflow until humans have run it manually enough times to understand:
+- failure modes
+- edge cases
+- correct acceptance criteria
+
+Automation comes **after** competence and repetition.

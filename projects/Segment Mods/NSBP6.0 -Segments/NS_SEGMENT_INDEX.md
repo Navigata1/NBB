@@ -1,4 +1,4 @@
-# NORTH STAR BLUEPRINT v6.0 — SEGMENT INDEX
+# NORTH STAR BLUEPRINT v6.1 — SEGMENT INDEX
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐

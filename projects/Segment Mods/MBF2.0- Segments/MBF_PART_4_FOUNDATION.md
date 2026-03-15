@@ -1,4 +1,4 @@
-# MASTER BUILD FRAMEWORK v2.0 — SEGMENT 4 of 4
+# MASTER BUILD FRAMEWORK v2.1 — SEGMENT 4 of 4
 ## MBF_PART_4_FOUNDATION
 ### Contents: Tier 8 (Cat 50-56) + Usage Guide + Appendix + Addendum (Skills, RLM, Prompt Architecture)
 ### Lines: 3075-4935 of original
@@ -17,7 +17,7 @@
 ### Scope
 User authentication, SSO, OAuth, session management, user management.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Auth Platforms
 | Platform | Type |
@@ -84,9 +84,9 @@ You are implementing authentication. Before implementation:
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 1-6** (Build Targets)  -  Auth integration
-- **â†' Category 8** (APIs)  -  API auth
-- **â†' Category 52** (Security)  -  Security best practices
+- **→ Category 1-6** (Build Targets) — Auth integration
+- **→ Category 8** (APIs) — API auth
+- **→ Category 52** (Security) — Security best practices
 
 ---
 
@@ -95,7 +95,7 @@ You are implementing authentication. Before implementation:
 ### Scope
 Payment processing, subscriptions, invoicing, usage-based billing.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Payment Processors
 | Processor | Best For |
@@ -126,9 +126,9 @@ Payment processing, subscriptions, invoicing, usage-based billing.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 1-6** (Build Targets)  -  Payment integration
-- **â†' Category 50** (Auth)  -  Customer identity
-- **â†' Category 56** (Compliance)  -  PCI, tax compliance
+- **→ Category 1-6** (Build Targets) — Payment integration
+- **→ Category 50** (Auth) — Customer identity
+- **→ Category 56** (Compliance) — PCI, tax compliance
 
 ---
 
@@ -137,7 +137,7 @@ Payment processing, subscriptions, invoicing, usage-based billing.
 ### Scope
 Application security, encryption, vulnerability management, penetration testing.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Security Scanning
 | Tool | Focus |
@@ -178,9 +178,9 @@ Application security, encryption, vulnerability management, penetration testing.
 ```
 
 ### Cross-Category Dependencies
-- **â†' All Categories**  -  Security applies everywhere
-- **â†' Category 50** (Auth)  -  Identity security
-- **â†' Category 53** (Secrets)  -  Key management
+- **→ All Categories** — Security applies everywhere
+- **→ Category 50** (Auth) — Identity security
+- **→ Category 53** (Secrets) — Key management
 
 ---
 
@@ -189,7 +189,7 @@ Application security, encryption, vulnerability management, penetration testing.
 ### Scope
 API keys, credentials, certificates, environment variables.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Secret Managers
 | Service | Type |
@@ -220,9 +220,9 @@ API keys, credentials, certificates, environment variables.
 ```
 
 ### Cross-Category Dependencies
-- **â†' All Categories**  -  Secrets used everywhere
-- **â†' Category 43** (CI/CD)  -  Pipeline secrets
-- **â†' Category 52** (Security)  -  Security integration
+- **→ All Categories** — Secrets used everywhere
+- **→ Category 43** (CI/CD) — Pipeline secrets
+- **→ Category 52** (Security) — Security integration
 
 ---
 
@@ -231,7 +231,7 @@ API keys, credentials, certificates, environment variables.
 ### Scope
 Product analytics, user tracking, event tracking, experimentation.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Product Analytics
 | Platform | Best For |
@@ -268,9 +268,9 @@ Product analytics, user tracking, event tracking, experimentation.
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 1-6** (Build Targets)  -  Tracking integration
-- **â†' Category 20** (Warehousing)  -  Data destination
-- **â†' Category 56** (Compliance)  -  Privacy compliance
+- **→ Category 1-6** (Build Targets) — Tracking integration
+- **→ Category 20** (Warehousing) — Data destination
+- **→ Category 56** (Compliance) — Privacy compliance
 
 ---
 
@@ -279,7 +279,7 @@ Product analytics, user tracking, event tracking, experimentation.
 ### Scope
 Application monitoring, infrastructure monitoring, logging, tracing, alerting.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Full-Stack Observability
 | Platform | Features |
@@ -336,50 +336,6 @@ Application monitoring, infrastructure monitoring, logging, tracing, alerting.
 □ SLOs defined
 □ Error tracking enabled
 □ Uptime monitoring active
-
-### Agent Observability Model
-
-Hierarchical tracing structure for AI agent systems.
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    AGENT OBSERVABILITY HIERARCHY                             │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  SESSION (user conversation)                                                │
-│    │                                                                         │
-│    ├─── TRACE (single request/task)                                         │
-│    │      │                                                                  │
-│    │      ├─── SPAN (individual operation)                                  │
-│    │      │      ├── LLM call                                               │
-│    │      │      ├── Tool call                                              │
-│    │      │      ├── Retrieval                                              │
-│    │      │      └── Post-processing                                        │
-│    │      │                                                                  │
-│    │      └─── SPAN (next operation)                                        │
-│    │             └── ...                                                     │
-│    │                                                                         │
-│    └─── TRACE (next request)                                                │
-│           └── ...                                                            │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-| Level | What to Track |
-|-------|---------------|
-| **Session** | User ID, total cost, satisfaction score, duration |
-| **Trace** | Latency, success/failure, execution path, total tokens |
-| **Span** | Token usage, tool results, errors, model used |
-
-**Observability Tools for Agents:**
-| Tool | Strength |
-|------|----------|
-| **LangSmith** | LangChain native |
-| **Langfuse** | Open-source, self-host |
-| **Arize Phoenix** | LLM observability |
-| **Helicone** | LLM proxy logging |
-| **Braintrust** | Eval + logging |
-
 ```
 
 ### Agentic Prompt Hook
@@ -415,8 +371,8 @@ You are implementing monitoring and observability. Before implementation:
 ```
 
 ### Cross-Category Dependencies
-- **â†' All Categories**  -  Monitoring applies everywhere
-- **â†' Category 43** (CI/CD)  -  Deployment monitoring
+- **→ All Categories** — Monitoring applies everywhere
+- **→ Category 43** (CI/CD) — Deployment monitoring
 
 ---
 
@@ -425,7 +381,7 @@ You are implementing monitoring and observability. Before implementation:
 ### Scope
 GDPR, CCPA, SOC 2, HIPAA, accessibility, privacy policies, data governance.
 
-### Technology Stack  -  Exhaustive
+### Technology Stack — Exhaustive
 
 #### Privacy Compliance
 | Platform | Focus |
@@ -475,62 +431,6 @@ GDPR, CCPA, SOC 2, HIPAA, accessibility, privacy policies, data governance.
 □ Encryption implemented
 ```
 
-#### HIPAA (Healthcare)
-```
-□ PHI identification and protection
-□ Business Associate Agreements (BAAs)
-□ Access controls and audit trails
-□ Encryption at rest and in transit
-□ Employee HIPAA training
-□ Breach notification procedures
-□ Minimum necessary standard
-```
-
-#### EU AI Act (AI Systems)
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         EU AI ACT COMPLIANCE                                 │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  TIMELINE                                                                    │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  • Feb 2025: Prohibited practices enforcement                               │
-│  • Aug 2025: GPAI (General Purpose AI) obligations                          │
-│  • Aug 2026: High-risk AI requirements                                      │
-│  • Penalties: Up to 35M EUR or 7% global turnover                           │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  RISK CLASSIFICATION                                                         │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  LEVEL          │ EXAMPLES                    │ REQUIREMENTS                 │
-│  ───────────────┼─────────────────────────────┼──────────────────────────────│
-│  Prohibited     │ Social scoring, subliminal  │ Banned                       │
-│                 │ manipulation                │                              │
-│  High-risk      │ Hiring, credit, education,  │ Full compliance: risk       │
-│                 │ law enforcement             │ management, data quality,   │
-│                 │                             │ logging, transparency       │
-│  Limited        │ Chatbots, emotion detection │ Transparency obligations    │
-│  Minimal        │ Spam filters, games         │ None                         │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  HIGH-RISK REQUIREMENTS                                                      │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  □ Risk management system                                                   │
-│  □ Data governance and quality                                              │
-│  □ Technical documentation                                                   │
-│  □ Record-keeping (logging)                                                  │
-│  □ Transparency to users                                                     │
-│  □ Human oversight mechanisms                                                │
-│  □ Accuracy, robustness, cybersecurity                                       │
-│  □ Conformity assessment                                                     │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
 ### Quality Gates
 
 ```
@@ -545,10 +445,79 @@ GDPR, CCPA, SOC 2, HIPAA, accessibility, privacy policies, data governance.
 ```
 
 ### Cross-Category Dependencies
-- **â†' All Categories**  -  Compliance applies everywhere
-- **â†' Category 50** (Auth)  -  Identity verification
-- **â†' Category 52** (Security)  -  Security controls
-- **â†' Category 54** (Analytics)  -  Consent integration
+- **→ All Categories** — Compliance applies everywhere
+- **→ Category 50** (Auth) — Identity verification
+- **→ Category 52** (Security) — Security controls
+- **→ Category 54** (Analytics) — Consent integration
+
+---
+
+## Category 61: Enterprise Agent Governance
+
+### Scope
+Agent registries, guardrail systems, lifecycle management for AI agents,
+audit trails for agent actions, enterprise oversight and control.
+
+### Technology Stack
+
+#### Enterprise Governance Platforms
+| Tool | Key Differentiator | Best For |
+|------|-------------------|----------|
+| **ServiceNow AI Control Tower** | Governance for enterprise agents, workflow integration | ServiceNow shops |
+| **Boomi AgentStudio** | Agent registry, guardrails, MCP support, lifecycle management | Boomi integration platform users |
+| **LogicMonitor Edwin** | Enterprise monitoring with agent integration | Infrastructure-heavy enterprises |
+| **Anthropic's Claude Trust Layer** | Built-in for Claude Code enterprise, constitutional AI | Claude-native stacks |
+
+#### Governance Primitives
+| Primitive | Purpose | Implementation |
+|-----------|---------|---------------|
+| Agent Registry | Catalog of all deployed agents | Boomi AgentStudio / custom |
+| Guardrails | Pre/post filters on agent actions | Built-in hooks + LLM guard |
+| Audit Trails | Complete log of agent actions | PostBash hooks → SIEM |
+| Human Escalation | When agents must stop and ask | Confidence calibration gates |
+| Cost Controls | Budget limits per agent/project | API quota management |
+| Rollback Protocol | Undo agent changes | Git checkpoints + permissions |
+
+### NS Framework Governance Model
+
+For NS Framework projects, governance is built via:
+
+1. PERMISSIONS (see ENH-003)
+   Pre-configured, committed to git, reviewed by team
+
+2. HOOKS AUDIT TRAIL
+   ```bash
+   # .claude/hooks/post-bash.sh
+   echo "[$(date)] $(whoami) executed: $COMMAND" >> .claude/audit.log
+   ```
+
+3. HUMAN GATES (confidence calibration)
+   Built into NS Foundation — agent stops and asks at specified uncertainty thresholds
+
+4. CHECKPOINT PROTOCOL
+   Every prompt creates a checkpoint. Use /rewind for instant rollback.
+   For production: every agent action creates a git commit (atomic rollback).
+
+5. PR-GATED DEPLOYMENT
+   No agent work reaches production without human PR review.
+   This is the enterprise-grade NS standard regardless of agent autonomy level.
+
+### Quality Gates
+```text
+□ Agent registry exists (even if just a README listing deployed agents)
+□ All agent permissions documented and committed to version control
+□ Audit log configured for all bash commands
+□ Human escalation paths defined for each agent type
+□ Cost monitoring alerts configured
+□ Rollback procedure tested and documented
+□ Compliance review: does agent have access to PII? If yes, data handling policy documented
+```
+
+### Cross-Category Dependencies
+- → Category 52 (Security) — access control and audit
+- → Category 56 (Compliance) — regulatory requirements
+- → Category 55 (Monitoring) — agent observability
+- → NS Part X (Security) — security-first development
 
 ---
 
@@ -596,82 +565,82 @@ When presenting to an AI model (Claude, GPT, etc.):
 ### SaaS Application (Full Stack)
 ```
 Required Categories:
-â"œâ"€â"€ 1 (Web App)
-â"œâ"€â"€ 8 (APIs & Backend)
-â"œâ"€â"€ 15 (Relational Database)
-â"œâ"€â"€ 22 (Caching)
-â"œâ"€â"€ 24 (Real-Time - optional)
-â"œâ"€â"€ 43 (CI/CD)
-â"œâ"€â"€ 46 (Testing)
-â"œâ"€â"€ 50 (Authentication)
-â"œâ"€â"€ 51 (Payments)
-â"œâ"€â"€ 52 (Security)
-â"œâ"€â"€ 54 (Analytics)
-â"œâ"€â"€ 55 (Monitoring)
-â""â"€â"€ 56 (Compliance)
+├── 1 (Web App)
+├── 8 (APIs & Backend)
+├── 15 (Relational Database)
+├── 22 (Caching)
+├── 24 (Real-Time - optional)
+├── 43 (CI/CD)
+├── 46 (Testing)
+├── 50 (Authentication)
+├── 51 (Payments)
+├── 52 (Security)
+├── 54 (Analytics)
+├── 55 (Monitoring)
+└── 56 (Compliance)
 ```
 
 ### AI-Powered Application
 ```
 Required Categories:
-â"œâ"€â"€ 1 or 2 (Web/Mobile App)
-â"œâ"€â"€ 8 (APIs & Backend)
-â"œâ"€â"€ 16 (Vector Database)
-â"œâ"€â"€ 29 (Agentic RAG)
-â"œâ"€â"€ 30 (Autonomous Agents - optional)
-â"œâ"€â"€ 31 (MCPs & Tools)
-â"œâ"€â"€ 33 (Model Serving)
-â"œâ"€â"€ 34 (LLM Routing)
-â"œâ"€â"€ 35 (AI Safety)
-â""â"€â"€ 50-56 (Foundation Tier)
+├── 1 or 2 (Web/Mobile App)
+├── 8 (APIs & Backend)
+├── 16 (Vector Database)
+├── 29 (Agentic RAG)
+├── 30 (Autonomous Agents - optional)
+├── 31 (MCPs & Tools)
+├── 33 (Model Serving)
+├── 34 (LLM Routing)
+├── 35 (AI Safety)
+└── 50-56 (Foundation Tier)
 ```
 
 ### Content Generation Pipeline
 ```
 Required Categories:
-â"œâ"€â"€ 36 (Image Generation)
-â"œâ"€â"€ 37 (Audio Generation)
-â"œâ"€â"€ 38 (Video Processing)
-â"œâ"€â"€ 39 (Document Generation)
-â"œâ"€â"€ 11 (GPU Compute)
-â"œâ"€â"€ 19 (Object Storage)
-â"œâ"€â"€ 44 (Workflow Orchestration)
-â""â"€â"€ 43 (CI/CD)
+├── 36 (Image Generation)
+├── 37 (Audio Generation)
+├── 38 (Video Processing)
+├── 39 (Document Generation)
+├── 11 (GPU Compute)
+├── 19 (Object Storage)
+├── 44 (Workflow Orchestration)
+└── 43 (CI/CD)
 ```
 
 ### Mobile App with Backend
 ```
 Required Categories:
-â"œâ"€â"€ 2 (Mobile Application)
-â"œâ"€â"€ 8 (APIs & Backend)
-â"œâ"€â"€ 15 (Relational Database)
-â"œâ"€â"€ 19 (Object Storage)
-â"œâ"€â"€ 50 (Authentication)
-â"œâ"€â"€ 51 (Payments - if needed)
-â"œâ"€â"€ 54 (Analytics)
-â""â"€â"€ 55 (Monitoring)
+├── 2 (Mobile Application)
+├── 8 (APIs & Backend)
+├── 15 (Relational Database)
+├── 19 (Object Storage)
+├── 50 (Authentication)
+├── 51 (Payments - if needed)
+├── 54 (Analytics)
+└── 55 (Monitoring)
 ```
 
 ### Embedded/IoT System
 ```
 Required Categories:
-â"œâ"€â"€ 6 (Operating Systems & Embedded)
-â"œâ"€â"€ 8 (APIs - cloud connectivity)
-â"œâ"€â"€ 9 (Edge Computing)
-â"œâ"€â"€ 17 (Document/NoSQL - time series)
-â"œâ"€â"€ 52 (Security)
-â""â"€â"€ 55 (Monitoring)
+├── 6 (Operating Systems & Embedded)
+├── 8 (APIs - cloud connectivity)
+├── 9 (Edge Computing)
+├── 17 (Document/NoSQL - time series)
+├── 52 (Security)
+└── 55 (Monitoring)
 ```
 
 ### Internal Tools & Dashboard
 ```
 Required Categories:
-â"œâ"€â"€ 49 (Dashboards & Internal Tools)
-â"œâ"€â"€ 8 (APIs & Backend)
-â"œâ"€â"€ 15 (Relational Database)
-â"œâ"€â"€ 50 (Authentication)
-â"œâ"€â"€ 52 (Security)
-â""â"€â"€ 55 (Monitoring)
+├── 49 (Dashboards & Internal Tools)
+├── 8 (APIs & Backend)
+├── 15 (Relational Database)
+├── 50 (Authentication)
+├── 52 (Security)
+└── 55 (Monitoring)
 ```
 
 ---
@@ -782,12 +751,12 @@ Your output must be:
 
 ---
 
-*End of Framework v1.0  -  January 2026*
+*End of Framework v1.0 — January 2026*
 
 ---
 
 # ADDENDUM: SKILLS, REASONING LOOPS & PROMPT ARCHITECTURE
-## *v2.0 Patch  -  Critical Framework Extensions*
+## *v2.0 Patch — Critical Framework Extensions*
 
 ---
 
@@ -800,7 +769,7 @@ Skill manifests, capability packaging, skill composition, skill registries, vers
 
 | Concept | What It Is | How It Works |
 |---------|------------|--------------|
-| **Tool** | A single callable function | `get_weather(city)` â†' returns data |
+| **Tool** | A single callable function | `get_weather(city)` → returns data |
 | **MCP** | Protocol for tool communication | Standard interface between model and tools |
 | **Skill** | Packaged capability with instructions | Contains: instructions, patterns, examples, quality gates, prompts |
 
@@ -814,15 +783,15 @@ Skill manifests, capability packaging, skill composition, skill registries, vers
 #### Skill Manifest Structure
 ```
 /skill-name/
-â"œâ"€â"€ SKILL.md           # Core instructions, patterns, best practices
-â"œâ"€â"€ manifest.json      # Metadata, version, dependencies
-â"œâ"€â"€ examples/          # Sample inputs and expected outputs
-â"'   â"œâ"€â"€ input-1.json
-â"'   â""â"€â"€ output-1.json
-â"œâ"€â"€ templates/         # Reusable templates
-â"œâ"€â"€ quality-gates.md   # Validation criteria
-â""â"€â"€ hooks/             # Agentic invocation prompts
-    â""â"€â"€ invoke.md
+├── SKILL.md           # Core instructions, patterns, best practices
+├── manifest.json      # Metadata, version, dependencies
+├── examples/          # Sample inputs and expected outputs
+│   ├── input-1.json
+│   └── output-1.json
+├── templates/         # Reusable templates
+├── quality-gates.md   # Validation criteria
+└── hooks/             # Agentic invocation prompts
+    └── invoke.md
 ```
 
 #### Skill Manifest Schema (manifest.json)
@@ -867,26 +836,26 @@ Skill manifests, capability packaging, skill composition, skill registries, vers
 
 #### Sequential Composition
 ```
-Skill A â†' Skill B â†' Skill C
-(research) â†' (synthesize) â†' (document)
+Skill A → Skill B → Skill C
+(research) → (synthesize) → (document)
 ```
 
 #### Parallel Composition
 ```
-      â"Œâ†' Skill B â"€â"
-Skill A           â"œâ†' Skill D
-      â""â†' Skill C â"€â"˜
+      ┌→ Skill B ─┐
+Skill A           ├→ Skill D
+      └→ Skill C ─┘
 ```
 
 #### Conditional Composition
 ```
-Skill A â†' [condition] â†' Skill B (if true)
-                     â†' Skill C (if false)
+Skill A → [condition] → Skill B (if true)
+                     → Skill C (if false)
 ```
 
 #### Iterative Composition
 ```
-Skill A â†' Skill B â†' [evaluate] â†' loop back or exit
+Skill A → Skill B → [evaluate] → loop back or exit
 ```
 
 ### Skill Invocation Protocol
@@ -903,7 +872,7 @@ BEFORE executing any task that matches a skill category:
 
 ## Skill Loading Priority
 
-1. User skills (/mnt/skills/user/)  -  highest priority
+1. User skills (/mnt/skills/user/) — highest priority
 2. Private skills (/mnt/skills/private/)
 3. Public skills (/mnt/skills/public/)
 4. Example skills (/mnt/skills/examples/)
@@ -933,7 +902,7 @@ BEFORE executing any task that matches a skill category:
 □ Edge cases documented
 ```
 
-### Agentic Prompt Hook  -  Skill Invocation
+### Agentic Prompt Hook — Skill Invocation
 
 ```
 You are operating with skill-augmented capabilities. Before any significant output:
@@ -965,10 +934,10 @@ You are operating with skill-augmented capabilities. Before any significant outp
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 31** (MCPs)  -  Tool protocols
-- **â†' Category 30** (Agents)  -  Skill execution
-- **â†' Category 31C** (Reasoning)  -  Reasoning skills
-- **â†' Category 40** (Code Gen)  -  Code skills
+- **→ Category 31** (MCPs) — Tool protocols
+- **→ Category 30** (Agents) — Skill execution
+- **→ Category 31C** (Reasoning) — Reasoning skills
+- **→ Category 40** (Code Gen) — Code skills
 
 ---
 
@@ -982,33 +951,33 @@ Structured reasoning patterns, self-correction mechanisms, iterative refinement,
 #### RALPH Loop (Recommended Primary Pattern)
 
 ```
-â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"
-â"'                    RALPH LOOP                           â"'
-â"œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"¤
-â"'                                                         â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"                                          â"'
-â"'  â"'  REASON  â"' ← Analyze task, state, constraints       â"'
-â"'  â""â"€â"€â"€â"€â"¬â"€â"€â"€â"€â"€â"˜                                          â"'
-â"'       â†"                                                â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"                                          â"'
-â"'  â"'   ACT    â"' ← Execute next step (tool/generation)   â"'
-â"'  â""â"€â"€â"€â"€â"¬â"€â"€â"€â"€â"€â"˜                                          â"'
-â"'       â†"                                                â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"                                          â"'
-â"'  â"'  LEARN   â"' ← Evaluate result, extract insights     â"'
-â"'  â""â"€â"€â"€â"€â"¬â"€â"€â"€â"€â"€â"˜                                          â"'
-â"'       â†"                                                â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"                                          â"'
-â"'  â"'   PLAN   â"' ← Update strategy based on learning     â"'
-â"'  â""â"€â"€â"€â"€â"¬â"€â"€â"€â"€â"€â"˜                                          â"'
-â"'       â†"                                                â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"                                          â"'
-â"'  â"'HYPOTHESIZEâ"' ← Predict outcomes, identify risks     â"'
-â"'  â""â"€â"€â"€â"€â"¬â"€â"€â"€â"€â"€â"˜                                          â"'
-â"'       â†"                                                â"'
-â"'  [Continue or Exit based on completion criteria]       â"'
-â"'                                                         â"'
-â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜
+┌─────────────────────────────────────────────────────────┐
+│                    RALPH LOOP                           │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  ┌──────────┐                                          │
+│  │  REASON  │ ← Analyze task, state, constraints       │
+│  └────┬─────┘                                          │
+│       ↓                                                │
+│  ┌──────────┐                                          │
+│  │   ACT    │ ← Execute next step (tool/generation)   │
+│  └────┬─────┘                                          │
+│       ↓                                                │
+│  ┌──────────┐                                          │
+│  │  LEARN   │ ← Evaluate result, extract insights     │
+│  └────┬─────┘                                          │
+│       ↓                                                │
+│  ┌──────────┐                                          │
+│  │   PLAN   │ ← Update strategy based on learning     │
+│  └────┬─────┘                                          │
+│       ↓                                                │
+│  ┌──────────┐                                          │
+│  │HYPOTHESIZE│ ← Predict outcomes, identify risks     │
+│  └────┬─────┘                                          │
+│       ↓                                                │
+│  [Continue or Exit based on completion criteria]       │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
 ```
 
 **RALPH Implementation:**
@@ -1063,9 +1032,9 @@ ANSWER: [Final output]
 
 ```
 PLAN:
-- Step 1: [action] â†' [expected_output_variable]
-- Step 2: [action using variable] â†' [next_variable]
-- Step 3: [action using variables] â†' [final_output]
+- Step 1: [action] → [expected_output_variable]
+- Step 2: [action using variable] → [next_variable]
+- Step 3: [action using variables] → [final_output]
 
 EXECUTE:
 - Run all steps
@@ -1084,15 +1053,15 @@ SYNTHESIZE:
 #### Reflexion Pattern (Self-Correction)
 
 ```
-â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"
-â"'            REFLEXION LOOP               â"'
-â"œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"¤
-â"'                                         â"'
-â"'  ATTEMPT â†' EVALUATE â†' REFLECT â†' RETRY   â"'
-â"'     â†'                              â"'    â"'
-â"'     â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜    â"'
-â"'                                         â"'
-â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜
+┌─────────────────────────────────────────┐
+│            REFLEXION LOOP               │
+├─────────────────────────────────────────┤
+│                                         │
+│  ATTEMPT → EVALUATE → REFLECT → RETRY   │
+│     ↑                              │    │
+│     └──────────────────────────────┘    │
+│                                         │
+└─────────────────────────────────────────┘
 
 ATTEMPT:
 - Execute task with current approach
@@ -1117,18 +1086,18 @@ RETRY:
 
 ```
                     [Problem]
-                        â"'
-          â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"¼â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"
-          â†"             â†"             â†"
+                        │
+          ┌─────────────┼─────────────┐
+          ↓             ↓             ↓
       [Path A]      [Path B]      [Path C]
        Score:8       Score:6       Score:9
-          â"'             ✠-              â"'
-     â"Œâ"€â"€â"€â"€â"´â"€â"€â"€â"€â"              â"Œâ"€â"€â"€â"€â"€â"€â"€â"´â"€â"€â"€â"€â"€â"€â"€â"
-     â†"         â†"              â†"               â†"
+          │             ✗             │
+     ┌────┴────┐              ┌───────┴───────┐
+     ↓         ↓              ↓               ↓
   [A.1]     [A.2]          [C.1]           [C.2]
   Score:7   Score:9        Score:8         Score:10
-              â"'                               â"'
-              â†"                               â†"
+              │                               │
+              ↓                               ↓
          [Continue]                    [Best Solution]
 ```
 
@@ -1178,8 +1147,8 @@ LOOP_BOUNDS:
     - confidence: > 0.95
     - no_progress_iterations: 3
   escalation:
-    - at_iteration: 7 â†' warn user
-    - at_iteration: 10 â†' stop and summarize
+    - at_iteration: 7 → warn user
+    - at_iteration: 10 → stop and summarize
 ```
 
 ### Quality Gates for Reasoning
@@ -1195,7 +1164,7 @@ LOOP_BOUNDS:
 □ Final confidence score provided
 ```
 
-### Agentic Prompt Hook  -  Reasoning Loops
+### Agentic Prompt Hook — Reasoning Loops
 
 ```
 You are executing with structured reasoning loops. For complex tasks:
@@ -1225,9 +1194,9 @@ You are executing with structured reasoning loops. For complex tasks:
    HYPOTHESIZE: [Predict next iteration outcome]
    
    CHECK: [Exit conditions met?]
-   - If yes â†' proceed to output
-   - If no â†' continue to iteration {n+1}
-   - If bounds exceeded â†' escalate/summarize
+   - If yes → proceed to output
+   - If no → continue to iteration {n+1}
+   - If bounds exceeded → escalate/summarize
 
 4. LOOP TERMINATION
    - Document final state
@@ -1243,10 +1212,10 @@ You are executing with structured reasoning loops. For complex tasks:
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 30** (Agents)  -  Agent execution
-- **â†' Category 31B** (Skills)  -  Skill invocation
-- **â†' Category 35** (Safety)  -  Bounded execution
-- **â†' Category 31D** (Prompts)  -  Prompt patterns
+- **→ Category 30** (Agents) — Agent execution
+- **→ Category 31B** (Skills) — Skill invocation
+- **→ Category 35** (Safety) — Bounded execution
+- **→ Category 31D** (Prompts) — Prompt patterns
 
 ---
 
@@ -1258,42 +1227,42 @@ Prompt architecture, system prompts, few-shot patterns, chain of thought, consti
 ### Prompt Architecture Layers
 
 ```
-â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"
-â"'                  PROMPT ARCHITECTURE                    â"'
-â"œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"¤
-â"'                                                         â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'              SYSTEM PROMPT LAYER                â"'   â"'
-â"'  â"'  - Identity and role                            â"'   â"'
-â"'  â"'  - Core capabilities                            â"'   â"'
-â"'  â"'  - Constraints and boundaries                   â"'   â"'
-â"'  â"'  - Output format defaults                       â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                         â†"                               â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'              CONTEXT LAYER                      â"'   â"'
-â"'  â"'  - Retrieved documents (RAG)                    â"'   â"'
-â"'  â"'  - Conversation history                         â"'   â"'
-â"'  â"'  - User preferences/memory                      â"'   â"'
-â"'  â"'  - Skill instructions                           â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                         â†"                               â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'              INSTRUCTION LAYER                  â"'   â"'
-â"'  â"'  - Task-specific instructions                   â"'   â"'
-â"'  â"'  - Few-shot examples                            â"'   â"'
-â"'  â"'  - Output format requirements                   â"'   â"'
-â"'  â"'  - Quality criteria                             â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                         â†"                               â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'              USER INPUT LAYER                   â"'   â"'
-â"'  â"'  - The actual user request                      â"'   â"'
-â"'  â"'  - Attached files/images                        â"'   â"'
-â"'  â"'  - Clarifications                               â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                                                         â"'
-â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜
+┌─────────────────────────────────────────────────────────┐
+│                  PROMPT ARCHITECTURE                    │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │              SYSTEM PROMPT LAYER                │   │
+│  │  - Identity and role                            │   │
+│  │  - Core capabilities                            │   │
+│  │  - Constraints and boundaries                   │   │
+│  │  - Output format defaults                       │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         ↓                               │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │              CONTEXT LAYER                      │   │
+│  │  - Retrieved documents (RAG)                    │   │
+│  │  - Conversation history                         │   │
+│  │  - User preferences/memory                      │   │
+│  │  - Skill instructions                           │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         ↓                               │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │              INSTRUCTION LAYER                  │   │
+│  │  - Task-specific instructions                   │   │
+│  │  - Few-shot examples                            │   │
+│  │  - Output format requirements                   │   │
+│  │  - Quality criteria                             │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         ↓                               │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │              USER INPUT LAYER                   │   │
+│  │  - The actual user request                      │   │
+│  │  - Attached files/images                        │   │
+│  │  - Clarifications                               │   │
+│  └─────────────────────────────────────────────────┘   │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ### Core Prompt Patterns
@@ -1494,7 +1463,7 @@ If something goes wrong, [specific guidance]
 □ Version controlled
 ```
 
-### Agentic Prompt Hook  -  Prompt Engineering
+### Agentic Prompt Hook — Prompt Engineering
 
 ```
 You are crafting prompts for optimal output. For each prompt:
@@ -1505,11 +1474,11 @@ You are crafting prompts for optimal output. For each prompt:
    - What constraints apply?
 
 2. PATTERN SELECTION
-   - Does this need step-by-step reasoning? â†' CoT
-   - Does this need examples? â†' Few-Shot
-   - Does this need multiple attempts? â†' Self-Consistency
-   - Does this need expert voice? â†' Persona
-   - Does this need structure? â†' Structured Output
+   - Does this need step-by-step reasoning? → CoT
+   - Does this need examples? → Few-Shot
+   - Does this need multiple attempts? → Self-Consistency
+   - Does this need expert voice? → Persona
+   - Does this need structure? → Structured Output
 
 3. PROMPT CONSTRUCTION
    - Clear instruction first
@@ -1531,10 +1500,10 @@ You are crafting prompts for optimal output. For each prompt:
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 29** (RAG)  -  Context injection
-- **â†' Category 30** (Agents)  -  Agent prompting
-- **â†' Category 31C** (Reasoning)  -  Reasoning prompts
-- **â†' Category 35** (Safety)  -  Safety prompts
+- **→ Category 29** (RAG) — Context injection
+- **→ Category 30** (Agents) — Agent prompting
+- **→ Category 31C** (Reasoning) — Reasoning prompts
+- **→ Category 35** (Safety) — Safety prompts
 
 ---
 
@@ -1546,47 +1515,47 @@ Working memory, episodic memory, semantic memory, procedural memory, memory retr
 ### Memory Type Taxonomy
 
 ```
-â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"
-â"'                 MEMORY ARCHITECTURE                     â"'
-â"œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"¤
-â"'                                                         â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'            WORKING MEMORY                       â"'   â"'
-â"'  â"'  - Current context window                       â"'   â"'
-â"'  â"'  - Active scratchpad                            â"'   â"'
-â"'  â"'  - Immediate task state                         â"'   â"'
-â"'  â"'  Capacity: Limited (context window)             â"'   â"'
-â"'  â"'  Duration: Current session                      â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                         â†'â†"                              â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'            EPISODIC MEMORY                      â"'   â"'
-â"'  â"'  - Conversation history                         â"'   â"'
-â"'  â"'  - Past interactions                            â"'   â"'
-â"'  â"'  - Specific events and outcomes                 â"'   â"'
-â"'  â"'  Storage: Vector DB, conversation logs          â"'   â"'
-â"'  â"'  Retrieval: Semantic search, recency            â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                         â†'â†"                              â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'            SEMANTIC MEMORY                      â"'   â"'
-â"'  â"'  - Facts and knowledge                          â"'   â"'
-â"'  â"'  - Concepts and relationships                   â"'   â"'
-â"'  â"'  - User preferences and profile                 â"'   â"'
-â"'  â"'  Storage: Knowledge graphs, embeddings          â"'   â"'
-â"'  â"'  Retrieval: Entity lookup, graph traversal      â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                         â†'â†"                              â"'
-â"'  â"Œâ"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"   â"'
-â"'  â"'           PROCEDURAL MEMORY                     â"'   â"'
-â"'  â"'  - How to do things                             â"'   â"'
-â"'  â"'  - Skill execution patterns                     â"'   â"'
-â"'  â"'  - Successful approaches                        â"'   â"'
-â"'  â"'  Storage: Skill manifests, pattern library      â"'   â"'
-â"'  â"'  Retrieval: Task matching, skill lookup         â"'   â"'
-â"'  â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜   â"'
-â"'                                                         â"'
-â""â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"˜
+┌─────────────────────────────────────────────────────────┐
+│                 MEMORY ARCHITECTURE                     │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │            WORKING MEMORY                       │   │
+│  │  - Current context window                       │   │
+│  │  - Active scratchpad                            │   │
+│  │  - Immediate task state                         │   │
+│  │  Capacity: Limited (context window)             │   │
+│  │  Duration: Current session                      │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         ↑↓                              │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │            EPISODIC MEMORY                      │   │
+│  │  - Conversation history                         │   │
+│  │  - Past interactions                            │   │
+│  │  - Specific events and outcomes                 │   │
+│  │  Storage: Vector DB, conversation logs          │   │
+│  │  Retrieval: Semantic search, recency            │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         ↑↓                              │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │            SEMANTIC MEMORY                      │   │
+│  │  - Facts and knowledge                          │   │
+│  │  - Concepts and relationships                   │   │
+│  │  - User preferences and profile                 │   │
+│  │  Storage: Knowledge graphs, embeddings          │   │
+│  │  Retrieval: Entity lookup, graph traversal      │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         ↑↓                              │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │           PROCEDURAL MEMORY                     │   │
+│  │  - How to do things                             │   │
+│  │  - Skill execution patterns                     │   │
+│  │  - Successful approaches                        │   │
+│  │  Storage: Skill manifests, pattern library      │   │
+│  │  Retrieval: Task matching, skill lookup         │   │
+│  └─────────────────────────────────────────────────┘   │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ### Memory Implementation Patterns
@@ -1696,19 +1665,19 @@ def remember_procedure(task, approach, outcome):
 ```
 CONSOLIDATION PROCESS:
 
-1. WORKING â†' EPISODIC
+1. WORKING → EPISODIC
    - After task completion
    - Store conversation + outcome
    - Tag with metadata
 
-2. EPISODIC â†' SEMANTIC
+2. EPISODIC → SEMANTIC
    - Extract recurring facts
    - Update user model
    - Identify patterns
 
-3. EPISODIC â†' PROCEDURAL
-   - Successful approaches â†' skills
-   - Failed approaches â†' anti-patterns
+3. EPISODIC → PROCEDURAL
+   - Successful approaches → skills
+   - Failed approaches → anti-patterns
    - Update success rates
 ```
 
@@ -1727,7 +1696,7 @@ CONSOLIDATION PROCESS:
 □ User control over memory
 ```
 
-### Agentic Prompt Hook  -  Memory Systems
+### Agentic Prompt Hook — Memory Systems
 
 ```
 You are operating with a structured memory system:
@@ -1760,10 +1729,10 @@ You are operating with a structured memory system:
 ```
 
 ### Cross-Category Dependencies
-- **â†' Category 16** (Vector DB)  -  Embedding storage
-- **â†' Category 26** (Graphs)  -  Knowledge graphs
-- **â†' Category 29** (RAG)  -  Retrieval patterns
-- **â†' Category 31B** (Skills)  -  Procedural memory
+- **→ Category 16** (Vector DB) — Embedding storage
+- **→ Category 26** (Graphs) — Knowledge graphs
+- **→ Category 29** (RAG) — Retrieval patterns
+- **→ Category 31B** (Skills) — Procedural memory
 
 ---
 
@@ -1833,8 +1802,13 @@ You are operating with a structured memory system:
 | 54 | Analytics & Tracking | Foundation | v1.0 |
 | 55 | Monitoring & Observability | Foundation | v1.0 |
 | 56 | Compliance & Legal | Foundation | v1.0 |
+| 57 | Agent Orchestration Frameworks | AI Systems | v2.1 NEW |
+| 58 | AI-Native IDEs | AI Systems | v2.1 NEW |
+| 59 | Prompt Orchestration & Eval | AI Systems | v2.1 NEW |
+| 60 | Life OS Agents | AI Systems | v2.1 NEW |
+| 61 | Enterprise Agent Governance | Foundation | v2.1 NEW |
 
-**Total: 56 base categories + 4 v2.0 additions = 60 categories**
+**Total: 56 base categories + 6 v2.1 additions = 62 categories**
 
 ---
 
@@ -1842,12 +1816,12 @@ You are operating with a structured memory system:
 
 | Loop | Pattern | Best For |
 |------|---------|----------|
-| **RALPH** | Reasonâ†'Actâ†'Learnâ†'Planâ†'Hypothesize | General complex tasks |
-| **ReAct** | Thoughtâ†'Actionâ†'Observation | Simple tool use |
-| **ReWOO** | Plan allâ†'Execute allâ†'Synthesize | Parallel execution |
-| **Reflexion** | Attemptâ†'Evaluateâ†'Reflectâ†'Retry | Quality-critical output |
-| **Tree of Thought** | Branchâ†'Evaluateâ†'Pruneâ†'Expand | Exploring solutions |
-| **OODA** | Observeâ†'Orientâ†'Decideâ†'Act | Dynamic environments |
+| **RALPH** | Reason→Act→Learn→Plan→Hypothesize | General complex tasks |
+| **ReAct** | Thought→Action→Observation | Simple tool use |
+| **ReWOO** | Plan all→Execute all→Synthesize | Parallel execution |
+| **Reflexion** | Attempt→Evaluate→Reflect→Retry | Quality-critical output |
+| **Tree of Thought** | Branch→Evaluate→Prune→Expand | Exploring solutions |
+| **OODA** | Observe→Orient→Decide→Act | Dynamic environments |
 
 ---
 
@@ -1899,7 +1873,98 @@ You are operating with a structured memory system:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | January 2026 | Initial 56-category framework |
-| **2.0** | **January 2026** | **Added: Skills (31B), Reasoning Loops (31C), Prompt Patterns (31D), Memory Architecture (31E)** |
+| 2.0 | January 2026 | Added: Skills (31B), Reasoning Loops (31C), Prompt Patterns (31D), Memory Architecture (31E) |
+| **2.1** | **March 2026** | **Added: Cat 57-61, OpenClaw Integration, RPIT Loop Sync, Enhanced Skill Discovery** |
+
+---
+
+## Category 60: Life OS Agents
+
+### Scope
+Always-on personal AI agents, messaging-app-connected automation,
+autonomous task management, local-first AI assistants.
+
+### What This Category Is
+Life OS Agents are a distinct category from coding agents. They are:
+- Always running (daemon processes)
+- Connected to messaging apps (WhatsApp, Telegram, Slack, Discord)
+- Model-agnostic (connect to any LLM)
+- Optimized for non-developer tasks (scheduling, research, inbox management)
+
+They complement coding agents like Claude Code — they are the DISPATCH LAYER,
+while Claude Code is the EXECUTION LAYER.
+
+### Technology Stack
+
+#### Leading Platforms
+| Tool | Stars | Key Differentiator | Status |
+|------|-------|-------------------|--------|
+| **OpenClaw** | 199K+ | Original, messaging-native, 5,700+ community skills, ClawHub | OpenAI-backed foundation |
+| **NanoClaw** | Growing | Minimal OpenClaw (Raspberry Pi-compatible), ~80% features | Open-source |
+| **Nanobot (HKU)** | 26,800 | 4,000 lines Python, readable codebase, learning platform | Open-source |
+| **memU** | Growing | Memory-first, anticipatory, secretary model | Commercial |
+
+#### OpenClaw Architecture
+```text
+┌─────────────────────────────────────────────────────────────────────┐
+│                        OPENCLAW STACK                               │
+│                                                                     │
+│  Messaging Layer:  WhatsApp │ Telegram │ Slack │ Discord │ iMessage │
+│         │                                                           │
+│         ▼                                                           │
+│  OpenClaw Core: Message routing + Intent parsing + Memory          │
+│         │                                                           │
+│         ▼                                                           │
+│  Skills Layer (ClawHub: 5,700+ skills):                            │
+│    Spotify Control │ Grocery List │ Calendar │ Email │ Shell cmds  │
+│         │                                                           │
+│         ▼                                                           │
+│  LLM Layer: Claude │ GPT-4o │ Gemini │ DeepSeek │ Ollama (local)  │
+│         │                                                           │
+│         ▼                                                           │
+│  System Layer: File system │ Calendar │ Browser │ Smart Home       │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+#### ClawHub vs NS Skills Architecture
+| Aspect | ClawHub (OpenClaw) | NS Skills (.claude/skills/) |
+|--------|-------------------|------------------------------|
+| Discovery | Registry with 5,700+ skills | Progressive disclosure in session |
+| Trigger | Keyword/intent matching | Description-based auto-discovery |
+| Scope | Cross-app, always-on | Per-session, per-project |
+| Best for | Life automation | Development workflows |
+
+### High-Value Use Cases for Developers
+1. **Async Claude Code triggers** — "Fix bug #47" from WhatsApp → OpenClaw → claude CLI → PR
+2. **Multi-repo monitoring** — Morning summary of all open PR status
+3. **Scheduled framework maintenance** — Weekly cron: run retro skill, update changelog
+4. **Cross-platform context** — Meeting notes → OpenClaw → GitHub issue → Claude Code implements
+5. **Development status updates** — Telegram notification when RALPH loop completes
+
+### Security Considerations
+```text
+⚠️  OpenClaw has FULL SYSTEM ACCESS by default. Scope carefully:
+□ Run in Docker container with limited volume mounts
+□ Never run as root
+□ Whitelist only necessary directories
+□ Audit installed skills before enabling
+□ Use local LLM (Ollama) for sensitive/private data
+□ Review OpenClaw's network traffic if concerned about data sovereignty
+```
+
+### Selection Guide
+| Need | Recommendation |
+|------|---------------|
+| Maximum features + community skills | OpenClaw |
+| Minimal, auditable, learning project | Nanobot |
+| Raspberry Pi / low-resource device | NanoClaw |
+| Privacy-first, no cloud | Nanobot + Ollama |
+| Enterprise messaging integration | OpenClaw + Slack |
+
+### Cross-Category Dependencies
+- → Category 58 (AI-Native IDEs) — Claude Code as execution layer
+- → Category 44 (Workflow Orchestration) — for automation pipelines
+- → Category 31 (Agent Frameworks) — agent composition patterns
 
 ---
 ## Appendix: GTM Roadmap
@@ -1914,15 +1979,15 @@ Pre-launch polish (1-2 weeks), GitHub release v1.0, X threads (#AIBuilders), Red
 The following sections are designed as **extension points** where custom frameworks, methodologies, or domain-specific patterns can be integrated:
 
 ### Extension Point 1: Custom Skills
-**Location:** Category 31B  -  Skills & Capability Packaging
+**Location:** Category 31B — Skills & Capability Packaging
 **How to Integrate:** Create skill manifests in `/mnt/skills/user/` following the skill architecture defined. Your personal frameworks become invocable skills.
 
 ### Extension Point 2: Custom Reasoning Patterns
-**Location:** Category 31C  -  Agentic Reasoning Loops
+**Location:** Category 31C — Agentic Reasoning Loops
 **How to Integrate:** Define your reasoning methodology using the loop template. Add to the Loop Selection Guide.
 
 ### Extension Point 3: Custom Prompt Libraries
-**Location:** Category 31D  -  Prompt Engineering Patterns
+**Location:** Category 31D — Prompt Engineering Patterns
 **How to Integrate:** Add your prompt patterns to the pattern library. Document trigger phrases and use cases.
 
 ### Extension Point 4: Domain-Specific Categories
@@ -1935,7 +2000,7 @@ The following sections are designed as **extension points** where custom framewo
 - Cross-category dependencies
 
 ### Extension Point 5: Build Pattern Templates
-**Location:** Framework Usage Guide â†' Build Pattern Templates
+**Location:** Framework Usage Guide → Build Pattern Templates
 **How to Integrate:** Define your project archetypes as category combinations with required quality gates.
 
 ---
@@ -1954,91 +2019,16 @@ This Master Build Framework pairs with the **North Star Blueprint v6.0** for com
 | Skill manifest templates | Load balancing strategies |
 
 **Key NS Sections for MBF Users:**
-- **NS Section 0:** Agentic Bootstrap Protocol  -  How to start
-- **NS Section 17:** Confidence Calibration  -  When to escalate
-- **NS Section 18:** Autonomy Dial  -  Setting control level
-- **NS Section 23:** Handoff Protocols  -  Session continuity
-- **NS Part IV:** AI Orchestration  -  Complete agent methodology
+- **NS Section 0:** Agentic Bootstrap Protocol — How to start
+- **NS Section 17:** Confidence Calibration — When to escalate
+- **NS Section 18:** Autonomy Dial — Setting control level
+- **NS Section 23:** Handoff Protocols — Session continuity
+- **NS Part IV:** AI Orchestration — Complete agent methodology
 
 **Navigation:** Use **BRIDGE.md** to route between frameworks efficiently.
 
 ---
 
-*End of Framework v2.0  -  January 2026*
+*End of Framework v2.1 — March 2026*
 *Patched with Skills, Reasoning, Prompts, Memory Architecture*
-*Part of the unified NS + MBF ecosystem  -  see BRIDGE.md for navigation*
-
-
-## Category 54: Regulatory Compliance (L3)
-
-When you operate in regulated domains, treat compliance as **first‑class infrastructure**, not paperwork.
-
-Coverage:
-- GDPR (EU)
-- HIPAA (US healthcare)
-- SOC2 (security controls)
-- EU AI Act (risk classification, auditability)
-
-Patterns:
-- data classification labels (PII/PHI)
-- audit logging + immutable trails
-- retention & deletion policies
-- model/prompt change logs
-- documented risk assessments
-
-Deliverables:
-- compliance checklist per release
-- evidence artifacts stored with versioned releases
-
-
-### Prompt Regression Testing (GQ3)
-
-Treat prompts like code:
-- version prompts (PromptOps)
-- maintain a **golden prompt suite**
-- run regression in CI before deploy
-
-Recommended approach:
-- define canonical inputs
-- assert output constraints (format, safety, correctness)
-- track drift over time
-
-Tools:
-- DeepEval / RAGAS style evaluation harnesses
-- Langfuse / PromptLayer for prompt versioning + trace linking
-
-
-### Golden Dataset Management (GQ5)
-
-Your evaluation pipeline is only as good as your datasets.
-
-Best practices:
-- curate datasets by scenario (happy path, adversarial, long tail)
-- store dataset versions (DVC / Git LFS / object storage)
-- label provenance (source, date, policy)
-- define ownership + update cadence
-
-CI gate:
-- fail deploy if golden set performance drops beyond threshold.
-
-
-### Agent Session / Trace / Span Model (GQ6)
-
-Define observability primitives:
-- **Session**: a user-initiated run (contains many traces)
-- **Trace**: one workflow execution (contains many spans)
-- **Span**: one step (LLM call, tool call, retrieval, write)
-
-Minimum fields:
-- ids: session_id, trace_id, span_id
-- timestamps
-- model/provider used
-- token/cost estimates
-- tool name + args (redacted)
-- outcome + error
-
-This enables:
-- debugging
-- cost tracking
-- safety audits
-- regression detection
+*Part of the unified NS + MBF ecosystem — see BRIDGE.md for navigation*

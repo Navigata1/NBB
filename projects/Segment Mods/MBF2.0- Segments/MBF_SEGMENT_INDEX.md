@@ -1,6 +1,7 @@
-# MASTER BUILD FRAMEWORK v2.0 — SEGMENT INDEX
+# MASTER BUILD FRAMEWORK v2.1 — SEGMENT INDEX
 
-```
+
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │              MASTER BUILD FRAMEWORK — 4-SEGMENT DEVELOPMENT VERSION         │
@@ -21,7 +22,7 @@
 | 1 | MBF_PART_1_CORE.md | Front Matter + Tier 1-2 (Cat 1-14) | 1,123 | 36KB |
 | 2 | MBF_PART_2_DATA_AI.md | Tier 3-4 (Cat 15-35) | 1,140 | 26KB |
 | 3 | MBF_PART_3_CONTENT_OPS.md | Tier 5-6 (Cat 36-49) | 841 | 20KB |
-| 4 | MBF_PART_4_FOUNDATION.md | Tier 8 + Guides + Addendum (Cat 50-56+) | 1,870 | 57KB |
+| 4 | MBF_PART_4_FOUNDATION.md | Tier 8+ (Cat 50-61) + Guides + Addendum | 2,050 | 66KB |
 
 ---
 
@@ -32,29 +33,38 @@ When BRIDGE.md references a category, use this map to find the correct segment:
 | Category Range | Segment to Load |
 |----------------|-----------------|
 | Categories 1-14 | MBF_PART_1_CORE |
-| Categories 15-35 | MBF_PART_2_DATA_AI |
+| Categories 15-35, 57-59 | MBF_PART_2_DATA_AI |
 | Categories 36-49 | MBF_PART_3_CONTENT_OPS |
-| Categories 50-56 + Skills/RLM | MBF_PART_4_FOUNDATION |
+| Categories 50-56, 60-61 + Skills/RLM | MBF_PART_4_FOUNDATION |
 
 ---
 
 ## TIER BREAKDOWN BY SEGMENT
 
+
 ### MBF_PART_1_CORE
+
 - **Front Matter:** Framework Overview, 56 Categories at a Glance, Dependency Matrix
 - **Tier 1 (Cat 1-7):** Build Targets — Web Apps, Mobile, Desktop, Websites, Generative Web, OS/Embedded, Extensions
-- **Tier 2 (Cat 8-14):** Compute & Infrastructure — APIs, Edge, Serverless, GPU/ML, Containers, IaC, Platform Engineering
+- **Tier 2 (Cat 8-14, 58):** Compute & Infrastructure — APIs, Edge, Serverless, GPU/ML, Containers, IaC, Platform Engineering, AI-Native IDEs & Coding Agents
+
 
 ### MBF_PART_2_DATA_AI
+
 - **Tier 3 (Cat 15-21):** Data & Persistence — Relational DBs, Vector DBs, NoSQL, Local-First, Object Storage, Warehousing, Search
-- **Tier 4 (Cat 22-35):** AI & Agent Systems — Caching, Queues, Real-Time, Cron, Graph Processing, ETL, Feature Stores, RAG, Agents, MCPs, Memory, Fine-Tuning, Serving, Routing, Safety
+- **Tier 4 (Cat 22-35, 57-59):** AI & Agent Systems — Caching, Queues, Real-Time, Cron, Graph Processing, ETL, Feature Stores, RAG, Agents, MCPs, Memory, Fine-Tuning, Serving, Routing, Safety, Orchestration, IDEs, Prompt Eval
+
 
 ### MBF_PART_3_CONTENT_OPS
+
 - **Tier 5 (Cat 36-42):** Content Generation — Image Gen, Audio Gen, Video Gen, Document Gen, Code Gen, Data Gen, Translation
 - **Tier 6 (Cat 43-49):** Automation & DevOps — CI/CD, Workflow Orchestration, Browser Automation, Testing, Conversational, Documentation, Dashboards
 
+
 ### MBF_PART_4_FOUNDATION
-- **Tier 8 (Cat 50-56):** Security & Foundation — Auth, Payments, Security, Secrets, Analytics, Monitoring, Compliance
+
+- **Tier 8 (Cat 50-56, 61):** Security & Foundation — Auth, Payments, Security, Secrets, Analytics, Monitoring, Compliance, Agent Governance
+- **Cat 60:** Life OS Agents (Community/OpenClaw Integration)
 - **Usage Guide:** Framework integration patterns
 - **Appendix:** Quick Reference tables
 - **Addendum:** Skills, Reasoning Loops (RALPH, ReAct, etc.), Prompt Architecture, Memory Systems
@@ -74,7 +84,7 @@ When BRIDGE.md references a category, use this map to find the correct segment:
 
 Users should receive the **merged monolith file**, not these segments.
 - Segments are for OUR development context management
-- Users get a single MASTER_BUILD_FRAMEWORK_v1_1.md file
+- Users get a single MASTER_BUILD_FRAMEWORK_v2_1.md file
 - Their agents read it once and use BRIDGE routing
 
 ### To Merge Back to Monolith
@@ -83,7 +93,7 @@ Users should receive the **merged monolith file**, not these segments.
 # Remove segment headers (first 10 lines of each), then concatenate
 for i in 1 2 3 4; do
   tail -n +11 MBF_PART_${i}_*.md
-done > MASTER_BUILD_FRAMEWORK_v1_1_MERGED.md
+done > MASTER_BUILD_FRAMEWORK_v2_1_MERGED.md
 ```
 
 ---
@@ -104,7 +114,8 @@ done > MASTER_BUILD_FRAMEWORK_v1_1_MERGED.md
 
 ---
 
-```
+
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  MBF = WHAT to build with | NS = HOW to build | BRIDGE = NAVIGATE           │

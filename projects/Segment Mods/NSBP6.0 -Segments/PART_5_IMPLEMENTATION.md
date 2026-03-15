@@ -949,6 +949,60 @@ RECOMMENDATION: URL Path versioning
 • Communicate deprecation timeline clearly
 ```
 
+### 41.4 CODEBASE INTELLIGENCE
+
+```text
+REPOSITORY MAPS — CONTEXT-EFFICIENT CODEBASE NAVIGATION
+──────────────────────────────────────────────────────────────────────────────
+
+PROBLEM: For large codebases, loading entire files into context is wasteful.
+         Claude needs to know WHERE things are, not necessarily WHAT they contain.
+
+SOLUTION: Repository maps — AST-based + PageRank-weighted codebase indexes
+          that give Claude a navigational overview without loading full file content.
+
+HOW IT WORKS:
+  1. Parse codebase with tree-sitter (language-agnostic AST parser)
+  2. Build a graph: files → functions → dependencies
+  3. Apply PageRank to identify "important" symbols (frequently imported)
+  4. Produce a compressed map: "what lives where and what uses what"
+
+BENEFIT: Claude understands 100K+ line codebases in ~2K tokens of context
+
+IMPLEMENTATION OPTIONS:
+
+  Automatic (Claude Code built-in):
+    Claude Code's Explore sub-agent (Haiku-powered) builds this automatically.
+    Trigger explicitly:
+    "Use the explore sub-agent to build an understanding of this codebase.
+     Create architecture.md with a component map."
+
+  Manual (aider-style repo map):
+    ```bash
+    pip install aider-chat
+    aider --map-tokens 2048 --no-auto-commits
+    # Generates repo-map.txt that can be included in claude.md
+    ```
+
+  Custom integration:
+    ```typescript
+    // tree-sitter based repo map generator
+    import Parser from 'tree-sitter';
+    
+    // Extract all exported symbols and their locations
+    // Build import graph
+    // Apply importance scoring
+    // Output: compact map for claude.md injection
+    ```
+
+NS FRAMEWORK RECOMMENDATION:
+  1. Use Explore sub-agent for initial codebase orientation
+  2. Commit architecture.md as living document (update via RPIT test phase)
+  3. Link architecture.md from claude.md so it's always in context
+  4. For very large codebases: use separate research session to build the map,
+     then load the map (not full source) in implementation sessions
+```
+
 ---
 
 ## PART VIII SUMMARY

@@ -7,22 +7,6 @@
 > For BRIDGE routing: Sections 20-27 are in this segment.
 ---
 
-### Focused Agent Principle (M7)
-
-**One agent = one responsibility.**
-
-Why:
-- reduces context bloat
-- improves reliability
-- enables composability (chains of small agents)
-
-Patterns:
-- small specialist agents with strict inputs/outputs
-- explicit handoff contracts (what’s done, what’s next, what’s blocked)
-
-Anti‑patterns:
-- “monolith agent” that plans, codes, tests, deploys, writes docs, and manages infra in one loop
-- unbounded iteration without checkpoints
 # PART V: AGENT COMPOSITION & ORCHESTRATION
 
 ---
@@ -480,60 +464,65 @@ Cloud operations              │ Cloud-specific MCP (AWS, GCP, etc.)
 Version control               │ Git MCP or built-in
 ```
 
-### 21.5 Focused Agent Principle
+### 21.5 PLANNER / WORKER / JUDGE HIERARCHY
 
-> "One agent = one responsibility. Avoid monolithic 'do everything' agents."
+```text
+PLANNER / WORKER / JUDGE HIERARCHY
+──────────────────────────────────────────────────────────────────────────────
 
+Adapted from the Cursor FastRender architecture and now standard in production
+multi-agent systems as of Q1 2026.
+
+PROBLEM: A single agent trying to plan, execute, and verify simultaneously
+         produces lower quality than specialized agents in distinct roles.
+
+SOLUTION: Decompose work across three agent types with distinct responsibilities.
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                        THREE-TIER AGENT HIERARCHY                       │
+  │                                                                         │
+  │  ┌──────────────┐                                                       │
+  │  │   PLANNER    │  ← Orchestrates. Has full context. Makes decisions.   │
+  │  │  (Opus 4.6)  │  → Receives task → creates plan → delegates units    │
+  │  └──────┬───────┘                                                       │
+  │         │ delegates work units                                          │
+  │         ▼                                                               │
+  │  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐               │
+  │  │   WORKER A   │   │   WORKER B   │   │   WORKER C   │               │
+  │  │  (Sonnet)    │   │  (Sonnet)    │   │  (Sonnet)    │               │
+  │  │  Frontend    │   │  Backend     │   │  Tests       │               │
+  │  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘               │
+  │         └──────────────────┴──────────────────┘                       │
+  │                             │ results                                  │
+  │                             ▼                                          │
+  │                      ┌──────────────┐                                  │
+  │                      │    JUDGE     │  ← Verifies quality. Strict.    │
+  │                      │  (Opus 4.6) │  → Accept, request revision,     │
+  │                      │             │    or escalate to human           │
+  │                      └─────────────┘                                   │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+IMPLEMENTATION IN CLAUDE CODE:
+  → Planner: Your main orchestrator session (use Opus for highest-quality planning)
+  → Workers: Parallel sub-agents or worktree sessions (Sonnet for cost efficiency)
+  → Judge: A review sub-agent with a strict system prompt, or your stop hook
+
+JUDGE SYSTEM PROMPT TEMPLATE:
+  "You are a code reviewer with high standards. Review the following work against
+   these criteria: [success criteria from plan.md]. Your only valid responses are:
+   APPROVE / REQUEST_REVISION: [specific changes needed] / ESCALATE: [reason]
+   Do not suggest. Do not soften. Be precise."
+
+WHEN TO USE THIS PATTERN:
+  ✓ Features with clear separation between frontend/backend/tests
+  ✓ Large refactors that touch many files
+  ✓ Any work where quality matters more than speed
+
+WHEN NOT TO USE:
+  ✗ Simple bug fixes
+  ✗ Tasks requiring continuous human taste judgment
+  ✗ Prototypes where iteration speed > quality
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       FOCUSED AGENT PRINCIPLE                                │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  CORE PHILOSOPHY                                                             │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  Single-purpose agents with clear boundaries outperform monolithic agents.  │
-│  Complexity emerges from composition, not from bloated prompts.             │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PRINCIPLES                                                                  │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PRINCIPLE            │ DESCRIPTION                                         │
-│  ─────────────────────┼───────────────────────────────────────────────────  │
-│  Single Purpose       │ Each agent has ONE well-defined job                 │
-│  Clear Boundaries     │ Explicit scope prevents scope creep                 │
-│  Composability        │ Small agents compose into complex workflows         │
-│  Handoff Protocols    │ Clear contracts between specialized agents          │
-│  Confidence Gates     │ Pause when approaching boundary of expertise        │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  ANTI-PATTERNS TO AVOID                                                      │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  ❌ "Swiss Army Knife" agents that try to do everything                     │
-│  ❌ Implicit assumptions about agent capabilities                           │
-│  ❌ Chaining without confidence gates                                       │
-│  ❌ Monolithic prompts with multiple objectives                             │
-│  ❌ Agents that "help with anything"                                        │
-│  ❌ No defined scope or boundary documentation                              │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  □ Agent has single, stated purpose in its definition                       │
-│  □ Boundaries documented in agent specification                             │
-│  □ Handoff protocol defined for multi-agent scenarios                       │
-│  □ Confidence thresholds set for each capability                            │
-│  □ Escalation path defined when out of scope                                │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** MBF Category 30 (Agent Frameworks)
 
 ---
 

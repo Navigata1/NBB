@@ -7,28 +7,6 @@
 > For BRIDGE routing: Sections 9-19 are in this segment.
 ---
 
-### Plan Mode Documentation (L1)
-
-Use **Plan Mode** when:
-- requirements are ambiguous
-- system is multi‑component (agents + tools + persistence)
-- changes are high‑risk
-
-Plan Mode must produce:
-- goals / non‑goals
-- constraints (time, budget, stack)
-- step sequence with checkpoints
-- test plan + rollback
-
-Then wait for approval (or reduce autonomy if approval is required).
-### Ownership Principle: “Agent builds it → agent maintains it” (N3)
-
-If an agent generates code, docs, or scaffolding, it should also:
-- add tests / checks that keep it correct
-- add minimal docs for future modification
-- define how it will be updated (owner, inputs, upgrade path)
-
-This prevents “one‑off generation” that immediately rots.
 # PART III: DOCUMENTATION & WORKFLOW
 
 ---
@@ -1903,6 +1881,69 @@ THINGS THAT ARE NOT EMERGENCIES:
 
 ---
 
+## 12.9 CONTEXT MANAGEMENT
+
+```text
+CONTEXT COMPACTION RECOVERY PROTOCOL
+──────────────────────────────────────────────────────────────────────────────
+
+PROBLEM: Autocompaction (when Claude runs out of context and compresses the
+         conversation) causes degraded results. Critical decisions, architectural
+         context, and reasoning chains get lost.
+
+RULE: Treat compaction as a session restart. Prevent it. When it happens, recover.
+
+PREVENTION STRATEGY:
+  1. Monitor context with /context command — know your % at a glance
+  2. Customize status line to show context % always visible
+  3. Use /clear liberally between distinct tasks (not just when stuck)
+  4. Start new sessions for new tasks — don't stretch one session too long
+  5. Aim to complete each RPIT loop within a single session
+
+RECOVERY PROTOCOL (when compaction occurs):
+  Step 1: Don't continue — compacted sessions compound errors
+  
+  Step 2: Start a fresh session
+  
+  Step 3: Load context from structured artifacts (not conversation):
+    "We just had compaction. Reload context:
+     1. Read claude.md
+     2. Read plan.md for current feature
+     3. Read git log --oneline -10
+     4. Run the tests to see current state
+     Tell me what you understand about where we were."
+  
+  Step 4: Verify Claude's understanding before continuing
+    If Claude is missing context: have it read the relevant source files
+    If Claude seems confused: re-brief explicitly
+  
+  Step 5: Continue from a clean state — don't try to "resume"
+
+ARTIFACTS THAT SURVIVE COMPACTION:
+  These are your continuity lifeline. Always keep them current:
+  ✓ claude.md — project context
+  ✓ plan.md — current feature plan with completed steps checked off
+  ✓ architecture.md — system understanding
+  ✓ git log — what actually happened
+  ✓ test results — current pass/fail state
+
+ANTI-PATTERN: Trying to summarize what happened to Claude after compaction.
+              Always restore context from files, not conversation summaries.
+              Files are ground truth. Conversation is ephemeral.
+
+CONTEXT BUDGET GUIDELINES:
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │  Context %  │  Action                                                  │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │  0-50%      │  Normal operation                                        │
+  │  50-70%     │  Finish current task, then /clear or new session         │
+  │  70-85%     │  Finish current step ONLY, immediately start new session │
+  │  85%+       │  STOP. New session NOW. Do not proceed.                  │
+  └────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## PART III SUMMARY
 
 ```
@@ -2256,6 +2297,160 @@ When parallelizing, assign archetypes explicitly:
 • P-Thread B: Builder (implements Feature Y)
 • Supervisor: Design Lead (coordinates, resolves conflicts)
 • Final Pass: QC/Nerd (validates all outputs)
+```
+
+### 14.2.1 Parallel Agent Orchestration
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              PARALLEL AGENT ORCHESTRATION — COMPLETE PLAYBOOK               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+CAPABILITY: Multi-Claude + Git Worktrees = a week of features in hours.
+STATUS: Table stakes as of February 2026. All major AI tools now ship this.
+NS RECOMMENDATION: Start with 2-3 agents, scale as you get comfortable.
+
+────────────────────────────────────────────────────────────────────────────────
+
+GIT WORKTREES — THE ISOLATION PRIMITIVE
+
+Git worktrees let you have multiple working copies of the same repo, each on
+a different branch, sharing the same git history. This is how you run multiple
+Claude sessions safely without collision.
+
+BUILT-IN SUPPORT:
+  claude --worktree        # Creates new worktree automatically
+  claude -w                # Shorthand
+
+WHAT HAPPENS:
+  → New directory: .claude/worktrees/<branch-name>/
+  → Fresh branch off current HEAD
+  → Isolated file state (changes in worktree don't affect main checkout)
+  → Each Claude session only sees its own worktree
+
+DESKTOP APP METHOD:
+  → New Session → check "Use worktree" option
+  → App manages worktree creation, monitoring, and cleanup
+
+────────────────────────────────────────────────────────────────────────────────
+
+MULTI-CLAUDE ORCHESTRATION PLAYBOOK
+
+  STEP 1: DECOMPOSE
+    Identify which features/tasks are truly independent (no shared files)
+    
+    ✓ Feature A modifies: src/auth/, tests/auth/
+    ✓ Feature B modifies: src/payments/, tests/payments/
+    ✓ Feature C modifies: src/notifications/, tests/notifications/
+    ✗ Feature D requires Feature A to complete first → sequential, not parallel
+
+  STEP 2: BRIEF EACH AGENT
+    Each agent needs a complete brief before starting. Template:
+    
+    "You are working on [Feature Name] in your isolated worktree.
+     Issue: #[number] — read it via GitHub CLI before starting.
+     Files you own: [list]
+     Files you must NOT touch: [list]
+     Success criteria: [measurable criteria from plan.md]
+     When done: run tests, then 'gh pr create --title "[title]" --body "[body]'"
+     Use RPIT loop. Start with plan.md before any code."
+
+  STEP 3: LAUNCH
+    # Terminal approach
+    claude -w  # Session 1: Feature A
+    claude -w  # Session 2: Feature B (in new terminal tab)
+    claude -w  # Session 3: Feature C (in new terminal tab)
+    
+    # Desktop App approach
+    New Session → worktree ✓ → brief Feature A
+    New Session → worktree ✓ → brief Feature B
+    New Session → worktree ✓ → brief Feature C
+
+  STEP 4: MONITOR
+    → Check Desktop App sidebar for session status
+    → Each session shows current task and context %
+    → Sessions can run overnight; check PRs in the morning
+
+  STEP 5: REVIEW AND MERGE
+    → Review each PR independently
+    → Merge in dependency order (if any)
+    → Delete worktrees after merge: git worktree remove <path>
+
+────────────────────────────────────────────────────────────────────────────────
+
+ANTI-PATTERNS TO AVOID
+
+  ❌ Shared file ownership between parallel agents
+     → Two agents editing the same file = merge conflicts
+
+  ❌ Launching too many agents before establishing test suites
+     → Without tests, you can't verify each agent's work independently
+
+  ❌ No success criteria per agent
+     → Agents without clear success criteria wander
+
+  ❌ Not using worktrees
+     → Two sessions on the same branch will corrupt each other
+
+────────────────────────────────────────────────────────────────────────────────
+
+CONTEXT: WHERE THIS SITS IN YOUR WORKFLOW
+
+  SINGLE FEATURE:     1 Claude + RPIT Loop
+  MULTIPLE FEATURES:  Multi-Claude + Worktrees + RPIT per agent
+  COMPLEX FEATURE:    Planner/Worker/Judge hierarchy (ENH-011)
+  OVERNIGHT BUILDS:   Multi-Claude + RALPH Loop + GitHub Action
+```
+
+### 14.2.2 Agent Teams Pattern
+
+```text
+AGENT TEAMS — COORDINATED SPECIALIZED ROLES
+──────────────────────────────────────────────────────────────────────────────
+
+DISTINCTION: Agent Teams ≠ Multi-Clouding
+
+  Multi-Clouding: Parallel agents working on DIFFERENT features independently
+  Agent Teams:    Coordinated agents working on the SAME feature together
+
+Agent Teams is Claude Code's newest capability. It splits complex work across
+specialized instances that coordinate via a shared task list and messaging system.
+
+IDEAL USE CASE: A large feature with clean role separation
+  → Frontend Agent (owns: src/components/, src/pages/)
+  → Backend Agent (owns: src/api/, src/services/, src/db/)
+  → Testing Agent (owns: tests/, e2e/, writes tests for both other agents)
+
+COORDINATION MECHANISM:
+  → Shared task list (agents see each other's progress)
+  → Messaging system (agents can request artifacts from each other)
+  → Optional: worktree isolation per agent to prevent conflicts
+
+SETUP:
+  "Create an agent team for [feature]. Roles:
+   - frontend-agent: implements UI components and pages
+   - backend-agent: implements API endpoints and services
+   - test-agent: writes tests for all code produced
+   Each agent owns distinct files (see plan.md for file assignments).
+   backend-agent completes API contracts before frontend-agent begins."
+
+WORKTREE ISOLATION FOR TEAMS:
+  By default, agent teammates share working directory → risk of conflicts.
+  Add worktree isolation: each teammate gets its own repo copy.
+  
+  "Set up agent team with worktree isolation enabled."
+
+WHEN TO USE VS. MULTI-CLOUDING:
+  
+  Use AGENT TEAMS when:
+    ✓ Agents need to coordinate (frontend needs backend API contract)
+    ✓ Work has clear role specialization within one feature
+    ✓ You want built-in inter-agent communication
+  
+  Use MULTI-CLOUDING when:
+    ✓ Features are truly independent (no coordination needed)
+    ✓ You want maximum simplicity
+    ✓ Features can be reviewed as isolated PRs
 ```
 
 ---
@@ -2846,336 +3041,6 @@ INDICATORS CONTEXT NEEDS REFRESH:
 
 ---
 
-### 16.5 Blueprint Discovery Protocol
-
-> "The most valuable patterns are already in your codebase—waiting to be documented."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    BLUEPRINT DISCOVERY PROTOCOL                              │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  PURPOSE: Extract and document reusable patterns from existing codebase     │
-│  TRIGGER: Agent or user invokes "Discover blueprints in [area]"             │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 1: AUTOMATED ANALYSIS                                                 │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  Agent scans specified codebase area and identifies patterns that are:      │
-│                                                                              │
-│  □ UNIQUE/OPINIONATED — Not standard conventions (worth documenting)        │
-│  □ REPEATED — Appears across multiple files (established practice)          │
-│  □ POTENTIALLY UNDOCUMENTED — No existing blueprint covers it               │
-│                                                                              │
-│  DETECTION SIGNALS:                                                          │
-│  ├── Consistent naming conventions across similar files                     │
-│  ├── Repeated code structures with minor variations                         │
-│  ├── Custom utility functions used widely                                   │
-│  ├── Error handling patterns unique to this codebase                        │
-│  ├── API response structures with consistent envelopes                      │
-│  └── Component patterns with established composition rules                  │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 2: INTERVIEW PROTOCOL (Ask User Question)                             │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  For each identified pattern, agent interviews with targeted questions:     │
-│                                                                              │
-│  STANDARD INTERVIEW QUESTIONS:                                               │
-│  1. "I found [pattern description]. What problem does this solve?"          │
-│  2. "Why was this designed this way instead of [alternative]?"              │
-│  3. "Are there edge cases or anti-patterns I should document?"              │
-│  4. "Should this be documented as a reusable blueprint?"                    │
-│                                                                              │
-│  PATTERN-SPECIFIC PROBES:                                                    │
-│  • For API patterns: "What error codes and response shapes are required?"   │
-│  • For UI patterns: "What accessibility requirements apply?"                │
-│  • For data patterns: "What validation or transformation rules?"            │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 3: DRAFT GENERATION                                                   │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  For approved patterns, generate concise blueprint file:                    │
-│                                                                              │
-│  BLUEPRINT FILE STRUCTURE (~50-100 lines max):                              │
-│  ├── PURPOSE — What problem this pattern solves                             │
-│  ├── PATTERN — The canonical implementation                                 │
-│  ├── VARIATIONS — Acceptable modifications                                  │
-│  ├── ANTI-PATTERNS — What NOT to do (with reasoning)                        │
-│  └── QUALITY GATES — Checklist for compliance                               │
-│                                                                              │
-│  CONCISENESS REQUIREMENT:                                                    │
-│  Blueprints must be injectable without blowing up context.                  │
-│  Target: 50-100 lines. Maximum: 150 lines.                                  │
-│  If longer, split into focused sub-blueprints.                              │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 4: INDEX UPDATE                                                       │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  After blueprint approval:                                                   │
-│  1. Add entry to blueprints/index.yaml                                      │
-│  2. Generate one-line description (max 80 chars)                            │
-│  3. Tag with domains (e.g., "ui", "api", "data", "auth")                   │
-│  4. Set initial confidence score (based on validation)                      │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  □ Pattern is unique/opinionated (not standard convention)                  │
-│  □ User interview completed and rationale captured                          │
-│  □ Blueprint is concise (<100 lines)                                        │
-│  □ Anti-patterns documented                                                  │
-│  □ Index.yaml updated with entry                                            │
-│  □ Domains tagged correctly                                                  │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** NS Section 16.7 (Blueprint Index), BRIDGE Section 6.6
-
----
-
-### 16.6 Blueprint Injection Protocol
-
-> "Inject the minimum context needed for maximum effect."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    BLUEPRINT INJECTION PROTOCOL                              │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  PURPOSE: Context-aware selection and injection of relevant blueprints      │
-│  CORE PRINCIPLE: Intelligent selection, NOT random loading                  │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  TRIGGER PATTERNS                                                            │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  Injection auto-triggers when:                                               │
-│  ├── Entering plan mode with feature request                                │
-│  ├── Creating Claude skill or agent                                         │
-│  ├── User explicitly invokes "Inject blueprints"                            │
-│  └── Agent detects pattern need during implementation                       │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  INTELLIGENT SELECTION ALGORITHM (Core Innovation)                           │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  NOT random selection—query-based semantic matching:                        │
-│                                                                              │
-│  STEP 1: CONTEXT QUERY GENERATION                                            │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  ├── Parse user request for intent signals                                  │
-│  ├── Extract: action verbs, nouns, domain hints                             │
-│  ├── Generate: semantic query vector                                        │
-│  └── Example: "build login form" → [auth, ui, forms, validation]           │
-│                                                                              │
-│  STEP 2: BLUEPRINT RELEVANCE SCORING                                         │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  For each blueprint in index.yaml:                                          │
-│  ├── Calculate domain overlap score (0-1)                                   │
-│  ├── Calculate intent alignment score (0-1)                                 │
-│  ├── Calculate recency bonus (+0.1 if recently used successfully)           │
-│  └── Combined = (domain × 0.4) + (intent × 0.5) + (recency × 0.1)          │
-│                                                                              │
-│  STEP 3: CONFIDENCE-GATED SELECTION                                          │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  ├── Sort blueprints by combined score                                      │
-│  ├── Select top N where score ≥ 0.65                                        │
-│  │                                                                          │
-│  │   IF top score ≥ 0.85:                                                   │
-│  │       → AUTO-INJECT (no prompt needed)                                   │
-│  │       → Report: "Auto-injecting [blueprint] (confidence: 0.XX)"         │
-│  │                                                                          │
-│  │   IF top score 0.65-0.84:                                                │
-│  │       → SUGGEST with confirmation                                        │
-│  │       → "Apply these blueprints? [list with scores]"                    │
-│  │                                                                          │
-│  │   IF top score < 0.65:                                                   │
-│  │       → ASK for clarification                                            │
-│  │       → "What domain is this task? [options]"                           │
-│  │                                                                          │
-│  └── User can always override: "Add [blueprint]" or "Skip blueprints"      │
-│                                                                              │
-│  STEP 4: CONTEXT WINDOW PROTECTION                                           │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  ├── Max blueprints per injection: 5                                        │
-│  ├── Max combined line count: 500 lines                                     │
-│  ├── If over limit: Prioritize by score, truncate lowest                    │
-│  └── Report: "Injecting 3 of 5 relevant blueprints (context limit)"        │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  CONTEXT DETECTION                                                           │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  │ Context       │ Behavior                                                 │
-│  ├───────────────┼──────────────────────────────────────────────────────────│
-│  │ Planning      │ Reference blueprints (not inline) to preserve context   │
-│  │ Skill Creation│ Embed or reference based on skill size preference       │
-│  │ Conversation  │ Inline relevant blueprints for immediate use            │
-│  │ Implementation│ Load into working context with code references          │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  INJECTION MODES                                                             │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  │ Mode     │ When to Use              │ How It Works                       │
-│  ├──────────┼──────────────────────────┼────────────────────────────────────│
-│  │ Reference│ Skills, persistent docs  │ Add @-reference to blueprint file │
-│  │ Inline   │ Conversations, quick ops │ Copy content into active context  │
-│  │ Hybrid   │ Complex features         │ Reference + inline key sections   │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  □ Semantic query generated from user intent                                │
-│  □ Relevance scoring performed (not random selection)                       │
-│  □ Confidence threshold applied (0.85 auto, 0.65 suggest, <0.65 ask)       │
-│  □ Context window limits respected (max 5 blueprints, 500 lines)           │
-│  □ Selection reasoning logged/reported to user                              │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** NS Section 16.5 (Blueprint Discovery), NS Section 16.7 (Blueprint Index)
-
----
-
-### 16.7 Blueprint Index System
-
-> "The index is your first read—full blueprints are loaded on demand."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                      BLUEPRINT INDEX SYSTEM                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  PURPOSE: Enable fast blueprint selection WITHOUT loading all blueprints    │
-│  LOCATION: blueprints/index.yaml (project-level)                            │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  INDEX SCHEMA                                                                │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  ```yaml                                                                    │
-│  # blueprints/index.yaml                                                    │
-│  version: "1.0"                                                             │
-│  last_updated: "2026-01-23"                                                 │
-│  project: "your-project-name"                                               │
-│                                                                             │
-│  blueprints:                                                                │
-│    - id: "api-response-structure"                                          │
-│      file: "api-responses.md"                                              │
-│      description: "Standardized API response envelope with error handling" │
-│      domains: ["api", "backend"]                                           │
-│      confidence: 0.92                                                       │
-│                                                                             │
-│    - id: "component-naming"                                                 │
-│      file: "component-naming.md"                                           │
-│      description: "React component naming and file organization pattern"   │
-│      domains: ["ui", "frontend", "react"]                                  │
-│      confidence: 0.88                                                       │
-│                                                                             │
-│    - id: "error-boundaries"                                                 │
-│      file: "error-handling.md"                                             │
-│      description: "Error boundary placement and fallback UI patterns"      │
-│      domains: ["ui", "error-handling"]                                     │
-│      confidence: 0.85                                                       │
-│                                                                             │
-│    - id: "auth-flow"                                                        │
-│      file: "authentication.md"                                             │
-│      description: "JWT token handling and session management pattern"      │
-│      domains: ["auth", "security", "backend"]                              │
-│      confidence: 0.90                                                       │
-│  ```                                                                        │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  FIELD DEFINITIONS                                                           │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  │ Field       │ Required │ Description                                    │
-│  ├─────────────┼──────────┼────────────────────────────────────────────────│
-│  │ id          │ Yes      │ Unique identifier (kebab-case)                 │
-│  │ file        │ Yes      │ Relative path to blueprint file                │
-│  │ description │ Yes      │ One-line summary (max 80 chars)                │
-│  │ domains     │ Yes      │ Array of domain tags for matching              │
-│  │ confidence  │ No       │ Historical success rate (0.0-1.0)              │
-│                                                                              │
-│  STANDARD DOMAIN TAGS:                                                       │
-│  ├── ui, frontend, backend, api, data, auth, security                       │
-│  ├── testing, devops, performance, accessibility                            │
-│  └── [project-specific domains as needed]                                   │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  SELECTION ALGORITHM                                                         │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  When agent needs blueprints:                                                │
-│                                                                              │
-│  1. READ index.yaml (lightweight, ~50 lines typically)                      │
-│  2. MATCH current task domains to blueprint domains                         │
-│  3. SCORE relevance using injection protocol algorithm                      │
-│  4. SELECT top 3-5 relevant blueprints                                      │
-│  5. LOAD only those blueprint files (on-demand)                             │
-│                                                                              │
-│  This prevents loading all blueprints into context unnecessarily.           │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  INDEX MAINTENANCE                                                           │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  AUTOMATIC UPDATES:                                                          │
-│  • On blueprint creation (via Discovery Protocol)                           │
-│  • On blueprint deletion (remove stale entries)                             │
-│  • On confidence recalibration (usage tracking)                             │
-│                                                                              │
-│  MANUAL TRIGGERS:                                                            │
-│  • "Index blueprints" — Regenerate index from blueprint folder             │
-│  • "Validate index" — Check for missing/stale entries                       │
-│                                                                              │
-│  VALIDATION ON PROJECT INIT:                                                 │
-│  When starting a project, agent should:                                      │
-│  1. Check if blueprints/index.yaml exists                                   │
-│  2. If exists: Validate entries match actual files                          │
-│  3. If missing: Offer to generate from existing blueprints                  │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  □ All blueprints have index entries                                        │
-│  □ No orphaned index entries (file exists for each entry)                   │
-│  □ Descriptions are concise (max 80 chars)                                  │
-│  □ Domains are consistent with project vocabulary                           │
-│  □ Index file itself is under 100 lines                                     │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** NS Section 16.5 (Blueprint Discovery), NS Section 16.6 (Blueprint Injection)
-
----
-
 ## 17. CONFIDENCE CALIBRATION ENGINE
 
 ### 17.1 Confidence Levels
@@ -3312,67 +3177,6 @@ UNCERTAIN:
   "I'm not confident in any approach without more information."
 ```
 
-### 17.4 Agent Ownership Principle
-
-> "The agent that builds it, maintains it."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                      AGENT OWNERSHIP PRINCIPLE                               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  CORE RULE                                                                   │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  When an agent creates something, that agent owns the maintenance burden.   │
-│  This creates accountability and preserves context.                          │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  OWNERSHIP PATTERNS                                                          │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  SCENARIO                  │ OWNERSHIP PATTERN                               │
-│  ─────────────────────────┼───────────────────────────────────────────────  │
-│  Agent creates a file      │ Agent responsible for updates                  │
-│  Agent implements feature  │ Agent handles bug fixes                        │
-│  Agent writes tests        │ Agent maintains test suite                     │
-│  Agent sets up config      │ Agent handles config changes                   │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  IMPLEMENTATION                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  1. TAGGING                                                                  │
-│     • Tag generated artifacts with agent identity                           │
-│     • Include timestamp and version                                          │
-│     • Document the "why" alongside the "what"                               │
-│                                                                              │
-│  2. ROUTING                                                                  │
-│     • Route maintenance requests to originating agent (if possible)         │
-│     • Preserve context chain when handing off                               │
-│     • Include original decision rationale in handoffs                       │
-│                                                                              │
-│  3. DOCUMENTATION                                                            │
-│     • Document agent decisions in code comments                              │
-│     • Maintain decision log for complex implementations                     │
-│     • Make "agent memory" of past decisions accessible                      │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  □ Artifacts tagged with generation metadata                                 │
-│  □ Maintenance routing documented                                            │
-│  □ Agent "memory" of past decisions accessible                              │
-│  □ Handoff protocol includes ownership transfer                             │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** NS Section 23 (Handoffs)
-
 ---
 
 ## 18. AUTONOMY DIAL SYSTEM
@@ -3490,185 +3294,6 @@ AI SHOULD INCREASE AUTONOMY (proceed) WHEN:
 □ Making read-only operations
 □ Generating drafts (not final output)
 ```
-
-### 18.4 Plan Mode Mastery
-
-> "The right planning mode prevents both over-engineering and under-specification."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       PLAN MODE MASTERY                                      │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  TWO PLANNING MODES                                                          │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  MODE                 │ TRIGGER                  │ BEHAVIOR                  │
-│  ─────────────────────┼──────────────────────────┼───────────────────────────│
-│  General              │ Default mode             │ Quick PRD/to-do from idea │
-│  Ask User Question    │ "use ask user question"  │ Interviews on specifics   │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  WHEN TO USE EACH                                                            │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  SITUATION                    │ RECOMMENDED MODE                             │
-│  ─────────────────────────────┼─────────────────────────────────────────────│
-│  Quick prototype              │ General                                      │
-│  Complex feature              │ Ask User Question                            │
-│  Unclear requirements         │ Ask User Question                            │
-│  Time pressure                │ General                                      │
-│  Multiple stakeholders        │ Ask User Question                            │
-│  Exploratory work             │ General                                      │
-│  Production feature           │ Ask User Question                            │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  CONFIDENCE-TRIGGERED MODE SWITCHING                                         │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  When confidence < MEDIUM, Bootstrap can trigger Ask User Question mode:    │
-│  "Invoke ask user question for [specific detail needed]"                    │
-│                                                                              │
-│  EXAMPLE TRIGGERS:                                                           │
-│  • "I'm unsure about the authentication flow—let me ask."                   │
-│  • "Multiple valid approaches exist—need human decision."                   │
-│  • "Business requirement unclear—switching to interview mode."              │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  □ Mode selection documented in plan                                         │
-│  □ Plan reviewed before execution                                            │
-│  □ Ambiguities surfaced via appropriate mode                                │
-│  □ Mode switch justified when changed mid-task                              │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** NS Section 0.1 (Quick-Start Directive), BRIDGE Section 3
-
----
-
-### 18.5 Spec Shaping Protocol
-
-> "A well-shaped spec prevents 80% of implementation problems."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                      SPEC SHAPING PROTOCOL                                   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  PURPOSE: Interactive feature specification with blueprint awareness        │
-│  TRIGGER: In Plan Mode, invoke "Shape spec for [feature]"                   │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 1: CONTEXT GATHERING (Automatic)                                      │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  Agent automatically:                                                        │
-│  1. Detects product mission (from claude.md / superprompt)                  │
-│  2. Reads blueprint index (blueprints/index.yaml)                           │
-│  3. Identifies relevant existing patterns                                   │
-│  4. Scans for similar features in codebase                                  │
-│                                                                              │
-│  Context loaded before first question is asked.                             │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 2: CLARIFYING QUESTIONS (Ask User Question)                           │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  Agent interviews with targeted questions:                                   │
-│                                                                              │
-│  STANDARD QUESTIONS (always asked):                                          │
-│  ├── 1. "Do you have mockups, wireframes, or screenshots to reference?"     │
-│  ├── 2. "Are there similar features in this codebase I should study?"       │
-│  ├── 3. "What's the core user problem this solves?"                         │
-│  └── 4. "Any technical constraints I should know about?"                    │
-│                                                                              │
-│  BLUEPRINT-AWARE QUESTIONS (contextual):                                     │
-│  ├── 5. "These blueprints seem relevant: [list]. Apply them?"               │
-│  ├── 6. "I noticed [pattern] in your codebase. Follow it here?"             │
-│  └── 7. "This conflicts with [existing pattern]. How to resolve?"           │
-│                                                                              │
-│  DOMAIN-SPECIFIC PROBES (based on detected domains):                         │
-│  ├── UI: "What states does this component have? (loading, error, empty)"   │
-│  ├── API: "What error responses should this endpoint return?"               │
-│  ├── Auth: "What permissions/roles should access this feature?"             │
-│  └── Data: "What happens if the data doesn't exist or is invalid?"         │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 3: SPEC GENERATION                                                    │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  Create spec folder with dated naming convention:                            │
-│                                                                              │
-│  specs/YYYY-MM-DD-[feature-name]/                                            │
-│  ├── plan.md          — Implementation plan with tasks                       │
-│  ├── shape.md         — Q&A session recap (interview transcript)            │
-│  ├── blueprints.md    — List of applied blueprints with rationale           │
-│  └── references.md    — Similar code, external docs, mockup links           │
-│                                                                              │
-│  SPEC FOLDER CONTENTS:                                                       │
-│                                                                              │
-│  plan.md:                                                                    │
-│  ├── Feature summary                                                         │
-│  ├── Implementation tasks (ordered)                                          │
-│  ├── Acceptance criteria                                                     │
-│  └── Estimated scope (S/M/L)                                                │
-│                                                                              │
-│  shape.md:                                                                   │
-│  ├── Questions asked                                                         │
-│  ├── Answers received                                                        │
-│  ├── Assumptions made (if any)                                              │
-│  └── Open questions / decisions needed                                      │
-│                                                                              │
-│  blueprints.md:                                                              │
-│  ├── List of blueprints applied                                              │
-│  ├── Why each was selected                                                  │
-│  └── Any blueprint modifications for this feature                           │
-│                                                                              │
-│  references.md:                                                              │
-│  ├── Similar code paths in codebase                                          │
-│  ├── External documentation links                                            │
-│  └── Mockup/wireframe locations                                             │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PHASE 4: HANDOFF & PERSISTENCE                                              │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  Spec folder PERSISTS across sessions:                                       │
-│  • Future agents can read specs/ to understand feature context              │
-│  • Handoff notes reference spec folder location                             │
-│  • Spec is updated as implementation progresses                             │
-│                                                                              │
-│  IMPLEMENTATION LINKAGE:                                                     │
-│  • Each task in plan.md links to relevant code once implemented             │
-│  • Completion status updated as work progresses                             │
-│  • Post-implementation: spec becomes feature documentation                  │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ───────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  □ All standard clarifying questions answered                               │
-│  □ Relevant blueprints identified and documented                            │
-│  □ Spec folder created with all 4 files                                     │
-│  □ Plan reviewed before execution begins                                    │
-│  □ Open questions flagged for human decision                                │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** NS Section 16.6 (Blueprint Injection), NS Section 18.4 (Plan Mode)
 
 ---
 

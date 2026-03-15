@@ -1,32 +1,13 @@
-# NORTH STAR BLUEPRINT v6.0 — SEGMENT 1 of 7
+# NORTH STAR BLUEPRINT v6.1 — SEGMENT 1 of 7
 ## PART_1_FOUNDATION
-### Contents: Front Matter (Section 0) + Part I (Sections 1-4) + Part II (Sections 5-8)
-### Lines: 1-3819 of original
+### Contents: Front Matter (Section 0) + Part I (Sections 1-5) + Part II (Sections 6-9)
+### Lines: 1-3819 of original (expanded with v6.1 enhancements)
 ---
 > **SEGMENT NAVIGATION:** This is a development segment. For full Blueprint, merge all 7 parts.
-> For BRIDGE routing: Sections 0-8 are in this segment.
+> For BRIDGE routing: Sections 0-9 are in this segment.
 ---
 
-### Infrastructure vs Tool Mindset (L6)
-
-- **Tools** solve local problems (a command, a library, a prompt).
-- **Infrastructure** creates repeatable capability (standards, pipelines, artifacts, monitoring, rollback, ownership).
-
-If something will be used repeatedly, elevate it from “tool” to “infrastructure”:
-- version it
-- document it
-- test it
-- observe it
-- assign ownership
-### Planning Quality = Output Quality (M8)
-
-A core operating principle:
-- **Better plans create better outputs.**
-- If the goal is unclear, reduce autonomy and switch to **Ask‑User‑Questions** / **Plan Mode**.
-
-Practical rule:
-- Any task that would take a senior engineer >30 minutes to do well should be planned explicitly before execution.
-# NORTH STAR BLUEPRINT v6.0
+# NORTH STAR BLUEPRINT v6.1
 
 ## The Comprehensive Development Framework
 
@@ -36,7 +17,7 @@ Practical rule:
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                                                                              ║
 ║                         NORTH STAR BLUEPRINT                                 ║
-║                              v6.0                                            ║
+║                              v6.1                                            ║
 ║                                                                              ║
 ║                 The Comprehensive Development Framework                      ║
 ║                                                                              ║
@@ -59,11 +40,11 @@ Practical rule:
 │  This document is ONE component of a three-part system:                     │
 │                                                                              │
 │  ┌─────────────┐     ┌─────────────────────┐     ┌─────────────────────┐    │
-│  │  BRIDGE.md  │────►│  NORTH STAR v6.0    │     │  MASTER BUILD v2.0  │    │
+│  │  BRIDGE.md  │────►│  NORTH STAR v6.1    │     │  MASTER BUILD v2.1  │    │
 │  │  Navigation │     │  (This Document)    │     │  Technology Matrix  │    │
 │  └─────────────┘     │                     │     │                     │    │
 │        │             │  HOW to build       │     │  WHAT to build with │    │
-│        │             │  • Methodology      │     │  • 60 categories    │    │
+│        │             │  • Methodology      │     │  • 62 categories    │    │
 │        │             │  • Orchestration    │     │  • Tool options     │    │
 │        │             │  • Quality gates    │     │  • Stack selection  │    │
 │        └─────────────┴─────────────────────┴─────┴─────────────────────┘    │
@@ -73,7 +54,7 @@ Practical rule:
 │  2. NS Section 0 — Bootstrap protocol (you're here)                         │
 │  3. Reference NS or MBF on demand via BRIDGE.md routing                     │
 │                                                                              │
-│  For technology selection questions, consult Master Build Framework v2.0    │
+│  For technology selection questions, consult Master Build Framework v2.1    │
 │  For methodology and orchestration, stay in this North Star Blueprint       │
 │  For navigation between both, use BRIDGE.md                                 │
 │                                                                              │
@@ -100,7 +81,7 @@ Practical rule:
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  YOU HAVE RECEIVED:                                                          │
-│  1. This North Star Blueprint v6.0 (comprehensive reference)                │
+│  1. This North Star Blueprint v6.1 (comprehensive reference)                │
 │  2. A project idea or task to build                                          │
 │                                                                              │
 │  YOUR FIRST ACTIONS (in order):                                              │
@@ -151,8 +132,8 @@ When starting any project with this blueprint, **immediately generate** a `claud
 > **READING ORDER:**
 > 1. You're reading this file (project-specific state)
 > 2. For navigation between frameworks → see **BRIDGE.md**
-> 3. For methodology (HOW) → see **North Star Blueprint v6.0**
-> 4. For technology options (WHAT) → see **Master Build Framework v2.0**
+> 3. For methodology (HOW) → see **North Star Blueprint v6.1**
+> 4. For technology options (WHAT) → see **Master Build Framework v2.1**
 
 > This file provides guidance for AI agents working on this project.
 > For comprehensive patterns, reference the documents above via BRIDGE.md routing.
@@ -176,7 +157,7 @@ When starting any project with this blueprint, **immediately generate** a `claud
 
 ## NORTH STAR REFERENCE
 
-This project follows the North Star Blueprint v6.0.
+This project follows the North Star Blueprint v6.1.
 
 **When uncertain, consult these sections:**
 - Architecture decisions → NS Part VIII (Sections 37-41)
@@ -291,6 +272,90 @@ npm run typecheck    # Type check
 
 *This file is the entry point. The North Star is the comprehensive guide.*
 *When in doubt, return to the North Star.*
+```
+
+#### CLAUDE.MD AS LIVING DOCUMENT — ITERATIVE IMPROVEMENT PROTOCOL
+
+```
+CLAUDE.MD AS LIVING DOCUMENT — ITERATIVE IMPROVEMENT PROTOCOL
+──────────────────────────────────────────────────────────────────────────────
+
+Claude.md is not set-it-and-forget-it. It is a living document that should
+improve with every session. The developers who get the best results treat
+their claude.md as a codebase — it gets better through iteration.
+
+CREATION: Use /init or "Create a claude.md. Use ask_user_question tool to
+           interview me about the project before writing it."
+
+SEVEN ESSENTIAL SECTIONS:
+  1. Project Goals — what you're building and why
+  2. Architecture Overview — key components and how they connect
+  3. Design and Style Guides — UI patterns, naming conventions
+  4. Constraints and Policies — what Claude must never do
+  5. Repo and Git Etiquette — branch naming, commit style, PR format
+  6. Frequently Used Commands — build, test, lint, deploy commands
+  7. Testing Instructions — how to run tests, what coverage is required
+
+LINKING PATTERN (keep claude.md concise):
+  In claude.md: "For architecture details, see architecture.md"
+  In claude.md: "For tech stack decisions, see docs/tech-stack.md"
+  → Claude follows links when it needs deeper context
+  → claude.md remains a fast-loading overview, not an encyclopedia
+
+ITERATIVE IMPROVEMENT — THREE TRIGGERS:
+
+  Trigger 1: After completing a feature
+    Slash command: /update-claudemd
+    "Review what we built. Update claude.md to reflect new components,
+     commands, or patterns we established in this session."
+
+  Trigger 2: When Claude repeats a mistake
+    Immediately after correction: "Add a rule to claude.md that prevents
+    this mistake: [describe what happened]."
+
+  Trigger 3: After a retro session (see Part XII: Feedback Loop)
+    Retro skill automatically suggests claude.md updates.
+    Human approves → Claude implements.
+
+EVOLUTION OVER PROJECT LIFETIME:
+  Week 1:   Basic project overview, 20-30 lines
+  Month 1:  Architecture documented, constraints captured, 50-80 lines
+  Month 3:  Battle-tested rules, domain knowledge, links to docs, 80-120 lines
+  Month 6+: Reference library. Claude functions as a senior team member.
+
+WARNING: claude.md bloat is real. Periodically audit:
+  "Review claude.md. Identify any rules that are outdated, redundant, or
+   no longer apply. Propose pruning these sections."
+```
+
+#### STATUS LINE CONFIGURATION — PROACTIVE SESSION MANAGEMENT
+
+```
+STATUS LINE CONFIGURATION — PROACTIVE SESSION MANAGEMENT
+──────────────────────────────────────────────────────────────────────────────
+
+The status line is the dashboard at the bottom of your Claude Code terminal.
+Customize it once — it pays dividends every session.
+
+RECOMMENDED STATUS LINE CONTENT:
+  ✓ Git repo name — which project you're in
+  ✓ Current branch — what feature you're on
+  ✓ Context % used — critical for preventing autocompaction
+  ✓ Active worktrees — how many parallel sessions exist
+
+CONFIGURE:
+  /statusline   → opens configuration
+  
+  Recommended format: "[repo] on [branch] | ctx: [context%] | worktrees: [count]"
+
+WHY CONTEXT % MATTERS:
+  Most developers only notice context is running out after compaction.
+  Showing % always keeps it top of mind, enabling proactive management.
+
+DESKTOP APP ALTERNATIVE:
+  The Desktop App shows all active sessions in the sidebar, each with
+  their progress state. For multi-agent work, this is preferable to
+  the terminal status line.
 ```
 
 ---
@@ -1231,120 +1296,6 @@ The goal is to reach the **Codebase Singularity**—the moment when:
 
 This is not science fiction. This is the trajectory. Every section of this blueprint moves toward this reality.
 
-### 1.7 Planning Quality = Output Quality
-
-> "If your plan sucks, you're just donating money to Anthropic."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    PLANNING QUALITY PRINCIPLE                                │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  THE CORE 4 FRAMEWORK                                                        │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  Quality output requires quality in four dimensions:                         │
-│                                                                              │
-│  DIMENSION      │ QUESTION                      │ IMPACT                    │
-│  ───────────────┼───────────────────────────────┼───────────────────────────│
-│  Context        │ Is the right info loaded?     │ Garbage in, garbage out   │
-│  Model          │ Is the right model selected?  │ Capability matching       │
-│  Prompt         │ Is the instruction clear?     │ Ambiguity = hallucination │
-│  Tools          │ Are right tools available?    │ Capability gaps = failure │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  THE PLANNING INVESTMENT RULE                                                │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  PLANNING TIME   │ EXECUTION QUALITY │ COST EFFICIENCY                      │
-│  ────────────────┼───────────────────┼─────────────────────────────────────  │
-│  < 5 minutes     │ Poor              │ Token burn (wasted spend)            │
-│  15-30 minutes   │ Good              │ Efficient                            │
-│  30-60 minutes   │ Excellent         │ Optimal ROI                          │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  WHY THIS MATTERS                                                            │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  Time spent planning:                                                        │
-│  • Reduces iteration loops                                                   │
-│  • Catches scope creep early                                                 │
-│  • Identifies missing context before execution                               │
-│  • Aligns expectations with capabilities                                     │
-│                                                                              │
-│  Time NOT spent planning:                                                    │
-│  • Burns tokens on wrong approaches                                          │
-│  • Creates rework cycles                                                     │
-│  • Leads to "close but not right" outputs                                    │
-│  • Frustrates both user and agent                                            │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  QUALITY GATES                                                               │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  □ All four dimensions (Context, Model, Prompt, Tools) addressed             │
-│  □ Plan reviewed before execution begins                                     │
-│  □ Confidence level stated for plan completeness                             │
-│  □ Ambiguities surfaced, not assumed                                         │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** NS Section 0.1 (Quick-Start Directive)
-
-
-### 1.8 Infrastructure vs Tool Mindset
-
-> "Tools solve problems. Infrastructure creates capabilities."
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                  INFRASTRUCTURE VS TOOL DISTINCTION                          │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  THE 30/300 RULE                                                             │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  TOOL: 30% better than doing it yourself                                    │
-│  • Point solution to specific problem                                        │
-│  • Value depletes as problem changes                                         │
-│  • Short-term productivity gain                                              │
-│                                                                              │
-│  INFRASTRUCTURE: 300% (3x) productivity multiplier                          │
-│  • Platform for solving many problems                                        │
-│  • Value compounds as you build more                                         │
-│  • Long-term capability investment                                           │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  MINDSET SHIFT                                                               │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  TOOL MINDSET               │ INFRASTRUCTURE MINDSET                        │
-│  ───────────────────────────┼─────────────────────────────────────────────  │
-│  "What tool solves this?"   │ "What capability do I need?"                  │
-│  Point solutions            │ Platform thinking                              │
-│  Buy/build for one problem  │ Build once, use many                          │
-│  Short-term fix             │ Long-term investment                           │
-│  Vendor lock-in acceptable  │ Composability required                        │
-│                                                                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  THIS FRAMEWORK IS INFRASTRUCTURE                                            │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  • It does not solve one problem                                             │
-│  • It provides capability for solving many problems                          │
-│  • Investment pays off across projects                                       │
-│  • Value compounds with each use                                             │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cross-Reference:** MBF Category 14 (Platform Engineering)
-
 ---
 
 ## 2. CORE IDENTITY & OPERATING SYSTEM CONCEPT
@@ -2249,6 +2200,145 @@ CATEGORY OF ONE:      The only framework that treats AI
 
 ---
 
+## 5. THE RPIT LOOP — CANONICAL FEATURE DEVELOPMENT CYCLE
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              THE RPIT LOOP — CANONICAL FEATURE DEVELOPMENT CYCLE            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+The RPIT Loop is the standard unit of feature development within the North Star
+Framework. Every feature — from a one-line bug fix to a multi-day capability —
+should be processed through this cycle.
+
+RPIT = Research → Plan → Implement → Test
+
+The power of RPIT lies not in the steps themselves but in the SEPARATION of
+concerns. Each phase has a distinct purpose and distinct success criteria.
+Collapsing phases is the #1 cause of wasted effort in AI-assisted development.
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 1: RESEARCH (Optional — scale to task complexity)
+
+PURPOSE: Gather knowledge before touching code
+WHEN TO USE: New APIs, unfamiliar tech stack decisions, external integrations
+
+  Command: "Create a research report on [topic]. Focus on:
+            - Best practices as of [current date]
+            - Common pitfalls to avoid
+            - How it fits our architecture (see architecture.md)
+            Output: research/[feature-name].md"
+
+OUTPUT: A structured research.md file that becomes permanent project knowledge
+SKIP IF: The feature uses only familiar, stable technology
+
+ANTI-PATTERN: Skipping research on new integrations and discovering the API
+              changed 6 months ago halfway through implementation.
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 2: PLAN (Non-negotiable — always do this)
+
+PURPOSE: Translate requirements into reviewable, approvable steps BEFORE code
+THE RULE: Claude must not write a single line of implementation code until the
+          plan has been reviewed and approved by the human.
+
+  Command: "Use plan mode. Create plan.md for [feature]. Include:
+            - Step-by-step implementation approach
+            - Files that will be created/modified
+            - Dependencies and order of operations
+            - Success criteria for each step
+            Use ask_user_question tool if any requirements are ambiguous."
+
+HUMAN REVIEW PROTOCOL (the Boris Tane method):
+  1. Claude writes plan.md
+  2. Human opens plan.md in editor
+  3. Human adds INLINE ANNOTATIONS directly to the document
+     - "not optional" next to a parameter Claude marked optional
+     - "use existing auth system, not new one" next to a proposed abstraction
+     - Paste code snippets showing expected data shapes
+  4. Human sends plan.md back to Claude: "Review my annotations and update plan"
+  5. Iterate until plan is approved
+  6. Convert to todo list: "Convert approved plan to sequential todo list"
+  7. THEN begin implementation
+
+ANNOTATION EXAMPLES:
+  Claude writes: "Parameter: userId? (optional)"
+  Human annotates: "userId — REQUIRED, never nullable, see User type in types.ts"
+
+  Claude writes: "Create new auth middleware"
+  Human annotates: "Use existing authMiddleware in /middleware/auth.ts — do NOT create new"
+
+WHY THIS MATTERS:
+  → Prevents wasted tokens on the wrong approach
+  → Surfaces domain knowledge Claude doesn't have
+  → Creates reviewable artifact before any risk is taken
+  → The plan becomes permanent project documentation
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 3: IMPLEMENT
+
+PURPOSE: Execute the approved plan, not improvise from scratch
+THE RULE: Implementation follows the plan. If Claude needs to deviate
+          significantly, STOP and update the plan first.
+
+  Command: "Implement the approved todo list from plan.md. 
+            Commit after each completed step.
+            If you encounter a blocker not in the plan, STOP and report."
+
+PERMISSIONS: Set pre-configured permissions (see Bootstrap Section 0.3) so
+             Claude can execute without interruption on approved operations.
+
+QUALITY GATES DURING IMPLEMENTATION:
+  ✓ Build still passes after each commit
+  ✓ No new linting errors introduced
+  ✓ Each step committed with descriptive message
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 4: TEST
+
+PURPOSE: Verify the feature works — not just that it compiles
+LEVELS OF VERIFICATION:
+  L1: Unit tests (Claude writes, runs, fixes)
+  L2: Integration tests (Claude writes, runs, fixes)
+  L3: End-to-end / browser automation (Playwright MCP)
+  L4: Human UX verification (screenshots, visual inspection)
+
+  Command: "Run all tests. If any fail, fix them before proceeding.
+            Then open a browser and verify [user journey] works end-to-end.
+            Screenshot the final state and include in PR description."
+
+VERIFY AT ABSTRACTION (not line-by-line):
+  → Don't read every line of code Claude produced
+  → DO run automated tests
+  → DO verify success criteria from the plan
+  → DO do a quick UX walkthrough
+  → DO check for security/auth implications on the diff
+
+────────────────────────────────────────────────────────────────────────────────
+
+RPIT QUICK REFERENCE
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │   FEATURE SIZE    │  RESEARCH  │   PLAN   │  IMPLEMENT  │    TEST      │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │   Bug fix (small) │   Skip     │  5 min   │  10-30 min  │  L1+L4       │
+  │   Small feature   │   Skip     │  15 min  │  30-60 min  │  L1+L2+L4    │
+  │   Medium feature  │  Optional  │  30 min  │  2-4 hours  │  L1+L2+L3+L4 │
+  │   Large feature   │  Required  │  1 hour  │  4-8 hours  │  All levels  │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+OUTER LOOP: After RPIT completes, run the RETRO SKILL (see Part XII)
+            to capture learnings and improve the next cycle.
+```
+
+---
+
 ## PART I SUMMARY
 
 ```
@@ -2289,6 +2379,15 @@ CATEGORY OF ONE:      The only framework that treats AI
 │  • Loneliness Economy: Design for belonging                                  │
 │  • Complete positioning framework for every project                          │
 │                                                                              │
+│  THE RPIT LOOP (v6.1):                                                       │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  The canonical feature development cycle:                                    │
+│  R = Research (optional, scale to complexity)                                │
+│  P = Plan (non-negotiable — always write plan.md first)                      │
+│  I = Implement (execute approved plan, commit each step)                     │
+│  T = Test (verify at L1-L4, then human UX check)                            │
+│  Outer Loop: RETRO skill captures learnings after each cycle                │
+│                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -2297,7 +2396,7 @@ CATEGORY OF ONE:      The only framework that treats AI
 
 ---
 
-## 5. THE SIX CORE PRIMITIVES
+## 6. THE SIX CORE PRIMITIVES
 
 > "The difference between amateur and professional AI development is not the tools—it's the orchestration of primitives."
 
@@ -2896,7 +2995,7 @@ BEFORE ANY DEVELOPMENT TASK
 
 ---
 
-## 6. PRIMITIVE LIFECYCLE & VERIFICATION
+## 7. PRIMITIVE LIFECYCLE & VERIFICATION
 
 ### 6.1 The Primitive Execution Cycle
 
@@ -3275,7 +3374,7 @@ For complex changes, apply verification recursively at multiple levels:
 
 ---
 
-## 7. THE ANTI-BUG-LOOP PRINCIPLE (FIX LEDGER)
+## 8. THE ANTI-BUG-LOOP PRINCIPLE (FIX LEDGER)
 
 ### 7.1 The Ilya's Loop Problem
 
@@ -3615,7 +3714,7 @@ NEVER:
 
 ---
 
-## 8. REGRESSION DISCIPLINE & SAFETY NETS
+## 9. REGRESSION DISCIPLINE & SAFETY NETS
 
 ### 8.1 The Regression Discipline Matrix
 
@@ -3909,9 +4008,139 @@ ALL BOXES MUST BE CHECKED BEFORE DEPLOYMENT
 
 ---
 
-## PART II SUMMARY
+## 9. PLAN.MD ANNOTATION PROTOCOL
 
 ```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  PRIMITIVE: PLAN.MD ANNOTATION PROTOCOL                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+PRINCIPLE: The gap between what Claude plans and what you actually want is
+           not filled by more prompting — it is filled by annotation.
+
+Annotation is the act of adding your domain knowledge, constraints, and
+corrections DIRECTLY INTO Claude's plan document, then sending it back.
+
+This is qualitatively different from prompting because:
+  → It operates at the document level, not the conversation level
+  → It creates a permanent record of architectural decisions
+  → It is reviewable by humans and future Claude sessions
+  → It naturally produces the spec that guides implementation
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE ANNOTATION WORKFLOW
+
+  Step 1: Request plan
+    "Enter plan mode. Write plan.md for [feature].
+     Include: approach, files to touch, data shapes, edge cases, success criteria.
+     Use ask_user_question if anything is ambiguous."
+
+  Step 2: Open in your editor
+    → Open plan.md in VS Code, Cursor, or your preferred editor
+    → Do NOT respond in the chat yet
+    → Read the entire plan before annotating
+
+  Step 3: Annotate inline
+    Use a consistent annotation format, e.g.:
+    
+    Claude wrote:   "userId?: string (optional query param)"
+    You annotate:   "userId: string // REQUIRED — never nullable. See UserType in /types/user.ts"
+    
+    Claude wrote:   "Create JWT validation middleware"  
+    You annotate:   "USE EXISTING: /middleware/validateJWT.ts — do not create a new one"
+    
+    Claude wrote:   "Store result in database"
+    You annotate:   "Use optimistic write pattern — don't block on DB confirmation. See pattern in /lib/db/optimistic.ts"
+
+  Step 4: Return for revision
+    "I've added annotations to plan.md. Read them carefully and update the plan
+     to incorporate all my corrections. Ask if anything is unclear."
+
+  Step 5: Approve or annotate again
+    → If plan looks good: "Plan approved. Convert to sequential todo list."
+    → If still issues: annotate again (Step 3)
+
+  Step 6: Lock the plan
+    → Commit plan.md to git: "chore: approved plan for [feature]"
+    → This is now the architectural record
+
+────────────────────────────────────────────────────────────────────────────────
+
+ANNOTATION TAXONOMY
+
+  TYPE A — Constraint Corrections
+    Claude assumes optional → you mark required
+    Claude assumes new → you point to existing
+    Claude assumes mutable → you mark immutable
+
+  TYPE B — Domain Knowledge Injection
+    Existing file paths and patterns to use
+    Business rules Claude can't know (e.g., "payments in USD cents only")
+    User expectations ("this must complete in under 200ms")
+
+  TYPE C — Architecture Guardrails
+    "Don't add new dependencies for this"
+    "This must be backward-compatible with v1 API"
+    "Performance budget: no more than 50ms added to page load"
+
+  TYPE D — Clarifying Data Shapes
+    Paste actual TypeScript types
+    Show example API responses
+    Reference existing interfaces
+
+────────────────────────────────────────────────────────────────────────────────
+
+ANTI-PATTERNS
+
+  ❌  Approving a plan you haven't read
+  ❌  Correcting in chat ("actually, make userId required") without annotating
+      the plan itself — this correction gets lost at compaction
+  ❌  Annotating after implementation has started
+  ❌  Skipping the plan for "small" changes — this is where bugs come from
+
+────────────────────────────────────────────────────────────────────────────────
+
+PLAN.MD TEMPLATE
+
+  # Plan: [Feature Name]
+  **Issue:** #[number]  |  **Date:** [date]  |  **Status:** DRAFT / APPROVED
+
+  ## Overview
+  [What this feature does and why]
+
+  ## Approach
+  [The implementation strategy]
+
+  ## Files to Touch
+  - path/to/file.ts — [what changes]
+  - path/to/new-file.ts — [what it contains]
+
+  ## Data Shapes
+  [TypeScript types, API shapes, etc.]
+
+  ## Implementation Steps
+  1. [ ] Step one
+  2. [ ] Step two
+  ...
+
+  ## Edge Cases
+  - [Case]: [handling]
+
+  ## Success Criteria
+  - [ ] [Measurable criterion]
+  - [ ] [Measurable criterion]
+
+  ## Notes / Human Annotations
+  [This section accumulates during review]
+```
+
+---
+
+## PART II SUMMARY
+
+
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                   PART II: PRIMITIVE EXECUTION FRAMEWORK                     │
 │                           KEY TAKEAWAYS                                      │
@@ -3946,6 +4175,14 @@ ALL BOXES MUST BE CHECKED BEFORE DEPLOYMENT
 │  • Prevention Workflow: Before/During/After every change                    │
 │  • Response Protocol: Detect → Respond → Rollback → Root Cause → Prevent   │
 │                                                                              │
+│  PLAN.MD ANNOTATION PROTOCOL (v6.1):                                         │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Annotate Claude's plans inline before approving                           │
+│  • Four annotation types: Constraints, Domain Knowledge,                     │
+│    Architecture Guardrails, Data Shapes                                      │
+│  • Lock approved plans with git commit                                       │
+│  • Never approve a plan you haven't read                                     │
+│                                                                              │
 │  CORE PRINCIPLES:                                                            │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  • Never guess—verify                                                        │
@@ -3959,3 +4196,42 @@ ALL BOXES MUST BE CHECKED BEFORE DEPLOYMENT
 ```
 
 ---
+## 10. SKILL CREATION META-SYSTEM
+
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  PRIMITIVE: SKILL CREATION META-SYSTEM                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+NS Framework ships with a skill-building infrastructure. Every project should
+create domain-specific skills that encode accumulated knowledge.
+
+THREE SKILL CREATION METHODS:
+
+METHOD 1: SKILL-CREATOR SKILL (structured, guided)
+  → Command: /skill-creator
+  → Best for: intentional skill creation after a retro session
+
+METHOD 2: CLAUDECEPTION (automatic extraction)
+  → Claude watches what works and extracts skills automatically
+  → Best for: organic skill growth during active development
+
+METHOD 3: MANUAL (from retro output)
+  → Retro skill identifies needed skills
+  → Human approves, Claude creates skeleton
+
+SKILL ANATOMY:
+  .claude/skills/[skill-name]/
+  ├── SKILL.md          (the skill itself — loaded on demand)
+  ├── examples/         (reference examples for the skill to use)
+  └── reference/        (additional reference files linked from SKILL.md)
+
+DISCOVERY MECHANISM:
+  The "description:" field in SKILL.md is the trigger. It must include
+  specific user scenarios and trigger phrases.
+```
+
+---
+
+*End of Part I — v6.1*
