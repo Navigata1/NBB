@@ -903,6 +903,43 @@ PREVENTING ROLLBACK ISSUES:
 □ Automate rollback triggers
 ```
 
+### 53.2 Deployment Blast Radius & IaC Safety
+
+```
+DEPLOYMENT BLAST RADIUS RULE
+─────────────────────────────────────────────────────────────────────────────
+
+Every deployment-related command requires a blast radius classification.
+
+Environment tier mapping:
+  local/dev  → base tier
+  staging    → base tier + 1 (minimum Tier 3)
+  production → base tier + 2 (minimum Tier 4)
+
+Example:
+  A schema migration may be Tier 3 locally, Tier 4 in staging,
+  and Tier 5 (manual-only) in production if data loss is plausible.
+
+IaC OPERATIONAL PREREQUISITES
+─────────────────────────────────────────────────────────────────────────────
+Before ANY agent-driven infrastructure operation:
+□ State backend verified as remote
+□ State file is accessible and current
+□ Delete protection enabled on stateful resources
+□ Backup independence verified
+
+If any prerequisite fails -> STOP and remediate before proceeding.
+
+BACKUP INDEPENDENCE VERIFICATION
+─────────────────────────────────────────────────────────────────────────────
+Before any production infrastructure operation:
+□ Can the backup survive deletion of the primary resource?
+□ Is there at least one backup in a separate account or region?
+□ When was the last successful restore test?
+
+If any answer is "no" or "never" -> remediate BEFORE proceeding.
+```
+
 ### 53.3 Database Migration Strategy
 
 ```
@@ -980,6 +1017,68 @@ Step 5: Remove old column (Migration 3)
 ```sql
 ALTER TABLE users DROP COLUMN user_name;
 ```
+```
+
+### Deployment Blast Radius Rule
+
+```
+DEPLOYMENT BLAST RADIUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Every deployment-related command must include blast radius assessment.
+Production environments automatically escalate all operations to Tier 4+.
+
+Environment tier mapping:
+  local/dev     → Base tier (as classified)
+  staging       → Base tier + 1 (minimum Tier 3)
+  production    → Base tier + 2 (minimum Tier 4)
+
+Example: A schema migration is Tier 3 locally, Tier 4 in staging,
+and Tier 5 (HARD STOP) in production.
+
+→ NS Part III §14.6.1 — Blast Radius Classification
+→ MBF 35 — Execution Rails severity tiers
+```
+
+### IaC Operational Prerequisites
+
+```
+IaC OPERATIONAL PREREQUISITES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before ANY agent-driven IaC operation:
+  1. Verify state backend is remote (not local filesystem)
+  2. Verify state file is current (matches deployed infrastructure)
+  3. Verify delete protection on stateful resources
+  4. Verify backup independence (backups survive resource deletion)
+
+If ANY prerequisite fails → STOP and remediate before proceeding.
+These are not suggestions — they are blocking requirements.
+
+→ MBF 13 — Infrastructure as Code Quality Gates
+→ MBF 13 — Agent Interaction Protocol for IaC
+```
+
+### Backup Independence Verification
+
+```
+BACKUP INDEPENDENCE VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before any production infrastructure operation:
+  □ Can this backup survive the deletion of the primary resource?
+  □ Is there at least one backup in a separate account/region?
+  □ When was the last successful restore test?
+
+If any answer is "no" or "never" → remediate BEFORE proceeding.
+
+ANTI-PATTERNS:
+  ✗ Relying solely on RDS automated snapshots (tied to instance lifecycle)
+  ✗ Storing Terraform state locally on a single machine
+  ✗ Single-account backups with shared IAM permissions
+  ✗ Backups that have never been tested with a restore operation
+
+→ MBF 13 — Backup Independence Principle
 ```
 
 ---

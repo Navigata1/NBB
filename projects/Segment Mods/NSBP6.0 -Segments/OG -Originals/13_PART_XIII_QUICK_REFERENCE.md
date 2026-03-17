@@ -102,6 +102,23 @@ MONITORING:
 □ Health check endpoint working
 □ Alerts configured
 □ Runbooks available
+□ Backup independence verified (survives primary deletion)
+□ Last restore test date: _________ (must be < 30 days)
+□ Hard stops file loaded and current
+```
+
+### Consent Fatigue Quick Check
+
+```
+CONSENT FATIGUE QUICK CHECK:
+  • 20+ approvals this session? → Slow down on next Tier 3+
+  • Shifting from reads to writes? → Break the pattern visually
+  • Late night? → Extra caution on production operations
+  • Rubber-stamping? → Force a context switch (type resource name)
+  • 4+ hours in session? → The Dracula Effect is draining judgment
+
+→ NS §18.4 — Consent Fatigue Awareness
+→ NS §18.6 — Operational Readiness (Dracula Effect)
 ```
 
 ### 57.3 Code Review Checklist

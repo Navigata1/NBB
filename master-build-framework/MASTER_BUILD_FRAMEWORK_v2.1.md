@@ -1,6 +1,6 @@
 
 # THE 56-PHASE MASTER BUILD FRAMEWORK
-## v2.0 — January 2026
+## v2.1 — March 2026
 
 ---
 
@@ -12,17 +12,17 @@
 │  This document is ONE component of a three-part system:                     │
 │                                                                              │
 │  ┌─────────────┐     ┌─────────────────────┐     ┌─────────────────────┐    │
-│  │  BRIDGE.md  │────►│  NORTH STAR v6.0    │     │  MASTER BUILD v2.0  │    │
+│  │  BRIDGE.md  │────►│  NORTH STAR v6.1    │     │  MASTER BUILD v2.1  │    │
 │  │  Navigation │     │  Methodology        │     │  (This Document)    │    │
 │  └─────────────┘     │                     │     │                     │    │
 │        │             │  HOW to build       │     │  WHAT to build with │    │
-│        │             │  • Orchestration    │     │  • 60 categories    │    │
+│        │             │  • Orchestration    │     │  • 62 categories    │    │
 │        │             │  • Quality gates    │     │  • Tool matrices    │    │
 │        │             │  • Context mgmt     │     │  • Stack selection  │    │
 │        └─────────────┴─────────────────────┴─────┴─────────────────────┘    │
 │                                                                              │
 │  THIS DOCUMENT PROVIDES: Technology options, tool matrices, build patterns  │
-│  FOR ORCHESTRATION: See North Star Blueprint v6.0 (handoffs, confidence,    │
+│  FOR ORCHESTRATION: See North Star Blueprint v6.1 (handoffs, confidence,    │
 │                     context engineering, load balancing, quality gates)     │
 │  FOR NAVIGATION: See BRIDGE.md (routes you to the right document/section)   │
 │                                                                              │
@@ -52,12 +52,48 @@ This document is an **exhaustive, autonomous execution framework** designed to b
 
 - **8 Tiers** representing major domains
 - **7 Categories per Tier** for deep coverage
-- **56 Total Categories** — non-redundant, comprehensive
+- **62 Total Categories** — non-redundant, comprehensive
 - **Cross-Category Dependencies** mapped throughout
 
 ---
 
-# ALL 56 CATEGORIES AT A GLANCE
+# CODING AGENT BENCHMARKS & MODEL MATRIX
+
+```text
+CODING AGENT BENCHMARKS — MARCH 2026
+──────────────────────────────────────────────────────────────────────────────
+
+SWE-bench Verified (% of real GitHub issues resolved autonomously)
+  GPT-5 + Aider:          88.0% 
+  Cline + Claude Opus 4.6: 80.8%
+  Claude Code (native):    ~80%
+  GPT-4o + Cursor:         ~75%
+  Devin:                   67% PR merge rate on defined tasks
+
+Terminal-Bench 2.0
+  GPT-5.3:                 77.3%
+
+Real-World Production Metrics
+  Claude Code at Anthropic: ~90% of Claude Code's own code is written by Claude Code
+  Devin (enterprise):       67% PR merge rate on clearly scoped tasks
+  Nubank (multi-agent):     12x efficiency on multi-million LOC ETL migration
+
+Model Recommendation Matrix (NS Framework)
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Task Type                    │  Recommended Model                  │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │  Complex planning & design    │  Opus 4.6 (high effort mode)        │
+  │  Standard feature development │  Sonnet 4.6 (default, cost balance) │
+  │  Rapid codebase exploration   │  Haiku (via Explore sub-agent)      │
+  │  Research reports             │  Sonnet 4.6 or Opus 4.6            │
+  │  Parallel worker agents       │  Sonnet 4.6 (cost efficiency)       │
+  │  Planner/Judge roles          │  Opus 4.6 (quality critical)        │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+# ALL 62 CATEGORIES AT A GLANCE
 
 ## Tier 1: Build Targets (What You Create)
 1. **Web Applications** — SaaS, PWAs, dashboards, full-stack
@@ -1178,6 +1214,70 @@ Internal developer platforms, self-service infrastructure, golden paths, develop
 
 ---
 
+## Category 58: AI-Native IDEs & Coding Agents
+
+### Scope
+Purpose-built AI coding environments, terminal agents, spec-driven IDEs,
+agent client protocols, IDE-agnostic coding agents.
+
+### Technology Stack — Exhaustive
+
+#### Terminal-Based Agents
+| Tool | Key Differentiator | Monthly Cost |
+|------|-------------------|-------------|
+| **Claude Code** | NS Framework native, hooks, skills, plugins, worktrees | $20-200/mo |
+| **Cline** | BYOK, 80.8% SWE-bench, VS Code extension, 5M installs | Free + API |
+| **OpenCode** | Open-source, multi-LLM, Go-based TUI, 95K stars | Free + API |
+| **Aider** | Repo maps, architect mode, 88% SWE-bench with GPT-5 | Free + API |
+
+#### AI-Native Terminals & Bridges
+| Tool | Key Differentiator |
+|------|-------------------|
+| **Warp** | AI-native terminal with split panes, file preview, multi-session management |
+| **Happy Engineering** | Mobile-to-desktop terminal bridge — run Claude Code sessions from phone (happy.engineering) |
+
+#### IDE Environments
+| IDE | Key Differentiator | Price |
+|-----|-------------------|-------|
+| **Cursor** | FastRender planner/worker/judge, Claude + GPT-5 | $20/mo |
+| **Windsurf** | SWE-grep RL-trained search, $15/mo value play | $15/mo |
+| **Kiro (Amazon)** | Spec-driven development, event-driven hooks | TBD |
+| **Zed + ACP** | Rust/GPU editor, Agent Client Protocol, open standard | $10/mo |
+| **Google Antigravity** | Multi-agent visual dashboard, Gemini 3 Pro + Claude | Preview |
+
+#### Agent Client Protocol (ACP) — Open Standard
+| Aspect | Detail |
+|--------|--------|
+| Created by | Zed Industries |
+| Purpose | Standard for plugging external agents into any IDE |
+| Status | Open standard, growing adoption Feb 2026 |
+| Benefit | Write an agent once, use in any ACP-compatible IDE |
+
+### Selection Decision Tree
+```text
+Do you use Claude Code as primary agent? YES → Enhance with skills/plugins
+Need open-source, BYOK flexibility?    YES → OpenCode or Cline
+Need spec-driven workflow natively?    YES → Kiro
+Need GPU-accelerated Rust editor?      YES → Zed + ACP
+Need enterprise multi-agent dashboard? YES → Google Antigravity
+Want maximum SWE-bench performance?    YES → Aider with Opus 4.6
+```
+
+### Quality Gates
+```text
+□ Agent is connected to your test runner
+□ Hooks configured (at minimum: stop hook)
+□ Permissions pre-configured and committed to git
+□ claude.md or equivalent context file populated
+□ Repository map available for large codebases
+```
+
+### Cross-Category Dependencies
+- → Category 57 (Agent Orchestration) — for multi-agent coordination
+- → Category 43 (CI/CD) — for automated validation
+- → NS Part I (RPIT Loop) — feature development methodology
+
+---
 
 ---
 
@@ -1903,6 +2003,42 @@ def validate_chunks(chunks):
     return issues
 ```
 
+#### Context Management Systems
+
+Beyond memory stores, modern agent frameworks need active context management:
+
+| Pattern | Tool/Approach | Use Case |
+|---------|--------------|----------|
+| **Repo Maps** | tree-sitter + PageRank | Large codebase navigation |
+| **Context Compaction** | /clear, session management | Prevent context degradation |
+| **Progressive Disclosure** | Skills architecture | Load knowledge on demand |
+| **Structured Handoffs** | plan.md + session artifacts | Cross-session continuity |
+| **Context Budgets** | Context % monitoring | Proactive management |
+
+#### Context & MCP Enhancement Tools
+
+| Tool | Type | Purpose |
+|------|------|---------|
+| **Context7** | MCP Server / Plugin | Real-time up-to-date API and library documentation for all major frameworks |
+| **Sequential Thinking** | MCP Server | Chain-of-thought reasoning server for deeper analysis and planning |
+| **cc-status-line** | CLI Tool | Context window percentage display — install via `npx cc-status-line@latest` |
+
+#### Repo Map Generation
+```bash
+# Install aider for repo map generation
+pip install aider-chat
+
+# Generate repo map (can be added to claude.md or BRIDGE context)
+aider --map-tokens 2048 --show-repo-map > docs/repo-map.txt
+```
+
+#### Context Efficiency Rules
+1. Never load both NSB and MBF simultaneously (BRIDGE handles routing)
+2. Link to files instead of embedding content in claude.md
+3. Use skills for specialized knowledge (loaded on demand)
+4. Clear context between distinct tasks, not just when stuck
+5. Keep plan.md updated so it serves as session state
+
 ---
 
 ### Quality Gates
@@ -2332,6 +2468,229 @@ guard = Guard().use_many(
 
 ---
 
+## Category 57: Agent Orchestration Frameworks
+
+### Scope
+Multi-agent frameworks, visual agent builders, enterprise orchestration platforms,
+swarm architectures, multi-model agent coordination.
+
+### Technology Stack — Exhaustive
+
+#### Enterprise Platforms
+| Framework | Key Differentiator | Best For |
+|-----------|-------------------|----------|
+| **CrewAI AMP** | Visual editor + API, enterprise-grade, human-in-the-loop training | Enterprise teams, visual orchestration |
+| **Google ADK** | Open-source, polyglot (Python/TS), deploys to Vertex AI Agent Engine | Google Cloud stacks, polyglot teams |
+| **OpenAI Agents SDK** | Codex-1 (o3) reasoning, desktop command center for parallel agents | OpenAI-native stacks |
+| **Strands Agent (AWS)** | Apache-licensed, swarm architectures, Bedrock integration | AWS-native, cloud-centric |
+| **Agency Swarm** | Scalable MAS, simulation/visualization tools | Complex hierarchical agent systems |
+| **LangGraph** | Graph-based state machines, stateful workflows | Complex branching logic |
+| **AutoGen (Microsoft)** | Conversational agents, group chat, code execution | Research, prototyping |
+
+#### Lightweight / Open Source
+| Framework | Stars | Key Differentiator |
+|-----------|-------|-------------------|
+| **OpenCode** | 95K+ | Open-source Claude Code alternative, multi-LLM |
+| **Cline** | 5M installs | BYOK, 80.8% SWE-bench with Opus 4.6 |
+| **Aider** | High | Terminal-based, repo maps, 88% SWE-bench |
+| **Agency Swarm** | Growing | Scalable, visualization |
+
+#### Claude Code Native Orchestration
+| Pattern | Implementation |
+|---------|---------------|
+| **Multi-Claude + Worktrees** | Built-in (`claude --worktree`) |
+| **Agent Teams** | Built-in (specialized role coordination) |
+| **Parallel Sub-Agents** | Built-in task sub-agent |
+| **RALPH Loop** | Ralph Loop plugin from Anthropic |
+
+### Selection Matrix
+| Need | Recommended |
+|------|-------------|
+| Claude Code power user, multi-feature | Multi-Claude + Worktrees (built-in) |
+| Enterprise, visual management | CrewAI AMP |
+| Google Cloud native | Google ADK |
+| AWS native | Strands Agent |
+| Open-source maximum flexibility | OpenCode or Aider |
+| Complex stateful workflows | LangGraph |
+
+### Quality Gates
+```
+□ Agent isolation strategy defined (worktrees, containers, or sandboxes)
+□ Success criteria defined per agent before launch
+□ Human review points specified in orchestration plan
+□ Failure modes documented (what happens if agent gets stuck)
+□ Cost estimation done (parallel agents multiply token usage)
+□ Merge/integration strategy defined for parallel work
+```
+
+### Benchmarks (March 2026)
+| System | SWE-bench Verified |
+|--------|-------------------|
+| GPT-5 + Aider | 88% |
+| Cline + Claude Opus 4.6 | 80.8% |
+| Claude Code (native) | ~80% |
+| Devin | 67% PR merge rate |
+
+### Cross-Category Dependencies
+- → Category 31 (Agent Frameworks) — foundational patterns
+- → Category 44 (Workflow Orchestration) — pipeline integration
+- → Category 58 (AI-Native IDEs) — development environment
+- → NS Part IV (AI Orchestration) — methodology
+
+---
+
+## Category 59: Prompt Orchestration & Evaluation
+
+### Scope
+Prompt versioning, A/B testing for prompts, LLM evaluation pipelines,
+production prompt management, regression testing for AI behavior.
+
+### Technology Stack — Exhaustive
+
+#### Prompt Management Platforms
+| Tool | Key Differentiator | Best For |
+|------|-------------------|----------|
+| **Vellum AI** | Prompt versioning + evaluation + controlled deployment | Production LLM deployments |
+| **PromptLayer** | Observability, A/B testing, cost tracking | Teams iterating on prompts |
+| **LangSmith** | LangChain-native, tracing, evaluation datasets | LangChain stacks |
+| **Weave (W&B)** | ML-native, experiment tracking for prompts | ML teams |
+| **Helicone** | Lightweight observability, caching, cost management | Cost-conscious teams |
+
+#### Evaluation Frameworks
+| Tool | Purpose |
+|------|---------|
+| **RAGAS** | RAG pipeline evaluation |
+| **DeepEval** | Unit tests for LLM outputs |
+| **Promptfoo** | CLI-based prompt testing, red-teaming |
+| **Inspect (UK AISI)** | Safety-focused evaluation |
+
+### Why This Category Matters (March 2026)
+  Prompt regressions are the silent killer of production AI apps.
+  A model update, a prompt change, or a new edge case can silently
+  degrade quality without anyone noticing for days.
+  
+  Treat prompts as code. Version them. Test them. Deploy them carefully.
+
+### Production Prompt Management Pattern
+```
+DEV (prompt draft)
+  → STAGING (evaluation against test dataset: 50-200 examples)
+  → CANARY (5% of production traffic)
+  → PRODUCTION (full rollout with monitoring)
+```
+
+### Quality Gates
+```
+□ Prompts versioned in git or dedicated prompt management system
+□ Evaluation dataset created (min 50 representative examples)
+□ Automated regression test runs on every prompt change
+□ Cost per prompt tracked and budgeted
+□ Latency p95 monitored
+□ Rollback procedure documented
+```
+
+### Cross-Category Dependencies
+- → Category 33 (LLM Providers) — models being prompted
+- → Category 35 (AI Safety) — safety evaluation
+- → Category 47 (Testing) — evaluation methodology
+- → Category 55 (Monitoring) — production observability
+
+---
+
+## Category 62: Memory Infrastructure
+
+> *Added in v2.1 (ENH-041)*
+
+### Scope
+Agent memory systems, cross-session persistence frameworks, memory managers,
+long-term knowledge stores for AI agents, semantic caching.
+
+### Technology Stack — Exhaustive
+
+#### Production Memory Manager Frameworks
+| Framework | Key Differentiator | Best For |
+|-----------|-------------------|----------|
+| **Mem0** | Production-ready, all memory types, Python/TS SDK, hosted or self-hosted | Teams needing production memory fast |
+| **Zep** | Long-term memory for LLMs, temporal awareness, user preference learning | Conversational agents, user modeling |
+| **MemGPT / Letta** | Self-editing memory, agent controls its own memory, tiered storage | Autonomous long-running agents |
+| **Cognee** | Knowledge graph memory, decision trail, team memory sharing | Complex reasoning, multi-agent teams |
+| **mem.ai** | Personal AI memory layer, cross-app, long-form notes | Personal assistant agents |
+
+#### Minimal / Build-Your-Own
+| Approach | Complexity | Best For |
+|----------|-----------|----------|
+| **SQLite + pgvector** | Low | Learning, POC, small projects |
+| **Supabase + pgvector** | Low | Managed, production-capable |
+| **Chroma** | Low | In-process vector store, rapid prototyping |
+| **Custom MemoryManager class** | Medium | Full control, specific requirements |
+
+#### Semantic Caching
+| Tool | Purpose |
+|------|---------|
+| **GPTCache** | Semantic cache for LLM calls — cache similar queries |
+| **Redis + embedding index** | Production semantic cache |
+
+### The Three-Pillar Selection Guide
+
+Select based on your position in the three-pillar architecture (NS Blueprint, Memory Architecture section):
+
+MEMORY CORE selection:
+  Learning / POC:         SQLite + pgvector extension
+  Professional team:      Supabase or Neon (managed Postgres)
+  Production / scale:     Dedicated solution matching your scale (Qdrant, Weaviate, or Oracle)
+
+MEMORY MANAGER selection:
+  "I want to understand it first":    Build minimal MemoryManager (~50-100 lines Python)
+  "I need it to work now":            Mem0 (most comprehensive SDK)
+  "My agents are conversational":     Zep (temporal + conversational focus)
+  "My agents are autonomous/long-running": MemGPT / Letta (self-managing memory)
+  "I need team/multi-agent memory":   Cognee (knowledge graph approach)
+
+### Memory Unit Schema Reference
+```json
+{
+  "type": "workflow | conversation | knowledge | entity | association | tool",
+  "content": "string",
+  "embedding": "vector[1536]",
+  "metadata": {
+    "created_at": "ISO8601",
+    "source": "string",
+    "relevance_score": "float",
+    "importance_score": "float",
+    "recency_decay": "float"
+  },
+  "weight": "α·relevance + β·importance + γ·recency"
+}
+```
+
+### Quality Gates
+```text
+□ Memory Core selected based on tier and data type requirements
+□ Memory Manager chosen (or custom built and understood)
+□ All 5 memory types mapped to your use case
+□ Compaction strategy implemented (summarization or externalization)
+□ Memory weighting algorithm calibrated (α, β, γ values tuned)
+□ Forgetting threshold set (recommend 0.1)
+□ Cross-session continuity tested (session ends → new session recovers state)
+□ Privacy/security: PII in memory? Data handling policy documented
+□ Cost model: memory retrieval calls counted in token budget
+```
+
+### NS Framework Integration Points
+→ Fix Ledger becomes Workflow Memory (procedural, captures failure+resolution)
+→ plan.md + CHANGELOG = Episodic Memory (what happened)
+→ architecture.md + MBF = Semantic Memory (what things are)
+→ Skills + slash commands = Procedural Memory (how to do things)
+→ Repository maps = Associative Memory (what connects to what)
+
+### Cross-Category Dependencies
+- → Category 16 (Vector Databases) — storage layer for semantic memory
+- → Category 29 (Agent Memory) — existing memory patterns
+- → Category 31 (Agent Frameworks) — harness layer above memory
+- → Category 35 (AI Safety) — memory access control and privacy
+- → NS Part XII (Memory Architecture) — full methodology
+
+---
 
 ---
 
@@ -2725,6 +3084,54 @@ DAG orchestration, multi-step pipelines, human-in-loop workflows.
 | **Zapier** | No-code automation |
 | **Make** | Visual automation |
 | **Pipedream** | Developer-first |
+
+#### Data Pipeline Orchestration (with HITL Patterns)
+| Tool | Key Differentiator | HITL Support |
+|------|-------------------|-------------|
+| **Prefect** | Python-native, intelligent LLM retries, HITL workflows | ✓ Native |
+| **Dagster** | Asset-based, observable, type-safe pipelines | ✓ Via sensors |
+| **Airflow** | Mature, massive ecosystem, XML-heavy | Limited |
+| **Temporal** | Durable execution, language-agnostic | ✓ Activities |
+
+#### Prefect HITL Pattern (LLM Validation)
+```python
+from prefect import flow, task
+from prefect.input import RunInput
+
+@task
+def process_with_llm(data: dict) -> dict:
+    # LLM processing step
+    result = claude_api.process(data)
+    confidence = result.confidence_score
+    
+    if confidence < 0.85:
+        raise Exception("Low confidence — needs human review")
+    
+    return result
+
+@flow
+def data_pipeline_with_hitl(data: list):
+    results = []
+    for item in data:
+        try:
+            result = process_with_llm(item)
+            results.append(result)
+        except Exception as e:
+            # HITL gate: pause and wait for human input
+            human_input = RunInput.receive(
+                prompt=f"Low confidence on: {item}\nProvide correction or approve:",
+                timeout=3600  # 1 hour timeout
+            )
+            results.append(human_input.value)
+    
+    return results
+```
+
+#### NS Framework Recommendation
+For AI pipelines with validation requirements:
+→ Prefect for Python-native AI teams (best LLM integration)
+→ Dagster for data-intensive, asset-tracked pipelines
+→ Temporal for long-running durable workflows (days/weeks)
 
 ### Quality Gates
 
@@ -3613,6 +4020,75 @@ GDPR, CCPA, SOC 2, HIPAA, accessibility, privacy policies, data governance.
 - **→ Category 50** (Auth) — Identity verification
 - **→ Category 52** (Security) — Security controls
 - **→ Category 54** (Analytics) — Consent integration
+
+---
+
+## Category 61: Enterprise Agent Governance
+
+### Scope
+Agent registries, guardrail systems, lifecycle management for AI agents,
+audit trails for agent actions, enterprise oversight and control.
+
+### Technology Stack
+
+#### Enterprise Governance Platforms
+| Tool | Key Differentiator | Best For |
+|------|-------------------|----------|
+| **ServiceNow AI Control Tower** | Governance for enterprise agents, workflow integration | ServiceNow shops |
+| **Boomi AgentStudio** | Agent registry, guardrails, MCP support, lifecycle management | Boomi integration platform users |
+| **LogicMonitor Edwin** | Enterprise monitoring with agent integration | Infrastructure-heavy enterprises |
+| **Anthropic's Claude Trust Layer** | Built-in for Claude Code enterprise, constitutional AI | Claude-native stacks |
+
+#### Governance Primitives
+| Primitive | Purpose | Implementation |
+|-----------|---------|---------------|
+| Agent Registry | Catalog of all deployed agents | Boomi AgentStudio / custom |
+| Guardrails | Pre/post filters on agent actions | Built-in hooks + LLM guard |
+| Audit Trails | Complete log of agent actions | PostBash hooks → SIEM |
+| Human Escalation | When agents must stop and ask | Confidence calibration gates |
+| Cost Controls | Budget limits per agent/project | API quota management |
+| Rollback Protocol | Undo agent changes | Git checkpoints + permissions |
+
+### NS Framework Governance Model
+
+For NS Framework projects, governance is built via:
+
+1. PERMISSIONS (see ENH-003)
+   Pre-configured, committed to git, reviewed by team
+
+2. HOOKS AUDIT TRAIL
+   ```bash
+   # .claude/hooks/post-bash.sh
+   echo "[$(date)] $(whoami) executed: $COMMAND" >> .claude/audit.log
+   ```
+
+3. HUMAN GATES (confidence calibration)
+   Built into NS Foundation — agent stops and asks at specified uncertainty thresholds
+
+4. CHECKPOINT PROTOCOL
+   Every prompt creates a checkpoint. Use /rewind for instant rollback.
+   For production: every agent action creates a git commit (atomic rollback).
+
+5. PR-GATED DEPLOYMENT
+   No agent work reaches production without human PR review.
+   This is the enterprise-grade NS standard regardless of agent autonomy level.
+
+### Quality Gates
+```text
+□ Agent registry exists (even if just a README listing deployed agents)
+□ All agent permissions documented and committed to version control
+□ Audit log configured for all bash commands
+□ Human escalation paths defined for each agent type
+□ Cost monitoring alerts configured
+□ Rollback procedure tested and documented
+□ Compliance review: does agent have access to PII? If yes, data handling policy documented
+```
+
+### Cross-Category Dependencies
+- → Category 52 (Security) — access control and audit
+- → Category 56 (Compliance) — regulatory requirements
+- → Category 55 (Monitoring) — agent observability
+- → NS Part X (Security) — security-first development
 
 ---
 
@@ -4897,8 +5373,14 @@ You are operating with a structured memory system:
 | 54 | Analytics & Tracking | Foundation | v1.0 |
 | 55 | Monitoring & Observability | Foundation | v1.0 |
 | 56 | Compliance & Legal | Foundation | v1.0 |
+| 57 | Agent Orchestration Frameworks | AI Systems | v2.1 NEW |
+| 58 | AI-Native IDEs | AI Systems | v2.1 NEW |
+| 59 | Prompt Orchestration & Eval | AI Systems | v2.1 NEW |
+| 60 | Life OS Agents | AI Systems | v2.1 NEW |
+| 61 | Enterprise Agent Governance | Foundation | v2.1 NEW |
+| 62 | Memory Infrastructure | AI Systems | v2.1 NEW |
 
-**Total: 56 base categories + 4 v2.0 additions = 60 categories**
+**Total: 56 base categories + 6 v2.1 additions = 62 categories**
 
 ---
 
@@ -4963,7 +5445,98 @@ You are operating with a structured memory system:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | January 2026 | Initial 56-category framework |
-| **2.0** | **January 2026** | **Added: Skills (31B), Reasoning Loops (31C), Prompt Patterns (31D), Memory Architecture (31E)** |
+| 2.0 | January 2026 | Added: Skills (31B), Reasoning Loops (31C), Prompt Patterns (31D), Memory Architecture (31E) |
+| **2.1** | **March 2026** | **Added: Cat 57-61, OpenClaw Integration, RPIT Loop Sync, Enhanced Skill Discovery** |
+
+---
+
+## Category 60: Life OS Agents
+
+### Scope
+Always-on personal AI agents, messaging-app-connected automation,
+autonomous task management, local-first AI assistants.
+
+### What This Category Is
+Life OS Agents are a distinct category from coding agents. They are:
+- Always running (daemon processes)
+- Connected to messaging apps (WhatsApp, Telegram, Slack, Discord)
+- Model-agnostic (connect to any LLM)
+- Optimized for non-developer tasks (scheduling, research, inbox management)
+
+They complement coding agents like Claude Code — they are the DISPATCH LAYER,
+while Claude Code is the EXECUTION LAYER.
+
+### Technology Stack
+
+#### Leading Platforms
+| Tool | Stars | Key Differentiator | Status |
+|------|-------|-------------------|--------|
+| **OpenClaw** | 199K+ | Original, messaging-native, 5,700+ community skills, ClawHub | OpenAI-backed foundation |
+| **NanoClaw** | Growing | Minimal OpenClaw (Raspberry Pi-compatible), ~80% features | Open-source |
+| **Nanobot (HKU)** | 26,800 | 4,000 lines Python, readable codebase, learning platform | Open-source |
+| **memU** | Growing | Memory-first, anticipatory, secretary model | Commercial |
+
+#### OpenClaw Architecture
+```text
+┌─────────────────────────────────────────────────────────────────────┐
+│                        OPENCLAW STACK                               │
+│                                                                     │
+│  Messaging Layer:  WhatsApp │ Telegram │ Slack │ Discord │ iMessage │
+│         │                                                           │
+│         ▼                                                           │
+│  OpenClaw Core: Message routing + Intent parsing + Memory          │
+│         │                                                           │
+│         ▼                                                           │
+│  Skills Layer (ClawHub: 5,700+ skills):                            │
+│    Spotify Control │ Grocery List │ Calendar │ Email │ Shell cmds  │
+│         │                                                           │
+│         ▼                                                           │
+│  LLM Layer: Claude │ GPT-4o │ Gemini │ DeepSeek │ Ollama (local)  │
+│         │                                                           │
+│         ▼                                                           │
+│  System Layer: File system │ Calendar │ Browser │ Smart Home       │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+#### ClawHub vs NS Skills Architecture
+| Aspect | ClawHub (OpenClaw) | NS Skills (.claude/skills/) |
+|--------|-------------------|------------------------------|
+| Discovery | Registry with 5,700+ skills | Progressive disclosure in session |
+| Trigger | Keyword/intent matching | Description-based auto-discovery |
+| Scope | Cross-app, always-on | Per-session, per-project |
+| Best for | Life automation | Development workflows |
+
+### High-Value Use Cases for Developers
+1. **Async Claude Code triggers** — "Fix bug #47" from WhatsApp → OpenClaw → claude CLI → PR
+2. **Multi-repo monitoring** — Morning summary of all open PR status
+3. **Scheduled framework maintenance** — Weekly cron: run retro skill, update changelog
+4. **Cross-platform context** — Meeting notes → OpenClaw → GitHub issue → Claude Code implements
+5. **Development status updates** — Telegram notification when RALPH loop completes
+
+### Security Considerations
+```text
+⚠️  OpenClaw has FULL SYSTEM ACCESS by default. Scope carefully:
+□ Run in Docker container with limited volume mounts
+□ Never run as root
+□ Whitelist only necessary directories
+□ Audit installed skills before enabling
+□ Use local LLM (Ollama) for sensitive/private data
+□ Review OpenClaw's network traffic if concerned about data sovereignty
+```
+
+### Selection Guide
+| Need | Recommendation |
+|------|---------------|
+| Maximum features + community skills | OpenClaw |
+| Minimal, auditable, learning project | Nanobot |
+| Raspberry Pi / low-resource device | NanoClaw |
+| Privacy-first, no cloud | Nanobot + Ollama |
+| Enterprise messaging integration | OpenClaw + Slack |
+
+### Cross-Category Dependencies
+- → Category 58 (AI-Native IDEs) — Claude Code as execution layer
+- → Category 44 (Workflow Orchestration) — for automation pipelines
+- → Category 31 (Agent Frameworks) — agent composition patterns
 
 ---
 ## Appendix: GTM Roadmap
@@ -5006,7 +5579,7 @@ The following sections are designed as **extension points** where custom framewo
 
 ## North Star Blueprint Integration
 
-This Master Build Framework pairs with the **North Star Blueprint v6.0** for complete coverage:
+This Master Build Framework pairs with the **North Star Blueprint v6.1** for complete coverage:
 
 | This Framework Provides | North Star Provides |
 |-------------------------|---------------------|
@@ -5028,8 +5601,9 @@ This Master Build Framework pairs with the **North Star Blueprint v6.0** for com
 
 ---
 
-*End of Framework v2.0 — January 2026*
+*End of Framework v2.1 — March 2026*
 *Patched with Skills, Reasoning, Prompts, Memory Architecture*
 *Part of the unified NS + MBF ecosystem — see BRIDGE.md for navigation*
 
 ---
+
