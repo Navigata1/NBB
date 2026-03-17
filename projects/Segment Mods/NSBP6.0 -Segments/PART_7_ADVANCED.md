@@ -1,4 +1,4 @@
-# NORTH STAR BLUEPRINT v6.0 — SEGMENT 7 of 7
+# NORTH STAR BLUEPRINT v6.1 — SEGMENT 7 of 7
 ## PART_7_ADVANCED
 ### Contents: Part XII (Sections 54-56) + Part XIII (Sections 57-59) + Part XIV + Back Matter
 ### Lines: 14428-16318 of original
@@ -82,17 +82,17 @@ MINOR: Additions and improvements
   • Bug fixes in examples
 
 
-CURRENT VERSION: v6.0
+CURRENT VERSION: v6.1
 ─────────────────────────────────────────────────────────────────────────────
-This is a major revision incorporating:
-  • AI-native development patterns
-  • MCP and tool orchestration
-  • Enhanced agent architecture
-  • Modular document structure
+This is a minor revision incorporating:
+  • Retro Skill / Outer Improvement Loop
+  • Memory Architecture (Three-Pillar, Weighting, Compaction)
+  • Plus all v6.0 foundations below
 
 
 VERSION HISTORY:
 ─────────────────────────────────────────────────────────────────────────────
+v6.1 - Feedback loop, memory architecture, skills package, ecosystem updates
 v6.0 - AI orchestration, MCP integration, modular structure
 v4.0 - Enhanced design system, animation specifications
 v3.0 - Quality gates, slice methodology, documentation hierarchy
@@ -632,8 +632,271 @@ system so future sessions benefit from this experience.
    - Update claude.md with approved rules
    - Create any approved slash commands
    - Create any approved skill files
-   - Create a single commit: "chore(docs): encode session learnings"
+    - Create a single commit: "chore(docs): encode session learnings"
 ```
+
+────────────────────────────────────────────────────────────────────────────────
+
+COMPOUND ENGINEERING PATTERN
+
+The compound engineering plugin from Every.to formalizes this at a higher level.
+Key commands:
+  /re    — review session, extract learnings
+  /compound — document patterns for future reuse
+
+The Claudeception skill goes further: it watches what Claude does and
+automatically extracts new skills from successful patterns, building a
+skill library that grows with every session.
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE RESULT: A SELF-IMPROVING SYSTEM
+
+  Session 1: Claude makes 5 mistakes, you correct them
+  Session 2: Retro runs, encodes fixes into claude.md
+  Session 3: Claude doesn't make those 5 mistakes
+  
+  After 10 sessions: claude.md contains battle-tested rules
+  After 20 sessions: You have 5+ custom skills for your domain
+  After 30 sessions: Claude functions like a senior developer
+                     who knows your codebase intimately
+
+MEASUREMENT: Track "correction rate" — how many times per session you
+             had to correct Claude. A well-tuned system should see this
+             trend downward over time.
+```
+
+---
+
+### 56.5 Memory Architecture — The Third Engineering Layer
+
+> *Added in v6.1 (ENH-040) — Integrates NS_MEMORY_ARCHITECTURE_PROPOSAL into the Blueprint*
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              MEMORY ARCHITECTURE — THE THIRD ENGINEERING LAYER              ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+The North Star Blueprint has always excelled at two things:
+  • Prompt Engineering — how to talk to models
+  • Context Engineering — how to select and route optimal tokens (BRIDGE, Load Balancing)
+
+Memory Engineering is the third layer. It is what transforms:
+  "agents that do tasks in a session" → "agents that learn and compound over time"
+
+THE ENGINEERING EVOLUTION LADDER:
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                                                                         │
+  │  MEMORY ENGINEERING    ← "How do agents LEARN and ADAPT?"              │
+  │  ──────────────────────   Persistent intelligence across sessions      │
+  │         │                 THIS SECTION                                  │
+  │         ▼                                                               │
+  │  CONTEXT ENGINEERING   ← "How do we get OPTIMAL tokens into context?"  │
+  │  ──────────────────────   BRIDGE routing, Load Balancing (existing)    │
+  │         │                                                               │
+  │         ▼                                                               │
+  │  PROMPT ENGINEERING    ← "How do we talk to the model?"                │
+  │  ──────────────────────   Superprompt architecture (existing)          │
+  │                                                                         │
+  │  Each level CONTAINS the one below it.                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE THREE-PILLAR MEMORY ARCHITECTURE
+
+Memory in AI systems comprises three distinct pillars. The NS Framework maps
+perfectly to this structure — the proposal adds the Memory Core and Memory Manager
+that the framework was previously missing.
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                                                                         │
+  │  PILLAR 1: MEMORY CORE  "The Database as Brain"                        │
+  │  ─────────────────────────────────────────────                         │
+  │  One unified database — not separate vector/JSON/graph DBs.            │
+  │  Handles: vectors, documents, graph traversal, relational queries      │
+  │  Principle: "You don't have multiple brains. You have one."            │
+  │                                                                         │
+  │         │                                                               │
+  │         ▼                                                               │
+  │                                                                         │
+  │  PILLAR 2: MEMORY MANAGER  "The Software Engineering Around Memory"    │
+  │  ─────────────────────────────────────────────────────────────────     │
+  │  CRUD operations for memory units:                                      │
+  │  Create → Read → Update → Delete → Compact → Weight → Forget           │
+  │                                                                         │
+  │         │                                                               │
+  │         ▼                                                               │
+  │                                                                         │
+  │  PILLAR 3: AGENT HARNESS  "Everything Around the LLM"                  │
+  │  ─────────────────────────────────────────────────────                 │
+  │  This IS the existing NS Blueprint:                                     │
+  │  BRIDGE routing, Confidence Calibration, Quality Gates,                │
+  │  Four Archetypes, Thread Models, Handoff Protocol, Fix Ledger          │
+  │                                                                         │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+MEMORY TYPES TAXONOMY
+
+WORKING MEMORY (in-context, volatile)
+  → The LLM's active context window: what's loaded right now
+  → NS pattern: claude.md + plan.md + relevant files = working memory
+  → Key constraint: context window limit — manage via BRIDGE routing
+
+PROCEDURAL MEMORY (how to do things)
+  → NS patterns already encode this:
+    • Fix Ledger — "this approach failed, use this instead"
+    • Skills — packaged instructions for specialized tasks
+    • Slash commands — encoded repeatable workflows
+    • RPIT Loop — the canonical procedure for feature development
+
+EPISODIC MEMORY (what happened)
+  → Structured artifacts that survive session boundaries:
+    • plan.md (current feature history, checked-off steps)
+    • CHANGELOG.md (what changed and when)
+    • architecture.md (how the system evolved)
+    • git log (immutable record of what actually happened)
+  → Cross-session continuity: these ARE your episodic memory
+
+SEMANTIC MEMORY (what things are — knowledge)
+  → MBF categories: 62 technology domains, searchable knowledge
+  → architecture.md: what your specific system IS
+  → research reports: domain knowledge captured before building
+  → BRIDGE.md: navigational knowledge of the framework itself
+
+ASSOCIATIVE MEMORY (what connects to what)
+  → Cross-category dependencies in MBF
+  → Section references in Blueprint
+  → Fix Ledger linking symptoms to solutions
+  → Repository maps: function → caller → dependent relationships
+
+────────────────────────────────────────────────────────────────────────────────
+
+MEMORY WEIGHTING ALGORITHM
+
+From the Stanford Generative Agents paper. When multiple memories compete for
+limited context space, prioritize by:
+
+  weight(memory) = α·relevance + β·importance + γ·recency
+
+  Where α + β + γ = 1.0 (tunable per use case)
+
+  relevance = cosine_similarity(query, memory)    ← how related to current task
+  importance = normalize(reference_count)         ← how central to knowledge graph
+  recency = exp(-λ × hours_since_creation)        ← how fresh
+
+TUNING BY USE CASE:
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  Use Case          │  α (Relevance) │  β (Importance) │  γ (Recency) │
+  ├──────────────────────────────────────────────────────────────────────┤
+  │  Research/Knowledge │     0.6        │      0.3        │     0.1      │
+  │  Conversational     │     0.4        │      0.2        │     0.4      │
+  │  Task Execution     │     0.5        │      0.4        │     0.1      │
+  │  Real-time Agent    │     0.3        │      0.2        │     0.5      │
+  └──────────────────────────────────────────────────────────────────────┘
+
+NS PRACTICAL APPLICATION:
+  When choosing what to load into context for a session, weight by:
+  → How relevant is this document to what we're building today? (relevance)
+  → How often is this referenced by other documents? (importance)
+  → How recently was this updated? (recency)
+  
+  Example: architecture.md (high importance, medium recency) > 
+           old research report (medium relevance, low recency)
+
+────────────────────────────────────────────────────────────────────────────────
+
+CONTEXT COMPACTION STRATEGIES
+
+Two strategies — choose based on whether you can afford information loss:
+
+LEVEL 1: SUMMARIZATION (lossy — accept information loss)
+  When to use: Long conversation history, background context
+  How: LLM compresses conversation into summary
+  NS pattern: "Summarize the last 20 turns into 5 key decisions and
+              current state" → store in session-summary.md
+
+LEVEL 2: EXTERNALIZATION WITH REFERENCE IDs (lossless — no loss)
+  When to use: Tool results, code blocks, detailed data
+  How: Move content to file, leave pointer in context
+  Pattern:
+    BEFORE: Full database query result (2000 tokens)
+    AFTER:  "[Externalized: query_result_2024.json] 
+             Summary: 502 records. Call retrieve() if needed."
+  NS implementation: Write verbose tool results to /tmp/session-[id]/
+                     Keep only summary + reference path in context
+
+DECISION:
+  Tool results → Externalize (Level 2)
+  Conversation history → Summarize (Level 1)
+  Knowledge context → Selective retrieval via BRIDGE routing
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE FRONTLOADING PRINCIPLE
+
+"Pre-process everything so the LLM can focus on reasoning."
+
+The fundamental insight: LLMs perform better when they don't have to BOTH
+select information AND reason about it simultaneously. Separate the concerns.
+
+NS IMPLEMENTATION — STRUCTURED CONTEXT TEMPLATE:
+
+  <context>
+    <procedural_memory>
+      <!-- Things Claude can DO — skills, tools, workflows -->
+      Active skills: [list of loaded skills]
+      Available commands: [slash commands]
+      Known patterns: [relevant entries from Fix Ledger]
+    </procedural_memory>
+
+    <semantic_memory>
+      <!-- Things Claude KNOWS about this project -->
+      Architecture: [see architecture.md]
+      Tech stack: [current tech choices]
+      Domain rules: [business constraints from claude.md]
+    </semantic_memory>
+
+    <episodic_memory>
+      <!-- What HAS HAPPENED in this project -->
+      Recent: [git log --oneline -5]
+      Current feature: [plan.md summary, completed steps]
+      Key decisions: [from CHANGELOG.md]
+    </episodic_memory>
+
+    <working_memory>
+      <!-- What we're DOING NOW -->
+      Task: [current step from plan.md]
+      Success criteria: [from plan.md]
+      Constraints: [active constraints]
+    </working_memory>
+  </context>
+
+WHY THIS MATTERS: When context is structured this way, Claude instantly
+knows which "drawer" to open for each type of reasoning. This produces
+measurably better output than undifferentiated context.
+
+────────────────────────────────────────────────────────────────────────────────
+
+MEMORY QUALITY GATES
+
+□ Memory Core selected and documented (see MBF Category 62)
+□ Memory types identified for your use case
+□ Compaction strategy selected (summarization vs externalization)
+□ Episodic artifacts current: plan.md, architecture.md, CHANGELOG.md
+□ Retrieval accuracy tested: does semantic search return expected results?
+□ Forgetting threshold set: low-weight memories archived or pruned
+□ Cross-session continuity verified: new session recovers state from files
+
+MEMORY ARCHITECTURE QUALITY GATE FOR DEFINITION OF DONE
+□ Memory architecture documented for the feature
+□ Episodic artifacts updated (plan.md checked off, CHANGELOG entry)
+□ Any new patterns encoded into skills or claude.md rules
 ```
 
 ---
@@ -674,6 +937,13 @@ system so future sessions benefit from this experience.
 │  • Quarterly technology reviews                                              │
 │  • ADRs for decision capture                                                 │
 │  • Feedback loops: Observe → Measure → Analyze → Decide → Act               │
+│                                                                              │
+│  v6.1 ADDITIONS:                                                             │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Retro Skill / Outer Improvement Loop (v6.1 — ENH-016)                   │
+│  • Memory Architecture — Third Engineering Layer (v6.1 — ENH-040)          │
+│    Three-Pillar Architecture, Memory Types Taxonomy,                        │
+│    Weighting Algorithm, Compaction Strategies, Frontloading Principle       │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

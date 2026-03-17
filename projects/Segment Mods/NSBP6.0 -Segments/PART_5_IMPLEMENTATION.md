@@ -1,7 +1,7 @@
-# NORTH STAR BLUEPRINT v6.0 — SEGMENT 5 of 7
+# NORTH STAR BLUEPRINT v6.1 — SEGMENT 5 of 7
 ## PART_5_IMPLEMENTATION
 ### Contents: Part VIII (Sections 37-41) + Part IX (Sections 42-45)
-### Lines: 10287-12378 of original
+### Lines: 10287-12378 of original (expanded with v6.1 enhancements)
 ---
 > **SEGMENT NAVIGATION:** This is a development segment. For full Blueprint, merge all 7 parts.
 > For BRIDGE routing: Sections 37-45 are in this segment.
@@ -1049,6 +1049,13 @@ NS FRAMEWORK RECOMMENDATION:
 │  • Correct status codes                                                      │
 │  • Consistent response formats                                               │
 │  • URL path versioning (/api/v1/)                                           │
+│                                                                              │
+│  CODEBASE INTELLIGENCE / REPOSITORY MAPS (v6.1):                             │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • AST-based + PageRank-weighted codebase indexes                           │
+│  • 100K+ line codebases understood in ~2K tokens                            │
+│  • Use Explore sub-agent or aider repo maps                                  │
+│  • Commit architecture.md, link from claude.md                               │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

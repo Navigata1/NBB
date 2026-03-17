@@ -122,10 +122,12 @@ Ready to contribute code or content?
 
 | Component | Style Notes |
 |-----------|-------------|
-| Blueprint | Methodology-focused, platform-agnostic |
-| MBF | Tool-specific, exhaustive options |
-| Bootstrap | Action-oriented, beginner-friendly |
-| BRIDGE | Navigation-focused, routing clarity |
+| Blueprint v6.1 | Methodology-focused, platform-agnostic, section-numbered |
+| MBF v2.1 | Tool-specific, exhaustive options, quality gates per category |
+| Bootstrap v1.4 | Action-oriented, beginner-friendly, self-cleaning philosophy |
+| BRIDGE v1.2 | Navigation-focused, routing clarity, decision trees |
+| GLOBAL_IDE_RULES v1.1 | Universal principles, IDE-specific configs |
+| Skills | Description-first, trigger-accurate, specialized knowledge |
 
 ### Commit Messages
 
@@ -153,14 +155,26 @@ The Blueprint contains methodology and orchestration patterns. When contributing
 - Follow the Documentation Hierarchy (Layer 1-5)
 - Include quality gates where appropriate
 
-### Master Build Framework
+### Master Build Framework v2.1
 
 The MBF contains technology options by category. When contributing:
 
-- Add tools to appropriate categories (1-56+)
-- Include: Tool name, type/provider, best use case
+- Add tools to appropriate categories (1-63+)
+- Include for each tool: name, type/provider, best use case, links
 - Add cross-category dependencies where relevant
-- Include agentic prompt hooks for complex categories
+- Match the existing category format (scope, tech stack table, quality gates)
+- Include quality gates relevant to the category
+- For new categories: use the existing category template structure
+
+**New Category Criteria:**
+A new MBF category is warranted when:
+- A technology domain requires 3+ distinct tools for comparison
+- The domain has distinct quality gates from existing categories
+- It represents a meaningfully different architectural decision space
+
+**Currently accepting additions for:**
+- Category 57-63 (new in v2.1 — still being refined)
+- Any category with tools launched after January 2025
 
 ### Bootstrap
 
@@ -178,6 +192,39 @@ BRIDGE handles routing. When contributing:
 - Ensure routes map to correct sections/categories
 - Test routing with real queries
 - Maintain the navigation hierarchy
+
+### Contributing New Skills
+
+Skills are the fastest-growing part of the NS ecosystem.
+
+**Skill Requirements:**
+- Must have a SKILL.md with name, description, and trigger keywords
+- Description must use "Use when..." format with 5+ specific trigger phrases
+- Include concrete examples of when the skill should and should not fire
+- Skill should encode genuinely specialized knowledge (not just restate docs)
+
+**Skill Submission:**
+- Place in: `.claude/skills/[skill-name]/SKILL.md`
+- Test auto-discovery: does Claude load it without being explicitly asked?
+- Test trigger accuracy: does it fire on intended scenarios, not others?
+- PR title format: `skill: add [skill-name] skill`
+
+**Good candidate skills:**
+- Domain-specific patterns (e.g., specific framework best practices)
+- Workflow automation (e.g., deployment checklist for a specific platform)
+- Company/org-specific knowledge (your fork)
+- Language-specific patterns (e.g., Rust error handling patterns)
+
+### Enhancement ID Format
+
+When suggesting improvements that align with the v6.1 enhancement system:
+
+**Format:** `ENH-NNN — [Component] — [Topic] — [Priority]`
+
+**Example:** `ENH-042 — MBF v2.1 — New Category 64: WebAssembly Runtimes — 🟡 High`
+
+This helps maintainers evaluate and queue enhancements systematically.
+Include an Enhancement ID proposal in your issue or PR description.
 
 ---
 

@@ -22,7 +22,7 @@
 | 1 | MBF_PART_1_CORE.md | Front Matter + Tier 1-2 (Cat 1-14) | 1,123 | 36KB |
 | 2 | MBF_PART_2_DATA_AI.md | Tier 3-4 (Cat 15-35) | 1,140 | 26KB |
 | 3 | MBF_PART_3_CONTENT_OPS.md | Tier 5-6 (Cat 36-49) | 841 | 20KB |
-| 4 | MBF_PART_4_FOUNDATION.md | Tier 8+ (Cat 50-61) + Guides + Addendum | 2,050 | 66KB |
+| 4 | MBF_PART_4_FOUNDATION.md | Tier 8+ (Cat 50-56, 60-61) + Guides + Addendum | 2,050 | 66KB |
 
 ---
 
@@ -33,7 +33,7 @@ When BRIDGE.md references a category, use this map to find the correct segment:
 | Category Range | Segment to Load |
 |----------------|-----------------|
 | Categories 1-14 | MBF_PART_1_CORE |
-| Categories 15-35, 57-59 | MBF_PART_2_DATA_AI |
+| Categories 15-35, 57-59, 62 | MBF_PART_2_DATA_AI |
 | Categories 36-49 | MBF_PART_3_CONTENT_OPS |
 | Categories 50-56, 60-61 + Skills/RLM | MBF_PART_4_FOUNDATION |
 
@@ -44,7 +44,7 @@ When BRIDGE.md references a category, use this map to find the correct segment:
 
 ### MBF_PART_1_CORE
 
-- **Front Matter:** Framework Overview, 56 Categories at a Glance, Dependency Matrix
+- **Front Matter:** Framework Overview, 62 Categories at a Glance, Dependency Matrix
 - **Tier 1 (Cat 1-7):** Build Targets — Web Apps, Mobile, Desktop, Websites, Generative Web, OS/Embedded, Extensions
 - **Tier 2 (Cat 8-14, 58):** Compute & Infrastructure — APIs, Edge, Serverless, GPU/ML, Containers, IaC, Platform Engineering, AI-Native IDEs & Coding Agents
 
@@ -52,7 +52,7 @@ When BRIDGE.md references a category, use this map to find the correct segment:
 ### MBF_PART_2_DATA_AI
 
 - **Tier 3 (Cat 15-21):** Data & Persistence — Relational DBs, Vector DBs, NoSQL, Local-First, Object Storage, Warehousing, Search
-- **Tier 4 (Cat 22-35, 57-59):** AI & Agent Systems — Caching, Queues, Real-Time, Cron, Graph Processing, ETL, Feature Stores, RAG, Agents, MCPs, Memory, Fine-Tuning, Serving, Routing, Safety, Orchestration, IDEs, Prompt Eval
+- **Tier 4 (Cat 22-35, 57-59, 62):** AI & Agent Systems — Caching, Queues, Real-Time, Cron, Graph Processing, ETL, Feature Stores, RAG, Agents, MCPs, Memory, Fine-Tuning, Serving, Routing, Safety, Orchestration, IDEs, Prompt Eval, Memory Infrastructure
 
 
 ### MBF_PART_3_CONTENT_OPS

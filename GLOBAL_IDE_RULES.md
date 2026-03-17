@@ -4,12 +4,17 @@
 
 > **SCOPE:** These rules apply to ALL projects, ALL sessions, ALL IDEs.
 > Project-specific rules in `claude.md` or `.cursorrules` override these defaults.
-> 
+>
+> **VERSION:** 1.1 | **Updated:** March 2026
+> **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1
+>
 > **LOCATION:** Place in your global IDE config directory:
 > - Claude Code: `~/.claude/CLAUDE.md` or project root
 > - Cursor: `~/.cursor/global-rules.md`
 > - Windsurf: `~/.windsurf/rules.md`
-> - Anti-Gravity RAPS: `~/.raps/gemini.md`
+> - Kiro: `~/.kiro/rules.md`
+> - Zed: `~/.config/zed/agent-rules.md` (via ACP)
+> - Anti-Gravity: `~/.raps/gemini.md`
 
 ---
 
@@ -17,7 +22,7 @@
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                                                                              ║
 ║                         GLOBAL IDE RULES                                     ║
-║                              v1.0                                            ║
+║                              v1.1                                            ║
 ║                                                                              ║
 ║              Universal Operating Principles for AI Agents                    ║
 ║                                                                              ║
@@ -46,6 +51,24 @@ FRAMEWORK HIERARCHY:
 Project Rules (claude.md) > Workspace Rules > These Global Rules
 
 If conflict exists → Project rules win → Log deviation
+
+FEATURE DEVELOPMENT STANDARD (All Projects):
+─────────────────────────────────────────────────────────────────────────────
+
+The RPIT Loop is the canonical unit of feature development. Always apply it:
+
+  1. RESEARCH  → Research report for unfamiliar tech (optional for simple tasks)
+  2. PLAN      → Write plan.md in plan mode before writing any code
+  3. IMPLEMENT → Execute approved plan; commit each step
+  4. TEST      → Run tests, verify UX, confirm success criteria
+
+HUMAN APPROVAL GATES:
+  → Plan must be approved before implementation begins (no exceptions)
+  → For annotated plans: incorporate ALL inline annotations before proceeding
+  → If scope changes during implementation: STOP, update plan, re-approve
+
+QUALITY LOOP (After Each Feature):
+  → Run retro skill: capture learnings, encode improvements to claude.md
 ```
 
 ---
@@ -92,6 +115,29 @@ AUTOMATIC DOWNGRADE TRIGGERS:
 • Database migrations → Cap at Level 3
 • Production deployments → Cap at Level 3
 • Financial/payment code → Cap at Level 2
+
+MULTI-AGENT AUTONOMY RULES:
+─────────────────────────────────────────────────────────────────────────────
+
+When operating as part of a multi-agent team:
+
+  PRIMARY ORCHESTRATOR: Level 5-6 (full execution + coordination)
+  WORKER AGENT:         Level 6 for files in your worktree only
+                        Level 1 for any file outside your worktree
+  JUDGE AGENT:          Level 1-2 only (review and report, do not modify)
+
+WORKTREE BOUNDARY RULE (critical):
+  A worker agent MUST NOT modify files outside its assigned worktree.
+  If a task requires touching another agent's files:
+    → STOP
+    → Report the dependency to orchestrator
+    → Await reassignment or coordination instruction
+
+BACKGROUND SESSION RULE:
+  When running as a background/async session (web app, OpenClaw trigger):
+    → Always create a PR, never merge directly to main
+    → Include test results in PR description
+    → Tag with [ASYNC] prefix in PR title
 ```
 
 ### 2.3 Communication Style
@@ -179,6 +225,28 @@ BEFORE COMMITTING:
 □ Run type checker (zero errors)
 □ Run existing tests (all pass)
 □ Manual smoke test of changed functionality
+
+AI-ASSISTED DEVELOPMENT STANDARDS:
+─────────────────────────────────────────────────────────────────────────────
+
+□ Stop hook configured (runs tests after every Claude response)
+□ Pre-write hook configured (protects .env, production configs, migrations)
+□ Permissions pre-configured in .claude/settings.json (not dangerously-skip)
+□ claude.md exists and is current (not more than 2 weeks stale)
+□ plan.md created and approved before each significant feature
+□ Repository map / architecture.md exists for codebases > 5K lines
+
+CONTEXT MANAGEMENT STANDARDS:
+□ Start fresh session for each distinct task (use /clear between tasks)
+□ Monitor context % via status line — stop at 85%+
+□ Never rely on autocompaction — treat it as a session restart event
+□ Keep plan.md current (checked-off steps) to survive session boundaries
+
+NEVER DO:
+  ✗ claude --dangerously-skip-permissions (use pre-configured permissions)
+  ✗ Approve a plan you haven't read
+  ✗ Allow agent to modify files outside its assigned scope
+  ✗ Skip tests because "it looks right"
 ```
 
 ### 3.3 File Organization
@@ -269,12 +337,37 @@ ERROR HANDLING:
 SESSION START PROTOCOL
 ─────────────────────────────────────────────────────────────────────────────
 
-□ Check for project-specific rules (claude.md, .cursorrules)
-□ If project rules exist → Load and follow them
-□ If no project rules → Offer to generate claude.md
-□ Review recent changes (git log, CHANGELOG)
-□ Identify current state and next actions
-□ State understanding before proceeding
+STANDARD SESSION START:
+  □ Check for project-specific rules (claude.md, .cursorrules)
+  □ If project rules exist → Load and follow them
+  □ If no project rules → Run /init to create claude.md, interview with
+    ask_user_question tool before proceeding
+  □ Review recent changes: git log --oneline -5
+  □ Check current test status: run test suite
+  □ Identify next action: GitHub issues, plan.md todo list, or user prompt
+
+MULTI-AGENT SESSION START (when running as a parallel worker):
+  □ Read the brief provided by the orchestrator
+  □ Confirm file ownership scope (what you own, what you cannot touch)
+  □ Read the GitHub issue assigned to you
+  □ Write plan.md before writing any code
+  □ Confirm plan with orchestrator if complex
+
+ASYNC SESSION START (web app / OpenClaw triggered):
+  □ Read the task description carefully
+  □ Check context: git status, recent log, test results
+  □ Create plan.md for the task
+  □ Execute RPIT loop
+  □ Create PR when done — never push direct to main
+  □ Include test results and screenshots in PR description
+
+RECOVERY SESSION START (after compaction or restart):
+  □ Read claude.md
+  □ Read plan.md (current feature) — note checked vs unchecked steps
+  □ Run: git log --oneline -10
+  □ Run: test suite — understand current pass/fail state
+  □ DO NOT rely on conversation history — use files as ground truth
+  □ Report understanding before continuing
 ```
 
 ### 5.2 During a Session
@@ -307,12 +400,30 @@ WHEN ENCOUNTERING ERRORS:
 SESSION END PROTOCOL
 ─────────────────────────────────────────────────────────────────────────────
 
-□ Summarize what was accomplished
-□ List any incomplete items
-□ Update project state file (claude.md "Current State")
-□ Create handoff note if mid-task
-□ Commit any uncommitted work (or stash with note)
-□ Document any decisions made
+STANDARD END:
+  □ Summarize what was accomplished
+  □ List any incomplete items with current status
+  □ Update plan.md (check off completed steps)
+  □ Commit any uncommitted work with descriptive message
+  □ Update claude.md "Current State" section if significant changes
+  □ Create handoff note if mid-task and session must end
+
+RETRO TRIGGER (after completing a feature or milestone):
+  □ Run retro skill: /retro or "let's do a retro"
+  □ Encode approved learnings into claude.md
+  □ Create any new slash commands or skills identified
+  □ Commit: "chore: encode session learnings [date]"
+
+MULTI-AGENT END:
+  □ Run test suite — confirm all tests pass in your worktree
+  □ Create PR with: feature description, test results, screenshot if UI
+  □ Tag orchestrator in PR for review
+  □ Do NOT delete worktree — let orchestrator manage cleanup
+
+NEVER END WITHOUT:
+  ✗ Leaving uncommitted changes with no note
+  ✗ Leaving tests failing without documenting why
+  ✗ Leaving plan.md outdated (it's the continuity document)
 ```
 
 ---
@@ -322,47 +433,64 @@ SESSION END PROTOCOL
 ### 6.1 Claude Code
 
 ```
-CLAUDE CODE SPECIFIC
+CLAUDE CODE SPECIFIC — v6.1
 ─────────────────────────────────────────────────────────────────────────────
 
-CLAUDE.md LOCATION: Project root or ~/.claude/CLAUDE.md
+CLAUDE.md LOCATION:
+  Global: ~/.claude/CLAUDE.md  (applies to all projects)
+  Project: ./claude.md         (overrides global)
 
-HOOKS (if supported):
-  • Pre-commit: Run linter + type check
-  • Post-change: Run affected tests
-
-MEMORY:
-  • Use CLAUDE.md for persistent context
-  • Reference Fix Ledger for bug patterns
-
-SUBAGENT SPAWNING:
-  • Use for parallel independent tasks
-  • Always specify archetype (Builder, QC, etc.)
-  • Merge results through supervisor pattern
-  ```
+MANDATORY HOOKS (configure on every project):
+  Stop hook:       Run tests after every response
+  Pre-write hook:  Protect .env, migrations, production configs
   
-## CLAUDE CODE: RECOMMENDED PLUGINS
+  Minimum stop.sh:
+  ─────────────────────────────────────────────────────────────────────
+  #!/bin/bash
+  if git diff --quiet HEAD; then exit 0; fi
+  npx tsc --noEmit && npm test --passWithNoTests || exit 1
+  ─────────────────────────────────────────────────────────────────────
+  Register: .claude/settings.json → "hooks": { "stop": ".claude/hooks/stop.sh" }
 
-### Code-Simplifier (Official Anthropic Plugin)
-```
+PERMISSIONS (REQUIRED — never use --dangerously-skip-permissions):
+  Configure in .claude/settings.json and commit to git.
+  Minimum for most projects:
+  { "permissions": { "allow": ["bash:git *", "bash:npm *", "file:read:**",
+                               "file:write:src/**", "file:write:tests/**"] } }
 
-The same agent the Claude Code team uses internally to keep their codebase clean.
+WORKTREES (for parallel agent work):
+  Start with: claude --worktree  OR  claude -w
+  Desktop App: New Session → check "Use worktree"
+  Cleanup after merge: git worktree remove <path>
 
-INSTALL:
-  claude plugin install code-simplifier
+CONTEXT MANAGEMENT:
+  Status line: configure to show context % always
+  /clear: use liberally between distinct tasks
+  /context: check usage before long tasks
+  Rule: never continue past 85% context on important work
 
-USE:
-  Run at end of coding sessions before committing: "Use the code-simplifier agent"
+KEY COMMANDS:
+  /init              Create claude.md via interview
+  /clear             Reset context (keep code)
+  /rewind            Roll back to previous checkpoint
+  /context           Check context usage
+  claude -w          Start new worktree session
+  claude --resume    Resume last session
+  --teleport         Move web session to local terminal
 
-BENEFITS:
-  • 20-30% token reduction
-  • Removes AI verbosity while preserving functionality
-  • Follows your CLAUDE.md conventions
+RECOMMENDED PLUGINS (install for all projects):
+  • frontend-design  — dramatically improves UI quality
+  • ralph-loop       — autonomous iteration on well-defined tasks
+  • hookery          — browse/install pre-built hooks
+  • compound         — self-improvement workflows (/re, /compound)
+  • code-simplifier  — 20-30% token reduction on codebase bloat
 
-WHEN:
-  • After long coding sessions
-  • Before PR merge
-  • After major features complete
+RECOMMENDED SKILLS (install globally):
+  • retro            — post-RPIT improvement loop
+  • parallel-agent   — multi-Claude orchestration guide
+  • research-report  — structured research before building
+  • plan-annotator   — plan.md annotation workflow
+  • frontend-design  — Anthropic's design principles skill
 ```
 
 ### 6.2 Cursor
@@ -425,6 +553,99 @@ PARALLEL AGENTS:
 SERVERLESS DEPLOYMENT (Modal):
   • For long-running autonomous tasks
   • Ensure proper logging and checkpointing
+```
+
+### 6.5 Kiro (Spec-Driven Development)
+
+```
+KIRO SPECIFIC
+─────────────────────────────────────────────────────────────────────────────
+
+RULES FILE: .kiro/rules.md or project root kiro.md
+
+KIRO'S CORE PARADIGM: Spec → Hooks → Implementation
+  • Write a spec file BEFORE asking Kiro to build anything
+  • Kiro generates code from specs, not freeform prompts
+  • Hooks fire on domain events (file creation, test failure, etc.)
+
+SPEC FILES: .kiro/specs/[feature].spec.md
+  • Define: user stories, acceptance criteria, technical constraints
+  • Kiro reads specs as ground truth for implementation
+  • Human annotates spec (same as plan.md annotation pattern)
+
+HOOKS INTEGRATION:
+  • Kiro hooks are more expressive than lifecycle hooks
+  • Define event-driven triggers: onFileCreated, onTestFail, onSpecApproved
+  • Map hooks to claude.md updates and retro skill runs
+
+NS FRAMEWORK INTEGRATION:
+  • Kiro specs = enhanced version of NS plan.md
+  • Use NS quality gates as Kiro acceptance criteria templates
+  • MBF categories map directly to Kiro's technology suggestion engine
+```
+
+### 6.6 Zed + Agent Client Protocol (ACP)
+
+```
+ZED + ACP SPECIFIC
+─────────────────────────────────────────────────────────────────────────────
+
+RULES FILE: ~/.config/zed/agent-rules.md
+
+ZED'S DIFFERENTIATOR: Rust/GPU-accelerated editor + ACP open standard
+  • ACP = write an agent once, plug into any ACP-compatible IDE
+  • External agents connect via HTTP/SSE, not proprietary APIs
+  • Performance: significantly faster than Electron-based editors
+
+ACP INTEGRATION PATTERN:
+  • Build NS Framework skills as ACP-compliant agents
+  • Each skill becomes a portable agent: research, retro, plan-annotator
+  • Any ACP host (Zed, future IDEs) can invoke them without changes
+
+CONFIGURATION:
+  • Agent rules in agent-rules.md follow same format as claude.md
+  • ACP agents registered in ~/.config/zed/agents.json
+  • Permissions scoped per-agent, per-project
+
+NS FRAMEWORK NOTE:
+  The ACP standard could become the distribution format for NS skills.
+  Skills authored as ACP agents = IDE-agnostic, framework-portable.
+  Watch this space for NS ACP skill packages in future releases.
+```
+
+### 6.7 Google Antigravity
+
+```
+ANTIGRAVITY SPECIFIC
+─────────────────────────────────────────────────────────────────────────────
+
+RULES FILE: ~/.raps/gemini.md (inherits from Anti-Gravity RAPS)
+
+ANTIGRAVITY'S DIFFERENTIATOR: Visual multi-agent orchestration dashboard
+  • "Manager view" — see all agents and their status simultaneously
+  • Built-in browser (no need for Playwright MCP for many tasks)
+  • Supports both Gemini 3 Pro and Claude Sonnet 4.5 simultaneously
+  • Multi-model orchestration: route by task type to best model
+
+MULTI-MODEL ROUTING PATTERN:
+  ┌────────────────────────────────────────────────────────────────┐
+  │  Task Type              │  Recommended Model                   │
+  ├────────────────────────────────────────────────────────────────┤
+  │  Code generation        │  Claude Sonnet 4.5 / Opus 4.6        │
+  │  Web research/browsing  │  Gemini 3 Pro (native browser)       │
+  │  Visual analysis        │  Gemini 3 Pro (multimodal strength)  │
+  │  Architecture decisions │  Claude Opus 4.6 (reasoning depth)   │
+  └────────────────────────────────────────────────────────────────┘
+
+VISUAL ORCHESTRATION:
+  • Use manager view to supervise multi-agent NS workflows
+  • Each agent panel shows: current task, context %, status
+  • Built-in coordination for Planner/Worker/Judge pattern (ENH-011)
+
+NS FRAMEWORK INTEGRATION:
+  • BRIDGE routing works the same — Antigravity agents read BRIDGE.md
+  • Quality gates enforced via Antigravity's hook system
+  • Parallel agent sessions visible in manager dashboard
 ```
 
 ---
@@ -510,6 +731,32 @@ UNCERTAIN ABOUT DESTRUCTIVE ACTION:
   2. Explain what will be affected
   3. Confirm backup/rollback exists
   4. Wait for explicit approval
+
+CONTEXT COMPACTION OCCURRED:
+  1. STOP immediately — don't continue on compacted context
+  2. Start fresh session
+  3. Reload context from files (NOT from conversation):
+     → Read claude.md
+     → Read plan.md for current feature
+     → Run git log --oneline -10
+     → Run test suite
+  4. Report understanding to human: "I've reloaded context. Here's where
+     I believe we are: [summary]. Does this match your understanding?"
+  5. Continue only after human confirms
+  KEY: Files are ground truth. Conversation is ephemeral.
+
+AGENT COLLISION DETECTED (two agents touched same file):
+  1. STOP all affected agents immediately
+  2. Check git diff on the conflicted file
+  3. Identify which agent's version is correct
+  4. Do not auto-merge — escalate to human orchestrator
+  5. After resolution: document in project's Deviation Log
+
+PERMISSIONS DENIED / UNEXPECTED TOOL FAILURE:
+  1. Do NOT attempt workarounds
+  2. Report exactly: what tool, what args, what error
+  3. Ask human to update permissions config
+  4. Do not retry more than once without human input
 ```
 
 ---
@@ -517,21 +764,38 @@ UNCERTAIN ABOUT DESTRUCTIVE ACTION:
 ## 10. CONTINUOUS IMPROVEMENT
 
 ```
-LEARNING FROM EACH SESSION
+CONTINUOUS IMPROVEMENT — THE OUTER LOOP
 ─────────────────────────────────────────────────────────────────────────────
 
-AFTER COMPLETING SIGNIFICANT WORK:
-  □ What went well? (Consider adding to patterns)
-  □ What was difficult? (Consider adding to Fix Ledger)
-  □ What would you do differently? (Note for future)
+SYSTEMATIC IMPROVEMENT CYCLE:
+  Every session builds the system. Apply this cycle to compound gains.
+
+  AFTER EVERY FEATURE (inner cycle):
+    1. Run retro skill
+    2. Encode learnings → claude.md updates
+    3. Create new slash commands for repeated workflows
+    4. Create new skills for specialized domain knowledge
+    5. Commit: "chore: encode session learnings"
+
+  AFTER EVERY MILESTONE (outer cycle):
+    1. Audit claude.md for bloat and outdated rules
+    2. Review all custom skills — are they being triggered appropriately?
+    3. Review all slash commands — are they still relevant?
+    4. Update architecture.md to reflect current system
+    5. Review hooks — add any new quality gates discovered
+
+CORRECTION RATE METRIC:
+  Track: how many times per session did you have to correct Claude?
+  Goal: trend downward over time.
+  A well-tuned system (30+ sessions): rarely needs correction on known patterns.
 
 UPDATING THESE GLOBAL RULES:
-  If you notice a pattern that should be global:
-  1. Document it in current project first
-  2. If it works well, suggest adding to Global Rules
-  3. Version Global Rules when updating
-
-This document should evolve based on experience.
+  If you find a pattern that should be universal (not just project-specific):
+  1. Test it in one project's claude.md first
+  2. Verify it works across 3+ sessions
+  3. Promote to global rules with version bump
+  4. Increment GLOBAL_IDE_RULES version number
+  5. Update "Compatible with" block in header
 ```
 
 ---
@@ -542,15 +806,27 @@ This document should evolve based on experience.
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  GLOBAL_IDE_RULES.md                                                         │
-│  Version: 1.0                                                                │
+│  Version: 1.1                                                                │
 │  Created: January 2025                                                       │
+│  Updated: March 2026                                                         │
 │                                                                              │
 │  COMPATIBLE WITH:                                                            │
-│  • North Star Bootstrap v1.0                                                 │
-│  • North Star Blueprint v6.0                                                 │
-│  • Master Build Framework v2.0                                               │
+│  • North Star Bootstrap v1.4                                                 │
+│  • North Star Blueprint v6.1                                                 │
+│  • Master Build Framework v2.1                                               │
 │                                                                              │
 │  CHANGELOG:                                                                  │
+│  v1.1 (March 2026) — Major update for Claude Code v6.1 era                 │
+│    • RPIT Loop as default feature development standard                       │
+│    • Hooks: mandatory stop hook + pre-write hook                             │
+│    • Multi-agent autonomy rules and worktree boundary enforcement            │
+│    • Permission pre-configuration protocol (no --dangerously-skip)          │
+│    • Session start/end protocols updated for all session types               │
+│    • Context compaction emergency protocol added                             │
+│    • Outer improvement loop with retro skill integration                     │
+│    • Claude Code section fully rewritten for v6.1 capabilities              │
+│    • New IDEs added: Kiro, Zed+ACP (see ENH-036)                           │
+│                                                                              │
 │  v1.0 (January 2025) — Initial release                                      │
 │    • Universal operating principles                                          │
 │    • IDE-specific configurations                                             │
@@ -562,7 +838,7 @@ This document should evolve based on experience.
 
 ---
 
-*End of GLOBAL_IDE_RULES.md v1.0*
+*End of GLOBAL_IDE_RULES.md v1.1*
 
 
 ---

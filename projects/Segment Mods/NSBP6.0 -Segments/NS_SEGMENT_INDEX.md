@@ -57,7 +57,7 @@ When BRIDGE.md references a section, use this map to find the correct segment:
 
 Users should receive the **merged monolith file**, not these segments.
 - Segments are for OUR development context management
-- Users get a single NORTH_STAR_BLUEPRINT_v5_0.md file
+- Users get a single NORTH_STAR_BLUEPRINT_v6_1.md file
 - Their agents read it once and use BRIDGE routing
 
 ### To Merge Back to Monolith
@@ -66,7 +66,7 @@ Users should receive the **merged monolith file**, not these segments.
 # Remove segment headers (first 10 lines of each), then concatenate
 for i in 1 2 3 4 5 6 7; do
   tail -n +11 PART_${i}_*.md
-done > NORTH_STAR_BLUEPRINT_v5_0_MERGED.md
+done > NORTH_STAR_BLUEPRINT_v6_1_MERGED.md
 ```
 
 Or simply concatenate if headers are acceptable:

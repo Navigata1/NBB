@@ -21,6 +21,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 *Items under consideration for future releases. Submit proposals via [Enhancement Request](.github/ISSUE_TEMPLATE/enhancement_request.md).*
 
+### Batch 9 — Skills Registry & Landscape Integration (2026-03-16)
+
+#### Added
+- **SKILLS_REGISTRY.md v2.0** — Canonical skills source map with four trust tiers (Official Vendor, Open Standards, Reviewed Community, Discovery Only). References 52 official skills (17 Anthropic + 35 OpenAI), 5 reviewed community sources, and 1,500+ discovery-only resources.
+- **Skill Supply Chain Governance** — Vendoring protocol requiring source repo, pinned SHA, date checked, local reviewer, and security review status for every adopted external skill.
+- **Skill Lifecycle States** — DISCOVERY → REVIEW → APPROVED → VENDORED → ACTIVE → DEPRECATED pipeline with human approval gates.
+- **Self-Improving Skill Architecture** — Three documented patterns: Retro→Promotion Pipeline, Karpathy Autoresearch Loop, and Anthropic Skill Creator Meta-Loop.
+- **Raw Download Links** — Copy-paste ready curl commands for all high-priority official skills from both Anthropic and OpenAI repositories.
+- **2026 Skills Landscape Research** — `research/BATCH_9_SKILLS_LANDSCAPE_2026-03-16.md` documenting verified upstream sources, market signals, and academic references (arXiv:2602.12430v3).
+- **Planned skills** for Pass 2: `design-taste`, `skill-supply-chain-review`, `autoresearch`, `mcp-builder`, `skill-creator`.
+- **design-taste v1.0** (Pass 2) — Unified adaptation of `leonxlnx/taste-skill` (4 sub-skills → 1). 3-dial config (DESIGN_VARIANCE/MOTION_INTENSITY/VISUAL_DENSITY), named anti-slop rules (The Lila Ban, The Jane Doe Effect), ~15 creative arsenal patterns, performance guardrails, redesign audit protocol, pre-flight checklist. Anti-emoji policy, React/Next.js Server Components default, Tailwind version-locked.
+- **skill-supply-chain-review v1.0** (Pass 2) — Original skill. 5-phase evaluation protocol (source verification → content audit → behavioral analysis → compatibility check → vendoring assessment). Trust tier classification (A–D), vendoring checklist with 13 security gates, upstream diff protocol, red flag patterns for automatic FAIL.
+- **autoresearch v1.0** (Pass 2) — Adapted from Karpathy autoresearch (38K stars) + uditgoenka/autoresearch. 8 core principles, 3-phase execution (setup → loop → results tracking), TSV logging, Guard protocol for regression prevention, crash recovery table, 4 example use cases.
+- **mcp-builder v1.0** (Pass 2) — Adapted from Anthropic official mcp-builder. 4-phase lifecycle (research → implement → test → evaluate), tool design guidelines, TypeScript/Python project templates, MCP Inspector testing, evaluation question generation.
+- **skill-creator v1.0** (Pass 2) — Adapted from Anthropic official skill-creator. 7-phase meta-loop (intent capture → draft → test cases → run tests → evaluate → improve → description optimization), progressive disclosure architecture, NS Framework integration points, skill writing guidelines.
+
+#### Changed
+- **parallel-agent v1.0 → v1.1** — Added 4 orchestration patterns (worktree, separate checkout, local+remote split, agent teams), AGENTS.md handoff protocol, merge sequencing, session abandonment strategy.
+- **research-report v1.0 → v1.1** — Added source tiering (Tier A–D), citation requirements, cross-referencing protocol, date verification, "Safe to Vendor?" assessment section, confidence ratings.
+- **retro v1.0 → v1.1** — Added Skill Promotion Pipeline (5-stage: detect → draft → human review → activate → evaluate), metrics tracking, correction rate trending. Fixed `git add -A` anti-pattern.
+- **plan-annotator v1.0 → v1.1** — Added TYPE E (Scope Change) annotation, conflict detection between annotations, complexity estimation guide, test plan section in template.
+
+#### Fixed
+- **NORTH_STAR_BOOTSTRAP.md line 1177** — Replaced stale `claude plugin install code-simplifier` with current skill-based code review reference.
+- **SKILLS_REGISTRY.md** — File now exists (was referenced by GLOBAL_IDE_RULES.md but missing).
+
 ---
 
 ## [v6.1] — 2026-03-11

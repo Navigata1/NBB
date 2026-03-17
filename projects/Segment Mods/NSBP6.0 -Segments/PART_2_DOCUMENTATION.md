@@ -1,7 +1,7 @@
-# NORTH STAR BLUEPRINT v6.0 — SEGMENT 2 of 7
+# NORTH STAR BLUEPRINT v6.1 — SEGMENT 2 of 7
 ## PART_2_DOCUMENTATION
 ### Contents: Part III (Sections 9-12) + Part IV (Sections 13-19)
-### Lines: 3820-7150 of original
+### Lines: 3820-7150 of original (expanded with v6.1 enhancements)
 ---
 > **SEGMENT NAVIGATION:** This is a development segment. For full Blueprint, merge all 7 parts.
 > For BRIDGE routing: Sections 9-19 are in this segment.
@@ -1984,6 +1984,12 @@ CONTEXT BUDGET GUIDELINES:
 │  Gate 4: Implementation     → Is it tested and production-ready?            │
 │  Gate 5: AI Verification    → Are AI outputs verified?                      │
 │                                                                              │
+│  CONTEXT COMPACTION RECOVERY (v6.1):                                         │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Treat compaction as a session restart — prevent or recover                │
+│  • Restore context from files (claude.md, plan.md, git log), not chat       │
+│  • Budget: 0-50% normal, 50-70% wrap up, 70-85% finish step, 85%+ STOP     │
+│                                                                              │
 │  CRITICAL RULES:                                                             │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  • Documentation is infrastructure, not afterthought                         │
@@ -2299,7 +2305,69 @@ When parallelizing, assign archetypes explicitly:
 • Final Pass: QC/Nerd (validates all outputs)
 ```
 
-### 14.2.1 Parallel Agent Orchestration
+### 14.2.1 Planner/Worker/Judge Hierarchy Pattern
+
+```text
+PLANNER / WORKER / JUDGE HIERARCHY
+──────────────────────────────────────────────────────────────────────────────
+
+Adapted from the Cursor FastRender architecture and now standard in production
+multi-agent systems as of Q1 2026.
+
+PROBLEM: A single agent trying to plan, execute, and verify simultaneously
+         produces lower quality than specialized agents in distinct roles.
+
+SOLUTION: Decompose work across three agent types with distinct responsibilities.
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                        THREE-TIER AGENT HIERARCHY                       │
+  │                                                                         │
+  │  ┌──────────────┐                                                       │
+  │  │   PLANNER    │  ← Orchestrates. Has full context. Makes decisions.   │
+  │  │  (Opus 4.6)  │  → Receives task → creates plan → delegates units    │
+  │  └──────┬───────┘                                                       │
+  │         │ delegates work units                                          │
+  │         ▼                                                               │
+  │  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐               │
+  │  │   WORKER A   │   │   WORKER B   │   │   WORKER C   │               │
+  │  │  (Sonnet)    │   │  (Sonnet)    │   │  (Sonnet)    │               │
+  │  │  Frontend    │   │  Backend     │   │  Tests       │               │
+  │  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘               │
+  │         └──────────────────┴──────────────────┘                       │
+  │                             │ results                                  │
+  │                             ▼                                          │
+  │                      ┌──────────────┐                                  │
+  │                      │    JUDGE     │  ← Verifies quality. Strict.    │
+  │                      │  (Opus 4.6) │  → Accept, request revision,     │
+  │                      │             │    or escalate to human           │
+  │                      └─────────────┘                                   │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+IMPLEMENTATION IN CLAUDE CODE:
+  → Planner: Your main orchestrator session (use Opus for highest-quality planning)
+  → Workers: Parallel sub-agents or worktree sessions (Sonnet for cost efficiency)
+  → Judge: A review sub-agent with a strict system prompt, or your stop hook
+
+JUDGE SYSTEM PROMPT TEMPLATE:
+  "You are a code reviewer with high standards. Review the following work against
+   these criteria: [success criteria from plan.md]. Your only valid responses are:
+   APPROVE / REQUEST_REVISION: [specific changes needed] / ESCALATE: [reason]
+   Do not suggest. Do not soften. Be precise."
+
+WHEN TO USE THIS PATTERN:
+  ✓ Features with clear separation between frontend/backend/tests
+  ✓ Large refactors that touch many files
+  ✓ Any work where quality matters more than speed
+
+WHEN NOT TO USE:
+  ✗ Simple bug fixes
+  ✗ Tasks requiring continuous human taste judgment
+  ✗ Prototypes where iteration speed > quality
+```
+
+---
+
+### 14.2.2 Parallel Agent Orchestration
 
 ```text
 ╔══════════════════════════════════════════════════════════════════════════════╗
@@ -2402,7 +2470,7 @@ CONTEXT: WHERE THIS SITS IN YOUR WORKFLOW
   OVERNIGHT BUILDS:   Multi-Claude + RALPH Loop + GitHub Action
 ```
 
-### 14.2.2 Agent Teams Pattern
+### 14.2.3 Agent Teams Pattern
 
 ```text
 AGENT TEAMS — COORDINATED SPECIALIZED ROLES
@@ -3550,6 +3618,25 @@ CONFIDENCE_THRESHOLDS = {
 │  • Query 2-3 models with identical prompt                                   │
 │  • Identify consensus and divergence points                                  │
 │  • Document decisions and reasoning                                          │
+│                                                                              │
+│  PLANNER/WORKER/JUDGE HIERARCHY (v6.1):                                      │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Planner (Opus): orchestrates, creates plan, delegates                    │
+│  • Workers (Sonnet): execute in parallel, cost-efficient                    │
+│  • Judge (Opus): strict review — APPROVE / REVISE / ESCALATE               │
+│  • Use for features with clear frontend/backend/test separation             │
+│                                                                              │
+│  PARALLEL AGENT ORCHESTRATION (v6.1):                                        │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Multi-Claude + Git Worktrees = parallel feature development              │
+│  • Decompose → Brief → Launch → Monitor → Review & Merge                    │
+│  • Never share file ownership between parallel agents                       │
+│                                                                              │
+│  AGENT TEAMS (v6.1):                                                         │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Coordinated agents on the SAME feature (≠ Multi-Clouding)                │
+│  • Built-in shared task list and messaging system                            │
+│  • Use when agents need to coordinate; Multi-Cloud when independent         │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

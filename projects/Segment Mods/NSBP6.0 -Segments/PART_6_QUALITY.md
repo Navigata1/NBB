@@ -1,7 +1,7 @@
-# NORTH STAR BLUEPRINT v6.0 — SEGMENT 6 of 7
+# NORTH STAR BLUEPRINT v6.1 — SEGMENT 6 of 7
 ## PART_6_QUALITY
 ### Contents: Part X (Sections 46-49) + Part XI (Sections 50-53)
-### Lines: 12379-14427 of original
+### Lines: 12379-14427 of original (expanded with v6.1 enhancements)
 ---
 > **SEGMENT NAVIGATION:** This is a development segment. For full Blueprint, merge all 7 parts.
 > For BRIDGE routing: Sections 46-53 are in this segment.
@@ -2217,6 +2217,19 @@ ALTER TABLE users DROP COLUMN user_name;
 │  • Backward compatible                                                       │
 │  • Multi-step for breaking changes                                           │
 │  • Separate from deployment                                                  │
+│                                                                              │
+│  HOOKS ARCHITECTURE (v6.1):                                                  │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Determinism injection into probabilistic AI workflows                    │
+│  • Stop Hook = highest leverage (auto-test after every response)            │
+│  • Super-Hook pattern: single multiplexer script                             │
+│  • Hookery plugin for pre-built community hooks                              │
+│                                                                              │
+│  KIRO SPEC-DRIVEN DEVELOPMENT (v6.1):                                        │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Specs > plans: structured requirements with acceptance criteria           │
+│  • Event-driven hooks fire on domain events, not just lifecycle             │
+│  • Spec audit trail: draft/ → approved/ → completed/ in git                │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

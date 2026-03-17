@@ -1807,6 +1807,7 @@ You are operating with a structured memory system:
 | 59 | Prompt Orchestration & Eval | AI Systems | v2.1 NEW |
 | 60 | Life OS Agents | AI Systems | v2.1 NEW |
 | 61 | Enterprise Agent Governance | Foundation | v2.1 NEW |
+| 62 | Memory Infrastructure | AI Systems | v2.1 NEW |
 
 **Total: 56 base categories + 6 v2.1 additions = 62 categories**
 
@@ -2007,7 +2008,7 @@ The following sections are designed as **extension points** where custom framewo
 
 ## North Star Blueprint Integration
 
-This Master Build Framework pairs with the **North Star Blueprint v6.0** for complete coverage:
+This Master Build Framework pairs with the **North Star Blueprint v6.1** for complete coverage:
 
 | This Framework Provides | North Star Provides |
 |-------------------------|---------------------|

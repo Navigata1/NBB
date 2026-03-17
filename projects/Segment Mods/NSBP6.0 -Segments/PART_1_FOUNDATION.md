@@ -2402,7 +2402,7 @@ OUTER LOOP: After RPIT completes, run the RETRO SKILL (see Part XII)
 
 Every operation in software development—whether performed by human or AI—can be decomposed into six fundamental primitives. Mastering these primitives is the foundation of reliable AI-assisted development.
 
-### 5.1 Primitive Overview
+### 6.1 Primitive Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -2452,7 +2452,7 @@ Every operation in software development—whether performed by human or AI—can
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.2 Primitive Definitions
+### 6.2 Primitive Definitions
 
 #### PRIMITIVE 1: STATE
 
@@ -2904,7 +2904,7 @@ FOR SIGNIFICANT DECISIONS:
   □ Status: Proposed/Accepted/Deprecated/Superseded
 ```
 
-### 5.3 Primitive Relationships
+### 6.3 Primitive Relationships
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -2950,7 +2950,7 @@ FOR SIGNIFICANT DECISIONS:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.4 Primitive Implementation Checklist
+### 6.4 Primitive Implementation Checklist
 
 ```
 BEFORE ANY DEVELOPMENT TASK
@@ -2997,7 +2997,7 @@ BEFORE ANY DEVELOPMENT TASK
 
 ## 7. PRIMITIVE LIFECYCLE & VERIFICATION
 
-### 6.1 The Primitive Execution Cycle
+### 7.1 The Primitive Execution Cycle
 
 Every task follows this fundamental cycle. No exceptions.
 
@@ -3066,7 +3066,7 @@ Every task follows this fundamental cycle. No exceptions.
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 6.2 Phase Details
+### 7.2 Phase Details
 
 #### Phase 1: Assess State
 
@@ -3304,7 +3304,7 @@ ANTI-PATTERNS:
   ✗ Blaming external factors without evidence
 ```
 
-### 6.3 Recursive Verification Pattern
+### 7.3 Recursive Verification Pattern
 
 For complex changes, apply verification recursively at multiple levels:
 
@@ -3376,7 +3376,7 @@ For complex changes, apply verification recursively at multiple levels:
 
 ## 8. THE ANTI-BUG-LOOP PRINCIPLE (FIX LEDGER)
 
-### 7.1 The Ilya's Loop Problem
+### 8.1 The Ilya's Loop Problem
 
 Named for the pattern where AI agents create endless fix loops, this is the #1 productivity killer in AI-assisted development.
 
@@ -3427,7 +3427,7 @@ Named for the pattern where AI agents create endless fix loops, this is the #1 p
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 7.2 The Fix Ledger Solution
+### 8.2 The Fix Ledger Solution
 
 The Fix Ledger is a persistent record of what was tried, what worked, what didn't, and why. It breaks the loop by giving AI (and humans) memory.
 
@@ -3470,7 +3470,7 @@ The Fix Ledger is a persistent record of what was tried, what worked, what didn'
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 7.3 Fix Ledger Entry Template
+### 8.3 Fix Ledger Entry Template
 
 ```markdown
 ## FIX LEDGER
@@ -3511,7 +3511,7 @@ The Fix Ledger is a persistent record of what was tried, what worked, what didn'
 ---
 ```
 
-### 7.4 Fix Ledger Example Entries
+### 8.4 Fix Ledger Example Entries
 
 ```markdown
 ## FIX LEDGER
@@ -3629,7 +3629,7 @@ Safari's compositor was being triggered unnecessarily on each frame due to
 ---
 ```
 
-### 7.5 The "#" Shortcut for Regression Prevention
+### 8.5 The "#" Shortcut for Regression Prevention
 
 When a bug is fixed and added to the Fix Ledger, reference it with "#" in commit messages and code comments. This creates instant searchability.
 
@@ -3653,7 +3653,7 @@ SEARCH:
   grep -r "#FL-2024-01" ./         # Find all references
 ```
 
-### 7.6 Fix Ledger Integration with AI Agents
+### 8.6 Fix Ledger Integration with AI Agents
 
 ```
 AI AGENT INSTRUCTIONS (Add to claude.md or similar)
@@ -3678,7 +3678,7 @@ NEVER:
 - Implement a fix without checking for prior attempts
 ```
 
-### 7.7 The Golden Rule of Anti-Bug-Loop
+### 8.7 The Golden Rule of Anti-Bug-Loop
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -3716,7 +3716,7 @@ NEVER:
 
 ## 9. REGRESSION DISCIPLINE & SAFETY NETS
 
-### 8.1 The Regression Discipline Matrix
+### 9.1 The Regression Discipline Matrix
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -3786,7 +3786,7 @@ NEVER:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 8.2 Safety Net Types
+### 9.2 Safety Net Types
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -3852,7 +3852,7 @@ NEVER:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 8.3 Regression Prevention Workflow
+### 9.3 Regression Prevention Workflow
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -4234,4 +4234,4 @@ DISCOVERY MECHANISM:
 
 ---
 
-*End of Part I — v6.1*
+*End of Segment 1 (Front Matter + Part I + Part II) — v6.1*

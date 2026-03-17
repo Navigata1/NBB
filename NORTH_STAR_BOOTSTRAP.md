@@ -1016,7 +1016,7 @@ SKY TIER (Production)
 □ Environment configuration
 □ Basic monitoring
 □ Code review checklist passed
-□ Code-simplifier run on AI-generated code (Claude Code users)
+□ Code review skill run on AI-generated code (Claude Code users)
 
 SPACE TIER (Enterprise)
 ─────────────────────────────────────────────────────────────────────────────
@@ -1028,8 +1028,8 @@ SPACE TIER (Enterprise)
 □ Full documentation
 □ Disaster recovery plan
 □ Load testing completed
-□ Code-simplifier run on all modified files
-□ Simplifier output reviewed before merge
+□ Code review skill run on all modified files
+□ Review output inspected before merge
 ```
 
 ---
@@ -1166,18 +1166,18 @@ REMOVAL STEPS:
    • MASTER_BUILD_FRAMEWORK_v2.1.md
    
 3.5 CODE CLEANUP (Claude Code Users)
-	If using Claude Code, run the code-simplifier agent before final commit:
+	If using Claude Code, use the built-in code review skill before final commit:
 
-	"Use the code-simplifier agent to clean up all code modified in this project"
+	"Review and simplify all code modified in this project for readability"
 
-	This is the same tool Anthropic's Claude Code team uses internally.
-	It preserves functionality while improving readability by 20-30%.
+	Modern Claude Code (2026+) includes built-in code review and simplification
+	capabilities via skills. No separate plugin installation is required.
 
-	Installation (if not already installed):
-	claude plugin install code-simplifier
+	For enhanced cleanup, install the official code-reviewer skill:
+	  See SKILLS_REGISTRY.md → Anthropic Official Skills
 
-	Why: AI agents tend to produce verbose code. The simplifier cleans this up
-	without changing what the code does.
+	Why: AI agents tend to produce verbose code. A review pass cleans this up
+	without changing what the code does, improving readability by 20-30%.
 
 4. CLEAN UP SYNTHESIS FILES (if any)
    Remove: [filename]_new, [filename]_old

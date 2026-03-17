@@ -1,4 +1,4 @@
-# MASTER BUILD FRAMEWORK v2.0 — SEGMENT 2 of 4
+# MASTER BUILD FRAMEWORK v2.1 — SEGMENT 2 of 4
 ## MBF_PART_2_DATA_AI
 ### Contents: Tier 3 (Cat 15-21) + Tier 4 (Cat 22-35)
 ### Lines: 1114-2243 of original
@@ -1291,6 +1291,101 @@ DEV (prompt draft)
 - → Category 35 (AI Safety) — safety evaluation
 - → Category 47 (Testing) — evaluation methodology
 - → Category 55 (Monitoring) — production observability
+
+---
+
+## Category 62: Memory Infrastructure
+
+> *Added in v2.1 (ENH-041)*
+
+### Scope
+Agent memory systems, cross-session persistence frameworks, memory managers,
+long-term knowledge stores for AI agents, semantic caching.
+
+### Technology Stack — Exhaustive
+
+#### Production Memory Manager Frameworks
+| Framework | Key Differentiator | Best For |
+|-----------|-------------------|----------|
+| **Mem0** | Production-ready, all memory types, Python/TS SDK, hosted or self-hosted | Teams needing production memory fast |
+| **Zep** | Long-term memory for LLMs, temporal awareness, user preference learning | Conversational agents, user modeling |
+| **MemGPT / Letta** | Self-editing memory, agent controls its own memory, tiered storage | Autonomous long-running agents |
+| **Cognee** | Knowledge graph memory, decision trail, team memory sharing | Complex reasoning, multi-agent teams |
+| **mem.ai** | Personal AI memory layer, cross-app, long-form notes | Personal assistant agents |
+
+#### Minimal / Build-Your-Own
+| Approach | Complexity | Best For |
+|----------|-----------|----------|
+| **SQLite + pgvector** | Low | Learning, POC, small projects |
+| **Supabase + pgvector** | Low | Managed, production-capable |
+| **Chroma** | Low | In-process vector store, rapid prototyping |
+| **Custom MemoryManager class** | Medium | Full control, specific requirements |
+
+#### Semantic Caching
+| Tool | Purpose |
+|------|---------|
+| **GPTCache** | Semantic cache for LLM calls — cache similar queries |
+| **Redis + embedding index** | Production semantic cache |
+
+### The Three-Pillar Selection Guide
+
+Select based on your position in the three-pillar architecture (NS Blueprint, Memory Architecture section):
+
+MEMORY CORE selection:
+  Learning / POC:         SQLite + pgvector extension
+  Professional team:      Supabase or Neon (managed Postgres)
+  Production / scale:     Dedicated solution matching your scale (Qdrant, Weaviate, or Oracle)
+
+MEMORY MANAGER selection:
+  "I want to understand it first":    Build minimal MemoryManager (~50-100 lines Python)
+  "I need it to work now":            Mem0 (most comprehensive SDK)
+  "My agents are conversational":     Zep (temporal + conversational focus)
+  "My agents are autonomous/long-running": MemGPT / Letta (self-managing memory)
+  "I need team/multi-agent memory":   Cognee (knowledge graph approach)
+
+### Memory Unit Schema Reference
+```json
+{
+  "type": "workflow | conversation | knowledge | entity | association | tool",
+  "content": "string",
+  "embedding": "vector[1536]",
+  "metadata": {
+    "created_at": "ISO8601",
+    "source": "string",
+    "relevance_score": "float",
+    "importance_score": "float",
+    "recency_decay": "float"
+  },
+  "weight": "α·relevance + β·importance + γ·recency"
+}
+```
+
+### Quality Gates
+```text
+□ Memory Core selected based on tier and data type requirements
+□ Memory Manager chosen (or custom built and understood)
+□ All 5 memory types mapped to your use case
+□ Compaction strategy implemented (summarization or externalization)
+□ Memory weighting algorithm calibrated (α, β, γ values tuned)
+□ Forgetting threshold set (recommend 0.1)
+□ Cross-session continuity tested (session ends → new session recovers state)
+□ Privacy/security: PII in memory? Data handling policy documented
+□ Cost model: memory retrieval calls counted in token budget
+```
+
+### NS Framework Integration Points
+→ Fix Ledger becomes Workflow Memory (procedural, captures failure+resolution)
+→ plan.md + CHANGELOG = Episodic Memory (what happened)
+→ architecture.md + MBF = Semantic Memory (what things are)
+→ Skills + slash commands = Procedural Memory (how to do things)
+→ Repository maps = Associative Memory (what connects to what)
+
+### Cross-Category Dependencies
+- → Category 16 (Vector Databases) — storage layer for semantic memory
+- → Category 29 (Agent Memory) — existing memory patterns
+- → Category 31 (Agent Frameworks) — harness layer above memory
+- → Category 35 (AI Safety) — memory access control and privacy
+- → NS Part XII (Memory Architecture) — full methodology
 
 ---
 
