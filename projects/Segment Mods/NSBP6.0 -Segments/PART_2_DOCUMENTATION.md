@@ -1879,6 +1879,55 @@ THINGS THAT ARE NOT EMERGENCIES:
   • "No one will notice"
 ```
 
+### 12.8.1 Incident Post-Mortem Template
+
+Use this when an outage, data loss event, security event, failed deployment,
+or agent-driven operational incident requires a structured retrospective.
+
+```markdown
+# INCIDENT POST-MORTEM: [Title]
+
+## Metadata
+| Field | Value |
+|-------|-------|
+| Date | [When it happened] |
+| Duration | [Time to detection -> Time to recovery] |
+| Severity | [P0-P4] |
+| Services Affected | [List] |
+| Data Impact | [Rows lost / Users affected / Revenue impact] |
+
+## Timeline
+| Time | Event |
+|------|-------|
+| HH:MM | [What happened] |
+
+## Root Cause Chain
+1. [First domino]
+2. [Second domino]
+3. [Continue until final failure]
+
+## What Went Wrong
+- [Failure 1]
+- [Failure 2]
+
+## What Went Right
+- [Detection, communication, recovery, or mitigation success]
+
+## Remediation (Immediate)
+□ [Action taken to resolve]
+
+## Systemic Changes (Preventive)
+□ [Change to prevent recurrence]
+
+## Fix Ledger Entry
+| Issue Pattern | Root Cause | Fix | Frequency |
+|---------------|------------|-----|-----------|
+| [Pattern] | [Cause] | [Fix] | [First/Recurring] |
+
+## Lessons Learned
+[What the team now understands differently]
+```
+
 ---
 
 ## 12.9 CONTEXT MANAGEMENT
@@ -2722,6 +2771,74 @@ CONSEQUENTIAL ACTIONS INCLUDE:
   • Interacting with external APIs with side effects
 ```
 
+### 14.6.1 Hard Stops & Blast Radius Classification
+
+```
+HARD STOPS — AGENT-FORBIDDEN COMMANDS
+─────────────────────────────────────────────────────────────────────────────
+
+The following commands must NEVER be executed autonomously by an AI agent.
+The human must run them directly in their own terminal.
+
+INFRASTRUCTURE DESTRUCTION:
+  • terraform destroy
+  • terraform apply -destroy
+  • pulumi destroy
+  • kubectl delete namespace (production)
+  • destructive cloud delete commands on production resources
+
+DATABASE DESTRUCTION:
+  • DROP DATABASE
+  • DROP SCHEMA ... CASCADE
+  • TRUNCATE on production tables
+  • drizzle-kit push --force
+  • prisma db push --force-reset
+  • Any destructive ORM/database command using --force on production
+
+FILE SYSTEM DESTRUCTION:
+  • rm -rf / or root-level recursive deletes
+  • rm -rf on project root or home directory
+  • git clean -fdx on protected or production branches
+  • Formatting or partitioning commands
+
+BYPASS FLAGS:
+  • --force, --yes, --no-confirm on destructive operations
+
+AGENT BEHAVIOR:
+  1. STOP
+  2. EXPLAIN the blocked command and risk
+  3. PRESENT the exact command for manual execution
+  4. WAIT for human confirmation of the result
+  5. VERIFY follow-up state
+
+BLAST RADIUS TIERS
+─────────────────────────────────────────────────────────────────────────────
+TIER 1 — Observation
+  Read-only commands, dry runs, plans, status checks
+
+TIER 2 — Local Mutation
+  Scoped reversible file or branch changes
+
+TIER 3 — Service Mutation
+  State-changing API calls, staging writes, controlled config updates
+
+TIER 4 — Destructive Mutation
+  Migrations, production deploys, IAM changes, bulk mutations
+  → Must include scope, reversibility, and recovery path
+
+TIER 5 — Catastrophic
+  Infrastructure teardown, production data deletion, irreversible wipes
+  → HARD STOP, manual human execution only
+
+BLAST RADIUS ASSESSMENT TEMPLATE
+  Command:     [exact command]
+  Tier:        [1-5]
+  Scope:       [systems/data affected]
+  Reversible:  [yes/no/partial]
+  Recovery:    [method + time]
+  Confidence:  [agent confidence]
+```
+
 ---
 
 ## 14.7 INTEGRATION WITH NS-MBF ECOSYSTEM
@@ -3361,6 +3478,86 @@ AI SHOULD INCREASE AUTONOMY (proceed) WHEN:
 □ Following pre-approved procedure
 □ Making read-only operations
 □ Generating drafts (not final output)
+```
+
+### 18.4 Consent Fatigue Awareness
+
+```
+CONSENT FATIGUE — THE SILENT KILLER
+─────────────────────────────────────────────────────────────────────────────
+
+PROBLEM:
+  After enough low-risk approvals, humans stop reading prompts carefully.
+  Approval becomes reflexive. That is when catastrophic commands slip
+  through the same UI that was just used for harmless reads.
+
+ANTI-PATTERNS:
+  ✗ Asking approval for every read-only lookup
+  ✗ Treating `ls` and `terraform destroy` as equivalent prompts
+  ✗ Running a long stream of benign approvals immediately before a risky one
+
+MITIGATIONS:
+  1. Batch Tier 1 observations together.
+  2. Visually break the flow before Tier 3+ operations.
+  3. After 30+ operations, explicitly note session fatigue risk.
+  4. For Tier 4+ work, require typed confirmation of the resource name.
+  5. After 10 PM local time, add extra caution on Tier 3+ operations.
+```
+
+### 18.5 Agent Dissent Protocol
+
+```
+AGENT DISSENT PROTOCOL
+─────────────────────────────────────────────────────────────────────────────
+
+If the agent identifies a serious risk and the human overrides the advice,
+the agent must escalate instead of warning once and silently complying.
+
+LEVEL 1 — ADVISE
+  State the concern and recommend an alternative.
+
+LEVEL 2 — WARN WITH CONSEQUENCES
+  State exactly what could go wrong and what the blast radius becomes.
+
+LEVEL 3 — FORMAL DISSENT
+  Register dissent, require acknowledgement, and log the override:
+  | Date | Agent Recommendation | Human Override | Rationale Given | Outcome |
+  The agent proceeds with heightened caution.
+
+LEVEL 4 — HARD STOP
+  If the overridden action is Tier 5 catastrophic risk, the agent refuses to
+  execute and instead presents the command for manual human execution.
+```
+
+### 18.6 Operational Readiness Awareness
+
+```
+HUMAN STATE AFFECTS AGENT SAFETY
+─────────────────────────────────────────────────────────────────────────────
+
+RISK MULTIPLIERS:
+  • Late-night sessions (after 10 PM)
+  • Long continuous sessions (4+ hours)
+  • Emotional pressure (deadline, incident, high urgency)
+  • Unfamiliar tooling or infrastructure
+
+AGENT RESPONSE:
+  1. Note the multiplier clearly.
+  2. For Tier 3+ operations, suggest deferring if practical.
+  3. For Tier 4+ operations, recommend stopping until fresh review.
+  4. Frame this as professional risk management, never as shaming.
+
+THE DRACULA EFFECT:
+  AI removes much of the low-intensity work, leaving humans with a dense
+  stream of high-stakes judgment calls. Sustainable full-intensity
+  AI-augmented work is measured in a few concentrated hours, not in an
+  uninterrupted eight-hour stretch.
+
+WARNING SIGNS:
+  • Approving without reading
+  • Skipping blast-radius assessment
+  • "Just one more thing" on production late at night
+  • Difficulty concentrating on consequences
 ```
 
 ---

@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(projects/Segment Mods/**)",
+      "Write(.claude/skills/**)",
+      "Write(docs/**)",
+      "Write(research/**)",
+      "Write(CHANGELOG.md)",
+      "Write(SKILLS_REGISTRY.md)",
+      "Write(HARD_STOPS.md)",
+      "Write(HANDOFF.md)",
+      "Write(claude.md)",
+      "Execute(git status)",
+      "Execute(git diff **)",
+      "Execute(git log *)",
+      "Execute(bash scripts/*.sh)"
+    ],
+    "deny": [
+      "Write(.env*)",
+      "Execute(git push *)",
+      "Execute(git push --force *)",
+      "Execute(rm -rf *)",
+      "Execute(git reset --hard *)",
+      "Execute(git checkout -- *)"
+    ]
+  }
+}

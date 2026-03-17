@@ -47,6 +47,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - **NORTH_STAR_BOOTSTRAP.md line 1177** — Replaced stale `claude plugin install code-simplifier` with current skill-based code review reference.
 - **SKILLS_REGISTRY.md** — File now exists (was referenced by GLOBAL_IDE_RULES.md but missing).
 
+### Batch 9 Pass 3 — Grigorev Incident Safety Enhancements + Video Synthesis (2026-03-17)
+
+#### Added (ENH-INC-001 through ENH-INC-010 — Grigorev Incident Response)
+- **HARD_STOPS.md enhanced** — Expanded from flat 41-line list to structured severity-tiered document (Tier 5 CATASTROPHIC, Tier 4 DESTRUCTIVE, Tier 3 SERVICE MUTATION) with named Override Protocol steps. References ENH-INC-001.
+- **PART_6_QUALITY.md (DevOps)** — Three new insertions completing ENH-INC gaps: Deployment Blast Radius Rule (ENH-INC-002B, environment tier escalation), IaC Operational Prerequisites (ENH-INC-004B, 4 blocking requirements), Backup Independence Verification (ENH-INC-006B, anti-patterns from Grigorev incident).
+- **PART_7_ADVANCED.md (Quick Reference)** — Two new insertions: Consent Fatigue Quick Check (ENH-INC-003B, 5-item checklist including Dracula Effect), Pre-Deployment Checklist additions (ENH-INC-006C, backup independence + restore test date + hard stops verification).
+
+#### Added (Video Synthesis — Nate B Jones Claude Code Workflow)
+- **Anti-Pattern 13: Context Compaction as Crutch** — "Friends Don't Let Friends Compact" rule added to `docs/NS_ANTI_PATTERNS.md`. Documents why `/compact` creates worst-of-both-worlds context poisoning. Prescribes sub-agents + fresh sessions instead.
+- **MBF Cat 29 (Context Management)** — Added Context7 MCP, Sequential Thinking MCP server, and cc-status-line tool entries.
+- **MBF Cat 58 (AI-Native IDEs)** — Added Warp (AI-native terminal with split panes, multi-session) and Happy Engineering (mobile-to-desktop terminal bridge).
+- **GLOBAL_IDE_RULES.md Recommended Plugins** — Added `superpowers` (spec-driven sub-agent orchestration) and `context7` (real-time API docs). Added new RECOMMENDED MCP SERVERS section with `sequential-thinking` and `context7`.
+- **GLOBAL_IDE_RULES.md Context Management** — Added 50% wind-down rule, explicit anti-compact warning, sub-agent delegation guidance, `cc-status-line` install command.
+- **SKILLS_REGISTRY.md** — Enhanced `obra/superpowers` Tier C entry with full three-step workflow documentation (brainstorm → write-plan → execute-plan) and RPIT mapping.
+
+#### Changed
+- **Anti-Pattern 3 (Context Blindness)** — Updated threshold from "stop at 85%" to "begin winding down at 50%, hard stop at 85%". Added sub-agent recommendation. Title count updated to "13 Mistakes."
+
 ---
 
 ## [v6.1] — 2026-03-11

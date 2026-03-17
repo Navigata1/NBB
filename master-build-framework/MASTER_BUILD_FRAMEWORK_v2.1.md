@@ -1058,11 +1058,77 @@ Cloud provisioning, infrastructure automation, configuration management.
 ```
 □ State backend configured (remote)
 □ State locking enabled
+□ Current state file accessible and recent
 □ Modules properly versioned
 □ Variables documented
 □ Drift detection automated
 □ Plan review required
 □ Sensitive values encrypted
+□ Delete protection enabled on stateful resources
+□ Backup independence verified
+```
+
+### Backup Independence Principle
+
+```
+BACKUP RULE:
+A backup that can be destroyed by the same operation that destroys the
+primary data is NOT a backup.
+
+VERIFICATION CHECKLIST:
+□ Database backups exist outside the database instance lifecycle
+□ Infrastructure state is stored outside the infrastructure it describes
+□ At least one backup copy exists in a different account or region
+□ Backup deletion requires separate credentials from primary resource
+□ Regular restore testing is scheduled
+```
+
+### Environment Isolation Principle
+
+```
+RULE:
+Unrelated services must not share production infrastructure.
+
+ISOLATION LEVELS:
+  • Separate accounts — strongest
+  • Separate VPCs — recommended minimum
+  • Separate namespaces — acceptable for related services
+  • Shared-everything — never for unrelated production services
+
+COST vs RISK:
+Saving a few dollars per month is not worth expanding blast radius across
+multiple services.
+```
+
+### Agent Interaction Protocol for IaC
+
+```
+PRE-FLIGHT CHECKLIST
+□ State backend verified as remote and accessible
+□ State file freshness confirmed
+□ Delete protection enabled on stateful resources
+□ Backup independence verified
+□ Environment isolation confirmed
+□ Human informed of blast radius tier
+
+PLAN-ONLY MODE (Default)
+  • terraform plan (not apply)
+  • pulumi preview (not up)
+  • cdk diff (not deploy)
+
+APPLY RESTRICTIONS
+  • terraform apply -> Tier 4 minimum
+  • production apply -> human-executed after review
+  • terraform destroy -> HARD STOP, always human-executed
+
+STATE FILE HANDLING
+  • Never unpack, modify, or switch state files without explicit human direction
+  • If multiple state files are discovered -> STOP and present findings
+  • If state is missing or stale -> STOP
+
+CLEANUP OPERATIONS
+  • Prefer targeted cleanup over `terraform destroy`
+  • Never batch-delete infrastructure without itemized review
 ```
 
 ### Cross-Category Dependencies
@@ -2202,6 +2268,18 @@ NVIDIA's NeMo Guardrails: **89% accuracy on prompt injection** (vs 67% Llama Gua
 | **Retrieval Rails** | Filter RAG context | Before injection |
 | **Execution Rails** | Control tool calls | Before action |
 
+#### Destructive Command Interception
+
+Execution rails must include destructive-command interception so agents do not
+autonomously execute catastrophic infrastructure or database operations.
+
+| Severity | Examples | Agent Behavior |
+|----------|----------|----------------|
+| **CRITICAL** | `terraform destroy`, `DROP DATABASE`, `rm -rf /` | Never execute — present to human |
+| **HIGH** | `TRUNCATE`, force-push to protected branch, force schema push | Explicit confirmation + delay |
+| **MEDIUM** | `DROP TABLE`, destructive migration | Show blast radius + recovery path |
+| **LOW** | Scoped delete with clear predicate | Standard approval flow |
+
 **Colang 2.0 Example:**
 ```colang
 define user express harmful intent
@@ -2211,6 +2289,14 @@ define user express harmful intent
 define flow handle harmful
   user express harmful intent
   bot refuse with explanation
+```
+
+Example execution rail:
+```colang
+define flow block destructive commands
+  user requests infrastructure destruction
+  bot refuse with command presentation
+  bot "I cannot execute this command directly. Here is the command for manual human execution."
 ```
 
 #### Guardrails AI Pattern
@@ -4947,4 +5033,3 @@ This Master Build Framework pairs with the **North Star Blueprint v6.0** for com
 *Part of the unified NS + MBF ecosystem — see BRIDGE.md for navigation*
 
 ---
-

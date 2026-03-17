@@ -1,6 +1,6 @@
 # North Star Anti-Patterns
 
-## The 12 Mistakes That Kill AI-Assisted Development
+## The 13 Mistakes That Kill AI-Assisted Development
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -49,7 +49,7 @@ These are the patterns that waste tokens, break builds, and turn AI-assisted dev
 
 **What goes wrong:** The AI starts losing track of earlier decisions. It contradicts itself. It forgets constraints established at the beginning of the session. Compaction events silently drop critical context, and the AI doesn't know what it lost. You get plausible-sounding output that silently violates decisions made 20 messages ago.
 
-**The correct pattern:** Treat context like a fuel gauge. At 50%, assess remaining work. At 70%, plan your exit — summarize progress, note pending decisions, prepare a handoff. At 85%, stop. No exceptions. Start a fresh session with a clean handoff document. A focused 45-minute session with clean context beats a 3-hour session with degraded context every time.
+**Solution:** Treat context like fuel gauge; begin winding down at 50%, hard stop at 85%. Use sub-agents for intensive work. Start fresh sessions with handoff docs rather than compacting.
 
 ---
 
@@ -161,6 +161,27 @@ These are the patterns that waste tokens, break builds, and turn AI-assisted dev
 
 ---
 
+## Anti-Pattern 13: Context Compaction as Crutch
+
+**The "Friends Don't Let Friends Compact" Rule**
+
+**Problem:** Using `/compact` mid-session to "free up" context window. Compaction creates the worst of both worlds — you lose the detailed working context you need while retaining stale context poisoning from earlier in the session. The result is a Claude that remembers just enough to be confidently wrong.
+
+**Why It Happens:** Context fills up fast (50%+ in minutes of intensive work). Compaction seems logical — keep working, just compress. But LLMs don't compress like ZIP files. They lose nuance, forget specifics, and retain ghosts of earlier decisions that no longer apply.
+
+**Solution:** Treat sessions as finite resources. At 50% context, begin wrapping up the current task. Use sub-agents for intensive work — each gets a fresh context window and reports results back to the orchestrator. When you must continue, start a fresh session with handoff notes rather than compacting.
+
+**The Right Pattern:**
+```
+Instead of: [work] → [50% context] → /compact → [keep working] → [hallucinations]
+Do this:    [work] → [50% context] → [wrap up] → /clear or new session → [handoff notes]
+Better:     [orchestrate] → [dispatch to sub-agents] → [receive results] → [stay lean]
+```
+
+**Connection:** This is why the status line showing context % is critical infrastructure, not a nice-to-have. Install `npx cc-status-line@latest` and watch it like a fuel gauge.
+
+---
+
 ## Quick Reference
 
 | # | Anti-Pattern | One-Line Fix |
@@ -177,6 +198,7 @@ These are the patterns that waste tokens, break builds, and turn AI-assisted dev
 | 10 | Skipping the Retro | Run Retro Skill at end of every RPIT cycle |
 | 11 | Research-Less Implementation | Always Research before unfamiliar territory |
 | 12 | Approving Unread Plans | Read every plan item — 2 minutes saves 2 hours |
+| 13 | Context Compaction as Crutch | Sub-agents + fresh sessions, never `/compact` |
 
 ---
 

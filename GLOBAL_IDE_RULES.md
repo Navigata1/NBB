@@ -342,6 +342,7 @@ STANDARD SESSION START:
   □ If project rules exist → Load and follow them
   □ If no project rules → Run /init to create claude.md, interview with
     ask_user_question tool before proceeding
+  □ If HARD_STOPS.md exists → Load it before infrastructure or database work
   □ Review recent changes: git log --oneline -5
   □ Check current test status: run test suite
   □ Identify next action: GitHub issues, plan.md todo list, or user prompt
@@ -458,16 +459,28 @@ PERMISSIONS (REQUIRED — never use --dangerously-skip-permissions):
   { "permissions": { "allow": ["bash:git *", "bash:npm *", "file:read:**",
                                "file:write:src/**", "file:write:tests/**"] } }
 
+HARD STOPS (REQUIRED for infra/data-sensitive projects):
+  Maintain a project-root HARD_STOPS.md file.
+  Load it at session start, after compaction, and before infrastructure or
+  database operations.
+  Agents must never autonomously execute commands listed there.
+
 WORKTREES (for parallel agent work):
   Start with: claude --worktree  OR  claude -w
   Desktop App: New Session → check "Use worktree"
   Cleanup after merge: git worktree remove <path>
 
 CONTEXT MANAGEMENT:
-  Status line: configure to show context % always
+  Status line: configure to show context % always (npx cc-status-line@latest)
   /clear: use liberally between distinct tasks
   /context: check usage before long tasks
+  Rule: at 50% context, begin winding down current task
   Rule: never continue past 85% context on important work
+  Anti-pattern: do NOT use /compact as a substitute for fresh sessions
+    → Compaction loses working context while retaining stale context poisoning
+    → Prefer: finish task, /clear or start new session with handoff notes
+  Sub-agents: dispatch intensive work to sub-agents (own context windows)
+    → Main session stays lean as orchestrator receiving status updates
 
 KEY COMMANDS:
   /init              Create claude.md via interview
@@ -479,11 +492,15 @@ KEY COMMANDS:
   --teleport         Move web session to local terminal
 
 RECOMMENDED PLUGINS (install for all projects):
-  • frontend-design  — dramatically improves UI quality
-  • ralph-loop       — autonomous iteration on well-defined tasks
-  • hookery          — browse/install pre-built hooks
-  • compound         — self-improvement workflows (/re, /compound)
+  • superpowers      — spec-driven sub-agent orchestration (brainstorm → plan → execute)
+  • context7         — up-to-date API and library documentation via MCP
   • code-simplifier  — 20-30% token reduction on codebase bloat
+  • frontend-design  — dramatically improves UI quality
+  • hookery          — browse/install pre-built hooks
+
+RECOMMENDED MCP SERVERS:
+  • sequential-thinking — chain-of-thought reasoning for deeper analysis
+  • context7            — (also available as MCP) real-time library docs
 
 RECOMMENDED SKILLS (install globally):
   • retro            — post-RPIT improvement loop
@@ -491,6 +508,38 @@ RECOMMENDED SKILLS (install globally):
   • research-report  — structured research before building
   • plan-annotator   — plan.md annotation workflow
   • frontend-design  — Anthropic's design principles skill
+```
+
+## HARD STOPS FILE PATTERN
+
+Every project using AI agents for infrastructure, database, or production
+operations should maintain `HARD_STOPS.md` at the project root.
+
+```markdown
+# HARD_STOPS.md — Commands the AI agent must NEVER execute
+
+## Infrastructure
+- terraform destroy
+- terraform apply -destroy
+- pulumi destroy
+
+## Database
+- DROP DATABASE
+- DROP SCHEMA ... CASCADE
+- Any production ORM/db force reset
+
+## File System
+- rm -rf on any path above project directory
+- git clean -fdx on protected branches
+
+## Custom
+- [project-specific critical operations]
+
+## Override Protocol
+1. Agent presents the command with full context
+2. Human copies and executes it manually
+3. Human reports the result back
+4. Agent verifies follow-up state
 ```
 
 ### 6.2 Cursor
@@ -914,4 +963,3 @@ Roo Code is a VS Code extension that provides AI-assisted coding capabilities wi
 | Voice/Chat | ⚠️ Planned | ✅ Yes | ❌ | ❌ |
 
 ---
-

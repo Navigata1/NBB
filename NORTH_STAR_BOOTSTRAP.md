@@ -841,7 +841,9 @@ Use this template for ALL instruction files. Only the filename changes:
 **Backend:** [e.g., Node.js, tRPC, Prisma]
 **Database:** [e.g., PostgreSQL, Redis]
 **Infrastructure:** [e.g., Vercel, AWS, Docker]
+**Environment Isolation:** [Separate accounts | Separate VPCs | Shared — justify]
 **Key Libraries:** [List critical dependencies]
+**Hard Stops File:** [./HARD_STOPS.md | none]
 
 ---
 
@@ -868,6 +870,12 @@ Adjustments:
 - Security changes: Cap at Level 4
 - Database migrations: Cap at Level 3
 - Production deploys: Cap at Level 3
+- Tier 5 destructive operations: Human-executed only
+
+### Consent Fatigue Safeguards
+- After 30 operations: Agent reminds human to review carefully
+- Tier shift (1-2 -> 3+): Visual break in approval flow
+- Late sessions (10 PM+): Extra confirmation on Tier 3+ operations
 
 ---
 
@@ -884,9 +892,9 @@ Before major actions, state confidence level:
 
 ## DEVIATION LOG
 
-| Date | What NS/MBF Says | What We Did | Why |
-|------|------------------|-------------|-----|
-| | | | |
+| Date | What NS/MBF Says | What We Did | Why | Agent Dissent? |
+|------|------------------|-------------|-----|----------------|
+| | | | | Y/N |
 
 ---
 
@@ -1650,6 +1658,20 @@ Destructive Operations:
   • Is this reversible?
   • Do I have backup/rollback ability?
   • Did human approve this action?
+
+HARD STOPS:
+  • `terraform destroy`, `terraform apply -destroy`, `pulumi destroy`
+  • `DROP DATABASE`, `DROP SCHEMA ... CASCADE`
+  • Production force-reset or `--force` destructive operations
+  • `rm -rf` on root, home, or project root
+  • Agent presents these commands but does not execute them
+
+BLAST RADIUS:
+  • Tier 1: Observation
+  • Tier 2: Local mutation
+  • Tier 3: Service mutation
+  • Tier 4: Destructive mutation
+  • Tier 5: Catastrophic -> manual human execution only
 
 GRACEFUL DEGRADATION:
 • If permission denied → Report clearly, suggest alternatives

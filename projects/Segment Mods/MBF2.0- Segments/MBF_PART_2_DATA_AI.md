@@ -740,6 +740,14 @@ Beyond memory stores, modern agent frameworks need active context management:
 | **Structured Handoffs** | plan.md + session artifacts | Cross-session continuity |
 | **Context Budgets** | Context % monitoring | Proactive management |
 
+#### Context & MCP Enhancement Tools
+
+| Tool | Type | Purpose |
+|------|------|---------|
+| **Context7** | MCP Server / Plugin | Real-time up-to-date API and library documentation for all major frameworks |
+| **Sequential Thinking** | MCP Server | Chain-of-thought reasoning server for deeper analysis and planning |
+| **cc-status-line** | CLI Tool | Context window percentage display — install via `npx cc-status-line@latest` |
+
 #### Repo Map Generation
 ```bash
 # Install aider for repo map generation
@@ -1121,6 +1129,18 @@ NVIDIA's NeMo Guardrails: **89% accuracy on prompt injection** (vs 67% Llama Gua
 | **Retrieval Rails** | Filter RAG context | Before injection |
 | **Execution Rails** | Control tool calls | Before action |
 
+#### Destructive Command Interception
+
+Execution rails must include destructive-command interception so agents do not
+autonomously execute catastrophic infrastructure or database operations.
+
+| Severity | Examples | Agent Behavior |
+|----------|----------|----------------|
+| **CRITICAL** | `terraform destroy`, `DROP DATABASE`, `rm -rf /` | Never execute — present to human |
+| **HIGH** | `TRUNCATE`, force-push to protected branch, force schema push | Explicit confirmation + delay |
+| **MEDIUM** | `DROP TABLE`, destructive migration | Show blast radius + recovery path |
+| **LOW** | Scoped delete with clear predicate | Standard approval flow |
+
 **Colang 2.0 Example:**
 ```colang
 define user express harmful intent
@@ -1130,6 +1150,14 @@ define user express harmful intent
 define flow handle harmful
   user express harmful intent
   bot refuse with explanation
+```
+
+Example execution rail:
+```colang
+define flow block destructive commands
+  user requests infrastructure destruction
+  bot refuse with command presentation
+  bot "I cannot execute this command directly. Here is the command for manual human execution."
 ```
 
 #### Guardrails AI Pattern
@@ -1388,4 +1416,3 @@ MEMORY MANAGER selection:
 - → NS Part XII (Memory Architecture) — full methodology
 
 ---
-

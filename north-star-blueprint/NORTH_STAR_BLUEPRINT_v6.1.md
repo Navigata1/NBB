@@ -5041,6 +5041,55 @@ THINGS THAT ARE NOT EMERGENCIES:
   • "No one will notice"
 ```
 
+### 12.8.1 Incident Post-Mortem Template
+
+Use this when an outage, data loss event, security event, failed deployment,
+or agent-driven operational incident requires a structured retrospective.
+
+```markdown
+# INCIDENT POST-MORTEM: [Title]
+
+## Metadata
+| Field | Value |
+|-------|-------|
+| Date | [When it happened] |
+| Duration | [Time to detection -> Time to recovery] |
+| Severity | [P0-P4] |
+| Services Affected | [List] |
+| Data Impact | [Rows lost / Users affected / Revenue impact] |
+
+## Timeline
+| Time | Event |
+|------|-------|
+| HH:MM | [What happened] |
+
+## Root Cause Chain
+1. [First domino]
+2. [Second domino]
+3. [Continue until final failure]
+
+## What Went Wrong
+- [Failure 1]
+- [Failure 2]
+
+## What Went Right
+- [Detection, communication, recovery, or mitigation success]
+
+## Remediation (Immediate)
+□ [Action taken to resolve]
+
+## Systemic Changes (Preventive)
+□ [Change to prevent recurrence]
+
+## Fix Ledger Entry
+| Issue Pattern | Root Cause | Fix | Frequency |
+|---------------|------------|-----|-----------|
+| [Pattern] | [Cause] | [Fix] | [First/Recurring] |
+
+## Lessons Learned
+[What the team now understands differently]
+```
+
 ---
 
 ## PART III SUMMARY
@@ -6040,6 +6089,86 @@ AI SHOULD INCREASE AUTONOMY (proceed) WHEN:
 □ Following pre-approved procedure
 □ Making read-only operations
 □ Generating drafts (not final output)
+```
+
+### 18.4 Consent Fatigue Awareness
+
+```
+CONSENT FATIGUE — THE SILENT KILLER
+─────────────────────────────────────────────────────────────────────────────
+
+PROBLEM:
+  After enough low-risk approvals, humans stop reading prompts carefully.
+  Approval becomes reflexive. That is when catastrophic commands slip
+  through the same UI that was just used for harmless reads.
+
+ANTI-PATTERNS:
+  ✗ Asking approval for every read-only lookup
+  ✗ Treating `ls` and `terraform destroy` as equivalent prompts
+  ✗ Running a long stream of benign approvals immediately before a risky one
+
+MITIGATIONS:
+  1. Batch Tier 1 observations together.
+  2. Visually break the flow before Tier 3+ operations.
+  3. After 30+ operations, explicitly note session fatigue risk.
+  4. For Tier 4+ work, require typed confirmation of the resource name.
+  5. After 10 PM local time, add extra caution on Tier 3+ operations.
+```
+
+### 18.5 Agent Dissent Protocol
+
+```
+AGENT DISSENT PROTOCOL
+─────────────────────────────────────────────────────────────────────────────
+
+If the agent identifies a serious risk and the human overrides the advice,
+the agent must escalate instead of warning once and silently complying.
+
+LEVEL 1 — ADVISE
+  State the concern and recommend an alternative.
+
+LEVEL 2 — WARN WITH CONSEQUENCES
+  State exactly what could go wrong and what the blast radius becomes.
+
+LEVEL 3 — FORMAL DISSENT
+  Register dissent, require acknowledgement, and log the override:
+  | Date | Agent Recommendation | Human Override | Rationale Given | Outcome |
+  The agent proceeds with heightened caution.
+
+LEVEL 4 — HARD STOP
+  If the overridden action is Tier 5 catastrophic risk, the agent refuses to
+  execute and instead presents the command for manual human execution.
+```
+
+### 18.6 Operational Readiness Awareness
+
+```
+HUMAN STATE AFFECTS AGENT SAFETY
+─────────────────────────────────────────────────────────────────────────────
+
+RISK MULTIPLIERS:
+  • Late-night sessions (after 10 PM)
+  • Long continuous sessions (4+ hours)
+  • Emotional pressure (deadline, incident, high urgency)
+  • Unfamiliar tooling or infrastructure
+
+AGENT RESPONSE:
+  1. Note the multiplier clearly.
+  2. For Tier 3+ operations, suggest deferring if practical.
+  3. For Tier 4+ operations, recommend stopping until fresh review.
+  4. Frame this as professional risk management, never as shaming.
+
+THE DRACULA EFFECT:
+  AI removes much of the low-intensity work, leaving humans with a dense
+  stream of high-stakes judgment calls. Sustainable full-intensity
+  AI-augmented work is measured in a few concentrated hours, not in an
+  uninterrupted eight-hour stretch.
+
+WARNING SIGNS:
+  • Approving without reading
+  • Skipping blast-radius assessment
+  • "Just one more thing" on production late at night
+  • Difficulty concentrating on consequences
 ```
 
 ---
@@ -13344,6 +13473,43 @@ PREVENTING ROLLBACK ISSUES:
 □ Automate rollback triggers
 ```
 
+### 53.2 Deployment Blast Radius & IaC Safety
+
+```
+DEPLOYMENT BLAST RADIUS RULE
+─────────────────────────────────────────────────────────────────────────────
+
+Every deployment-related command requires a blast radius classification.
+
+Environment tier mapping:
+  local/dev  → base tier
+  staging    → base tier + 1 (minimum Tier 3)
+  production → base tier + 2 (minimum Tier 4)
+
+Example:
+  A schema migration may be Tier 3 locally, Tier 4 in staging,
+  and Tier 5 (manual-only) in production if data loss is plausible.
+
+IaC OPERATIONAL PREREQUISITES
+─────────────────────────────────────────────────────────────────────────────
+Before ANY agent-driven infrastructure operation:
+□ State backend verified as remote
+□ State file is accessible and current
+□ Delete protection enabled on stateful resources
+□ Backup independence verified
+
+If any prerequisite fails -> STOP and remediate before proceeding.
+
+BACKUP INDEPENDENCE VERIFICATION
+─────────────────────────────────────────────────────────────────────────────
+Before any production infrastructure operation:
+□ Can the backup survive deletion of the primary resource?
+□ Is there at least one backup in a separate account or region?
+□ When was the last successful restore test?
+
+If any answer is "no" or "never" -> remediate BEFORE proceeding.
+```
+
 ### 53.3 Database Migration Strategy
 
 ```
@@ -14129,6 +14295,19 @@ MONITORING:
 □ Health check endpoint working
 □ Alerts configured
 □ Runbooks available
+□ Backup independence verified (survives primary deletion)
+□ Last restore test date recorded (< 30 days for production)
+```
+
+### 57.2.1 Consent Fatigue Quick Check
+
+```
+CONSENT FATIGUE QUICK CHECK
+─────────────────────────────────────────────────────────────────────────────
+• 20+ approvals this session? -> Slow down on next Tier 3+
+• Shifting from reads to writes? -> Break the pattern visually
+• Late night? -> Extra caution on production operations
+• Rubber-stamping? -> Force a context switch and typed confirmation
 ```
 
 ### 57.3 Code Review Checklist
@@ -14814,4 +14993,3 @@ Initial Release
 *End of North Star Blueprint v5.0*
 
 ---
-

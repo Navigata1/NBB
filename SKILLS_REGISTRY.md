@@ -139,7 +139,7 @@ https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-be
 | # | Source | URL | Stars | Why It Matters | Action |
 |---|--------|-----|-------|----------------|--------|
 | 1 | `leonxlnx/taste-skill` | https://github.com/leonxlnx/taste-skill | — | Best frontend bias-correction system found. 3-dial config, named anti-slop rules, ~40 UI patterns, pre-flight checklist. 4 sub-skills (taste, soft, redesign, output). | Adapt into local `design-taste` skill |
-| 2 | `obra/superpowers` | https://github.com/obra/superpowers | 40.9K | Battle-tested multi-agent methodology. `/brainstorm`, `/write-plan`, `/execute-plan`. Skills auto-trigger before tasks. | Study patterns, adapt orchestration ideas into `parallel-agent` |
+| 2 | `obra/superpowers` | https://github.com/obra/superpowers | 40.9K | Battle-tested sub-agent orchestration. Three-step workflow: `superpowers brainstorm` (spec generation with clarifying questions), `superpowers write-plan` (implementation planning with line-level changes), `superpowers execute-plan` (auto-dispatch sub-agents for parallel execution with code review). Officially endorsed by Anthropic. Skills auto-trigger before tasks. | Install as plugin. Maps to RPIT: brainstorm=Research, write-plan=Plan, execute-plan=Implement+Test |
 | 3 | `trailofbits/skills` | https://github.com/trailofbits/skills | — | Security skills from a top-tier security firm. CodeQL, Semgrep, variant analysis, vulnerability detection. | Reference for security skill enhancement |
 | 4 | `uditgoenka/autoresearch` | https://github.com/uditgoenka/autoresearch | — | Generalizes Karpathy's autoresearch into any measurable improvement loop. MIT licensed. v1.0.3 includes security auditing. | Adapt into local `autoresearch` skill |
 | 5 | `karpathy/autoresearch` | https://github.com/karpathy/autoresearch | 38K | Original autonomous ML experiment pattern. `program.md` as a "super lightweight skill." Fixed time budget, automatic rollback. | Pattern reference for autoresearch skill |
@@ -282,41 +282,47 @@ Intent capture → Skill draft
 
 ---
 
-## 7. Quick Reference: Raw Download Links
+## 7. Upstream Provenance References
 
-### High-Priority Official Skills (Copy-Paste Ready)
+> **NOTE:** These are reference URLs for upstream diff checking and provenance tracking.
+> Do NOT curl/download these directly into `.claude/skills/`. All external skills must
+> pass through the `skill-supply-chain-review` skill before adoption (see Section 4).
 
-```bash
-# Anthropic — High-Value Skills
-curl -O https://raw.githubusercontent.com/anthropics/skills/main/skills/skill-creator/SKILL.md
-curl -O https://raw.githubusercontent.com/anthropics/skills/main/skills/mcp-builder/SKILL.md
-curl -O https://raw.githubusercontent.com/anthropics/skills/main/skills/webapp-testing/SKILL.md
-curl -O https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md
-curl -O https://raw.githubusercontent.com/anthropics/skills/main/skills/doc-coauthoring/SKILL.md
+### Anthropic Official (Tier A)
 
-# OpenAI — High-Value Curated Skills
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-best-practices/SKILL.md
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-threat-model/SKILL.md
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-ownership-map/SKILL.md
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/playwright/SKILL.md
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/gh-fix-ci/SKILL.md
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/gh-address-comments/SKILL.md
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/doc/SKILL.md
-curl -O https://raw.githubusercontent.com/openai/skills/main/skills/.curated/screenshot/SKILL.md
+| Local Skill | Adapted From | Upstream URL |
+|-------------|-------------|--------------|
+| `skill-creator` v1.0 | Anthropic `skill-creator` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/skill-creator/SKILL.md` |
+| `mcp-builder` v1.0 | Anthropic `mcp-builder` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/mcp-builder/SKILL.md` |
+| — (reference only) | `webapp-testing` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/webapp-testing/SKILL.md` |
+| — (reference only) | `frontend-design` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md` |
+| — (reference only) | `doc-coauthoring` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/doc-coauthoring/SKILL.md` |
 
-# Community — Review Before Use
-# taste-skill (read all 4 files before adapting):
-curl -O https://raw.githubusercontent.com/leonxlnx/taste-skill/main/taste-skill/SKILL.md
-curl -O https://raw.githubusercontent.com/leonxlnx/taste-skill/main/soft-skill/SKILL.md
-curl -O https://raw.githubusercontent.com/leonxlnx/taste-skill/main/redesign-skill/SKILL.md
-curl -O https://raw.githubusercontent.com/leonxlnx/taste-skill/main/output-skill/SKILL.md
+### OpenAI Curated (Tier A)
 
-# Karpathy autoresearch pattern:
-# https://github.com/karpathy/autoresearch/blob/master/program.md
-# Generalized Claude Code version:
-# https://github.com/uditgoenka/autoresearch
-```
+| Local Skill | Reference From | Upstream URL |
+|-------------|---------------|--------------|
+| — (reference only) | `security-best-practices` | `https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-best-practices/SKILL.md` |
+| — (reference only) | `security-threat-model` | `https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-threat-model/SKILL.md` |
+| — (reference only) | `playwright` | `https://raw.githubusercontent.com/openai/skills/main/skills/.curated/playwright/SKILL.md` |
+| — (reference only) | `gh-fix-ci` | `https://raw.githubusercontent.com/openai/skills/main/skills/.curated/gh-fix-ci/SKILL.md` |
+| — (reference only) | `screenshot` | `https://raw.githubusercontent.com/openai/skills/main/skills/.curated/screenshot/SKILL.md` |
+
+### Community Adapted (Tier C)
+
+| Local Skill | Adapted From | Upstream URLs |
+|-------------|-------------|---------------|
+| `design-taste` v1.0 | `leonxlnx/taste-skill` (4 sub-skills) | `taste-skill/SKILL.md`, `soft-skill/SKILL.md`, `redesign-skill/SKILL.md`, `output-skill/SKILL.md` at `https://github.com/leonxlnx/taste-skill` |
+| `autoresearch` v1.0 | Karpathy + uditgoenka | `https://github.com/karpathy/autoresearch/blob/master/program.md` / `https://github.com/uditgoenka/autoresearch` |
+
+### Upstream Diff Protocol
+
+To check for upstream changes against a local skill:
+1. Fetch upstream to a temp file (NOT into `.claude/skills/`)
+2. Diff against local version
+3. Run `skill-supply-chain-review` if changes are significant
+4. Document decision in vendoring record (Section 4)
 
 ---
 
-*End of SKILLS_REGISTRY.md v2.0*
+*End of SKILLS_REGISTRY.md v2.1*

@@ -1102,11 +1102,77 @@ Cloud provisioning, infrastructure automation, configuration management.
 ```
 □ State backend configured (remote)
 □ State locking enabled
+□ Current state file accessible and recent
 □ Modules properly versioned
 □ Variables documented
 □ Drift detection automated
 □ Plan review required
 □ Sensitive values encrypted
+□ Delete protection enabled on stateful resources
+□ Backup independence verified
+```
+
+### Backup Independence Principle
+
+```
+BACKUP RULE:
+A backup that can be destroyed by the same operation that destroys the
+primary data is NOT a backup.
+
+VERIFICATION CHECKLIST:
+□ Database backups exist outside the database instance lifecycle
+□ Infrastructure state is stored outside the infrastructure it describes
+□ At least one backup copy exists in a different account or region
+□ Backup deletion requires separate credentials from primary resource
+□ Regular restore testing is scheduled
+```
+
+### Environment Isolation Principle
+
+```
+RULE:
+Unrelated services must not share production infrastructure.
+
+ISOLATION LEVELS:
+  • Separate accounts — strongest
+  • Separate VPCs — recommended minimum
+  • Separate namespaces — acceptable for related services
+  • Shared-everything — never for unrelated production services
+
+COST vs RISK:
+Saving a few dollars per month is not worth expanding blast radius across
+multiple services.
+```
+
+### Agent Interaction Protocol for IaC
+
+```
+PRE-FLIGHT CHECKLIST
+□ State backend verified as remote and accessible
+□ State file freshness confirmed
+□ Delete protection enabled on stateful resources
+□ Backup independence verified
+□ Environment isolation confirmed
+□ Human informed of blast radius tier
+
+PLAN-ONLY MODE (Default)
+  • terraform plan (not apply)
+  • pulumi preview (not up)
+  • cdk diff (not deploy)
+
+APPLY RESTRICTIONS
+  • terraform apply -> Tier 4 minimum
+  • production apply -> human-executed after review
+  • terraform destroy -> HARD STOP, always human-executed
+
+STATE FILE HANDLING
+  • Never unpack, modify, or switch state files without explicit human direction
+  • If multiple state files are discovered -> STOP and present findings
+  • If state is missing or stale -> STOP
+
+CLEANUP OPERATIONS
+  • Prefer targeted cleanup over `terraform destroy`
+  • Never batch-delete infrastructure without itemized review
 ```
 
 ### Cross-Category Dependencies
@@ -1172,6 +1238,12 @@ agent client protocols, IDE-agnostic coding agents.
 | **OpenCode** | Open-source, multi-LLM, Go-based TUI, 95K stars | Free + API |
 | **Aider** | Repo maps, architect mode, 88% SWE-bench with GPT-5 | Free + API |
 
+#### AI-Native Terminals & Bridges
+| Tool | Key Differentiator |
+|------|-------------------|
+| **Warp** | AI-native terminal with split panes, file preview, multi-session management |
+| **Happy Engineering** | Mobile-to-desktop terminal bridge — run Claude Code sessions from phone (happy.engineering) |
+
 #### IDE Environments
 | IDE | Key Differentiator | Price |
 |-----|-------------------|-------|
@@ -1214,4 +1286,3 @@ Want maximum SWE-bench performance?    YES → Aider with Opus 4.6
 - → NS Part I (RPIT Loop) — feature development methodology
 
 ---
-

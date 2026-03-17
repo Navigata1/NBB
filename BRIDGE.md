@@ -371,6 +371,8 @@ AI SAFETY (v2.0 Enhanced)
 (AI Guardrails)                       ←→  MBF 35: Guardrails deep dive
 (Input/Output validation)             ←→  MBF 35: NeMo, Guardrails AI
 (Adversarial defense)                 ←→  MBF 35: Prompt injection prevention
+(Blast Radius Classification)         ←→  NS 14.6.1: Severity-aware approvals
+(Destructive Command Interception)    ←→  MBF 35: Execution rails hard stops
 ```
 
 ### DevOps & Deployment
@@ -381,6 +383,12 @@ NS Part XI (DevOps)                   ←→  MBF Tier 7 (Operations)
 ├─ NS Section 51: Deployment          ←→  MBF 43: Deployment strategies
 ├─ NS Section 52: Monitoring          ←→  MBF 55: Monitoring & Observability
 └─ NS Section 53: Incident Response   ←→  MBF 55: Alerting
+
+IaC AGENT SAFETY
+─────────────────────────────────────────────────────────────────────────────
+(IaC Agent Protocol)                  ←→  MBF 13: Agent Interaction Protocol
+(Backup Independence)                 ←→  MBF 13: Backup Independence Principle
+(Environment Isolation)               ←→  MBF 13: Environment Isolation Principle
 ```
 
 ---
@@ -445,6 +453,8 @@ STEP 4: Skills & Tools
 
 STEP 5: Safety & Deployment
 ├─ Implement: Guardrails using MBF Category 35
+├─ Classify: Blast radius before any Tier 3+ operation
+├─ Block: Hard-stop commands via HARD_STOPS.md
 ├─ Set: Autonomy level using NS Section 18
 ├─ Calibrate: Confidence thresholds using NS Section 17
 ├─ Add: HITL checkpoints using MBF Category 44A             ← v2.0
