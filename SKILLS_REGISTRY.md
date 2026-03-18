@@ -1,6 +1,6 @@
 # Skills Registry
 
-> **VERSION:** 2.1 | **Updated:** 2026-03-17 | **Batch:** 9
+> **VERSION:** 2.2 | **Updated:** 2026-03-18 | **Batch:** 9
 > **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1
 >
 > **PURPOSE:** Canonical skills source map for the North Star Framework.
@@ -209,6 +209,18 @@ For every adopted external skill, record:
 - ✅ Treat public marketplaces as discovery sources, not trust anchors
 - ✅ Run `skill-supply-chain-review` skill before adopting any external skill
 
+### Pinned Commit SHAs (Priority-1 Vendored Skills)
+
+> **Last verified:** 2026-03-18
+
+| Local Skill | Upstream Repo | Pinned SHA | Pin Date | Verification |
+|-------------|--------------|------------|----------|--------------|
+| `skill-creator` v1.0 | `anthropics/skills` | `b0cbd3df1533b396d281a6886d5132f623393a9c` | 2026-03-18 | Verified |
+| `mcp-builder` v1.0 | `anthropics/skills` | `b0cbd3df1533b396d281a6886d5132f623393a9c` | 2026-03-18 | Verified |
+| `design-taste` v1.0 | `leonxlnx/taste-skill` | `bd7e147de80749c05b1610cb739d5ea20ff84899` | 2026-03-18 | Verified |
+| `autoresearch` v1.0 | `karpathy/autoresearch` (primary) | `32a1460f626e28479d427c033ee485bf5f86875a` | 2026-03-18 | Verified |
+| `autoresearch` v1.0 | `uditgoenka/autoresearch` (secondary) | `89aa3324beec399fc11a01c2fe1532b80f3eff42` | 2026-03-18 | Verified |
+
 ### Skill Lifecycle States
 
 ```
@@ -292,8 +304,8 @@ Intent capture → Skill draft
 
 | Local Skill | Adapted From | Upstream URL |
 |-------------|-------------|--------------|
-| `skill-creator` v1.0 | Anthropic `skill-creator` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/skill-creator/SKILL.md` |
-| `mcp-builder` v1.0 | Anthropic `mcp-builder` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/mcp-builder/SKILL.md` |
+| `skill-creator` v1.0 | Anthropic `skill-creator` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/skill-creator/SKILL.md` (SHA: `b0cbd3df`) |
+| `mcp-builder` v1.0 | Anthropic `mcp-builder` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/mcp-builder/SKILL.md` (SHA: `b0cbd3df`) |
 | — (reference only) | `webapp-testing` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/webapp-testing/SKILL.md` |
 | — (reference only) | `frontend-design` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md` |
 | — (reference only) | `doc-coauthoring` | `https://raw.githubusercontent.com/anthropics/skills/main/skills/doc-coauthoring/SKILL.md` |
@@ -312,8 +324,8 @@ Intent capture → Skill draft
 
 | Local Skill | Adapted From | Upstream URLs |
 |-------------|-------------|---------------|
-| `design-taste` v1.0 | `leonxlnx/taste-skill` (4 sub-skills) | `taste-skill/SKILL.md`, `soft-skill/SKILL.md`, `redesign-skill/SKILL.md`, `output-skill/SKILL.md` at `https://github.com/leonxlnx/taste-skill` |
-| `autoresearch` v1.0 | Karpathy + uditgoenka | `https://github.com/karpathy/autoresearch/blob/master/program.md` / `https://github.com/uditgoenka/autoresearch` |
+| `design-taste` v1.0 | `leonxlnx/taste-skill` (4 sub-skills) | `taste-skill/SKILL.md`, `soft-skill/SKILL.md`, `redesign-skill/SKILL.md`, `output-skill/SKILL.md` at `https://github.com/leonxlnx/taste-skill` (SHA: `bd7e147d`) |
+| `autoresearch` v1.0 | Karpathy + uditgoenka | `https://github.com/karpathy/autoresearch/blob/master/program.md` (SHA: `32a1460f`) / `https://github.com/uditgoenka/autoresearch` (SHA: `89aa3324`) |
 
 ### Upstream Diff Protocol
 
@@ -325,4 +337,4 @@ To check for upstream changes against a local skill:
 
 ---
 
-*End of SKILLS_REGISTRY.md v2.1*
+*End of SKILLS_REGISTRY.md v2.2*

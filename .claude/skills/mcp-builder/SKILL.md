@@ -2,6 +2,9 @@
 name: mcp-builder
 version: 1.0
 author: NavigatingTruth / NorthStarFramework
+upstream_repo: https://github.com/anthropics/skills
+upstream_sha: b0cbd3df1533b396d281a6886d5132f623393a9c
+upstream_pinned: 2026-03-18
 description: >
   Guide for creating MCP (Model Context Protocol) servers that enable LLMs
   to interact with external services through well-designed tools. Use when

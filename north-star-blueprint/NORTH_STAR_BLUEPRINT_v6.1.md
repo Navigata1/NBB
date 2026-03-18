@@ -1,170 +1,889 @@
-# NORTH STAR BLUEPRINT v5.0
-## The Universal Operational Framework for AI-Assisted Engineering
-### January 2026 | Synthesized from v3.0–v4.9.8 Lineage
+
+# NORTH STAR BLUEPRINT v6.1
+
+## The Comprehensive Development Framework
 
 ---
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                                                                              ║
-║  "Excellence is not a destination but a continuous journey of refinement.   ║
-║   This blueprint doesn't just build software—it crafts experiences that     ║
-║   resonate with the human soul."                                            ║
+║                         NORTH STAR BLUEPRINT                                 ║
+║                              v6.1                                            ║
 ║                                                                              ║
-║  "The difference between amateur and professional AI development            ║
-║   is not the tools—it's the orchestration."                                 ║
+║                 The Comprehensive Development Framework                      ║
 ║                                                                              ║
-║                                        — North Star Blueprint Philosophy     ║
+║                          ────────────────                                    ║
+║                                                                              ║
+║                    "Build with intention. Ship with confidence."             ║
 ║                                                                              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
 
-**Version:** 5.0.0 (Definitive Synthesis Edition)
-**Lineage:** v3.0 → v4.0 → v4.5 → v4.6 → v4.7 → v4.8 → v4.9 → v4.9.5 → v4.9.7 → v4.9.8 → v5.0
-**Purpose:** A platform-agnostic, project-agnostic operating system for building "Category of One" software with AI agents
-**Philosophy:** Rigorous Primitive Execution + Design Excellence + Human Connection
-**Audience:** Builders who orchestrate AI to create exceptional software experiences
-
 ---
 
-## DOCUMENT NAVIGATION
-
-This blueprint is organized into twelve interconnected parts. Each part builds upon the previous, creating a complete operational framework.
+## FRAMEWORK ECOSYSTEM NOTICE
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                     NORTH STAR BLUEPRINT v5.0 ARCHITECTURE                   │
+│                     PART OF A UNIFIED FRAMEWORK ECOSYSTEM                    │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  FOUNDATION LAYER                                                            │
-│  ├── Part I:   Foundation & Philosophy (Mindset, Identity, Commandments)    │
-│  └── Part II:  Primitive Execution (Core Primitives, Fix Ledger, Safety)    │
+│  This document is ONE component of a three-part system:                     │
 │                                                                              │
-│  METHODOLOGY LAYER                                                           │
-│  ├── Part III: Documentation & Workflow (Hierarchy, Plan-Refine-Execute)    │
-│  └── Part IV:  AI Orchestration (Models, Context, Confidence, Consensus)    │
+│  ┌─────────────┐     ┌─────────────────────┐     ┌─────────────────────┐    │
+│  │  BRIDGE.md  │────►│  NORTH STAR v6.1    │     │  MASTER BUILD v2.1  │    │
+│  │  Navigation │     │  (This Document)    │     │  Technology Matrix  │    │
+│  └─────────────┘     │                     │     │                     │    │
+│        │             │  HOW to build       │     │  WHAT to build with │    │
+│        │             │  • Methodology      │     │  • 62 categories    │    │
+│        │             │  • Orchestration    │     │  • Tool options     │    │
+│        │             │  • Quality gates    │     │  • Stack selection  │    │
+│        └─────────────┴─────────────────────┴─────┴─────────────────────┘    │
 │                                                                              │
-│  ORCHESTRATION LAYER                                                         │
-│  ├── Part V:   Agent Composition (Memory, Skills, Verification, Handoffs)   │
-│  └── Part VI:  MCP & Tools (Power Tools, Voice-Native, IDE Routing)         │
+│  READING ORDER:                                                              │
+│  1. BRIDGE.md — Understand how pieces connect, get routing                  │
+│  2. NS Section 0 — Bootstrap protocol (you're here)                         │
+│  3. Reference NS or MBF on demand via BRIDGE.md routing                     │
 │                                                                              │
-│  DESIGN LAYER                                                                │
-│  ├── Part VII: Design Mastery (Animation, Motion, Micro-interactions)       │
-│  └── Part VIII: Code Architecture (Patterns, State, Error Handling)         │
-│                                                                              │
-│  EXECUTION LAYER                                                             │
-│  ├── Part IX:  Agentic Layer System (Two-Layer, Stop Hooks, Grounding)      │
-│  └── Part X:   PSB System (Plan/Setup/Build, 9-Phase, Resume Protocol)      │
-│                                                                              │
-│  INTEGRATION LAYER                                                           │
-│  ├── Part XI:  Platform & Integration (Git, Tokens, Platform Strategy)      │
-│  └── Part XII: UI/UX Frameworks (BUILD, Navigation, Dynamics, Trust)        │
-│                                                                              │
-│  APPENDICES                                                                  │
-│  └── Selection Matrices, Quick Reference, Superprompt Protocol, Glossary    │
+│  For technology selection questions, consult Master Build Framework v2.1    │
+│  For methodology and orchestration, stay in this North Star Blueprint       │
+│  For navigation between both, use BRIDGE.md                                 │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## TABLE OF CONTENTS
+## AGENTIC BOOTSTRAP PROTOCOL
 
-**PART I: FOUNDATION & PHILOSOPHY**
-1. [Founder Mindset Principles](#1-founder-mindset-principles)
-2. [Core Identity & Operating System Concept](#2-core-identity--operating-system-concept)
-3. [The Ten Commandments](#3-the-ten-commandments)
-4. [Value Hierarchy & Positioning](#4-value-hierarchy--positioning)
-
-**PART II: PRIMITIVE EXECUTION FRAMEWORK**
-5. [The Six Core Primitives](#5-the-six-core-primitives)
-6. [Primitive Lifecycle & Verification](#6-primitive-lifecycle--verification)
-7. [The Anti-Bug-Loop Principle (Fix Ledger)](#7-the-anti-bug-loop-principle-fix-ledger)
-8. [Regression Discipline & Safety Nets](#8-regression-discipline--safety-nets)
-
-**PART III: DOCUMENTATION & WORKFLOW**
-9. [Documentation Hierarchy (5-Layer Stack)](#9-documentation-hierarchy-5-layer-stack)
-10. [The Plan-Refine-Execute Protocol](#10-the-plan-refine-execute-protocol)
-11. [The Slice Build Methodology](#11-the-slice-build-methodology)
-12. [Quality Gates System (5-Gate Framework)](#12-quality-gates-system-5-gate-framework)
-
-**PART IV: AI ORCHESTRATION & INTELLIGENCE**
-13. [Model Intelligence Matrix](#13-model-intelligence-matrix)
-14. [The Core 4 Primitives](#14-the-core-4-primitives)
-15. [Tool Hierarchy & Composition](#15-tool-hierarchy--composition)
-16. [Context Engineering Protocol](#16-context-engineering-protocol)
-17. [Confidence Calibration Engine](#17-confidence-calibration-engine)
-18. [Autonomy Dial System](#18-autonomy-dial-system)
-19. [Multi-Model Consensus Framework](#19-multi-model-consensus-framework)
-
-**PART V: AGENT COMPOSITION & ORCHESTRATION**
-20. [Agent Memory Architecture](#20-agent-memory-architecture)
-21. [Skills, Sub-Agents & MCP Integration](#21-skills-sub-agents--mcp-integration)
-22. [Recursive Verification Protocol](#22-recursive-verification-protocol)
-23. [Agent Handoff Protocols](#23-agent-handoff-protocols)
-
-**PART VI: MCP & TOOL ORCHESTRATION**
-24. [MCP Power Tools Matrix](#24-mcp-power-tools-matrix)
-25. [MCP-First Architecture](#25-mcp-first-architecture)
-26. [Voice-Native Development Workflows](#26-voice-native-development-workflows)
-27. [IDE Routing Strategy](#27-ide-routing-strategy)
-
-**PART VII: DESIGN MASTERY SYSTEM**
-28. [Design Philosophy & First Impressions](#28-design-philosophy--first-impressions)
-29. [The Animation Priority Pyramid](#29-the-animation-priority-pyramid)
-30. [Animation Specifications Library](#30-animation-specifications-library)
-31. [Standard Easings, Durations & Motion](#31-standard-easings-durations--motion)
-32. [Micro-Interaction Patterns](#32-micro-interaction-patterns)
-33. [Loading States & Feedback Systems](#33-loading-states--feedback-systems)
-34. [The Enhanced Space Tier Experience](#34-the-enhanced-space-tier-experience)
-35. [Accessibility Integration](#35-accessibility-integration)
-36. [Design Terminology Reference](#36-design-terminology-reference)
-
-**PART VIII: CODE ARCHITECTURE & PATTERNS**
-37. [Code Architecture Terminology](#37-code-architecture-terminology)
-38. [Component Design Patterns](#38-component-design-patterns)
-39. [State Management Patterns](#39-state-management-patterns)
-40. [Error Handling Architecture](#40-error-handling-architecture)
-
-**PART IX: AGENTIC LAYER SYSTEM**
-41. [Two-Layer Architecture](#41-two-layer-architecture)
-42. [Class & Grade Classification](#42-class--grade-classification)
-43. [Stop Hooks & Persistence Loops](#43-stop-hooks--persistence-loops)
-44. [Completion Promise Pattern](#44-completion-promise-pattern)
-45. [Codebase Grounding Rule](#45-codebase-grounding-rule)
-
-**PART X: PSB SYSTEM & EXECUTION**
-46. [The PSB System (Plan/Setup/Build)](#46-the-psb-system-plansetupbuild)
-47. [Universal Build Protocol (9-Phase)](#47-universal-build-protocol-9-phase)
-48. [Resume Anywhere Protocol](#48-resume-anywhere-protocol)
-49. [Automated Documentation Suite](#49-automated-documentation-suite)
-
-**PART XI: PLATFORM & INTEGRATION**
-50. [Platform Strategy](#50-platform-strategy)
-51. [Native Experience Standards](#51-native-experience-standards)
-52. [Git Discipline & Versioning](#52-git-discipline--versioning)
-53. [Token Conservation Strategies](#53-token-conservation-strategies)
-
-**PART XII: UI/UX FRAMEWORKS**
-54. [BUILD Framework for Dashboards](#54-build-framework-for-dashboards)
-55. [UI Focus, Navigation & Hierarchy](#55-ui-focus-navigation--hierarchy)
-56. [Dynamics & Trust Protocol](#56-dynamics--trust-protocol)
-57. [Interactive Preferences & Mental Models](#57-interactive-preferences--mental-models)
-
-**APPENDICES**
-- [Appendix A: Selection Matrix Reference](#appendix-a-selection-matrix-reference)
-- [Appendix B: Quick Reference Cheatsheet](#appendix-b-quick-reference-cheatsheet)
-- [Appendix C: Superprompt Generation Protocol](#appendix-c-superprompt-generation-protocol)
-- [Appendix D: Blueprint ↔ Superprompt Boundary](#appendix-d-blueprint--superprompt-boundary)
-- [Appendix E: Glossary & Terminology](#appendix-e-glossary--terminology)
-- [Appendix F: Template Library](#appendix-f-template-library)
-- [Appendix G: Version History & Lineage](#appendix-g-version-history--lineage)
+> **ATTENTION: AI AGENT / IDE TOOL / CLAUDE CODE**
+> 
+> If you are an AI system receiving this document alongside a project idea,
+> READ THIS SECTION FIRST. It tells you exactly how to set yourself up for success.
 
 ---
 
+### 0.1 QUICK-START DIRECTIVE
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      FIRST-READ INSTRUCTIONS                                 │
+│                   For Any Agent Receiving This Blueprint                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  YOU HAVE RECEIVED:                                                          │
+│  1. This North Star Blueprint v6.1 (comprehensive reference)                │
+│  2. A project idea or task to build                                          │
+│                                                                              │
+│  YOUR FIRST ACTIONS (in order):                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  □ 1. SKIM, DON'T CONSUME                                                    │
+│       Do NOT attempt to memorize or deeply process all 59 sections.         │
+│       Skim the TABLE OF CONTENTS (Section 0.8) to understand structure.     │
+│       You will reference sections AS NEEDED during development.             │
+│                                                                              │
+│  □ 2. GENERATE YOUR claude.md FILE                                           │
+│       Use the template in Section 0.2 below.                                 │
+│       This becomes your lightweight, persistent guide.                       │
+│       The claude.md points BACK to this North Star for details.             │
+│                                                                              │
+│  □ 3. SET UP DOCUMENTATION SCAFFOLD                                          │
+│       Follow the orchestration sequence in Section 0.3.                      │
+│       Create minimal docs structure BEFORE writing code.                     │
+│                                                                              │
+│  □ 4. BEGIN FIRST VERTICAL SLICE                                             │
+│       Reference Part III, Section 11 for methodology.                        │
+│       Build ONE complete feature before expanding.                           │
+│                                                                              │
+│  □ 5. RETURN TO NORTH STAR WHEN NEEDED                                       │
+│       Questions? Check relevant section.                                     │
+│       Uncertain? State confidence level, reference Section 17.               │
+│       Need to pause? Use handoff protocol in Section 23.                    │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  CRITICAL MINDSET:                                                           │
+│  This blueprint is your REFERENCE, not your SCRIPT.                         │
+│  Don't front-load everything. Distribute the cognitive load.                │
+│  Build incrementally. Return here for guidance. Ship quality.               │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
 ---
 
-### 1.1 The Hacker Mindset
+### 0.2 CLAUDE.MD GENERATION TEMPLATE
+
+When starting any project with this blueprint, **immediately generate** a `claude.md` file in the repository root. This lightweight file becomes your persistent guide that points back to the North Star.
+
+```markdown
+# CLAUDE.MD — Project Intelligence File
+
+> **READING ORDER:**
+> 1. You're reading this file (project-specific state)
+> 2. For navigation between frameworks → see **BRIDGE.md**
+> 3. For methodology (HOW) → see **North Star Blueprint v6.1**
+> 4. For technology options (WHAT) → see **Master Build Framework v2.1**
+
+> This file provides guidance for AI agents working on this project.
+> For comprehensive patterns, reference the documents above via BRIDGE.md routing.
+
+---
+
+## PROJECT IDENTITY
+
+**Name:** [Project Name]
+**Tier:** [Space | Sky | Foundation] (see NS Section 2)
+**Type:** [Web App | API | CLI | Library | etc.]
+**Status:** [Planning | Active Development | Maintenance]
+
+---
+
+## QUICK CONTEXT
+
+[2-3 sentences describing what this project does and why it exists]
+
+---
+
+## NORTH STAR REFERENCE
+
+This project follows the North Star Blueprint v6.1.
+
+**When uncertain, consult these sections:**
+- Architecture decisions → NS Part VIII (Sections 37-41)
+- Testing approach → NS Part IX (Sections 42-45)
+- Security patterns → NS Part X (Sections 46-49)
+- Design standards → NS Part VII (Sections 28-36)
+- AI orchestration → NS Part IV (Sections 13-19)
+
+**Quality gates for this tier:**
+- [List applicable gates from NS Section 3]
+
+---
+
+## CURRENT STATE
+
+**Last Updated:** [Date]
+**Current Focus:** [What's being worked on]
+**Next Milestone:** [What's coming next]
+
+### Recently Completed
+- [Item]
+
+### In Progress
+- [Item]
+
+### Blocked / Needs Decision
+- [Item]
+
+---
+
+## TECHNICAL DECISIONS
+
+| Decision | Choice | Rationale | NS Reference |
+|----------|--------|-----------|--------------|
+| Framework | [Choice] | [Why] | Section 38 |
+| Database | [Choice] | [Why] | Section 40 |
+| Auth | [Choice] | [Why] | Section 47 |
+
+---
+
+## DEVIATION LOG
+
+Any intentional deviations from North Star patterns:
+
+| Pattern | Deviation | Reason | Date |
+|---------|-----------|--------|------|
+| [NS Pattern] | [What we did instead] | [Why] | [When] |
+
+---
+
+## SESSION PROTOCOL
+
+### Starting a Session
+1. Read this claude.md for current state
+2. Check CHANGELOG.md for recent history
+3. Review any open items in "Blocked / Needs Decision"
+4. Proceed with current focus area
+
+### During Development
+- Follow vertical slice methodology (NS Section 11)
+- State confidence levels on uncertain decisions (NS Section 17)
+- Log significant decisions in this file or ADR
+
+### Ending a Session
+- Update "Current State" section above
+- Add entry to CHANGELOG.md
+- If incomplete, create handoff note (NS Section 23)
+
+### When Stuck or Uncertain
+1. State the uncertainty clearly
+2. Reference relevant NS section
+3. Propose options with confidence levels
+4. Ask for human input if needed
+5. NEVER proceed with low confidence on critical paths
+
+---
+
+## FILE STRUCTURE
+
+```
+[Project root structure - update as project evolves]
+```
+
+---
+
+## COMMANDS
+
+```bash
+# Development
+npm run dev          # Start development server
+
+# Testing
+npm run test         # Run all tests
+npm run test:unit    # Unit tests only
+npm run test:e2e     # E2E tests only
+
+# Build & Deploy
+npm run build        # Production build
+npm run lint         # Lint check
+npm run typecheck    # Type check
+```
+
+---
+
+## CONTACTS & RESOURCES
+
+- **North Star Blueprint:** [Link or path to NS v6.0]
+- **Documentation:** ./docs/
+- **Issue Tracker:** [Link]
+
+---
+
+*This file is the entry point. The North Star is the comprehensive guide.*
+*When in doubt, return to the North Star.*
+```
+
+#### CLAUDE.MD AS LIVING DOCUMENT — ITERATIVE IMPROVEMENT PROTOCOL
+
+```
+CLAUDE.MD AS LIVING DOCUMENT — ITERATIVE IMPROVEMENT PROTOCOL
+──────────────────────────────────────────────────────────────────────────────
+
+Claude.md is not set-it-and-forget-it. It is a living document that should
+improve with every session. The developers who get the best results treat
+their claude.md as a codebase — it gets better through iteration.
+
+CREATION: Use /init or "Create a claude.md. Use ask_user_question tool to
+           interview me about the project before writing it."
+
+SEVEN ESSENTIAL SECTIONS:
+  1. Project Goals — what you're building and why
+  2. Architecture Overview — key components and how they connect
+  3. Design and Style Guides — UI patterns, naming conventions
+  4. Constraints and Policies — what Claude must never do
+  5. Repo and Git Etiquette — branch naming, commit style, PR format
+  6. Frequently Used Commands — build, test, lint, deploy commands
+  7. Testing Instructions — how to run tests, what coverage is required
+
+LINKING PATTERN (keep claude.md concise):
+  In claude.md: "For architecture details, see architecture.md"
+  In claude.md: "For tech stack decisions, see docs/tech-stack.md"
+  → Claude follows links when it needs deeper context
+  → claude.md remains a fast-loading overview, not an encyclopedia
+
+ITERATIVE IMPROVEMENT — THREE TRIGGERS:
+
+  Trigger 1: After completing a feature
+    Slash command: /update-claudemd
+    "Review what we built. Update claude.md to reflect new components,
+     commands, or patterns we established in this session."
+
+  Trigger 2: When Claude repeats a mistake
+    Immediately after correction: "Add a rule to claude.md that prevents
+    this mistake: [describe what happened]."
+
+  Trigger 3: After a retro session (see Part XII: Feedback Loop)
+    Retro skill automatically suggests claude.md updates.
+    Human approves → Claude implements.
+
+EVOLUTION OVER PROJECT LIFETIME:
+  Week 1:   Basic project overview, 20-30 lines
+  Month 1:  Architecture documented, constraints captured, 50-80 lines
+  Month 3:  Battle-tested rules, domain knowledge, links to docs, 80-120 lines
+  Month 6+: Reference library. Claude functions as a senior team member.
+
+WARNING: claude.md bloat is real. Periodically audit:
+  "Review claude.md. Identify any rules that are outdated, redundant, or
+   no longer apply. Propose pruning these sections."
+```
+
+#### STATUS LINE CONFIGURATION — PROACTIVE SESSION MANAGEMENT
+
+```
+STATUS LINE CONFIGURATION — PROACTIVE SESSION MANAGEMENT
+──────────────────────────────────────────────────────────────────────────────
+
+The status line is the dashboard at the bottom of your Claude Code terminal.
+Customize it once — it pays dividends every session.
+
+RECOMMENDED STATUS LINE CONTENT:
+  ✓ Git repo name — which project you're in
+  ✓ Current branch — what feature you're on
+  ✓ Context % used — critical for preventing autocompaction
+  ✓ Active worktrees — how many parallel sessions exist
+
+CONFIGURE:
+  /statusline   → opens configuration
+  
+  Recommended format: "[repo] on [branch] | ctx: [context%] | worktrees: [count]"
+
+WHY CONTEXT % MATTERS:
+  Most developers only notice context is running out after compaction.
+  Showing % always keeps it top of mind, enabling proactive management.
+
+DESKTOP APP ALTERNATIVE:
+  The Desktop App shows all active sessions in the sidebar, each with
+  their progress state. For multi-agent work, this is preferable to
+  the terminal status line.
+```
+
+---
+
+### 0.3 DOCUMENTATION ORCHESTRATION SEQUENCE
+
+Don't create all documentation at once. Follow this sequence to distribute cognitive load:
+
+```
+DOCUMENTATION ORCHESTRATION — PHASED APPROACH
+─────────────────────────────────────────────────────────────────────────────
+
+PHASE 0: IMMEDIATE (Before any code)
+─────────────────────────────────────────────────────────────────────────────
+Create these files with minimal content. They'll grow organically.
+
+□ claude.md              — Your persistent AI guide (use template above)
+□ README.md              — Project name, one-line description, setup
+□ CHANGELOG.md           — Empty template, ready for entries
+□ .gitignore             — Standard ignores for your stack
+
+Time: 5-10 minutes
+
+
+PHASE 1: FIRST SLICE (During first feature)
+─────────────────────────────────────────────────────────────────────────────
+Add as you make decisions, not before.
+
+□ docs/
+│  └── adr/
+│      └── 001-initial-architecture.md
+□ .env.example           — Document env vars as you add them
+□ Update README.md       — Add actual setup instructions
+
+Time: Ongoing during first slice
+
+
+PHASE 2: STABILIZATION (After 2-3 slices working)
+─────────────────────────────────────────────────────────────────────────────
+Now you know enough to document properly.
+
+□ docs/ARCHITECTURE.md   — System design overview
+□ docs/API.md            — API documentation (if applicable)
+□ FIX_LEDGER.md          — Start tracking bug patterns
+□ Update claude.md       — Refine with learned context
+
+Time: 1-2 hours, once stable
+
+
+PHASE 3: MATURITY (Before sharing/shipping)
+─────────────────────────────────────────────────────────────────────────────
+Polish for others (human or AI) who will work on this.
+
+□ CONTRIBUTING.md        — How to contribute
+□ docs/DEPLOYMENT.md     — Deployment procedures
+□ docs/RUNBOOKS.md       — Operational procedures
+□ Comprehensive README   — Full documentation
+
+Time: As needed for handoff
+
+
+─────────────────────────────────────────────────────────────────────────────
+
+KEY PRINCIPLE:
+Documentation should emerge from development, not precede it.
+Write what you know, when you know it.
+Update as you learn. Don't front-load speculation.
+```
+
+---
+
+### 0.4 LOAD BALANCING STRATEGY
+
+The North Star is comprehensive by design. Here's how to consume it without cognitive overload:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      NORTH STAR LOAD BALANCING                               │
+│                 How to Use 860KB of Guidance Effectively                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  TIER 1: ALWAYS LOADED (Core Operating System)                               │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Keep these concepts in active memory:                                       │
+│                                                                              │
+│  • Quality Gate Mindset (Section 3)                                          │
+│  • Vertical Slice Methodology (Section 11)                                   │
+│  • Confidence Calibration (Section 17)                                       │
+│  • Your project's claude.md file                                            │
+│                                                                              │
+│  Mental load: Light — These are principles, not details                     │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  TIER 2: LOAD ON DEMAND (Reference When Needed)                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Consult these sections when you hit the relevant task:                     │
+│                                                                              │
+│  Starting architecture?    → Sections 37-38                                 │
+│  Writing tests?            → Sections 42-45                                 │
+│  Implementing auth?        → Sections 47-48                                 │
+│  Building UI?              → Sections 28-36                                 │
+│  Setting up CI/CD?         → Sections 50-53                                 │
+│  Working with AI models?   → Sections 13-19                                 │
+│                                                                              │
+│  Mental load: Medium — Read section, apply, move on                         │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  TIER 3: DEEP REFERENCE (Occasional Deep Dives)                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  These are comprehensive references for specific needs:                     │
+│                                                                              │
+│  • Animation Specifications Library (Section 30)                            │
+│  • Complete Primitive Definitions (Part II)                                 │
+│  • MCP Tool Matrix (Section 24)                                             │
+│  • Security Checklist Details (Section 46)                                  │
+│                                                                              │
+│  Mental load: Heavy — Use as lookup tables, not reading material            │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  ANTI-PATTERN: Trying to "learn" the entire blueprint before starting.      │
+│  CORRECT: Start building, reference sections as questions arise.            │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 0.5 DEVIATION & PAUSE PROTOCOL
+
+When questions, concerns, or uncertainties arise — don't stall. Use this protocol:
+
+```
+DEVIATION & PAUSE PROTOCOL
+─────────────────────────────────────────────────────────────────────────────
+
+SCENARIO 1: UNCERTAINTY ABOUT APPROACH
+─────────────────────────────────────────────────────────────────────────────
+When you're unsure how to proceed:
+
+1. STATE the uncertainty clearly
+   "I'm uncertain whether to use SSR or CSR for this use case."
+
+2. REFERENCE the relevant NS section
+   "NS Section 37 covers architecture selection..."
+
+3. ASSESS your confidence (NS Section 17)
+   "My confidence is MEDIUM (60%) that SSR is correct because..."
+
+4. PROPOSE options
+   "Option A: SSR — [pros/cons]"
+   "Option B: CSR — [pros/cons]"
+
+5. DECIDE or ESCALATE
+   - HIGH/MEDIUM confidence → Make the call, document in ADR
+   - LOW confidence → Ask human for input before proceeding
+
+
+SCENARIO 2: DESIRED DEVIATION FROM NORTH STAR
+─────────────────────────────────────────────────────────────────────────────
+When you want to do something differently than NS recommends:
+
+1. ACKNOWLEDGE the NS pattern
+   "NS Section 40 recommends PostgreSQL as default..."
+
+2. STATE the proposed deviation
+   "For this project, I believe SQLite is more appropriate."
+
+3. JUSTIFY with reasoning
+   "Reasons: Single-user app, no concurrent writes, simpler deployment."
+
+4. DOCUMENT in claude.md Deviation Log
+   Log the deviation, reasoning, and date.
+
+5. PROCEED with awareness
+   Deviation is fine when intentional and reasoned.
+
+
+SCENARIO 3: NEED TO PAUSE OR TAKE A BREAK
+─────────────────────────────────────────────────────────────────────────────
+When a session must end or work must pause:
+
+1. COMPLETE current atomic unit
+   Don't stop mid-function or mid-feature if possible.
+
+2. UPDATE claude.md "Current State" section
+   - What was just completed
+   - What's in progress
+   - What's next
+
+3. ADD changelog entry
+   Brief note of what happened this session.
+
+4. CREATE handoff note if complex
+   Use NS Section 23 Handoff Protocol for detailed state.
+
+5. RETURN via claude.md
+   Next session starts by reading claude.md, not re-reading NS.
+
+
+SCENARIO 4: SOMETHING FEELS WRONG
+─────────────────────────────────────────────────────────────────────────────
+When instinct says there's a problem:
+
+1. STOP and articulate the concern
+   "Something feels off about this approach..."
+
+2. CHECK against NS quality gates (Section 3)
+   Are any gates being violated?
+
+3. REVIEW recent decisions
+   Did a small decision compound into a problem?
+
+4. CONSIDER rollback
+   Is it faster to undo and retry than to fix forward?
+
+5. ASK if truly stuck
+   "I've identified [problem]. NS suggests [X]. I've tried [Y]. 
+    I need human input on [specific question]."
+
+
+─────────────────────────────────────────────────────────────────────────────
+
+THE NORTH STAR IS ALWAYS THERE.
+When lost, return to it. When uncertain, reference it.
+It doesn't demand perfection. It provides direction.
+```
+
+---
+
+### 0.6 SESSION HANDOFF FORMAT
+
+For seamless continuity between sessions or agents, use this lightweight handoff format:
+
+```markdown
+## SESSION HANDOFF — [Date/Time]
+
+### Session Summary
+[2-3 sentences: What was the goal? What was accomplished?]
+
+### Completed This Session
+- [Specific item with file/function names]
+- [Specific item]
+
+### Current State
+- **Working on:** [Specific task]
+- **Blocked by:** [Nothing | Specific blocker]
+- **Files modified:** [List key files touched]
+
+### Next Actions (Priority Order)
+1. [Most important next step]
+2. [Second priority]
+3. [Third priority]
+
+### Open Questions
+- [Question needing human input, if any]
+
+### Context for Next Session
+[Any non-obvious context the next session needs to know]
+[e.g., "The auth flow is half-implemented — see src/auth/flow.ts line 47"]
+
+### North Star References Used
+- Section [X] for [what]
+- Section [Y] for [what]
+```
+
+**HANDOFF PRINCIPLES:**
+- Be specific — "auth flow" not "the feature"
+- Include file paths — Future you needs to find things
+- Prioritize next actions — Don't leave a list of 20 items
+- Note blockers explicitly — Don't bury them in prose
+- Reference NS sections used — Shows reasoning trail
+
+---
+
+### 0.7 EMERGENCY REFERENCE CARD
+
+When you need answers fast, find them here:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      EMERGENCY REFERENCE CARD                                │
+│                    Quick Lookup for Common Needs                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  "How do I start?"                                                           │
+│  → Read Section 0.1-0.3, generate claude.md, build first slice              │
+│                                                                              │
+│  "How do the frameworks connect?"                                            │
+│  → BRIDGE.md — Navigation layer for NS + MBF ecosystem                      │
+│                                                                              │
+│  "Which architecture should I use?"                                          │
+│  → NS Section 37 (principles) + MBF Categories 1-7 (options)                │
+│                                                                              │
+│  "Which database should I use?"                                              │
+│  → NS Section 40 (patterns) + MBF Categories 15-21 (all options)            │
+│                                                                              │
+│  "What technology options exist for X?"                                      │
+│  → MBF relevant category — exhaustive tool matrices                         │
+│                                                                              │
+│  "How do I structure code?"                                                  │
+│  → Section 39: Code Organization Standards                                  │
+│                                                                              │
+│  "How do I write tests?"                                                     │
+│  → NS Sections 42-44 (philosophy) + MBF Category 46 (tools)                 │
+│                                                                              │
+│  "How do I handle auth?"                                                     │
+│  → NS Section 47 (patterns) + MBF Category 50 (tools)                       │
+│                                                                              │
+│  "How do I make it look good?"                                               │
+│  → Sections 28-36: Design Mastery (start with 28)                           │
+│                                                                              │
+│  "How do I deploy?"                                                          │
+│  → NS Sections 50-53 (strategy) + MBF Categories 43-44 (tools)              │
+│                                                                              │
+│  "How confident should I be?"                                                │
+│  → Section 17: Confidence Calibration Engine                                │
+│                                                                              │
+│  "How do I hand off work?"                                                   │
+│  → Section 23: Agent Handoff Protocols (or 0.6 above)                       │
+│                                                                              │
+│  "How do I work with AI models?"                                             │
+│  → NS Part IV (orchestration) + MBF Categories 29-35 (tools)                │
+│                                                                              │
+│  "What reasoning loop should I use?"                                         │
+│  → MBF Category 31C: RALPH, ReAct, ReWOO, Reflexion, etc.                   │
+│                                                                              │
+│  "I want to deviate from the blueprint"                                      │
+│  → Section 0.5: Deviation Protocol (document and proceed)                   │
+│                                                                              │
+│  "I'm stuck"                                                                 │
+│  → NS Section 0.5 + state problem + ask human if needed                     │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  REMEMBER: NS = HOW (methodology) | MBF = WHAT (tools) | BRIDGE = NAVIGATE  │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## DOCUMENT OVERVIEW
+
+### Purpose
+
+The North Star Blueprint serves as the comprehensive reference for building modern software with AI assistance. It codifies:
+
+- Development principles that lead to quality outcomes
+- Patterns for AI-human collaboration  
+- Technical standards for code, testing, and security
+- Design specifications for polished user experiences
+- Operational practices for reliable deployment
+
+### Audience
+
+This document is designed for:
+
+1. **AI Agents** (Claude, GPT, etc.) — As a system prompt or reference during development
+2. **IDE Tools** (Claude Code, Cursor, etc.) — As persistent context for agentic coding
+3. **Human Developers** — As a comprehensive style guide and decision framework
+4. **Technical Leads** — As a standard for team alignment
+
+### How to Use This Document
+
+**For AI Agents:**
+1. Generate claude.md using Section 0.2 template
+2. Reference specific sections as needed during development
+3. Use Section 0.4 load balancing to avoid context overload
+4. Follow Section 0.5 protocols when uncertain
+
+**For Human Developers:**
+1. Read Part I (Foundation) for core philosophy
+2. Skim Table of Contents for structure awareness
+3. Deep-dive into relevant parts when starting specific work
+4. Use Part XIII (Quick Reference) for checklists and decisions
+
+**For Teams:**
+1. Adopt as baseline standard
+2. Document deviations in project-specific ADRs
+3. Evolve through retrospectives and learnings
+
+---
+
+## 0.8 TABLE OF CONTENTS
+
+### Front Matter (Section 0)
+- 0.1 Quick-Start Directive
+- 0.2 Claude.md Generation Template
+- 0.3 Documentation Orchestration Sequence
+- 0.4 Load Balancing Strategy
+- 0.5 Deviation & Pause Protocol
+- 0.6 Session Handoff Format
+- 0.7 Emergency Reference Card
+- 0.8 Table of Contents
+
+### Part I: Foundation (Sections 1-4)
+- 1. Mission & Philosophy
+- 2. The Tier System
+- 3. Quality Gates
+- 4. The Definition of Done
+
+### Part II: Primitives (Sections 5-8)
+- 5. Core Communication Contracts
+- 6. Execution Primitives
+- 7. Verification Checkpoints
+- 8. Terminal Conditions
+
+### Part III: Documentation (Sections 9-12)
+- 9. Documentation Hierarchy
+- 10. Project Superprompt Architecture
+- 11. Vertical Slice Methodology
+- 12. The Fix Ledger
+
+### Part IV: AI Orchestration (Sections 13-19)
+- 13. Model Intelligence Matrix
+- 14. Core 4 Primitives
+- 15. Tool Hierarchy & Composition
+- 16. Context Engineering Protocol
+- 17. Confidence Calibration Engine
+- 18. Autonomy Dial System
+- 19. Multi-Model Consensus Framework
+
+### Part V: Agent Composition (Sections 20-23)
+- 20. Agent Memory Architecture
+- 21. Skills, Sub-Agents & MCP Integration
+- 22. Recursive Verification Protocol
+- 23. Agent Handoff Protocols
+
+### Part VI: MCP & Tools (Sections 24-27)
+- 24. MCP Power Tools Matrix
+- 25. MCP-First Architecture
+- 26. Voice-Native Development Workflows
+- 27. IDE Routing Strategy
+
+### Part VII: Design Mastery (Sections 28-36)
+- 28. Design Philosophy & First Impressions
+- 29. Animation Priority Pyramid
+- 30. Animation Specifications Library
+- 31. Standard Easings, Durations & Motion
+- 32. Micro-Interaction Patterns
+- 33. Loading States & Feedback Systems
+- 34. Enhanced Space Tier Experience
+- 35. Accessibility Integration
+- 36. Design Terminology Reference
+
+### Part VIII: Code Architecture (Sections 37-41)
+- 37. Architecture Selection Matrix
+- 38. Technology Stack Selection
+- 39. Code Organization Standards
+- 40. Database Patterns
+- 41. API Design Principles
+
+### Part IX: Testing Framework (Sections 42-45)
+- 42. Testing Philosophy
+- 43. Test Coverage Strategies
+- 44. Testing Patterns by Layer
+- 45. Test Infrastructure
+
+### Part X: Security (Sections 46-49)
+- 46. Security-First Development
+- 47. Authentication Patterns
+- 48. Authorization & Access Control
+- 49. Data Protection
+
+### Part XI: DevOps & Deployment (Sections 50-53)
+- 50. CI/CD Pipeline Architecture
+- 51. Environment Management
+- 52. Monitoring & Observability
+- 53. Deployment Strategies
+
+### Part XII: Future-Proofing (Sections 54-56)
+- 54. Blueprint Evolution Protocol
+- 55. Technology Radar
+- 56. Learning & Adaptation
+
+### Part XIII: Quick Reference (Sections 57-59)
+- 57. Master Checklists
+- 58. Decision Trees
+- 59. Terminology Glossary
+
+### Back Matter
+- A. Document Metadata
+- B. Section Index
+- C. Acknowledgments
+- D. Version History
+- E. Final Notes
+
+---
+
+## VERSION INFORMATION
+
+```
+Version:        6.0
+Status:         Active
+Released:       January 2025
+Classification: Development Reference
+Structure:      13 Parts + Front Matter, 59 Sections
+```
+
+---
+
+## QUICK START
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                              │
+│  NEW PROJECT QUICK START                                                     │
+│                                                                              │
+│  1. Determine project tier (Space/Sky/Foundation) — Section 2               │
+│  2. Generate claude.md file — Section 0.2                                   │
+│  3. Set up minimal documentation scaffold — Section 0.3                     │
+│  4. Initialize repository with quality gates — Section 3                    │
+│  5. Build first vertical slice — Section 11                                 │
+│  6. Return to North Star for guidance as needed                             │
+│                                                                              │
+│  Remember: This blueprint guides. You build.                                │
+│  Start simple. Reference often. Ship quality.                               │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+# PART I: FOUNDATION & PHILOSOPHY
+
+---
+
+## 1. FOUNDER MINDSET PRINCIPLES
+
+> "These systems are only as smart as the context you feed them. Excellence is not a destination, but a continuous journey of refinement."
+
+Before writing a single line of code, before opening any IDE, before engaging any AI agent—we align on non-negotiable mental models. These principles are the foundation upon which everything else is built.
+
+### 2.0 The Hacker Mindset
 
 **Principle:** Understand systems deeply before improving them.
 
@@ -1473,6 +2192,145 @@ CATEGORY OF ONE:      The only framework that treats AI
 
 ---
 
+## 5. THE RPIT LOOP — CANONICAL FEATURE DEVELOPMENT CYCLE
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              THE RPIT LOOP — CANONICAL FEATURE DEVELOPMENT CYCLE            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+The RPIT Loop is the standard unit of feature development within the North Star
+Framework. Every feature — from a one-line bug fix to a multi-day capability —
+should be processed through this cycle.
+
+RPIT = Research → Plan → Implement → Test
+
+The power of RPIT lies not in the steps themselves but in the SEPARATION of
+concerns. Each phase has a distinct purpose and distinct success criteria.
+Collapsing phases is the #1 cause of wasted effort in AI-assisted development.
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 1: RESEARCH (Optional — scale to task complexity)
+
+PURPOSE: Gather knowledge before touching code
+WHEN TO USE: New APIs, unfamiliar tech stack decisions, external integrations
+
+  Command: "Create a research report on [topic]. Focus on:
+            - Best practices as of [current date]
+            - Common pitfalls to avoid
+            - How it fits our architecture (see architecture.md)
+            Output: research/[feature-name].md"
+
+OUTPUT: A structured research.md file that becomes permanent project knowledge
+SKIP IF: The feature uses only familiar, stable technology
+
+ANTI-PATTERN: Skipping research on new integrations and discovering the API
+              changed 6 months ago halfway through implementation.
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 2: PLAN (Non-negotiable — always do this)
+
+PURPOSE: Translate requirements into reviewable, approvable steps BEFORE code
+THE RULE: Claude must not write a single line of implementation code until the
+          plan has been reviewed and approved by the human.
+
+  Command: "Use plan mode. Create plan.md for [feature]. Include:
+            - Step-by-step implementation approach
+            - Files that will be created/modified
+            - Dependencies and order of operations
+            - Success criteria for each step
+            Use ask_user_question tool if any requirements are ambiguous."
+
+HUMAN REVIEW PROTOCOL (the Boris Tane method):
+  1. Claude writes plan.md
+  2. Human opens plan.md in editor
+  3. Human adds INLINE ANNOTATIONS directly to the document
+     - "not optional" next to a parameter Claude marked optional
+     - "use existing auth system, not new one" next to a proposed abstraction
+     - Paste code snippets showing expected data shapes
+  4. Human sends plan.md back to Claude: "Review my annotations and update plan"
+  5. Iterate until plan is approved
+  6. Convert to todo list: "Convert approved plan to sequential todo list"
+  7. THEN begin implementation
+
+ANNOTATION EXAMPLES:
+  Claude writes: "Parameter: userId? (optional)"
+  Human annotates: "userId — REQUIRED, never nullable, see User type in types.ts"
+
+  Claude writes: "Create new auth middleware"
+  Human annotates: "Use existing authMiddleware in /middleware/auth.ts — do NOT create new"
+
+WHY THIS MATTERS:
+  → Prevents wasted tokens on the wrong approach
+  → Surfaces domain knowledge Claude doesn't have
+  → Creates reviewable artifact before any risk is taken
+  → The plan becomes permanent project documentation
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 3: IMPLEMENT
+
+PURPOSE: Execute the approved plan, not improvise from scratch
+THE RULE: Implementation follows the plan. If Claude needs to deviate
+          significantly, STOP and update the plan first.
+
+  Command: "Implement the approved todo list from plan.md. 
+            Commit after each completed step.
+            If you encounter a blocker not in the plan, STOP and report."
+
+PERMISSIONS: Set pre-configured permissions (see Bootstrap Section 0.3) so
+             Claude can execute without interruption on approved operations.
+
+QUALITY GATES DURING IMPLEMENTATION:
+  ✓ Build still passes after each commit
+  ✓ No new linting errors introduced
+  ✓ Each step committed with descriptive message
+
+────────────────────────────────────────────────────────────────────────────────
+
+PHASE 4: TEST
+
+PURPOSE: Verify the feature works — not just that it compiles
+LEVELS OF VERIFICATION:
+  L1: Unit tests (Claude writes, runs, fixes)
+  L2: Integration tests (Claude writes, runs, fixes)
+  L3: End-to-end / browser automation (Playwright MCP)
+  L4: Human UX verification (screenshots, visual inspection)
+
+  Command: "Run all tests. If any fail, fix them before proceeding.
+            Then open a browser and verify [user journey] works end-to-end.
+            Screenshot the final state and include in PR description."
+
+VERIFY AT ABSTRACTION (not line-by-line):
+  → Don't read every line of code Claude produced
+  → DO run automated tests
+  → DO verify success criteria from the plan
+  → DO do a quick UX walkthrough
+  → DO check for security/auth implications on the diff
+
+────────────────────────────────────────────────────────────────────────────────
+
+RPIT QUICK REFERENCE
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │   FEATURE SIZE    │  RESEARCH  │   PLAN   │  IMPLEMENT  │    TEST      │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │   Bug fix (small) │   Skip     │  5 min   │  10-30 min  │  L1+L4       │
+  │   Small feature   │   Skip     │  15 min  │  30-60 min  │  L1+L2+L4    │
+  │   Medium feature  │  Optional  │  30 min  │  2-4 hours  │  L1+L2+L3+L4 │
+  │   Large feature   │  Required  │  1 hour  │  4-8 hours  │  All levels  │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+OUTER LOOP: After RPIT completes, run the RETRO SKILL (see Part XII)
+            to capture learnings and improve the next cycle.
+```
+
+---
+
 ## PART I SUMMARY
 
 ```
@@ -1513,14 +2371,30 @@ CATEGORY OF ONE:      The only framework that treats AI
 │  • Loneliness Economy: Design for belonging                                  │
 │  • Complete positioning framework for every project                          │
 │                                                                              │
+│  THE RPIT LOOP (v6.1):                                                       │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  The canonical feature development cycle:                                    │
+│  R = Research (optional, scale to complexity)                                │
+│  P = Plan (non-negotiable — always write plan.md first)                      │
+│  I = Implement (execute approved plan, commit each step)                     │
+│  T = Test (verify at L1-L4, then human UX check)                            │
+│  Outer Loop: RETRO skill captures learnings after each cycle                │
+│                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
+# PART II: PRIMITIVE EXECUTION FRAMEWORK
 
 ---
 
-### 5.1 Primitive Overview
+## 6. THE SIX CORE PRIMITIVES
+
+> "The difference between amateur and professional AI development is not the tools—it's the orchestration of primitives."
+
+Every operation in software development—whether performed by human or AI—can be decomposed into six fundamental primitives. Mastering these primitives is the foundation of reliable AI-assisted development.
+
+### 6.1 Primitive Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -1570,7 +2444,7 @@ CATEGORY OF ONE:      The only framework that treats AI
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.2 Primitive Definitions
+### 6.2 Primitive Definitions
 
 #### PRIMITIVE 1: STATE
 
@@ -2022,7 +2896,7 @@ FOR SIGNIFICANT DECISIONS:
   □ Status: Proposed/Accepted/Deprecated/Superseded
 ```
 
-### 5.3 Primitive Relationships
+### 6.3 Primitive Relationships
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -2068,7 +2942,7 @@ FOR SIGNIFICANT DECISIONS:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.4 Primitive Implementation Checklist
+### 6.4 Primitive Implementation Checklist
 
 ```
 BEFORE ANY DEVELOPMENT TASK
@@ -2113,9 +2987,9 @@ BEFORE ANY DEVELOPMENT TASK
 
 ---
 
-## 6. PRIMITIVE LIFECYCLE & VERIFICATION
+## 7. PRIMITIVE LIFECYCLE & VERIFICATION
 
-### 6.1 The Primitive Execution Cycle
+### 7.1 The Primitive Execution Cycle
 
 Every task follows this fundamental cycle. No exceptions.
 
@@ -2184,7 +3058,7 @@ Every task follows this fundamental cycle. No exceptions.
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 6.2 Phase Details
+### 7.2 Phase Details
 
 #### Phase 1: Assess State
 
@@ -2422,7 +3296,7 @@ ANTI-PATTERNS:
   ✗ Blaming external factors without evidence
 ```
 
-### 6.3 Recursive Verification Pattern
+### 7.3 Recursive Verification Pattern
 
 For complex changes, apply verification recursively at multiple levels:
 
@@ -2492,9 +3366,9 @@ For complex changes, apply verification recursively at multiple levels:
 
 ---
 
-## 7. THE ANTI-BUG-LOOP PRINCIPLE (FIX LEDGER)
+## 8. THE ANTI-BUG-LOOP PRINCIPLE (FIX LEDGER)
 
-### 7.1 The Ilya's Loop Problem
+### 8.1 The Ilya's Loop Problem
 
 Named for the pattern where AI agents create endless fix loops, this is the #1 productivity killer in AI-assisted development.
 
@@ -2545,7 +3419,7 @@ Named for the pattern where AI agents create endless fix loops, this is the #1 p
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 7.2 The Fix Ledger Solution
+### 8.2 The Fix Ledger Solution
 
 The Fix Ledger is a persistent record of what was tried, what worked, what didn't, and why. It breaks the loop by giving AI (and humans) memory.
 
@@ -2588,7 +3462,7 @@ The Fix Ledger is a persistent record of what was tried, what worked, what didn'
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 7.3 Fix Ledger Entry Template
+### 8.3 Fix Ledger Entry Template
 
 ```markdown
 ## FIX LEDGER
@@ -2629,7 +3503,7 @@ The Fix Ledger is a persistent record of what was tried, what worked, what didn'
 ---
 ```
 
-### 7.4 Fix Ledger Example Entries
+### 8.4 Fix Ledger Example Entries
 
 ```markdown
 ## FIX LEDGER
@@ -2747,7 +3621,7 @@ Safari's compositor was being triggered unnecessarily on each frame due to
 ---
 ```
 
-### 7.5 The "#" Shortcut for Regression Prevention
+### 8.5 The "#" Shortcut for Regression Prevention
 
 When a bug is fixed and added to the Fix Ledger, reference it with "#" in commit messages and code comments. This creates instant searchability.
 
@@ -2771,7 +3645,7 @@ SEARCH:
   grep -r "#FL-2024-01" ./         # Find all references
 ```
 
-### 7.6 Fix Ledger Integration with AI Agents
+### 8.6 Fix Ledger Integration with AI Agents
 
 ```
 AI AGENT INSTRUCTIONS (Add to claude.md or similar)
@@ -2796,7 +3670,7 @@ NEVER:
 - Implement a fix without checking for prior attempts
 ```
 
-### 7.7 The Golden Rule of Anti-Bug-Loop
+### 8.7 The Golden Rule of Anti-Bug-Loop
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -2832,9 +3706,9 @@ NEVER:
 
 ---
 
-## 8. REGRESSION DISCIPLINE & SAFETY NETS
+## 9. REGRESSION DISCIPLINE & SAFETY NETS
 
-### 8.1 The Regression Discipline Matrix
+### 9.1 The Regression Discipline Matrix
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -2904,7 +3778,7 @@ NEVER:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 8.2 Safety Net Types
+### 9.2 Safety Net Types
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -2970,7 +3844,7 @@ NEVER:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 8.3 Regression Prevention Workflow
+### 9.3 Regression Prevention Workflow
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -3126,9 +4000,139 @@ ALL BOXES MUST BE CHECKED BEFORE DEPLOYMENT
 
 ---
 
-## PART II SUMMARY
+## 9. PLAN.MD ANNOTATION PROTOCOL
 
 ```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  PRIMITIVE: PLAN.MD ANNOTATION PROTOCOL                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+PRINCIPLE: The gap between what Claude plans and what you actually want is
+           not filled by more prompting — it is filled by annotation.
+
+Annotation is the act of adding your domain knowledge, constraints, and
+corrections DIRECTLY INTO Claude's plan document, then sending it back.
+
+This is qualitatively different from prompting because:
+  → It operates at the document level, not the conversation level
+  → It creates a permanent record of architectural decisions
+  → It is reviewable by humans and future Claude sessions
+  → It naturally produces the spec that guides implementation
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE ANNOTATION WORKFLOW
+
+  Step 1: Request plan
+    "Enter plan mode. Write plan.md for [feature].
+     Include: approach, files to touch, data shapes, edge cases, success criteria.
+     Use ask_user_question if anything is ambiguous."
+
+  Step 2: Open in your editor
+    → Open plan.md in VS Code, Cursor, or your preferred editor
+    → Do NOT respond in the chat yet
+    → Read the entire plan before annotating
+
+  Step 3: Annotate inline
+    Use a consistent annotation format, e.g.:
+    
+    Claude wrote:   "userId?: string (optional query param)"
+    You annotate:   "userId: string // REQUIRED — never nullable. See UserType in /types/user.ts"
+    
+    Claude wrote:   "Create JWT validation middleware"  
+    You annotate:   "USE EXISTING: /middleware/validateJWT.ts — do not create a new one"
+    
+    Claude wrote:   "Store result in database"
+    You annotate:   "Use optimistic write pattern — don't block on DB confirmation. See pattern in /lib/db/optimistic.ts"
+
+  Step 4: Return for revision
+    "I've added annotations to plan.md. Read them carefully and update the plan
+     to incorporate all my corrections. Ask if anything is unclear."
+
+  Step 5: Approve or annotate again
+    → If plan looks good: "Plan approved. Convert to sequential todo list."
+    → If still issues: annotate again (Step 3)
+
+  Step 6: Lock the plan
+    → Commit plan.md to git: "chore: approved plan for [feature]"
+    → This is now the architectural record
+
+────────────────────────────────────────────────────────────────────────────────
+
+ANNOTATION TAXONOMY
+
+  TYPE A — Constraint Corrections
+    Claude assumes optional → you mark required
+    Claude assumes new → you point to existing
+    Claude assumes mutable → you mark immutable
+
+  TYPE B — Domain Knowledge Injection
+    Existing file paths and patterns to use
+    Business rules Claude can't know (e.g., "payments in USD cents only")
+    User expectations ("this must complete in under 200ms")
+
+  TYPE C — Architecture Guardrails
+    "Don't add new dependencies for this"
+    "This must be backward-compatible with v1 API"
+    "Performance budget: no more than 50ms added to page load"
+
+  TYPE D — Clarifying Data Shapes
+    Paste actual TypeScript types
+    Show example API responses
+    Reference existing interfaces
+
+────────────────────────────────────────────────────────────────────────────────
+
+ANTI-PATTERNS
+
+  ❌  Approving a plan you haven't read
+  ❌  Correcting in chat ("actually, make userId required") without annotating
+      the plan itself — this correction gets lost at compaction
+  ❌  Annotating after implementation has started
+  ❌  Skipping the plan for "small" changes — this is where bugs come from
+
+────────────────────────────────────────────────────────────────────────────────
+
+PLAN.MD TEMPLATE
+
+  # Plan: [Feature Name]
+  **Issue:** #[number]  |  **Date:** [date]  |  **Status:** DRAFT / APPROVED
+
+  ## Overview
+  [What this feature does and why]
+
+  ## Approach
+  [The implementation strategy]
+
+  ## Files to Touch
+  - path/to/file.ts — [what changes]
+  - path/to/new-file.ts — [what it contains]
+
+  ## Data Shapes
+  [TypeScript types, API shapes, etc.]
+
+  ## Implementation Steps
+  1. [ ] Step one
+  2. [ ] Step two
+  ...
+
+  ## Edge Cases
+  - [Case]: [handling]
+
+  ## Success Criteria
+  - [ ] [Measurable criterion]
+  - [ ] [Measurable criterion]
+
+  ## Notes / Human Annotations
+  [This section accumulates during review]
+```
+
+---
+
+## PART II SUMMARY
+
+
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                   PART II: PRIMITIVE EXECUTION FRAMEWORK                     │
 │                           KEY TAKEAWAYS                                      │
@@ -3163,6 +4167,14 @@ ALL BOXES MUST BE CHECKED BEFORE DEPLOYMENT
 │  • Prevention Workflow: Before/During/After every change                    │
 │  • Response Protocol: Detect → Respond → Rollback → Root Cause → Prevent   │
 │                                                                              │
+│  PLAN.MD ANNOTATION PROTOCOL (v6.1):                                         │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Annotate Claude's plans inline before approving                           │
+│  • Four annotation types: Constraints, Domain Knowledge,                     │
+│    Architecture Guardrails, Data Shapes                                      │
+│  • Lock approved plans with git commit                                       │
+│  • Never approve a plan you haven't read                                     │
+│                                                                              │
 │  CORE PRINCIPLES:                                                            │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  • Never guess—verify                                                        │
@@ -3176,8 +4188,56 @@ ALL BOXES MUST BE CHECKED BEFORE DEPLOYMENT
 ```
 
 ---
+## 10. SKILL CREATION META-SYSTEM
+
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  PRIMITIVE: SKILL CREATION META-SYSTEM                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+NS Framework ships with a skill-building infrastructure. Every project should
+create domain-specific skills that encode accumulated knowledge.
+
+THREE SKILL CREATION METHODS:
+
+METHOD 1: SKILL-CREATOR SKILL (structured, guided)
+  → Command: /skill-creator
+  → Best for: intentional skill creation after a retro session
+
+METHOD 2: CLAUDECEPTION (automatic extraction)
+  → Claude watches what works and extracts skills automatically
+  → Best for: organic skill growth during active development
+
+METHOD 3: MANUAL (from retro output)
+  → Retro skill identifies needed skills
+  → Human approves, Claude creates skeleton
+
+SKILL ANATOMY:
+  .claude/skills/[skill-name]/
+  ├── SKILL.md          (the skill itself — loaded on demand)
+  ├── examples/         (reference examples for the skill to use)
+  └── reference/        (additional reference files linked from SKILL.md)
+
+DISCOVERY MECHANISM:
+  The "description:" field in SKILL.md is the trigger. It must include
+  specific user scenarios and trigger phrases.
+```
 
 ---
+
+*End of Segment 1 (Front Matter + Part I + Part II) — v6.1*
+
+
+# PART III: DOCUMENTATION & WORKFLOW
+
+---
+
+## 9. DOCUMENTATION HIERARCHY (5-LAYER STACK)
+
+> "Documentation is not an afterthought—it is infrastructure."
+
+### 9.1 The Documentation Pyramid
 
 The 5-Layer Stack ensures every project has the right documentation at the right level of abstraction. Each layer serves a specific purpose and audience.
 
@@ -4246,7 +5306,7 @@ The cost of re-planning is almost always less than the cost of wrong execution.
 
 ## 11. THE SLICE BUILD METHODOLOGY
 
-### 11.1 Vertical Slices vs. Horizontal Layers
+### 12.0 Vertical Slices vs. Horizontal Layers
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -5041,6 +6101,118 @@ THINGS THAT ARE NOT EMERGENCIES:
   • "No one will notice"
 ```
 
+### 12.8.1 Incident Post-Mortem Template
+
+Use this when an outage, data loss event, security event, failed deployment,
+or agent-driven operational incident requires a structured retrospective.
+
+```markdown
+# INCIDENT POST-MORTEM: [Title]
+
+## Metadata
+| Field | Value |
+|-------|-------|
+| Date | [When it happened] |
+| Duration | [Time to detection -> Time to recovery] |
+| Severity | [P0-P4] |
+| Services Affected | [List] |
+| Data Impact | [Rows lost / Users affected / Revenue impact] |
+
+## Timeline
+| Time | Event |
+|------|-------|
+| HH:MM | [What happened] |
+
+## Root Cause Chain
+1. [First domino]
+2. [Second domino]
+3. [Continue until final failure]
+
+## What Went Wrong
+- [Failure 1]
+- [Failure 2]
+
+## What Went Right
+- [Detection, communication, recovery, or mitigation success]
+
+## Remediation (Immediate)
+□ [Action taken to resolve]
+
+## Systemic Changes (Preventive)
+□ [Change to prevent recurrence]
+
+## Fix Ledger Entry
+| Issue Pattern | Root Cause | Fix | Frequency |
+|---------------|------------|-----|-----------|
+| [Pattern] | [Cause] | [Fix] | [First/Recurring] |
+
+## Lessons Learned
+[What the team now understands differently]
+```
+
+---
+
+## 12.9 CONTEXT MANAGEMENT
+
+```text
+CONTEXT COMPACTION RECOVERY PROTOCOL
+──────────────────────────────────────────────────────────────────────────────
+
+PROBLEM: Autocompaction (when Claude runs out of context and compresses the
+         conversation) causes degraded results. Critical decisions, architectural
+         context, and reasoning chains get lost.
+
+RULE: Treat compaction as a session restart. Prevent it. When it happens, recover.
+
+PREVENTION STRATEGY:
+  1. Monitor context with /context command — know your % at a glance
+  2. Customize status line to show context % always visible
+  3. Use /clear liberally between distinct tasks (not just when stuck)
+  4. Start new sessions for new tasks — don't stretch one session too long
+  5. Aim to complete each RPIT loop within a single session
+
+RECOVERY PROTOCOL (when compaction occurs):
+  Step 1: Don't continue — compacted sessions compound errors
+  
+  Step 2: Start a fresh session
+  
+  Step 3: Load context from structured artifacts (not conversation):
+    "We just had compaction. Reload context:
+     1. Read claude.md
+     2. Read plan.md for current feature
+     3. Read git log --oneline -10
+     4. Run the tests to see current state
+     Tell me what you understand about where we were."
+  
+  Step 4: Verify Claude's understanding before continuing
+    If Claude is missing context: have it read the relevant source files
+    If Claude seems confused: re-brief explicitly
+  
+  Step 5: Continue from a clean state — don't try to "resume"
+
+ARTIFACTS THAT SURVIVE COMPACTION:
+  These are your continuity lifeline. Always keep them current:
+  ✓ claude.md — project context
+  ✓ plan.md — current feature plan with completed steps checked off
+  ✓ architecture.md — system understanding
+  ✓ git log — what actually happened
+  ✓ test results — current pass/fail state
+
+ANTI-PATTERN: Trying to summarize what happened to Claude after compaction.
+              Always restore context from files, not conversation summaries.
+              Files are ground truth. Conversation is ephemeral.
+
+CONTEXT BUDGET GUIDELINES:
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │  Context %  │  Action                                                  │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │  0-50%      │  Normal operation                                        │
+  │  50-70%     │  Finish current task, then /clear or new session         │
+  │  70-85%     │  Finish current step ONLY, immediately start new session │
+  │  85%+       │  STOP. New session NOW. Do not proceed.                  │
+  └────────────────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## PART III SUMMARY
@@ -5083,6 +6255,12 @@ THINGS THAT ARE NOT EMERGENCIES:
 │  Gate 4: Implementation     → Is it tested and production-ready?            │
 │  Gate 5: AI Verification    → Are AI outputs verified?                      │
 │                                                                              │
+│  CONTEXT COMPACTION RECOVERY (v6.1):                                         │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Treat compaction as a session restart — prevent or recover                │
+│  • Restore context from files (claude.md, plan.md, git log), not chat       │
+│  • Budget: 0-50% normal, 50-70% wrap up, 70-85% finish step, 85%+ STOP     │
+│                                                                              │
 │  CRITICAL RULES:                                                             │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  • Documentation is infrastructure, not afterthought                         │
@@ -5095,8 +6273,15 @@ THINGS THAT ARE NOT EMERGENCIES:
 ```
 
 ---
+# PART IV: AI ORCHESTRATION & INTELLIGENCE
 
 ---
+
+## 13. MODEL INTELLIGENCE MATRIX
+
+> "The difference between amateur and professional AI development is not the tools—it's the orchestration."
+
+### 13.1 Model Selection Philosophy
 
 Not all AI models are created equal. Each has strengths, weaknesses, and optimal use cases. The professional AI orchestrator understands these differences and routes tasks accordingly.
 
@@ -5298,169 +6483,644 @@ Error message generation           │ Speed
 
 Every AI interaction can be decomposed into four fundamental capabilities. Understanding these enables effective orchestration.
 
-### 14.1 The Four Primitives
+## 14.1 THREE-LEVEL RULES INHERITANCE
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          THE CORE 4 PRIMITIVES                               │
+│                      RULES HIERARCHY (RAPS Model)                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                         1. RETRIEVE                                  │    │
-│  │              "Find and access relevant information"                  │    │
-│  │                                                                      │    │
-│  │  • Search through files and documents                               │    │
-│  │  • Access external knowledge bases                                   │    │
-│  │  • Query databases                                                   │    │
-│  │  • Fetch from APIs                                                   │    │
-│  │  • Load context into memory                                          │    │
-│  │                                                                      │    │
-│  │  TOOLS: File readers, search, RAG, MCP file tools                   │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
+│  LEVEL 1: GLOBAL RULES                                                       │
+│  ═══════════════════════════════════════════════════════════════════════    │
+│  Location: ~/.config/[ide]/global-rules.md or equivalent                    │
+│  Scope: ALL projects, ALL sessions                                          │
+│  Contains:                                                                   │
+│    • Universal coding standards                                              │
+│    • Default confidence/autonomy settings                                    │
+│    • Cross-project tool configurations                                       │
+│    • Personal preferences and communication style                            │
 │                                                                              │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                         2. REASON                                    │    │
-│  │              "Analyze, plan, and make decisions"                     │    │
-│  │                                                                      │    │
-│  │  • Understand requirements                                           │    │
-│  │  • Analyze problems                                                  │    │
-│  │  • Generate solutions                                                │    │
-│  │  • Make trade-off decisions                                          │    │
-│  │  • Plan multi-step approaches                                        │    │
-│  │                                                                      │    │
-│  │  TOOLS: Model inference, chain-of-thought, planning prompts         │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
+│  LEVEL 2: WORKSPACE RULES                                                    │
+│  ═══════════════════════════════════════════════════════════════════════    │
+│  Location: /workspace/.rules or workspace-level config                      │
+│  Scope: All projects within workspace/organization                          │
+│  Contains:                                                                   │
+│    • Team conventions                                                        │
+│    • Shared tool configurations (MCP servers, APIs)                          │
+│    • Organization-specific patterns                                          │
+│    • Compliance requirements                                                 │
 │                                                                              │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                         3. CREATE                                    │    │
-│  │              "Generate new content and artifacts"                    │    │
-│  │                                                                      │    │
-│  │  • Write code                                                        │    │
-│  │  • Generate documentation                                            │    │
-│  │  • Create configurations                                             │    │
-│  │  • Produce test cases                                                │    │
-│  │  • Draft communications                                              │    │
-│  │                                                                      │    │
-│  │  TOOLS: Code generation, text generation, file writers              │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
+│  LEVEL 3: PROJECT RULES                                                      │
+│  ═══════════════════════════════════════════════════════════════════════    │
+│  Location: /project/claude.md, .cursorrules, etc.                           │
+│  Scope: Single project only                                                  │
+│  Contains:                                                                   │
+│    • Project-specific stack decisions                                        │
+│    • Current phase and state                                                 │
+│    • Fix Ledger references                                                   │
+│    • Deviation log                                                           │
 │                                                                              │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                         4. VERIFY                                    │    │
-│  │              "Check correctness and quality"                         │    │
-│  │                                                                      │    │
-│  │  • Run tests                                                         │    │
-│  │  • Check syntax                                                      │    │
-│  │  • Validate output                                                   │    │
-│  │  • Review for errors                                                 │    │
-│  │  • Compare against requirements                                      │    │
-│  │                                                                      │    │
-│  │  TOOLS: Linters, test runners, validators, diff tools               │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  INHERITANCE RULE: Project > Workspace > Global                              │
+│  (More specific rules override more general rules)                           │
+│                                                                              │
+│  CONFLICT RESOLUTION:                                                        │
+│  • If conflict detected, PROJECT rules win                                   │
+│  • Log deviation from Global/Workspace in project's Deviation Log            │
+│  • Never silently override—always document                                   │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 14.2 Primitive Composition Patterns
+---
+
+## 14.2 FOUR AGENT ARCHETYPES
+
+When operating in multi-agent or parallel workflows, recognize these role patterns:
 
 ```
-PRIMITIVE COMPOSITION PATTERNS
+AGENT ARCHETYPES (for P-Thread / Multi-Agent Scenarios)
 ─────────────────────────────────────────────────────────────────────────────
 
-PATTERN 1: RETRIEVE-REASON-CREATE (Standard Development)
-─────────────────────────────────────────────────────────────────────────────
+┌─────────────────┐     ┌─────────────────┐
+│  DESIGN LEAD    │     │    BUILDER      │
+│  ─────────────  │     │  ─────────────  │
+│  • Architecture │     │  • Implements   │
+│  • Decisions    │     │  • Writes code  │
+│  • Trade-offs   │     │  • Creates PRs  │
+│  • Standards    │     │  • Executes     │
+└─────────────────┘     └─────────────────┘
 
-  ┌──────────┐    ┌──────────┐    ┌──────────┐
-  │ RETRIEVE │───►│  REASON  │───►│  CREATE  │
-  │          │    │          │    │          │
-  │ Read     │    │ Analyze  │    │ Write    │
-  │ existing │    │ approach │    │ new code │
-  │ code     │    │          │    │          │
-  └──────────┘    └──────────┘    └──────────┘
+┌─────────────────┐     ┌─────────────────┐
+│   QC / NERD     │     │   RESEARCH      │
+│  ─────────────  │     │  ─────────────  │
+│  • Reviews      │     │  • Investigates │
+│  • Tests        │     │  • Documents    │
+│  • Validates    │     │  • Explores     │
+│  • Quality gates│     │  • Options      │
+└─────────────────┘     └─────────────────┘
 
-  USE WHEN: Building new features based on existing patterns
+SINGLE-AGENT MODE:
+When operating alone, cycle through these roles:
+1. Research → Understand the problem space
+2. Design Lead → Make architectural decisions
+3. Builder → Implement the solution
+4. QC/Nerd → Verify and test
 
-
-PATTERN 2: RETRIEVE-REASON-CREATE-VERIFY (Full Cycle)
-─────────────────────────────────────────────────────────────────────────────
-
-  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-  │ RETRIEVE │───►│  REASON  │───►│  CREATE  │───►│  VERIFY  │
-  │          │    │          │    │          │    │          │
-  └──────────┘    └──────────┘    └──────────┘    └────┬─────┘
-                                                       │
-                       ┌───────────────────────────────┘
-                       │ If verification fails
-                       ▼
-                  Back to REASON
-
-  USE WHEN: Production code that must be correct
-
-
-PATTERN 3: REASON-CREATE-VERIFY-ITERATE (Exploratory)
-─────────────────────────────────────────────────────────────────────────────
-
-  ┌──────────┐    ┌──────────┐    ┌──────────┐
-  │  REASON  │───►│  CREATE  │───►│  VERIFY  │
-  │          │    │          │    │          │
-  └──────────┘    └──────────┘    └────┬─────┘
-       ▲                               │
-       │                               │
-       └───────────────────────────────┘
-              Iterate until correct
-
-  USE WHEN: Exploring solutions without existing patterns
-
-
-PATTERN 4: RETRIEVE-VERIFY (Audit Pattern)
-─────────────────────────────────────────────────────────────────────────────
-
-  ┌──────────┐    ┌──────────┐
-  │ RETRIEVE │───►│  VERIFY  │
-  │          │    │          │
-  │ Load     │    │ Check    │
-  │ code     │    │ quality  │
-  └──────────┘    └──────────┘
-
-  USE WHEN: Code review, security audit, quality checks
+MULTI-AGENT MODE:
+When parallelizing, assign archetypes explicitly:
+• P-Thread A: Builder (implements Feature X)
+• P-Thread B: Builder (implements Feature Y)
+• Supervisor: Design Lead (coordinates, resolves conflicts)
+• Final Pass: QC/Nerd (validates all outputs)
 ```
 
-### 14.3 Primitive Quality Requirements
+### 14.2.1 Planner/Worker/Judge Hierarchy Pattern
+
+```text
+PLANNER / WORKER / JUDGE HIERARCHY
+──────────────────────────────────────────────────────────────────────────────
+
+Adapted from the Cursor FastRender architecture and now standard in production
+multi-agent systems as of Q1 2026.
+
+PROBLEM: A single agent trying to plan, execute, and verify simultaneously
+         produces lower quality than specialized agents in distinct roles.
+
+SOLUTION: Decompose work across three agent types with distinct responsibilities.
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                        THREE-TIER AGENT HIERARCHY                       │
+  │                                                                         │
+  │  ┌──────────────┐                                                       │
+  │  │   PLANNER    │  ← Orchestrates. Has full context. Makes decisions.   │
+  │  │  (Opus 4.6)  │  → Receives task → creates plan → delegates units    │
+  │  └──────┬───────┘                                                       │
+  │         │ delegates work units                                          │
+  │         ▼                                                               │
+  │  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐               │
+  │  │   WORKER A   │   │   WORKER B   │   │   WORKER C   │               │
+  │  │  (Sonnet)    │   │  (Sonnet)    │   │  (Sonnet)    │               │
+  │  │  Frontend    │   │  Backend     │   │  Tests       │               │
+  │  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘               │
+  │         └──────────────────┴──────────────────┘                       │
+  │                             │ results                                  │
+  │                             ▼                                          │
+  │                      ┌──────────────┐                                  │
+  │                      │    JUDGE     │  ← Verifies quality. Strict.    │
+  │                      │  (Opus 4.6) │  → Accept, request revision,     │
+  │                      │             │    or escalate to human           │
+  │                      └─────────────┘                                   │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+IMPLEMENTATION IN CLAUDE CODE:
+  → Planner: Your main orchestrator session (use Opus for highest-quality planning)
+  → Workers: Parallel sub-agents or worktree sessions (Sonnet for cost efficiency)
+  → Judge: A review sub-agent with a strict system prompt, or your stop hook
+
+JUDGE SYSTEM PROMPT TEMPLATE:
+  "You are a code reviewer with high standards. Review the following work against
+   these criteria: [success criteria from plan.md]. Your only valid responses are:
+   APPROVE / REQUEST_REVISION: [specific changes needed] / ESCALATE: [reason]
+   Do not suggest. Do not soften. Be precise."
+
+WHEN TO USE THIS PATTERN:
+  ✓ Features with clear separation between frontend/backend/tests
+  ✓ Large refactors that touch many files
+  ✓ Any work where quality matters more than speed
+
+WHEN NOT TO USE:
+  ✗ Simple bug fixes
+  ✗ Tasks requiring continuous human taste judgment
+  ✗ Prototypes where iteration speed > quality
+```
+
+---
+
+### 14.2.2 Parallel Agent Orchestration
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              PARALLEL AGENT ORCHESTRATION — COMPLETE PLAYBOOK               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+CAPABILITY: Multi-Claude + Git Worktrees = a week of features in hours.
+STATUS: Table stakes as of February 2026. All major AI tools now ship this.
+NS RECOMMENDATION: Start with 2-3 agents, scale as you get comfortable.
+
+────────────────────────────────────────────────────────────────────────────────
+
+GIT WORKTREES — THE ISOLATION PRIMITIVE
+
+Git worktrees let you have multiple working copies of the same repo, each on
+a different branch, sharing the same git history. This is how you run multiple
+Claude sessions safely without collision.
+
+BUILT-IN SUPPORT:
+  claude --worktree        # Creates new worktree automatically
+  claude -w                # Shorthand
+
+WHAT HAPPENS:
+  → New directory: .claude/worktrees/<branch-name>/
+  → Fresh branch off current HEAD
+  → Isolated file state (changes in worktree don't affect main checkout)
+  → Each Claude session only sees its own worktree
+
+DESKTOP APP METHOD:
+  → New Session → check "Use worktree" option
+  → App manages worktree creation, monitoring, and cleanup
+
+────────────────────────────────────────────────────────────────────────────────
+
+MULTI-CLAUDE ORCHESTRATION PLAYBOOK
+
+  STEP 1: DECOMPOSE
+    Identify which features/tasks are truly independent (no shared files)
+    
+    ✓ Feature A modifies: src/auth/, tests/auth/
+    ✓ Feature B modifies: src/payments/, tests/payments/
+    ✓ Feature C modifies: src/notifications/, tests/notifications/
+    ✗ Feature D requires Feature A to complete first → sequential, not parallel
+
+  STEP 2: BRIEF EACH AGENT
+    Each agent needs a complete brief before starting. Template:
+    
+    "You are working on [Feature Name] in your isolated worktree.
+     Issue: #[number] — read it via GitHub CLI before starting.
+     Files you own: [list]
+     Files you must NOT touch: [list]
+     Success criteria: [measurable criteria from plan.md]
+     When done: run tests, then 'gh pr create --title "[title]" --body "[body]'"
+     Use RPIT loop. Start with plan.md before any code."
+
+  STEP 3: LAUNCH
+    # Terminal approach
+    claude -w  # Session 1: Feature A
+    claude -w  # Session 2: Feature B (in new terminal tab)
+    claude -w  # Session 3: Feature C (in new terminal tab)
+    
+    # Desktop App approach
+    New Session → worktree ✓ → brief Feature A
+    New Session → worktree ✓ → brief Feature B
+    New Session → worktree ✓ → brief Feature C
+
+  STEP 4: MONITOR
+    → Check Desktop App sidebar for session status
+    → Each session shows current task and context %
+    → Sessions can run overnight; check PRs in the morning
+
+  STEP 5: REVIEW AND MERGE
+    → Review each PR independently
+    → Merge in dependency order (if any)
+    → Delete worktrees after merge: git worktree remove <path>
+
+────────────────────────────────────────────────────────────────────────────────
+
+ANTI-PATTERNS TO AVOID
+
+  ❌ Shared file ownership between parallel agents
+     → Two agents editing the same file = merge conflicts
+
+  ❌ Launching too many agents before establishing test suites
+     → Without tests, you can't verify each agent's work independently
+
+  ❌ No success criteria per agent
+     → Agents without clear success criteria wander
+
+  ❌ Not using worktrees
+     → Two sessions on the same branch will corrupt each other
+
+────────────────────────────────────────────────────────────────────────────────
+
+CONTEXT: WHERE THIS SITS IN YOUR WORKFLOW
+
+  SINGLE FEATURE:     1 Claude + RPIT Loop
+  MULTIPLE FEATURES:  Multi-Claude + Worktrees + RPIT per agent
+  COMPLEX FEATURE:    Planner/Worker/Judge hierarchy (ENH-011)
+  OVERNIGHT BUILDS:   Multi-Claude + RALPH Loop + GitHub Action
+```
+
+### 14.2.3 Agent Teams Pattern
+
+```text
+AGENT TEAMS — COORDINATED SPECIALIZED ROLES
+──────────────────────────────────────────────────────────────────────────────
+
+DISTINCTION: Agent Teams ≠ Multi-Clouding
+
+  Multi-Clouding: Parallel agents working on DIFFERENT features independently
+  Agent Teams:    Coordinated agents working on the SAME feature together
+
+Agent Teams is Claude Code's newest capability. It splits complex work across
+specialized instances that coordinate via a shared task list and messaging system.
+
+IDEAL USE CASE: A large feature with clean role separation
+  → Frontend Agent (owns: src/components/, src/pages/)
+  → Backend Agent (owns: src/api/, src/services/, src/db/)
+  → Testing Agent (owns: tests/, e2e/, writes tests for both other agents)
+
+COORDINATION MECHANISM:
+  → Shared task list (agents see each other's progress)
+  → Messaging system (agents can request artifacts from each other)
+  → Optional: worktree isolation per agent to prevent conflicts
+
+SETUP:
+  "Create an agent team for [feature]. Roles:
+   - frontend-agent: implements UI components and pages
+   - backend-agent: implements API endpoints and services
+   - test-agent: writes tests for all code produced
+   Each agent owns distinct files (see plan.md for file assignments).
+   backend-agent completes API contracts before frontend-agent begins."
+
+WORKTREE ISOLATION FOR TEAMS:
+  By default, agent teammates share working directory → risk of conflicts.
+  Add worktree isolation: each teammate gets its own repo copy.
+  
+  "Set up agent team with worktree isolation enabled."
+
+WHEN TO USE VS. MULTI-CLOUDING:
+  
+  Use AGENT TEAMS when:
+    ✓ Agents need to coordinate (frontend needs backend API contract)
+    ✓ Work has clear role specialization within one feature
+    ✓ You want built-in inter-agent communication
+  
+  Use MULTI-CLOUDING when:
+    ✓ Features are truly independent (no coordination needed)
+    ✓ You want maximum simplicity
+    ✓ Features can be reviewed as isolated PRs
+```
+
+---
+
+## 14.3 THREAD-BASED THINKING MODEL
 
 ```
-PRIMITIVE QUALITY REQUIREMENTS
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         THREAD TYPES                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  BASE THREAD (Single Prompt → Work → Review)                                 │
+│  ───────────────────────────────────────────────────────────────────────    │
+│  Prompt → Agent works → Human reviews → Done                                 │
+│  Use for: Simple, contained tasks                                            │
+│                                                                              │
+│  P-THREAD (Parallel)                                                         │
+│  ───────────────────────────────────────────────────────────────────────    │
+│       ┌─► Thread A ─┐                                                        │
+│  Start┼─► Thread B ─┼─► Merge → Done                                         │
+│       └─► Thread C ─┘                                                        │
+│  Use for: Independent tasks (e.g., multiple components)                      │
+│                                                                              │
+│  C-THREAD (Chained)                                                          │
+│  ───────────────────────────────────────────────────────────────────────    │
+│  Phase 1 → Checkpoint → Phase 2 → Checkpoint → Phase 3 → Done                │
+│  Use for: Sequential dependencies, quality gates between phases              │
+│                                                                              │
+│  F-THREAD (Fusion / Best-of-N)                                               │
+│  ───────────────────────────────────────────────────────────────────────    │
+│  Same prompt → N agents → Compare outputs → Select best → Done               │
+│  Use for: Creative tasks, critical decisions, architecture                   │
+│                                                                              │
+│  B-THREAD (Big / Meta with Sub-Agents)                                       │
+│  ───────────────────────────────────────────────────────────────────────    │
+│  Supervisor agent spawns sub-agents for sub-tasks                            │
+│  Sub-agents report back, supervisor synthesizes                              │
+│  Use for: Complex projects, multi-component systems                          │
+│                                                                              │
+│  L-THREAD (Long-Duration Autonomous)                                         │
+│  ───────────────────────────────────────────────────────────────────────    │
+│  Agent runs for extended period (hours/days)                                 │
+│  Checkpoints periodically, human reviews at milestones                       │
+│  Use for: Large codebases, extensive refactoring, migrations                 │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  EFFICIENCY METRICS (What "Better" Means):                                   │
+│  • More threads = More parallelism                                           │
+│  • Longer threads = More work per human intervention                         │
+│  • Thicker threads = More tool calls per thread                              │
+│  • Fewer checkpoints = Higher autonomy (when appropriate)                    │
+│                                                                              │
+│  GOAL: Z-THREAD (Zero-Touch) for routine tasks                               │
+│  Human only involved at start (requirements) and end (acceptance)            │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 14.4 SELF-HEALING WORKFLOW PATTERN
+
+```
+SELF-HEALING LOOP (PCE Framework Integration)
 ─────────────────────────────────────────────────────────────────────────────
 
-RETRIEVE QUALITY
-─────────────────────────────────────────────────────────────────────────────
-□ Retrieved content is current (not stale cache)
-□ Retrieved content is complete (not truncated)
-□ Retrieved content is relevant (not noise)
-□ Source is identified and traceable
-□ No hallucinated file contents
+       ┌────────────────────────────────────────────────┐
+       │                                                │
+       ▼                                                │
+  ┌─────────┐     ┌─────────┐     ┌─────────┐    ┌─────┴─────┐
+  │ EXECUTE │────►│  CHECK  │────►│  FAIL?  │───►│ AUTO-FIX  │
+  └─────────┘     └─────────┘     └────┬────┘    └───────────┘
+                                       │ PASS
+                                       ▼
+                                  ┌─────────┐
+                                  │  DONE   │
+                                  └─────────┘
 
-REASON QUALITY
+IMPLEMENTATION:
 ─────────────────────────────────────────────────────────────────────────────
-□ Reasoning is explicit (chain-of-thought visible)
-□ Assumptions are stated
-□ Alternatives are considered
-□ Trade-offs are acknowledged
-□ Confidence level is indicated
+1. EXECUTE: Run the planned action (code, command, API call)
+2. CHECK: Verify outcome matches expectation
+3. IF FAIL:
+   a. Capture error context (message, stack trace, state)
+   b. Analyze error type (syntax, runtime, logic, external)
+   c. Generate fix hypothesis
+   d. Apply fix
+   e. RETURN TO EXECUTE (max 3 iterations per error type)
+4. IF PASS: Proceed to next action
 
-CREATE QUALITY
+CIRCUIT BREAKER:
 ─────────────────────────────────────────────────────────────────────────────
-□ Output matches requirements
-□ Output follows existing patterns
-□ Output is complete (not partial)
-□ Output is properly formatted
-□ Output is immediately usable
+After 3 failed fix attempts on same error:
+  □ STOP automated fixing
+  □ Document in Fix Ledger
+  □ Escalate to human (drop autonomy level)
+  □ This IS the Ilya's Loop prevention (NS Section 7)
 
-VERIFY QUALITY
+LOGGING REQUIREMENT:
 ─────────────────────────────────────────────────────────────────────────────
-□ Verification is comprehensive
-□ Verification is automated where possible
-□ Verification results are clear
-□ Failures include actionable information
-□ False positives/negatives are minimized
+Every self-healing cycle must log:
+  • Original error
+  • Fix attempted
+  • Outcome (success/fail)
+  • Iteration count
+```
+
+---
+
+## 14.5 PLAN MODE PROTOCOL
+
+```
+PLAN MODE (Question-Asking Before Building)
+─────────────────────────────────────────────────────────────────────────────
+
+PRINCIPLE: Asking good questions BEFORE building produces better outcomes
+           than fixing problems AFTER building.
+
+WHEN TO ENTER PLAN MODE:
+─────────────────────────────────────────────────────────────────────────────
+□ Starting a new feature or component
+□ Requirements are ambiguous
+□ Multiple valid approaches exist
+□ Stakes are high (architecture, security, data)
+□ Autonomy level is 1-4 (Suggest/Draft)
+
+PLAN MODE SEQUENCE:
+─────────────────────────────────────────────────────────────────────────────
+1. UNDERSTAND
+   • Restate the requirement in your own words
+   • Identify what you know vs. what you assume
+   • List explicit constraints
+
+2. QUESTION
+   • Ask clarifying questions (max 3-5)
+   • Prioritize questions that would change approach
+   • Don't ask questions you can answer from context
+
+3. PROPOSE
+   • Present 2-3 approaches with trade-offs
+   • State confidence level for each
+   • Recommend one with rationale
+
+4. CONFIRM
+   • Wait for human approval on approach
+   • Document decision (in claude.md or ADR)
+   • THEN proceed to execution
+
+SKIP PLAN MODE WHEN:
+─────────────────────────────────────────────────────────────────────────────
+• Autonomy level is 5-7 (Execute/Autonomous)
+• Task is well-understood and routine
+• Pattern exists in Fix Ledger or codebase
+• Human has pre-approved approach
+```
+
+---
+
+## 14.6 PERMISSION ARCHITECTURE AWARENESS
+
+```
+PERMISSION LAYERS (Cowork/Computer Use Readiness)
+─────────────────────────────────────────────────────────────────────────────
+
+As agents gain OS-level capabilities (file system, browser, applications),
+permission awareness becomes critical.
+
+PERMISSION CATEGORIES:
+─────────────────────────────────────────────────────────────────────────────
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  READ         │ View files, read configs, access docs                   │
+│  WRITE        │ Create/modify files, update configs                     │
+│  EXECUTE      │ Run commands, scripts, applications                     │
+│  NETWORK      │ Make HTTP requests, access external services            │
+│  SYSTEM       │ OS-level operations, install packages                   │
+└─────────────────────────────────────────────────────────────────────────┘
+
+SANDBOXING AWARENESS:
+─────────────────────────────────────────────────────────────────────────────
+• Assume sandboxed unless explicitly told otherwise
+• Request minimum permissions needed for task
+• Document permission requirements in task plan
+• Never assume credentials are available—use proxying patterns
+
+CONSEQUENTIAL ACTION GATES:
+─────────────────────────────────────────────────────────────────────────────
+Before executing consequential real-world actions:
+□ Confirm human approval (reduce autonomy to Level 3-4)
+□ Verify rollback path exists
+□ Log action intent before execution
+□ Capture before/after state
+
+CONSEQUENTIAL ACTIONS INCLUDE:
+  • Sending emails or messages
+  • Making purchases or financial transactions
+  • Modifying production systems
+  • Deleting data
+  • Publishing content
+  • Interacting with external APIs with side effects
+```
+
+### 14.6.1 Hard Stops & Blast Radius Classification
+
+```
+HARD STOPS — AGENT-FORBIDDEN COMMANDS
+─────────────────────────────────────────────────────────────────────────────
+
+The following commands must NEVER be executed autonomously by an AI agent.
+The human must run them directly in their own terminal.
+
+INFRASTRUCTURE DESTRUCTION:
+  • terraform destroy
+  • terraform apply -destroy
+  • pulumi destroy
+  • kubectl delete namespace (production)
+  • destructive cloud delete commands on production resources
+
+DATABASE DESTRUCTION:
+  • DROP DATABASE
+  • DROP SCHEMA ... CASCADE
+  • TRUNCATE on production tables
+  • drizzle-kit push --force
+  • prisma db push --force-reset
+  • Any destructive ORM/database command using --force on production
+
+FILE SYSTEM DESTRUCTION:
+  • rm -rf / or root-level recursive deletes
+  • rm -rf on project root or home directory
+  • git clean -fdx on protected or production branches
+  • Formatting or partitioning commands
+
+BYPASS FLAGS:
+  • --force, --yes, --no-confirm on destructive operations
+
+AGENT BEHAVIOR:
+  1. STOP
+  2. EXPLAIN the blocked command and risk
+  3. PRESENT the exact command for manual execution
+  4. WAIT for human confirmation of the result
+  5. VERIFY follow-up state
+
+BLAST RADIUS TIERS
+─────────────────────────────────────────────────────────────────────────────
+TIER 1 — Observation
+  Read-only commands, dry runs, plans, status checks
+
+TIER 2 — Local Mutation
+  Scoped reversible file or branch changes
+
+TIER 3 — Service Mutation
+  State-changing API calls, staging writes, controlled config updates
+
+TIER 4 — Destructive Mutation
+  Migrations, production deploys, IAM changes, bulk mutations
+  → Must include scope, reversibility, and recovery path
+
+TIER 5 — Catastrophic
+  Infrastructure teardown, production data deletion, irreversible wipes
+  → HARD STOP, manual human execution only
+
+BLAST RADIUS ASSESSMENT TEMPLATE
+  Command:     [exact command]
+  Tier:        [1-5]
+  Scope:       [systems/data affected]
+  Reversible:  [yes/no/partial]
+  Recovery:    [method + time]
+  Confidence:  [agent confidence]
+```
+
+---
+
+## 14.7 INTEGRATION WITH NS-MBF ECOSYSTEM
+
+```
+CROSS-REFERENCE: Agent Operation Patterns
+─────────────────────────────────────────────────────────────────────────────
+
+This Section 14 integrates with:
+
+NS SECTIONS:
+  • Section 17: Confidence Calibration → Use when reporting certainty
+  • Section 18: Autonomy Dial → Use when determining independence level
+  • Section 20: Memory Architecture → Use for context management
+  • Section 23: Handoff Protocols → Use when transitioning sessions
+
+MBF CATEGORIES:
+  • Category 30: Autonomous Agents → Agent framework options
+  • Category 31: MCPs & Tool Registries → Tool definition patterns
+  • Category 40: Code Generation → AI coding assistant patterns
+  • Category 45: Browser & Web Automation → Computer Use patterns
+
+BRIDGE.MD ROUTING:
+  "Need agent operation guidance" → This Section 14
+  "Need agent technology options" → MBF Categories 29-35
+  "Need orchestration methodology" → NS Part IV-V
+```
+
+---
+
+### 14.7.4 The Code Cleanup Protocol (Claude Code)
+
+```
+CODE SIMPLIFICATION — Post-Session Cleanup
+─────────────────────────────────────────────────────────────────────────────
+After completing significant coding work, run the code-simplifier agent:
+INSTALLATION (one-time):
+claude plugin install code-simplifier
+INVOCATION:
+"Use the code-simplifier agent to clean up the code I just wrote"
+WHEN TO RUN:
+✓ End of long coding sessions
+✓ Before merging complex PRs
+✓ After major feature implementations
+✓ Before code review
+WHY IT MATTERS:
+AI agents prioritize correctness, which often produces verbose code.
+The simplifier preserves functionality while improving clarity.
+• 20-30% reduction in token usage
+• Clearer, more maintainable code
+• Follows your CLAUDE.md conventions
+• Same tool Anthropic uses internally
+WHAT IT DOES:
+• Removes unnecessary complexity
+• Improves naming and organization
+• Eliminates over-engineering
+• Preserves exact functionality (NEVER changes what code does)
+BEST PRACTICE:
+Run in a git-tracked directory so you can review and revert if needed.
+Always review changes before committing.
 ```
 
 ---
@@ -6042,6 +7702,86 @@ AI SHOULD INCREASE AUTONOMY (proceed) WHEN:
 □ Generating drafts (not final output)
 ```
 
+### 18.4 Consent Fatigue Awareness
+
+```
+CONSENT FATIGUE — THE SILENT KILLER
+─────────────────────────────────────────────────────────────────────────────
+
+PROBLEM:
+  After enough low-risk approvals, humans stop reading prompts carefully.
+  Approval becomes reflexive. That is when catastrophic commands slip
+  through the same UI that was just used for harmless reads.
+
+ANTI-PATTERNS:
+  ✗ Asking approval for every read-only lookup
+  ✗ Treating `ls` and `terraform destroy` as equivalent prompts
+  ✗ Running a long stream of benign approvals immediately before a risky one
+
+MITIGATIONS:
+  1. Batch Tier 1 observations together.
+  2. Visually break the flow before Tier 3+ operations.
+  3. After 30+ operations, explicitly note session fatigue risk.
+  4. For Tier 4+ work, require typed confirmation of the resource name.
+  5. After 10 PM local time, add extra caution on Tier 3+ operations.
+```
+
+### 18.5 Agent Dissent Protocol
+
+```
+AGENT DISSENT PROTOCOL
+─────────────────────────────────────────────────────────────────────────────
+
+If the agent identifies a serious risk and the human overrides the advice,
+the agent must escalate instead of warning once and silently complying.
+
+LEVEL 1 — ADVISE
+  State the concern and recommend an alternative.
+
+LEVEL 2 — WARN WITH CONSEQUENCES
+  State exactly what could go wrong and what the blast radius becomes.
+
+LEVEL 3 — FORMAL DISSENT
+  Register dissent, require acknowledgement, and log the override:
+  | Date | Agent Recommendation | Human Override | Rationale Given | Outcome |
+  The agent proceeds with heightened caution.
+
+LEVEL 4 — HARD STOP
+  If the overridden action is Tier 5 catastrophic risk, the agent refuses to
+  execute and instead presents the command for manual human execution.
+```
+
+### 18.6 Operational Readiness Awareness
+
+```
+HUMAN STATE AFFECTS AGENT SAFETY
+─────────────────────────────────────────────────────────────────────────────
+
+RISK MULTIPLIERS:
+  • Late-night sessions (after 10 PM)
+  • Long continuous sessions (4+ hours)
+  • Emotional pressure (deadline, incident, high urgency)
+  • Unfamiliar tooling or infrastructure
+
+AGENT RESPONSE:
+  1. Note the multiplier clearly.
+  2. For Tier 3+ operations, suggest deferring if practical.
+  3. For Tier 4+ operations, recommend stopping until fresh review.
+  4. Frame this as professional risk management, never as shaming.
+
+THE DRACULA EFFECT:
+  AI removes much of the low-intensity work, leaving humans with a dense
+  stream of high-stakes judgment calls. Sustainable full-intensity
+  AI-augmented work is measured in a few concentrated hours, not in an
+  uninterrupted eight-hour stretch.
+
+WARNING SIGNS:
+  • Approving without reading
+  • Skipping blast-radius assessment
+  • "Just one more thing" on production late at night
+  • Difficulty concentrating on consequences
+```
+
 ---
 
 ## 19. MULTI-MODEL CONSENSUS FRAMEWORK
@@ -6206,6 +7946,39 @@ Record:
 
 ---
 
+
+### Section 19B: RLM Context Management Patterns
+```
+#### The Load Balancing vs Token Burning Problem
+
+| Approach | Description | When to Use |
+|----------|-------------|-------------|
+| **Linear Consumption** | Standard prompt → response | Simple queries |
+| **Chunked Retrieval** | Break context into chunks | Long documents |
+| **Streaming Fetch** | Load on-demand from store | Unlimited context |
+| **Hierarchical Summary** | Summarize → detail when needed | Large codebases |
+
+#### Confidence Calibration
+
+```python
+CONFIDENCE_THRESHOLDS = {
+    "HIGH": 0.85,      # Auto-execute, notify
+    "MEDIUM": 0.65,    # Execute with review window
+    "LOW": 0.40,       # Pause, require approval
+    "ABORT": 0.25      # Stop, escalate
+}
+```
+
+#### Quality Gates for RLM
+
+```
+□ Context chunking strategy defined
+□ Confidence thresholds calibrated
+□ Runaway loop detection implemented
+□ State persistence verified
+```
+
+---
 ## PART IV SUMMARY
 
 ```
@@ -6265,12 +8038,40 @@ Record:
 │  • Identify consensus and divergence points                                  │
 │  • Document decisions and reasoning                                          │
 │                                                                              │
+│  PLANNER/WORKER/JUDGE HIERARCHY (v6.1):                                      │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Planner (Opus): orchestrates, creates plan, delegates                    │
+│  • Workers (Sonnet): execute in parallel, cost-efficient                    │
+│  • Judge (Opus): strict review — APPROVE / REVISE / ESCALATE               │
+│  • Use for features with clear frontend/backend/test separation             │
+│                                                                              │
+│  PARALLEL AGENT ORCHESTRATION (v6.1):                                        │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Multi-Claude + Git Worktrees = parallel feature development              │
+│  • Decompose → Brief → Launch → Monitor → Review & Merge                    │
+│  • Never share file ownership between parallel agents                       │
+│                                                                              │
+│  AGENT TEAMS (v6.1):                                                         │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Coordinated agents on the SAME feature (≠ Multi-Clouding)                │
+│  • Built-in shared task list and messaging system                            │
+│  • Use when agents need to coordinate; Multi-Cloud when independent         │
+│                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
+
+# PART V: AGENT COMPOSITION & ORCHESTRATION
+
 ---
+
+## 20. AGENT MEMORY ARCHITECTURE
+
+> "Memory is what transforms an AI from a tool into a collaborator."
+
+### 20.1 Memory Types
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -6497,7 +8298,7 @@ INSTITUTIONAL MEMORY: Minimal decay
 
 ## 21. SKILLS, SUB-AGENTS & MCP INTEGRATION
 
-### 21.1 Skills Architecture
+### 22.0 Skills Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -6717,6 +8518,66 @@ Web automation                │ Browser MCP
 External API calls            │ API MCP / Built-in fetch
 Cloud operations              │ Cloud-specific MCP (AWS, GCP, etc.)
 Version control               │ Git MCP or built-in
+```
+
+### 21.5 PLANNER / WORKER / JUDGE HIERARCHY
+
+```text
+PLANNER / WORKER / JUDGE HIERARCHY
+──────────────────────────────────────────────────────────────────────────────
+
+Adapted from the Cursor FastRender architecture and now standard in production
+multi-agent systems as of Q1 2026.
+
+PROBLEM: A single agent trying to plan, execute, and verify simultaneously
+         produces lower quality than specialized agents in distinct roles.
+
+SOLUTION: Decompose work across three agent types with distinct responsibilities.
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                        THREE-TIER AGENT HIERARCHY                       │
+  │                                                                         │
+  │  ┌──────────────┐                                                       │
+  │  │   PLANNER    │  ← Orchestrates. Has full context. Makes decisions.   │
+  │  │  (Opus 4.6)  │  → Receives task → creates plan → delegates units    │
+  │  └──────┬───────┘                                                       │
+  │         │ delegates work units                                          │
+  │         ▼                                                               │
+  │  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐               │
+  │  │   WORKER A   │   │   WORKER B   │   │   WORKER C   │               │
+  │  │  (Sonnet)    │   │  (Sonnet)    │   │  (Sonnet)    │               │
+  │  │  Frontend    │   │  Backend     │   │  Tests       │               │
+  │  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘               │
+  │         └──────────────────┴──────────────────┘                       │
+  │                             │ results                                  │
+  │                             ▼                                          │
+  │                      ┌──────────────┐                                  │
+  │                      │    JUDGE     │  ← Verifies quality. Strict.    │
+  │                      │  (Opus 4.6) │  → Accept, request revision,     │
+  │                      │             │    or escalate to human           │
+  │                      └─────────────┘                                   │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+IMPLEMENTATION IN CLAUDE CODE:
+  → Planner: Your main orchestrator session (use Opus for highest-quality planning)
+  → Workers: Parallel sub-agents or worktree sessions (Sonnet for cost efficiency)
+  → Judge: A review sub-agent with a strict system prompt, or your stop hook
+
+JUDGE SYSTEM PROMPT TEMPLATE:
+  "You are a code reviewer with high standards. Review the following work against
+   these criteria: [success criteria from plan.md]. Your only valid responses are:
+   APPROVE / REQUEST_REVISION: [specific changes needed] / ESCALATE: [reason]
+   Do not suggest. Do not soften. Be precise."
+
+WHEN TO USE THIS PATTERN:
+  ✓ Features with clear separation between frontend/backend/tests
+  ✓ Large refactors that touch many files
+  ✓ Any work where quality matters more than speed
+
+WHEN NOT TO USE:
+  ✗ Simple bug fixes
+  ✗ Tasks requiring continuous human taste judgment
+  ✗ Prototypes where iteration speed > quality
 ```
 
 ---
@@ -7112,8 +8973,15 @@ STEP 4: CONTINUE WORK
 ```
 
 ---
+# PART VI: MCP & TOOL ORCHESTRATION
 
 ---
+
+## 24. MCP POWER TOOLS MATRIX
+
+> "MCP transforms AI from an advisor into an operator."
+
+### 24.1 MCP Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -7887,7 +9755,16 @@ Current implementation in src/services/user.ts has grown too complex."
 
 ---
 
+
+# PART VII: DESIGN MASTERY SYSTEM
+
 ---
+
+## 28. DESIGN PHILOSOPHY & FIRST IMPRESSIONS
+
+> "This blueprint doesn't just build software—it crafts experiences that resonate with the human soul."
+
+### 28.1 The First 3 Seconds
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -8282,9 +10159,33 @@ Use: Loading placeholders
 
 ---
 
+### Animation & Performance Patterns
+
+#### Recommended Animation Libraries
+| Library | Best For | Performance |
+|---------|----------|-------------|
+| **GSAP** | Complex timelines | Excellent |
+| **Framer Motion** | React | Very Good |
+| **Lenis** | Smooth scrolling | Excellent |
+
+#### UI Sniping Methodology
+1. **Identify**: Find exceptional UI (Apple, Linear, Vercel)
+2. **Analyze**: Understand the interaction pattern
+3. **Extract**: Document the core mechanic
+4. **Adapt**: Implement with your design system
+
+#### Speed Optimization Checklist
+```
+□ Core Web Vitals passing (LCP < 2.5s)
+□ Images optimized (WebP/AVIF)
+□ JS bundle < 200KB gzipped
+□ Animations GPU-accelerated
+```
+
+---
 ## 31. STANDARD EASINGS, DURATIONS & MOTION
 
-### 31.1 Standard Easings
+### 32.0 Standard Easings
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -9361,8 +11262,17 @@ FOCUS: Currently active element for keyboard interaction
 
 ---
 
+
+# PART VIII: CODE ARCHITECTURE & PATTERNS
+
 ---
 
+## 37. ARCHITECTURE SELECTION MATRIX
+
+> "Architecture is the art of how to waste space." — Philip Johnson
+> "Software architecture is the art of how to waste complexity." — This Blueprint
+
+### 37.1 Architecture Decision Framework
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -10115,7 +12025,7 @@ RULE 5: MIGRATION CHECKLIST
 
 ## 41. API DESIGN PRINCIPLES
 
-### 41.1 RESTful API Guidelines
+### 42.0 RESTful API Guidelines
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -10295,6 +12205,60 @@ RECOMMENDATION: URL Path versioning
 • Communicate deprecation timeline clearly
 ```
 
+### 41.4 CODEBASE INTELLIGENCE
+
+```text
+REPOSITORY MAPS — CONTEXT-EFFICIENT CODEBASE NAVIGATION
+──────────────────────────────────────────────────────────────────────────────
+
+PROBLEM: For large codebases, loading entire files into context is wasteful.
+         Claude needs to know WHERE things are, not necessarily WHAT they contain.
+
+SOLUTION: Repository maps — AST-based + PageRank-weighted codebase indexes
+          that give Claude a navigational overview without loading full file content.
+
+HOW IT WORKS:
+  1. Parse codebase with tree-sitter (language-agnostic AST parser)
+  2. Build a graph: files → functions → dependencies
+  3. Apply PageRank to identify "important" symbols (frequently imported)
+  4. Produce a compressed map: "what lives where and what uses what"
+
+BENEFIT: Claude understands 100K+ line codebases in ~2K tokens of context
+
+IMPLEMENTATION OPTIONS:
+
+  Automatic (Claude Code built-in):
+    Claude Code's Explore sub-agent (Haiku-powered) builds this automatically.
+    Trigger explicitly:
+    "Use the explore sub-agent to build an understanding of this codebase.
+     Create architecture.md with a component map."
+
+  Manual (aider-style repo map):
+    ```bash
+    pip install aider-chat
+    aider --map-tokens 2048 --no-auto-commits
+    # Generates repo-map.txt that can be included in claude.md
+    ```
+
+  Custom integration:
+    ```typescript
+    // tree-sitter based repo map generator
+    import Parser from 'tree-sitter';
+    
+    // Extract all exported symbols and their locations
+    // Build import graph
+    // Apply importance scoring
+    // Output: compact map for claude.md injection
+    ```
+
+NS FRAMEWORK RECOMMENDATION:
+  1. Use Explore sub-agent for initial codebase orientation
+  2. Commit architecture.md as living document (update via RPIT test phase)
+  3. Link architecture.md from claude.md so it's always in context
+  4. For very large codebases: use separate research session to build the map,
+     then load the map (not full source) in implementation sessions
+```
+
 ---
 
 ## PART VIII SUMMARY
@@ -10342,12 +12306,26 @@ RECOMMENDATION: URL Path versioning
 │  • Consistent response formats                                               │
 │  • URL path versioning (/api/v1/)                                           │
 │                                                                              │
+│  CODEBASE INTELLIGENCE / REPOSITORY MAPS (v6.1):                             │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • AST-based + PageRank-weighted codebase indexes                           │
+│  • 100K+ line codebases understood in ~2K tokens                            │
+│  • Use Explore sub-agent or aider repo maps                                  │
+│  • Commit architecture.md, link from claude.md                               │
+│                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
+# PART IX: TESTING & VERIFICATION FRAMEWORK
 
 ---
+
+## 42. TESTING PHILOSOPHY
+
+> "Tests are not overhead—they are the only proof that your code works."
+
+### 42.1 The Testing Pyramid
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -11439,7 +13417,16 @@ NPM SCRIPTS CONFIGURATION:
 
 ---
 
+
+# PART X: SECURITY & AUTHENTICATION
+
 ---
+
+## 46. SECURITY-FIRST DEVELOPMENT
+
+> "Security is not a feature—it's a requirement."
+
+### 46.1 Security Principles
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -12446,8 +14433,181 @@ SECRET ROTATION:
 ```
 
 ---
+# PART XI: DEVOPS & DEPLOYMENT
 
 ---
+
+## 49.5 HOOKS ARCHITECTURE: DETERMINISM INJECTION SYSTEM
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              HOOKS ARCHITECTURE — DETERMINISM INJECTION SYSTEM              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+PRINCIPLE: AI workflows are probabilistic. Hooks are deterministic.
+           Use hooks to guarantee certain behaviors happen every time,
+           regardless of what the AI decides.
+
+Think of hooks as stitching a safety net into the fabric of your workflow —
+they catch what the AI might miss.
+
+────────────────────────────────────────────────────────────────────────────────
+
+HOOK EVENT LIFECYCLE
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                      CLAUDE CODE SESSION LIFECYCLE                      │
+  │                                                                         │
+  │  Session Start                                                          │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [PreSessionHook] → load context, check git status, verify deps        │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  User Prompt Received                                                   │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [PreToolUseHook] → validate before Claude uses a tool                 │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  Claude Executes Tool (bash, file write, etc.)                          │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [PostToolUseHook] → verify output, run checks                         │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  Claude Prepares Response                                               │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  [StopHook] → ← THE MOST IMPORTANT HOOK                                │
+  │       │         Fires every time Claude stops responding                │
+  │       │         Use to: run tests, lint, enforce quality gates          │
+  │       ▼                                                                 │
+  │  [SessionEndHook] → commit work, update docs, clean up                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+IMPLEMENTATION: THE SUPER-HOOK PATTERN
+
+Instead of scattering logic, use a single controller script for the StopHook
+that multiplexes based on project state.
+
+1. Configure in claude.json:
+   {
+     "hooks": {
+       "stop": "bash .scripts/claude-stop-hook.sh"
+     }
+   }
+
+2. The multiplexer script (.scripts/claude-stop-hook.sh):
+   ```bash
+   #!/bin/bash
+   # Claude Code Stop Hook - Runs after every agent response
+   
+   echo "--- 🪝 HOOK: Quality Gates ---"
+   
+   # 1. Always format explicitly modified files
+   npm run format:staged --silent
+   
+   # 2. If it looks like a test was touched, run tests
+   if git diff --name-only HEAD | grep -q 'test'; then
+     echo "🧪 Tests detected, running suite..."
+     npm run test:fast
+   fi
+   
+   # 3. Prevent broken code from accumulating
+   if ! npm run typecheck --silent; then
+     echo "❌ ERROR: Type check failed. Claude, please fix this immediately."
+     # The echo output goes back to Claude
+   fi
+   ```
+
+THE MAGIC: Whatever the hook prints to stdout/stderr is automatically fed back
+to Claude as a system message. If your hook prints "Fix this:", Claude will
+initiate a self-correction loop without you typing anything.
+```
+
+---
+
+## 49.6 KIRO SPEC-DRIVEN DEVELOPMENT PATTERN
+
+```text
+KIRO SPEC-DRIVEN DEVELOPMENT PATTERN
+──────────────────────────────────────────────────────────────────────────────
+
+Kiro is an AI-native IDE that popularized spec-driven development with
+event-driven hooks. These patterns are now available in Claude Code workflows.
+
+CORE CONCEPT: Instead of manually triggering agent actions, define SPECS that
+              the agent follows, and HOOKS that fire on domain events.
+
+THE SPEC FILE:
+  A spec is a structured requirements document that Claude uses as its
+  north star. It is MORE opinionated than a plan.md — it defines:
+  - User stories
+  - Acceptance criteria
+  - Technical constraints
+  - Design decisions
+  
+  Template: `.claude/specs/[feature-name].spec.md`
+  
+  ```markdown
+  # Spec: User Authentication
+  
+  ## User Stories
+  - As a user, I can log in with email/password
+  - As a user, I stay logged in for 7 days
+  - As a user, I can reset my password via email
+  
+  ## Acceptance Criteria
+  - [ ] Login endpoint returns JWT on success
+  - [ ] JWT contains userId, email, roles
+  - [ ] Expired JWTs return 401, not 403
+  - [ ] Password reset emails sent within 30 seconds
+  
+  ## Technical Constraints
+  - Use existing auth middleware in /middleware/auth.ts
+  - JWT secret from environment, never hardcoded
+  - Passwords hashed with bcrypt, cost factor 12
+  
+  ## Out of Scope
+  - OAuth (phase 2)
+  - 2FA (phase 2)
+  ```
+
+EVENT-DRIVEN HOOKS PATTERN:
+  Beyond lifecycle hooks, Kiro-style hooks respond to domain events.
+  In Claude Code, these can be approximated with bash file watchers:
+  
+  ```bash
+  # .claude/hooks/on-spec-approved.sh
+  # Triggered when a spec file is moved to approved/
+  
+  SPEC_FILE=$1
+  FEATURE_NAME=$(basename $SPEC_FILE .spec.md)
+  
+  echo "Spec approved for $FEATURE_NAME"
+  echo "Starting RPIT loop..."
+  claude --message "Work on spec: .claude/specs/approved/$SPEC_FILE. 
+                    Follow the spec exactly. Use RPIT loop."
+  ```
+
+NS FRAMEWORK INTEGRATION:
+  → Store specs in `.claude/specs/draft/` (under review)
+  → Move to `.claude/specs/approved/` when reviewed and annotated
+  → Hook fires on approval, automatically starting the RPIT loop
+  → Completed features move spec to `.claude/specs/completed/`
+  → This creates a full spec audit trail in git
+```
+
+---
+
+## 50. CI/CD PIPELINE ARCHITECTURE
+
+> "If it's not automated, it's broken."
+
+### 50.1 Pipeline Philosophy
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -12757,7 +14917,7 @@ jobs:
 
 ## 51. ENVIRONMENT MANAGEMENT
 
-### 51.1 Environment Strategy
+### 52.0 Environment Strategy
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -13568,12 +15728,34 @@ ANTI-PATTERNS:
 │  • Multi-step for breaking changes                                           │
 │  • Separate from deployment                                                  │
 │                                                                              │
+│  HOOKS ARCHITECTURE (v6.1):                                                  │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Determinism injection into probabilistic AI workflows                    │
+│  • Stop Hook = highest leverage (auto-test after every response)            │
+│  • Super-Hook pattern: single multiplexer script                             │
+│  • Hookery plugin for pre-built community hooks                              │
+│                                                                              │
+│  KIRO SPEC-DRIVEN DEVELOPMENT (v6.1):                                        │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Specs > plans: structured requirements with acceptance criteria           │
+│  • Event-driven hooks fire on domain events, not just lifecycle             │
+│  • Spec audit trail: draft/ → approved/ → completed/ in git                │
+│                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
+
+# PART XII: FUTURE-PROOFING & EVOLUTION
+
 ---
+
+## 54. BLUEPRINT EVOLUTION PROTOCOL
+
+> "The only constant is change. Build systems that embrace it."
+
+### 54.1 Evolution Philosophy
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -13640,18 +15822,18 @@ MINOR: Additions and improvements
   • Bug fixes in examples
 
 
-CURRENT VERSION: v5.0
+CURRENT VERSION: v6.1
 ─────────────────────────────────────────────────────────────────────────────
-This is a major revision incorporating:
-  • AI-native development patterns
-  • MCP and tool orchestration
-  • Enhanced agent architecture
-  • Modular document structure
+This is a minor revision incorporating:
+  • Retro Skill / Outer Improvement Loop
+  • Memory Architecture (Three-Pillar, Weighting, Compaction)
+  • Plus all v6.0 foundations below
 
 
 VERSION HISTORY:
 ─────────────────────────────────────────────────────────────────────────────
-v5.0 - AI orchestration, MCP integration, modular structure
+v6.1 - Feedback loop, memory architecture, skills package, ecosystem updates
+v6.0 - AI orchestration, MCP integration, modular structure
 v4.0 - Enhanced design system, animation specifications
 v3.0 - Quality gates, slice methodology, documentation hierarchy
 v2.0 - Full-stack patterns, testing framework
@@ -13694,7 +15876,7 @@ DEPRECATION LIFECYCLE:
 DEPRECATION NOTICE FORMAT:
 ─────────────────────────────────────────────────────────────────────────────
 ```markdown
-> ⚠️ **DEPRECATED in v5.0**
+> ⚠️ **DEPRECATED in v6.0**
 > 
 > This pattern is deprecated and will be removed in v6.0.
 > 
@@ -13703,7 +15885,7 @@ DEPRECATION NOTICE FORMAT:
 > **Migration:** [Link to new pattern]
 > 
 > **Timeline:**
-> - v5.0: Deprecated (still works)
+> - v6.0: Deprecated (still works)
 > - v5.5: Legacy (not recommended)
 > - v6.0: Removed
 ```
@@ -13711,11 +15893,11 @@ DEPRECATION NOTICE FORMAT:
 EXAMPLE DEPRECATIONS:
 ─────────────────────────────────────────────────────────────────────────────
 Pattern: Horizontal layer development
-Status: DEPRECATED in v4.0, REMOVED in v5.0
+Status: DEPRECATED in v4.0, REMOVED in v6.0
 Replacement: Vertical slice methodology (Section 11)
 
 Pattern: Manual context management
-Status: DEPRECATED in v5.0
+Status: DEPRECATED in v6.0
 Replacement: MCP-first architecture (Section 25)
 ```
 
@@ -14090,6 +16272,375 @@ Each loop iteration:
 
 ---
 
+### 56.4 The Retro Skill: Outer Improvement Architecture
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║           THE FEEDBACK LOOP — OUTER IMPROVEMENT ARCHITECTURE                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Most developers use AI as a tool. Power users use AI as a system that
+improves itself. The Feedback Loop is how the North Star Framework compounds
+over time — each build cycle makes the next one faster and higher quality.
+
+TWO LOOPS:
+  Inner Loop: RPIT (Research → Plan → Implement → Test) — per feature
+  Outer Loop: RETRO (Reflect → Extract → Improve → Encode) — per milestone
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE OUTER LOOP: RETRO PROTOCOL
+
+Run after every feature completion OR at the end of every work session.
+
+  PHASE 1: REFLECT
+    "Review our session: git log --oneline -20, test results, and conversation
+     history. Identify: What went well? What was slow? What went wrong?
+     What did I have to correct more than once?"
+
+  PHASE 2: EXTRACT
+    "Extract concrete learnings from the reflection. Format as:
+     - [PATTERN]: What Claude kept getting wrong
+     - [FIX]: What instruction would prevent it
+     - [TEMPLATE]: If a slash command would help, draft it
+     - [SKILL]: If specialized knowledge is needed, draft a skill.md"
+
+  PHASE 3: IMPROVE
+    "Based on extracted learnings, suggest specific updates to:
+     1. claude.md (rules Claude should always follow)
+     2. Existing slash commands (improvements)
+     3. New slash commands to create
+     4. New skills to create"
+
+  PHASE 4: ENCODE
+    Human reviews suggestions and approves changes.
+    Claude implements approved changes:
+    - Updates claude.md
+    - Creates/updates slash commands
+    - Creates new skill files
+    Commit: "chore: encode session learnings"
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE RETRO SKILL
+
+The retro skill automates the Outer Loop. Store in:
+`.claude/skills/retro/SKILL.md`
+
+```markdown
+---
+name: retro
+description: >
+  Run this skill after completing a feature or work session to reflect on
+  what was learned and improve the development system. Triggers when user
+  says "retro", "retrospective", "session review", or "what did we learn".
+  Also run automatically at the end of RPIT loops when complete.
+---
+
+# Retro Skill
+
+## Purpose
+Capture learnings from this session and encode them into the development
+system so future sessions benefit from this experience.
+
+## Steps
+
+1. GATHER CONTEXT
+   - Run: git log --oneline -20
+   - Run: cat test-results.txt (if exists)
+   - Review the conversation history
+   - Note any corrections the human made
+
+2. REFLECT
+   Generate a retro.md in /tmp/ with:
+   - What went smoothly
+   - What was slow or blocked
+   - What patterns kept recurring
+   - What the human had to correct
+
+3. EXTRACT LEARNINGS
+   For each pattern/problem, draft:
+   - A rule for claude.md
+   - A slash command if repetitive
+   - A skill if specialized knowledge needed
+
+4. PRESENT TO HUMAN
+   Show proposed changes and ask for approval.
+   Do NOT make changes without explicit approval.
+
+5. ENCODE APPROVED CHANGES
+   - Update claude.md with approved rules
+   - Create any approved slash commands
+   - Create any approved skill files
+    - Create a single commit: "chore(docs): encode session learnings"
+```
+
+────────────────────────────────────────────────────────────────────────────────
+
+COMPOUND ENGINEERING PATTERN
+
+The compound engineering plugin from Every.to formalizes this at a higher level.
+Key commands:
+  /re    — review session, extract learnings
+  /compound — document patterns for future reuse
+
+The Claudeception skill goes further: it watches what Claude does and
+automatically extracts new skills from successful patterns, building a
+skill library that grows with every session.
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE RESULT: A SELF-IMPROVING SYSTEM
+
+  Session 1: Claude makes 5 mistakes, you correct them
+  Session 2: Retro runs, encodes fixes into claude.md
+  Session 3: Claude doesn't make those 5 mistakes
+  
+  After 10 sessions: claude.md contains battle-tested rules
+  After 20 sessions: You have 5+ custom skills for your domain
+  After 30 sessions: Claude functions like a senior developer
+                     who knows your codebase intimately
+
+MEASUREMENT: Track "correction rate" — how many times per session you
+             had to correct Claude. A well-tuned system should see this
+             trend downward over time.
+```
+
+---
+
+### 56.5 Memory Architecture — The Third Engineering Layer
+
+> *Added in v6.1 (ENH-040) — Integrates NS_MEMORY_ARCHITECTURE_PROPOSAL into the Blueprint*
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              MEMORY ARCHITECTURE — THE THIRD ENGINEERING LAYER              ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+The North Star Blueprint has always excelled at two things:
+  • Prompt Engineering — how to talk to models
+  • Context Engineering — how to select and route optimal tokens (BRIDGE, Load Balancing)
+
+Memory Engineering is the third layer. It is what transforms:
+  "agents that do tasks in a session" → "agents that learn and compound over time"
+
+THE ENGINEERING EVOLUTION LADDER:
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                                                                         │
+  │  MEMORY ENGINEERING    ← "How do agents LEARN and ADAPT?"              │
+  │  ──────────────────────   Persistent intelligence across sessions      │
+  │         │                 THIS SECTION                                  │
+  │         ▼                                                               │
+  │  CONTEXT ENGINEERING   ← "How do we get OPTIMAL tokens into context?"  │
+  │  ──────────────────────   BRIDGE routing, Load Balancing (existing)    │
+  │         │                                                               │
+  │         ▼                                                               │
+  │  PROMPT ENGINEERING    ← "How do we talk to the model?"                │
+  │  ──────────────────────   Superprompt architecture (existing)          │
+  │                                                                         │
+  │  Each level CONTAINS the one below it.                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE THREE-PILLAR MEMORY ARCHITECTURE
+
+Memory in AI systems comprises three distinct pillars. The NS Framework maps
+perfectly to this structure — the proposal adds the Memory Core and Memory Manager
+that the framework was previously missing.
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                                                                         │
+  │  PILLAR 1: MEMORY CORE  "The Database as Brain"                        │
+  │  ─────────────────────────────────────────────                         │
+  │  One unified database — not separate vector/JSON/graph DBs.            │
+  │  Handles: vectors, documents, graph traversal, relational queries      │
+  │  Principle: "You don't have multiple brains. You have one."            │
+  │                                                                         │
+  │         │                                                               │
+  │         ▼                                                               │
+  │                                                                         │
+  │  PILLAR 2: MEMORY MANAGER  "The Software Engineering Around Memory"    │
+  │  ─────────────────────────────────────────────────────────────────     │
+  │  CRUD operations for memory units:                                      │
+  │  Create → Read → Update → Delete → Compact → Weight → Forget           │
+  │                                                                         │
+  │         │                                                               │
+  │         ▼                                                               │
+  │                                                                         │
+  │  PILLAR 3: AGENT HARNESS  "Everything Around the LLM"                  │
+  │  ─────────────────────────────────────────────────────                 │
+  │  This IS the existing NS Blueprint:                                     │
+  │  BRIDGE routing, Confidence Calibration, Quality Gates,                │
+  │  Four Archetypes, Thread Models, Handoff Protocol, Fix Ledger          │
+  │                                                                         │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+MEMORY TYPES TAXONOMY
+
+WORKING MEMORY (in-context, volatile)
+  → The LLM's active context window: what's loaded right now
+  → NS pattern: claude.md + plan.md + relevant files = working memory
+  → Key constraint: context window limit — manage via BRIDGE routing
+
+PROCEDURAL MEMORY (how to do things)
+  → NS patterns already encode this:
+    • Fix Ledger — "this approach failed, use this instead"
+    • Skills — packaged instructions for specialized tasks
+    • Slash commands — encoded repeatable workflows
+    • RPIT Loop — the canonical procedure for feature development
+
+EPISODIC MEMORY (what happened)
+  → Structured artifacts that survive session boundaries:
+    • plan.md (current feature history, checked-off steps)
+    • CHANGELOG.md (what changed and when)
+    • architecture.md (how the system evolved)
+    • git log (immutable record of what actually happened)
+  → Cross-session continuity: these ARE your episodic memory
+
+SEMANTIC MEMORY (what things are — knowledge)
+  → MBF categories: 62 technology domains, searchable knowledge
+  → architecture.md: what your specific system IS
+  → research reports: domain knowledge captured before building
+  → BRIDGE.md: navigational knowledge of the framework itself
+
+ASSOCIATIVE MEMORY (what connects to what)
+  → Cross-category dependencies in MBF
+  → Section references in Blueprint
+  → Fix Ledger linking symptoms to solutions
+  → Repository maps: function → caller → dependent relationships
+
+────────────────────────────────────────────────────────────────────────────────
+
+MEMORY WEIGHTING ALGORITHM
+
+From the Stanford Generative Agents paper. When multiple memories compete for
+limited context space, prioritize by:
+
+  weight(memory) = α·relevance + β·importance + γ·recency
+
+  Where α + β + γ = 1.0 (tunable per use case)
+
+  relevance = cosine_similarity(query, memory)    ← how related to current task
+  importance = normalize(reference_count)         ← how central to knowledge graph
+  recency = exp(-λ × hours_since_creation)        ← how fresh
+
+TUNING BY USE CASE:
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  Use Case          │  α (Relevance) │  β (Importance) │  γ (Recency) │
+  ├──────────────────────────────────────────────────────────────────────┤
+  │  Research/Knowledge │     0.6        │      0.3        │     0.1      │
+  │  Conversational     │     0.4        │      0.2        │     0.4      │
+  │  Task Execution     │     0.5        │      0.4        │     0.1      │
+  │  Real-time Agent    │     0.3        │      0.2        │     0.5      │
+  └──────────────────────────────────────────────────────────────────────┘
+
+NS PRACTICAL APPLICATION:
+  When choosing what to load into context for a session, weight by:
+  → How relevant is this document to what we're building today? (relevance)
+  → How often is this referenced by other documents? (importance)
+  → How recently was this updated? (recency)
+  
+  Example: architecture.md (high importance, medium recency) > 
+           old research report (medium relevance, low recency)
+
+────────────────────────────────────────────────────────────────────────────────
+
+CONTEXT COMPACTION STRATEGIES
+
+Two strategies — choose based on whether you can afford information loss:
+
+LEVEL 1: SUMMARIZATION (lossy — accept information loss)
+  When to use: Long conversation history, background context
+  How: LLM compresses conversation into summary
+  NS pattern: "Summarize the last 20 turns into 5 key decisions and
+              current state" → store in session-summary.md
+
+LEVEL 2: EXTERNALIZATION WITH REFERENCE IDs (lossless — no loss)
+  When to use: Tool results, code blocks, detailed data
+  How: Move content to file, leave pointer in context
+  Pattern:
+    BEFORE: Full database query result (2000 tokens)
+    AFTER:  "[Externalized: query_result_2024.json] 
+             Summary: 502 records. Call retrieve() if needed."
+  NS implementation: Write verbose tool results to /tmp/session-[id]/
+                     Keep only summary + reference path in context
+
+DECISION:
+  Tool results → Externalize (Level 2)
+  Conversation history → Summarize (Level 1)
+  Knowledge context → Selective retrieval via BRIDGE routing
+
+────────────────────────────────────────────────────────────────────────────────
+
+THE FRONTLOADING PRINCIPLE
+
+"Pre-process everything so the LLM can focus on reasoning."
+
+The fundamental insight: LLMs perform better when they don't have to BOTH
+select information AND reason about it simultaneously. Separate the concerns.
+
+NS IMPLEMENTATION — STRUCTURED CONTEXT TEMPLATE:
+
+  <context>
+    <procedural_memory>
+      <!-- Things Claude can DO — skills, tools, workflows -->
+      Active skills: [list of loaded skills]
+      Available commands: [slash commands]
+      Known patterns: [relevant entries from Fix Ledger]
+    </procedural_memory>
+
+    <semantic_memory>
+      <!-- Things Claude KNOWS about this project -->
+      Architecture: [see architecture.md]
+      Tech stack: [current tech choices]
+      Domain rules: [business constraints from claude.md]
+    </semantic_memory>
+
+    <episodic_memory>
+      <!-- What HAS HAPPENED in this project -->
+      Recent: [git log --oneline -5]
+      Current feature: [plan.md summary, completed steps]
+      Key decisions: [from CHANGELOG.md]
+    </episodic_memory>
+
+    <working_memory>
+      <!-- What we're DOING NOW -->
+      Task: [current step from plan.md]
+      Success criteria: [from plan.md]
+      Constraints: [active constraints]
+    </working_memory>
+  </context>
+
+WHY THIS MATTERS: When context is structured this way, Claude instantly
+knows which "drawer" to open for each type of reasoning. This produces
+measurably better output than undifferentiated context.
+
+────────────────────────────────────────────────────────────────────────────────
+
+MEMORY QUALITY GATES
+
+□ Memory Core selected and documented (see MBF Category 62)
+□ Memory types identified for your use case
+□ Compaction strategy selected (summarization vs externalization)
+□ Episodic artifacts current: plan.md, architecture.md, CHANGELOG.md
+□ Retrieval accuracy tested: does semantic search return expected results?
+□ Forgetting threshold set: low-weight memories archived or pruned
+□ Cross-session continuity verified: new session recovers state from files
+
+MEMORY ARCHITECTURE QUALITY GATE FOR DEFINITION OF DONE
+□ Memory architecture documented for the feature
+□ Episodic artifacts updated (plan.md checked off, CHANGELOG entry)
+□ Any new patterns encoded into skills or claude.md rules
+```
+
+---
+
 ## PART XII SUMMARY
 
 ```
@@ -14127,13 +16678,27 @@ Each loop iteration:
 │  • ADRs for decision capture                                                 │
 │  • Feedback loops: Observe → Measure → Analyze → Decide → Act               │
 │                                                                              │
+│  v6.1 ADDITIONS:                                                             │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Retro Skill / Outer Improvement Loop (v6.1 — ENH-016)                   │
+│  • Memory Architecture — Third Engineering Layer (v6.1 — ENH-040)          │
+│    Three-Pillar Architecture, Memory Types Taxonomy,                        │
+│    Weighting Algorithm, Compaction Strategies, Frontloading Principle       │
+│                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
+# PART XIII: QUICK REFERENCE & INDEXES
 
 ---
 
+## 57. MASTER CHECKLISTS
+
+### 57.1 Project Kickoff Checklist
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
 │                      PROJECT KICKOFF CHECKLIST                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
@@ -14634,9 +17199,9 @@ Coverage
 │                         DOCUMENT METADATA                                    │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  Title:           North Star Blueprint v5.0                                  │
+│  Title:           North Star Blueprint v6.0                                  │
 │  Subtitle:        The Comprehensive Development Framework                    │
-│  Version:         5.0                                                        │
+│  Version:         6.0                                                        │
 │  Status:          Active                                                     │
 │                                                                              │
 │  Created:         January 2025                                               │
@@ -14812,13 +17377,550 @@ PART XIII: QUICK REFERENCE
 
 ---
 
+
+
+---
+
+# PART XIV: HUMAN-AGENT COLLABORATION
+
+> **PURPOSE:** This part provides practical operational guidance for humans working alongside AI agents. While Parts IV-VI describe HOW agents work, Part XIV describes HOW TO WORK WITH THEM.
+
+> **AUDIENCE:** Developers, project managers, and anyone operating AI agents during development.
+
+> **RELATIONSHIP TO BOOTSTRAP:** Bootstrap Section 14 (Agent Operation Patterns) contains a condensed agent-facing version. This Part XIV is the expanded human-facing companion.
+
+---
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              HOW TO OPERATE AGENTS WHILE BUILDING                            ║
+║                                                                              ║
+║                     Practical Collaboration Guide                            ║
+║                                                                              ║
+║                          ────────────────                                    ║
+║                                                                              ║
+║        "The agent is your amplifier, not your replacement."                  ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 14.1 THE AUTONOMY DIAL IN PRACTICE
+
+### 14.2.0 Choosing the Right Level
+
+```
+AUTONOMY LEVEL QUICK REFERENCE
+─────────────────────────────────────────────────────────────────────────────
+
+LEVEL 1-2: SUGGEST ONLY
+─────────────────────────────────────────────────────────────────────────────
+Agent explains, you decide and execute.
+
+USE WHEN:
+  • Learning a new codebase
+  • Critical architecture decisions
+  • Security-sensitive changes
+  • You want to understand WHY, not just WHAT
+
+YOUR ROLE: Active decision-maker
+AGENT ROLE: Advisor, educator
+
+PROMPT PATTERN:
+  "Explain how I should approach [X]. Don't write code yet—
+   just walk me through the options and trade-offs."
+
+
+LEVEL 3-4: DRAFT & WAIT
+─────────────────────────────────────────────────────────────────────────────
+Agent creates drafts, you review before applying.
+
+USE WHEN:
+  • Most feature development
+  • Moderate complexity tasks
+  • Building trust with new agent/tool
+  • You want quality but also speed
+
+YOUR ROLE: Reviewer, approver
+AGENT ROLE: Draft creator
+
+PROMPT PATTERN:
+  "Create a draft implementation of [X]. I'll review before
+   we commit. Show me the plan first."
+
+
+LEVEL 5-6: EXECUTE WITH CHECKS
+─────────────────────────────────────────────────────────────────────────────
+Agent executes and reports, pauses only on issues.
+
+USE WHEN:
+  • Well-understood patterns
+  • Repetitive tasks
+  • You trust the agent's judgment
+  • Time is more critical than review
+
+YOUR ROLE: Monitor, intervene when flagged
+AGENT ROLE: Executor with guardrails
+
+PROMPT PATTERN:
+  "Implement [X] using our established patterns. Run tests
+   after. Only pause if tests fail or you're uncertain."
+
+
+LEVEL 7: FULL AUTONOMOUS
+─────────────────────────────────────────────────────────────────────────────
+Agent completes entire workflow independently.
+
+USE WHEN:
+  • Routine maintenance tasks
+  • High trust, low risk
+  • You're multitasking
+  • Well-defined acceptance criteria
+
+YOUR ROLE: Start and accept
+AGENT ROLE: Independent executor
+
+PROMPT PATTERN:
+  "Complete [entire task]. Follow our conventions. Report
+   when done with summary of changes."
+```
+
+### 14.1.2 Dynamic Adjustment
+
+```
+WHEN TO RAISE AUTONOMY (Trust More):
+─────────────────────────────────────────────────────────────────────────────
+✓ Agent successfully completed similar tasks
+✓ Pattern is well-established in codebase
+✓ Tests provide safety net
+✓ Changes are easily reversible
+✓ Time pressure exists
+
+WHEN TO LOWER AUTONOMY (Control More):
+─────────────────────────────────────────────────────────────────────────────
+✓ Agent made unexpected changes
+✓ Entering unfamiliar territory
+✓ Stakes are high (production, data, security)
+✓ Multiple errors occurred
+✓ You're not confident in understanding
+```
+
+---
+
+## 14.2 CONFIDENCE CALIBRATION IN PRACTICE
+
+### 14.2.1 Reading Agent Confidence
+
+```
+AGENT SIGNALS AND YOUR RESPONSE
+─────────────────────────────────────────────────────────────────────────────
+
+AGENT SAYS              │ CONFIDENCE │ YOUR ACTION
+─────────────────────────────────────────────────────────────────────────────
+"This will work..."     │ CERTAIN    │ Trust, verify normally
+"This should work..."   │ HIGH       │ Trust, test thoroughly
+"I believe..." / "I     │ MEDIUM     │ Review carefully, test
+think..."               │            │ edge cases
+"I'm not sure..." /     │ LOW        │ Get second opinion,
+"My best guess..."      │            │ verify approach
+"I need more info..."   │ UNCERTAIN  │ Provide context,
+                        │            │ don't proceed
+```
+
+### 14.2.2 Prompting for Confidence
+
+```
+PROMPTS THAT ELICIT BETTER CONFIDENCE SIGNALS
+─────────────────────────────────────────────────────────────────────────────
+
+Instead of: "How do I do X?"
+Ask: "How confident are you about the approach to X?
+     What assumptions are you making?"
+
+Instead of: "Fix this bug."
+Ask: "What do you think is causing this bug? How certain
+     are you? What would you need to verify to be more sure?"
+
+Instead of: "Is this code secure?"
+Ask: "What security concerns do you see? What are you
+     uncertain about? What should I verify independently?"
+```
+
+---
+
+## 14.3 THREAD MANAGEMENT
+
+### 14.3.1 When to Parallelize (P-Thread)
+
+```
+PARALLELIZATION DECISION
+─────────────────────────────────────────────────────────────────────────────
+
+PARALLELIZE WHEN:
+  ✓ Tasks are independent (no shared state)
+  ✓ Results can be merged cleanly
+  ✓ Time savings justify coordination overhead
+  ✓ You can review multiple outputs
+
+EXAMPLES:
+  • Build 3 UI components simultaneously
+  • Research options while drafting implementation
+  • Run tests in parallel with documentation
+
+DON'T PARALLELIZE WHEN:
+  ✗ Tasks depend on each other's output
+  ✗ Working on same files
+  ✗ You can't review parallel outputs effectively
+```
+
+### 14.3.2 When to Chain (C-Thread)
+
+```
+CHAINING DECISION
+─────────────────────────────────────────────────────────────────────────────
+
+USE CHAINING WHEN:
+  ✓ Output of phase N is input to phase N+1
+  ✓ Quality gates must pass before proceeding
+  ✓ Each phase needs verification
+  ✓ Rollback points are valuable
+
+EXAMPLE CHAIN:
+  Phase 1: Design API schema        → Review → Approve
+  Phase 2: Implement endpoints      → Review → Approve
+  Phase 3: Write tests              → Review → Approve
+  Phase 4: Documentation            → Review → Accept
+
+CHECKPOINT PATTERN:
+  "Complete [Phase 1]. Stop and show me the result before
+   moving to [Phase 2]. I want to verify before continuing."
+```
+
+### 14.3.3 When to Fuse (F-Thread)
+
+```
+FUSION DECISION
+─────────────────────────────────────────────────────────────────────────────
+
+USE FUSION (Best-of-N) WHEN:
+  ✓ Creative output varies significantly
+  ✓ Multiple valid approaches exist
+  ✓ Quality matters more than speed
+  ✓ You have compute budget for N runs
+
+EXAMPLE:
+  "Generate 3 different approaches to this architecture.
+   I'll review all three and pick the best elements."
+
+PRACTICAL APPLICATION:
+  • Use different models for same prompt
+  • Use same model with temperature variation
+  • Use different framing of same problem
+```
+
+---
+
+## 14.4 HUMAN CHECKPOINT OPTIMIZATION
+
+### 14.4.1 Valuable vs. Wasteful Checkpoints
+
+```
+VALUABLE CHECKPOINTS (Keep These)
+─────────────────────────────────────────────────────────────────────────────
+✓ Before irreversible actions (delete, deploy, send)
+✓ After architecture decisions
+✓ When agent confidence is LOW
+✓ Before security-sensitive changes
+✓ After major milestones
+
+WASTEFUL CHECKPOINTS (Eliminate These)
+─────────────────────────────────────────────────────────────────────────────
+✗ Approving every small code change
+✗ Confirming well-established patterns
+✗ Reviewing auto-generated boilerplate
+✗ Validating obvious next steps
+```
+
+### 14.4.2 Reducing Checkpoint Overhead
+
+```
+STRATEGIES FOR FEWER, BETTER CHECKPOINTS
+─────────────────────────────────────────────────────────────────────────────
+
+1. BATCH REVIEWS
+   Instead of reviewing 10 changes individually,
+   have agent complete a coherent chunk, then review once.
+
+2. TRUST BUT VERIFY
+   Let agent execute, but require comprehensive test coverage.
+   Tests become automated checkpoints.
+
+3. DEFINE CLEAR CRITERIA
+   "Proceed without checking in unless:
+    - You're uncertain (confidence < MEDIUM)
+    - Tests fail
+    - Scope needs to change"
+
+4. USE SUMMARY REPORTS
+   "At the end, give me a summary of all changes made.
+    I'll do a single comprehensive review."
+```
+
+---
+
+## 14.5 TOOL CALL EFFICIENCY
+
+### 14.5.1 The Efficiency Equation
+
+```
+AGENT EFFICIENCY = (Tool Calls × Quality) / Human Time
+
+OPTIMIZE BY:
+─────────────────────────────────────────────────────────────────────────────
+
+MORE THREADS:       Do more things in parallel
+LONGER THREADS:     Do more before requiring human input
+THICKER THREADS:    More tool calls per thread (higher autonomy)
+FEWER CHECKPOINTS:  Reduce human interruptions
+
+PRACTICAL TRANSLATION:
+─────────────────────────────────────────────────────────────────────────────
+Instead of: "Create the button component."
+            "Now add click handler."
+            "Now add styling."
+            "Now add tests."
+
+Use: "Create the button component with click handler,
+     styling matching our design system, and unit tests.
+     Report when complete."
+
+     (Same outcome, 75% fewer checkpoints)
+```
+
+### 14.5.2 Prompting for Efficiency
+
+```
+EFFICIENT PROMPTS
+─────────────────────────────────────────────────────────────────────────────
+
+HIGH FRICTION (Multiple checkpoints):
+  "What testing library should we use?"
+  [wait for answer]
+  "Ok, set it up."
+  [wait for setup]
+  "Now write tests for the auth module."
+  [wait for tests]
+
+LOW FRICTION (Single context):
+  "Set up our testing infrastructure using [Jest/Vitest
+  based on our stack], then write comprehensive tests
+  for the auth module. Use our established patterns.
+  Report when complete with coverage summary."
+```
+
+---
+
+## 14.6 SELF-HEALING IMPLEMENTATION
+
+### 14.6.1 Enabling Self-Healing
+
+```
+PROMPT PATTERNS FOR SELF-HEALING
+─────────────────────────────────────────────────────────────────────────────
+
+EXPLICIT PERMISSION:
+  "Implement [X]. If you encounter errors:
+   1. Read the error carefully
+   2. Attempt to fix (max 3 tries per error type)
+   3. If still failing, stop and report what you tried"
+
+BOUNDED AUTONOMY:
+  "Fix the failing tests. Try up to 3 different approaches
+   if the first doesn't work. If all fail, document what
+   you tried and what you suspect is wrong."
+
+WITH LEARNING:
+  "Resolve this bug. Document in Fix Ledger format:
+   - What was tried
+   - What worked/failed
+   - Root cause identified"
+```
+
+### 14.6.2 Circuit Breakers
+
+```
+BUILT-IN STOP CONDITIONS
+─────────────────────────────────────────────────────────────────────────────
+
+INSTRUCT AGENT:
+  "Stop and ask me if:
+   - Same error occurs 3+ times
+   - You need to make changes outside [scope]
+   - Your confidence drops below MEDIUM
+   - Something feels wrong"
+
+AUTOMATIC ESCALATION:
+  "If you can't resolve in [3 attempts / 15 minutes]:
+   1. Document what you tried
+   2. State your current hypothesis
+   3. Ask for human guidance
+   
+   Do NOT keep trying the same approach."
+```
+
+---
+
+## 14.7 OPERATIONAL PATTERNS
+
+### 14.7.1 The Plan Mode Dance
+
+```
+WHEN AGENT ENTERS PLAN MODE
+─────────────────────────────────────────────────────────────────────────────
+
+AGENT: Restates understanding, asks clarifying questions
+
+YOU:
+  ✓ Answer questions directly
+  ✓ Correct misunderstandings immediately
+  ✓ Add constraints you forgot to mention
+  ✓ Approve approach or redirect
+
+ANTI-PATTERN:
+  ✗ "Just do what I asked" (leads to misalignment)
+  ✗ Ignoring questions (agent will assume)
+  ✗ Changing requirements mid-execution
+```
+
+### 14.7.2 The Handoff Protocol
+
+```
+ENDING A SESSION CLEANLY
+─────────────────────────────────────────────────────────────────────────────
+
+PROMPT:
+  "Let's wrap up this session. Please:
+   1. Summarize what we accomplished
+   2. List any incomplete items
+   3. Update claude.md with current state
+   4. Note any decisions that need follow-up
+   5. Commit your changes with proper messages"
+
+RESULT: Clean state for next session or another agent
+```
+
+### 14.7.3 The Debug Protocol
+
+```
+WHEN THINGS GO WRONG
+─────────────────────────────────────────────────────────────────────────────
+
+STEP 1: STOP THE LOOP
+  "Stop. We've tried this 3 times. Let's step back."
+
+STEP 2: GATHER INFORMATION
+  "Tell me:
+   - What exactly is the error?
+   - What have you tried?
+   - What assumptions are you making?"
+
+STEP 3: QUESTION ASSUMPTIONS
+  "Is the problem actually what we think it is?
+   What would we expect to see if our assumption is wrong?"
+
+STEP 4: FRESH APPROACH
+  "Let's try a completely different approach.
+   What else could cause this symptom?"
+```
+
+---
+
+## 14.8 QUICK REFERENCE CARD
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     AGENT OPERATION QUICK REFERENCE                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  BEFORE STARTING:                                                            │
+│  □ Set autonomy level based on task risk/familiarity                        │
+│  □ Provide complete context upfront                                          │
+│  □ Define clear acceptance criteria                                          │
+│                                                                              │
+│  DURING EXECUTION:                                                           │
+│  □ Let agent complete coherent chunks before reviewing                       │
+│  □ Answer questions directly, don't deflect                                  │
+│  □ Adjust autonomy if things go off track                                    │
+│  □ Watch for confidence signals                                              │
+│                                                                              │
+│  WHEN STUCK:                                                                 │
+│  □ Stop after 3 failed attempts                                              │
+│  □ Question assumptions                                                      │
+│  □ Try different framing or approach                                         │
+│  □ Consider if problem is elsewhere                                          │
+│                                                                              │
+│  ENDING SESSION:                                                             │
+│  □ Get summary of changes                                                    │
+│  □ Update project state files                                                │
+│  □ Commit with proper messages                                               │
+│  □ Note incomplete items                                                     │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  EFFICIENCY MANTRAS:                                                         │
+│  • More context upfront = fewer corrections later                            │
+│  • Batch reviews > constant interruptions                                    │
+│  • Clear criteria = autonomous execution                                     │
+│  • Trust + Verify > Control + Approve                                       │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## PART XIV SUMMARY
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    PART XIV: KEY TAKEAWAYS                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  AUTONOMY: Start at Level 3, adjust based on trust and context              │
+│                                                                              │
+│  CONFIDENCE: Always ask for certainty signals on important decisions        │
+│                                                                              │
+│  THREADS: Match work structure to dependency pattern                         │
+│                                                                              │
+│  CHECKPOINTS: Fewer but more meaningful > many but shallow                  │
+│                                                                              │
+│  EFFICIENCY: Batch requests, provide context, reduce round-trips            │
+│                                                                              │
+│  SELF-HEALING: Enable for routine failures, cap attempts, escalate smart    │
+│                                                                              │
+│  OPERATIONS: Use plan mode for complexity, handoff for continuity           │
+│                                                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                              │
+│  The best human-agent collaboration happens when:                           │
+│  • Humans set direction and verify quality                                  │
+│  • Agents execute and report with appropriate autonomy                      │
+│  • Both sides communicate uncertainty clearly                               │
+│  • Handoffs preserve context perfectly                                      │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## D. VERSION HISTORY
 
 ```
 VERSION HISTORY
 ─────────────────────────────────────────────────────────────────────────────
 
-v5.0 (January 2025) - CURRENT
+v6.0 (January 2025) - CURRENT
 ─────────────────────────────────────────────────────────────────────────────
 Major release: AI-Native Development Framework
 
@@ -14927,7 +18029,4 @@ Initial Release
 
 ---
 
-*End of North Star Blueprint v5.0*
-
----
-
+*End of North Star Blueprint v6.0*

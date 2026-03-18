@@ -1,15 +1,21 @@
 #!/bin/bash
 # ──────────────────────────────────────────────────────────────────────────────
-# NORTH STAR BLUEPRINT — Segment Merge Script
+# NORTH STAR BLUEPRINT — Segment Merge Script (Consolidated)
 #
-# Merges the 7 development segments (+ front matter) into the monolith
-# distribution file: NORTH_STAR_BLUEPRINT_v6.1.md
+# Merges the 7 PART_* development segments into the monolith distribution file:
+#   NORTH_STAR_BLUEPRINT_v6.1.md
+#
+# CONSOLIDATION NOTE (2026-03-18):
+#   This script was rewritten to source from the 7-file PART_* scheme, which
+#   is now the sole source of truth for Blueprint content. The previous 14-file
+#   OG Originals scheme has been archived to _archived_OG_Originals/.
+#   See HANDOFF.md for migration history.
 #
 # Usage:
 #   ./scripts/merge_nsb_segments.sh [output_file] [source_dir]
 #
 # Default output: north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md
-# Default source: projects/Segment Mods/NSBP6.0 -Segments/OG -Originals
+# Default source: projects/Segment Mods/NSBP6.0 -Segments
 #
 # This script is for DEVELOPMENT OPERATIONS — not for end users.
 # End users receive the pre-built monolith file from the repository.
@@ -23,38 +29,38 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 OUTPUT_FILE="${1:-$REPO_ROOT/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md}"
-SOURCE_DIR="${2:-$REPO_ROOT/projects/Segment Mods/NSBP6.0 -Segments/OG -Originals}"
+SOURCE_DIR="${2:-$REPO_ROOT/projects/Segment Mods/NSBP6.0 -Segments}"
 
-# Segment files in merge order
+# The 7 PART_* files in merge order (sole source of truth)
 SEGMENTS=(
-  "00_FRONT_MATTER.md"
-  "01_PART_I_FOUNDATION.md"
-  "02_PART_II_PRIMITIVES.md"
-  "03_PART_III_DOCUMENTATION.md"
-  "04_PART_IV_AI_ORCHESTRATION.md"
-  "05_PART_V_AGENT_COMPOSITION.md"
-  "06_PART_VI_MCP_TOOLS.md"
-  "07_PART_VII_DESIGN_MASTERY.md"
-  "08_PART_VIII_CODE_ARCHITECTURE.md"
-  "09_PART_IX_TESTING.md"
-  "10_PART_X_SECURITY.md"
-  "11_PART_XI_DEVOPS.md"
-  "12_PART_XII_FUTURE_PROOFING.md"
-  "13_PART_XIII_QUICK_REFERENCE.md"
+  "PART_1_FOUNDATION.md"
+  "PART_2_DOCUMENTATION.md"
+  "PART_3_ORCHESTRATION.md"
+  "PART_4_DESIGN.md"
+  "PART_5_IMPLEMENTATION.md"
+  "PART_6_QUALITY.md"
+  "PART_7_ADVANCED.md"
 )
 
-# Lines to skip at the top of each segment (segment navigation header)
-# The front matter (segment 0) is included in full.
-SKIP_LINES=10
+# Each segment has an 8-line navigation header to strip:
+#   Line 1: # NORTH STAR BLUEPRINT v6.1 — SEGMENT N of 7
+#   Line 2: ## PART_N_NAME
+#   Line 3: ### Contents: ...
+#   Line 4: ### Lines: ...
+#   Line 5: ---
+#   Line 6: > **SEGMENT NAVIGATION:** ...
+#   Line 7: > For BRIDGE routing: ...
+#   Line 8: ---
+HEADER_LINES=8
 
 # ── Validation ──
 echo "╔══════════════════════════════════════════════════════════╗"
-echo "║  North Star Blueprint — Segment Merge                   ║"
+echo "║  North Star Blueprint — Segment Merge (7-file PART_*)   ║"
 echo "╚══════════════════════════════════════════════════════════╝"
 echo ""
 
 if [ ! -d "$SOURCE_DIR" ]; then
-  echo "?O ERROR: Source directory not found: $SOURCE_DIR"
+  echo "ERROR: Source directory not found: $SOURCE_DIR"
   echo ""
   echo "   Usage: ./scripts/merge_nsb_segments.sh [output_file] [source_dir]"
   exit 1
@@ -68,12 +74,12 @@ for seg in "${SEGMENTS[@]}"; do
 done
 
 if [ ${#MISSING[@]} -gt 0 ]; then
-  echo "❌ ERROR: Missing segment files:"
+  echo "ERROR: Missing segment files:"
   for m in "${MISSING[@]}"; do
-    echo "   → $m"
+    echo "   -> $m"
   done
   echo ""
-  echo "   Check that source_dir contains all segment files."
+  echo "   Check that source_dir contains all 7 PART_* segment files."
   exit 1
 fi
 
@@ -81,7 +87,8 @@ fi
 mkdir -p "$(dirname "$OUTPUT_FILE")"
 
 # ── Merge ──
-echo "Merging ${#SEGMENTS[@]} segments..."
+echo "Merging ${#SEGMENTS[@]} segments from PART_* scheme..."
+echo "Source: $SOURCE_DIR"
 echo ""
 
 # Start with empty file
@@ -92,21 +99,15 @@ for i in "${!SEGMENTS[@]}"; do
   filepath="$SOURCE_DIR/$seg"
   line_count=$(wc -l < "$filepath")
 
-  if [ "$i" -eq 0 ]; then
-    # Front matter: include in full
-    cat "$filepath" >> "$OUTPUT_FILE"
-    echo "  ✅ $seg (full — $line_count lines)"
-  else
-    # Other segments: skip the navigation header
-    tail -n +$((SKIP_LINES + 1)) "$filepath" >> "$OUTPUT_FILE"
-    included=$((line_count - SKIP_LINES))
-    echo "  ✅ $seg (skipped $SKIP_LINES header lines — $included lines included)"
-  fi
+  # Strip the 8-line segment navigation header from every file
+  tail -n +$((HEADER_LINES + 1)) "$filepath" >> "$OUTPUT_FILE"
+  included=$((line_count - HEADER_LINES))
+  echo "  [OK] $seg (skipped $HEADER_LINES header lines -- $included lines included)"
 
-  # Add separator between segments
-  echo "" >> "$OUTPUT_FILE"
-  echo "---" >> "$OUTPUT_FILE"
-  echo "" >> "$OUTPUT_FILE"
+  # Add separator between segments (not after the last one)
+  if [ "$i" -lt $((${#SEGMENTS[@]} - 1)) ]; then
+    echo "" >> "$OUTPUT_FILE"
+  fi
 done
 
 # ── Report ──
@@ -115,7 +116,7 @@ TOTAL_SIZE=$(du -h "$OUTPUT_FILE" | cut -f1)
 
 echo ""
 echo "──────────────────────────────────────────────────────────"
-echo "✅ Merge complete"
+echo "Merge complete"
 echo "   Output:  $OUTPUT_FILE"
 echo "   Lines:   $TOTAL_LINES"
 echo "   Size:    $TOTAL_SIZE"

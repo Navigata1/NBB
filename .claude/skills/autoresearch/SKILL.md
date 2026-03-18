@@ -2,6 +2,11 @@
 name: autoresearch
 version: 1.0
 author: NavigatingTruth / NorthStarFramework
+upstream_repo: https://github.com/karpathy/autoresearch
+upstream_sha: 32a1460f626e28479d427c033ee485bf5f86875a
+upstream_repo_secondary: https://github.com/uditgoenka/autoresearch
+upstream_sha_secondary: 89aa3324beec399fc11a01c2fe1532b80f3eff42
+upstream_pinned: 2026-03-18
 description: >
   Autonomous iteration loop for measurable improvement. Define a goal,
   a metric, and a verification command, then loop: make one atomic change,

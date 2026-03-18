@@ -65,6 +65,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 #### Changed
 - **Anti-Pattern 3 (Context Blindness)** — Updated threshold from "stop at 85%" to "begin winding down at 50%, hard stop at 85%". Added sub-agent recommendation. Title count updated to "13 Mistakes."
 
+### Batch 9 Phase 3 — Consolidation & Supply Chain Pinning (2026-03-18)
+
+#### Changed
+- **NSB Segmentation Consolidated** — Eliminated dual-source problem. PART_* (7-file scheme) is now the sole source of truth. Merge script rewritten to source from PART files directly. OG Originals (14-file scheme) archived to `_archived_OG_Originals/`. Monolith regenerated: 18,032 lines (up from 14,933 — reflects full v6.1 content).
+- **SKILLS_REGISTRY.md v2.1 → v2.2** — Pinned commit SHAs for all 4 priority-1 vendored skills: `skill-creator` and `mcp-builder` (anthropics/skills), `design-taste` (leonxlnx/taste-skill), `autoresearch` (karpathy/autoresearch + uditgoenka/autoresearch). SHA provenance table added to Section 4.
+- **Pre-write hook hardened** — Now uses directory-based path matching (`north-star-blueprint/`, `master-build-framework/`) in addition to version-agnostic filename patterns. Survives version bumps.
+- **4 local skill SKILL.md files updated** — Added `upstream_sha` and `upstream_pinned` frontmatter to skill-creator, mcp-builder, design-taste, autoresearch.
+
+#### Added
+- **Session Retro** — `research/retro-2026-03-18.md` capturing Batch 9 learnings. Two rules encoded in CLAUDE.md: (8) mandatory verification pass for external references, (9) directory-based matching in hooks.
+
 ### Batch 9 Phase 2 — Verification & Governance (2026-03-17)
 
 #### Added

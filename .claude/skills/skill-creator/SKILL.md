@@ -2,6 +2,9 @@
 name: skill-creator
 version: 1.0
 author: NavigatingTruth / NorthStarFramework
+upstream_repo: https://github.com/anthropics/skills
+upstream_sha: b0cbd3df1533b396d281a6886d5132f623393a9c
+upstream_pinned: 2026-03-18
 description: >
   Meta-skill for building, testing, and improving other skills. Use when
   creating a new skill from scratch, improving an existing skill, running

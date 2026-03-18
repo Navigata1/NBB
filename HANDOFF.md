@@ -54,27 +54,18 @@
 
 ---
 
-## KNOWN STRUCTURAL ISSUE: Dual NSB Segments
+## RESOLVED: Dual NSB Segments (consolidated 2026-03-18)
 
-The NSB has **two** segmentation schemes that must stay in sync:
+The dual segmentation issue has been resolved. The 7-file `PART_*` scheme is now the **sole source of truth**.
 
-1. **PART_* files** (7 files) in `projects/Segment Mods/NSBP6.0 -Segments/` — used for development edits
-2. **OG -Originals** (14 numbered files) in `projects/Segment Mods/NSBP6.0 -Segments/OG -Originals/` — used by `merge_nsb_segments.sh`
+**What changed:**
+- `merge_nsb_segments.sh` rewritten to source from `PART_1` through `PART_7` directly (was using 14-file OG Originals)
+- `OG -Originals/` renamed to `_archived_OG_Originals/` (not deleted, for reference)
+- Content verified: all Mar 17 patches (blast radius, IaC safety, consent fatigue, backup independence) confirmed present in PART equivalents before consolidation
 
-**Mapping:**
-| PART_* File | OG Original Files |
-|-------------|-------------------|
-| PART_1_FOUNDATION | 00_FRONT_MATTER + 01_PART_I + 02_PART_II |
-| PART_2_DOCUMENTATION | 03_PART_III |
-| PART_3_ORCHESTRATION | 04_PART_IV + 05_PART_V |
-| PART_4_DESIGN | 06_PART_VI + 07_PART_VII |
-| PART_5_IMPLEMENTATION | 08_PART_VIII + 09_PART_IX |
-| PART_6_QUALITY | 10_PART_X + 11_PART_XI |
-| PART_7_ADVANCED | 12_PART_XII + 13_PART_XIII |
+**Current workflow:** Edit `PART_N` segment, run `bash scripts/merge_nsb_segments.sh`, commit.
 
-**Rule:** When editing a PART_* file, the same change must be propagated to the corresponding OG original(s), or vice versa. Then run the merge script to regenerate the monolith.
-
-**Future consideration:** Consolidate to a single segmentation scheme to eliminate this sync burden.
+**Note:** `projects/Segment Originals/NSBP6.0 -Segments/` also contains an `OG -Originals/` directory that was not archived (it is a separate copy under Segment Originals, not Segment Mods). Consider archiving it in a future cleanup pass.
 
 ---
 
@@ -84,7 +75,7 @@ All Phase 2 tasks are complete. Recommended next actions:
 
 1. **Run `retro` skill** to capture Batch 9 learnings
 2. **Commit Phase 2 work** (new files: AGENTS.md, .claude/hooks/pre-write.sh; modified: SKILLS_REGISTRY.md, GLOBAL_IDE_RULES.md, CLAUDE.md, CHANGELOG.md, HANDOFF.md)
-3. **Consider Phase 3:** Consolidate dual NSB segmentation scheme, pin commit SHAs for vendored skills
+3. **Consider Phase 3:** Pin commit SHAs for vendored skills (dual NSB segmentation consolidated 2026-03-18)
 
 ---
 

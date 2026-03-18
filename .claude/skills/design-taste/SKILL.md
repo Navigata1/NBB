@@ -2,6 +2,9 @@
 name: design-taste
 version: 1.0
 author: NavigatingTruth / NorthStarFramework
+upstream_repo: https://github.com/leonxlnx/taste-skill
+upstream_sha: bd7e147de80749c05b1610cb739d5ea20ff84899
+upstream_pinned: 2026-03-18
 description: >
   Senior design engineer skill for premium frontend output. Overrides default
   LLM biases to produce high-end, non-generic interfaces with proper motion,
