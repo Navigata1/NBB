@@ -76,6 +76,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 #### Added
 - **Session Retro** — `research/retro-2026-03-18.md` capturing Batch 9 learnings. Two rules encoded in CLAUDE.md: (8) mandatory verification pass for external references, (9) directory-based matching in hooks.
 
+#### Fixed
+- **GLOBAL_IDE_RULES.md** — Roo Code section (previously orphaned after "End of" marker) moved into main structure as §6.8. Document structure now clean.
+- **`projects/Segment Originals/`** — Stale Jan 28 snapshot archived to `_archived_Segment_Originals/`. Was a third unused copy of PART_* files.
+- **Priority-2 SHAs pinned** — 9 additional Tier A reference-only skills on adoption shortlist now have pinned commit SHAs: 3 from `anthropics/skills`, 6 from `openai/codex-universal`.
+
 ### Batch 9 Phase 2 — Verification & Governance (2026-03-17)
 
 #### Added

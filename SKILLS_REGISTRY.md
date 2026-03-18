@@ -221,6 +221,23 @@ For every adopted external skill, record:
 | `autoresearch` v1.0 | `karpathy/autoresearch` (primary) | `32a1460f626e28479d427c033ee485bf5f86875a` | 2026-03-18 | Verified |
 | `autoresearch` v1.0 | `uditgoenka/autoresearch` (secondary) | `89aa3324beec399fc11a01c2fe1532b80f3eff42` | 2026-03-18 | Verified |
 
+### Pinned Commit SHAs (Priority-2 Reference-Only — Adoption Shortlist)
+
+> **Last verified:** 2026-03-18
+> These skills are not yet locally adapted. SHAs are pinned for provenance tracking ahead of future vendoring.
+
+| Skill | Upstream Repo | Pinned SHA | Pin Date | Status |
+|-------|--------------|------------|----------|--------|
+| `webapp-testing` | `anthropics/skills` | `b0cbd3df1533b396d281a6886d5132f623393a9c` | 2026-03-18 | Reference-only |
+| `frontend-design` | `anthropics/skills` | `b0cbd3df1533b396d281a6886d5132f623393a9c` | 2026-03-18 | Reference-only |
+| `doc-coauthoring` | `anthropics/skills` | `b0cbd3df1533b396d281a6886d5132f623393a9c` | 2026-03-18 | Reference-only |
+| `security-best-practices` | `openai/codex-universal` | `4b213374574fd025282d7c7118704e6afdaf1864` | 2026-03-18 | Reference-only |
+| `security-threat-model` | `openai/codex-universal` | `4b213374574fd025282d7c7118704e6afdaf1864` | 2026-03-18 | Reference-only |
+| `playwright` | `openai/codex-universal` | `4b213374574fd025282d7c7118704e6afdaf1864` | 2026-03-18 | Reference-only |
+| `gh-fix-ci` | `openai/codex-universal` | `4b213374574fd025282d7c7118704e6afdaf1864` | 2026-03-18 | Reference-only |
+| `screenshot` | `openai/codex-universal` | `4b213374574fd025282d7c7118704e6afdaf1864` | 2026-03-18 | Reference-only |
+| `doc` | `openai/codex-universal` | `4b213374574fd025282d7c7118704e6afdaf1864` | 2026-03-18 | Reference-only |
+
 ### Skill Lifecycle States
 
 ```

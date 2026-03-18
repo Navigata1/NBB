@@ -699,6 +699,35 @@ NS FRAMEWORK INTEGRATION:
 
 ---
 
+### 6.8 Roo Code (VS Code Extension)
+
+```
+ROO CODE SPECIFIC
+─────────────────────────────────────────────────────────────────────────────
+
+EXTENSION: VS Code extension for agentic AI workflows and context management
+
+PROJECT DETECTION:
+  • Roo Code detects NorthStarBuild projects via NORTH_STAR_BOOTSTRAP.md
+  • Automatically loads BRIDGE.md for workflow routing
+  • Skills Registry accessible via SKILLS_REGISTRY.md integration
+
+CONFIGURATION (.vscode/settings.json):
+  • roo.code.contextManagement.mode: "project-aware"
+  • roo.code.contextManagement.memoryCore: "./.nsb/memory/"
+  • roo.code.contextManagement.bridgeRouter: "./BRIDGE.md"
+  • roo.code.workflows.default: "mbf-gates"
+  • roo.code.workflows.skillsRegistry: "./SKILLS_REGISTRY.md"
+
+NS FRAMEWORK INTEGRATION:
+  • MBF quality gates enforced through task completion checkpoints
+  • Top-25 workflow shortcuts via command palette (Cmd+Shift+P → "Roo: Navigate BRIDGE")
+  • Persistent memory in ./.nsb/memory/ accessible across sessions
+  • File-based context persistence (similar to Claude Code session model)
+```
+
+---
+
 ## 7. DEVIATION HANDLING
 
 ```
@@ -888,78 +917,3 @@ UPDATING THESE GLOBAL RULES:
 ---
 
 *End of GLOBAL_IDE_RULES.md v1.1*
-
-
----
-
-## Roo Code Integration
-
-### Overview
-Roo Code is a VS Code extension that provides AI-assisted coding capabilities with a focus on agentic workflows and context management. It serves as a bridge between traditional IDE functionality and modern AI pair programming.
-
-### Configuration Patterns
-
-#### 1. Roo Code Settings (`.vscode/settings.json`)
-```json
-{
-  "roo.code.enabled": true,
-  "roo.code.contextManagement": {
-    "mode": "project-aware",
-    "memoryCore": "./.nsb/memory/",
-    "bridgeRouter": "./BRIDGE.md"
-  },
-  "roo.code.workflows": {
-    "default": "mbf-gates",
-    "top25": "enabled",
-    "skillsRegistry": "./SKILLS_REGISTRY.md"
-  }
-}
-```
-
-#### 2. Roo Code Workspace Rules
-- **Project Context**: Roo Code automatically detects NorthStarBuild projects via `NORTH_STAR_BOOTSTRAP.md` presence
-- **MBF Integration**: Quality gates are enforced through Roo Code's task completion checkpoints
-- **Memory Core**: Persistent context stored in `./.nsb/memory/` is accessible to Roo Code sessions
-- **BRIDGE Routing**: Top-25 workflow shortcuts available via Roo Code command palette
-
-#### 3. File Handling Patterns
-| File Type | Roo Code Behavior |
-|-----------|-------------------|
-| `*.md` | Full context awareness, cross-reference linking |
-| `NORTH_STAR_BOOTSTRAP.md` | Triggers project scaffolding mode |
-| `BRIDGE.md` | Workflow routing suggestions |
-| `./.nsb/memory/*` | Persistent memory access |
-| `./build/*` | Temporary scaffolding (auto-cleanup aware) |
-
-#### 4. Integration with Other IDEs
-| IDE | Roo Code Equivalent | Compatibility |
-|-----|---------------------|---------------|
-| VS Code | Roo Code (native) | ✅ Full |
-| Cursor | Cursor Composer | ✅ High |
-| Claude Code | Claude Code CLI | ✅ High |
-| Klein | Klein Editor | ⚠️ Partial |
-
-### Usage Workflows
-
-#### Workflow A: Project Bootstrap with Roo Code
-1. Open project in VS Code with Roo Code extension
-2. Roo Code detects `NORTH_STAR_BOOTSTRAP.md`
-3. Offers: "Initialize NorthStarBuild v6.0 Project?"
-4. Executes bootstrap flow with MBF quality gates
-
-#### Workflow B: BRIDE Navigation
-1. Use Roo Code command palette: `Cmd+Shift+P` → "Roo: Navigate BRIDGE"
-2. Select from Top-25 workflows
-3. Roo Code routes to appropriate documentation
-4. Context automatically loaded
-
-### Roo Code vs Other Agents
-| Feature | Roo Code | Claude Code | Cursor | Klein |
-|---------|----------|-------------|--------|-------|
-| Context Persistence | ✅ File-based | ✅ Session | ✅ Project | ⚠️ Limited |
-| MBF Integration | ✅ Native | ✅ Via BRIDGE | ⚠️ Partial | ❌ |
-| Skills Registry | ✅ Auto-load | ✅ Manual | ❌ | ❌ |
-| Memory Core | ✅ Full access | ✅ Full access | ⚠️ Partial | ❌ |
-| Voice/Chat | ⚠️ Planned | ✅ Yes | ❌ | ❌ |
-
----
