@@ -18,7 +18,9 @@ You are working on the North Star Framework itself — an AI-native development 
 | SKILLS_REGISTRY.md | Root | Canonical skills source map (v2.1) |
 | HARD_STOPS.md | Root | Agent-forbidden commands (severity-tiered) |
 | CHANGELOG.md | Root | Version history — check `[Unreleased]` for current batch state |
+| AGENTS.md | Root | Multi-agent ownership boundaries and coordination |
 | `.claude/skills/` | 9 active skills | Local skill definitions |
+| `.claude/hooks/pre-write.sh` | Hook | Blocks direct monolith edits |
 
 ## Segment Architecture
 
@@ -41,6 +43,8 @@ Development happens in numbered batches with multiple passes. Each pass has a sp
 5. **Track deviations** in the Deviation Log
 6. **Run the `retro` skill** at end of significant work sessions
 7. **Stage specific files** when committing — never use `git add -A`
+8. **Run a verification pass** after any batch that modifies external references (URLs, plugin names, tool names) — Batch 9 found 3 broken URLs and 1 hallucinated plugin name that survived 3 creation passes
+9. **Use directory-based matching in hooks/guards** — match on directory paths (e.g., `north-star-blueprint/`) not version strings (e.g., `*v6*`) which break on version bumps
 
 ## Current State
 
@@ -51,6 +55,29 @@ Development happens in numbered batches with multiple passes. Each pass has a sp
 ## Skills Available
 
 autoresearch, design-taste, mcp-builder, parallel-agent, plan-annotator, research-report, retro, skill-creator, skill-supply-chain-review
+
+## Cross-Reference Convention
+
+When referencing sections across documents, use these patterns:
+
+| Pattern | Example | Meaning |
+|---------|---------|---------|
+| `NS Section X` | NS Section 14 | Blueprint section by number (preferred in BRIDGE.md) |
+| `NS Part N` | NS Part III | Blueprint part by Roman numeral |
+| `NS §X.Y` | NS §14.6.1 | Blueprint subsection (use sparingly — fragile if renumbered) |
+| `MBF Category N` | MBF Category 35 | MBF category by number (preferred in BRIDGE.md) |
+| `MBF_PART_N` | MBF_PART_2 | MBF segment file reference |
+
+**Rules:**
+- Prefer `NS Section X` / `MBF Category Y` over `§` notation for stability
+- When using `§` notation, always include the section title: `§14.6.1 — Blast Radius Classification`
+- BRIDGE.md is the canonical cross-reference map — update it when sections move
+- After renumbering sections, grep for `§` references and update them
+
+**Verified § references (as of 2026-03-17):**
+- `§14.6.1` → PART_2_DOCUMENTATION.md — "Hard Stops & Blast Radius Classification"
+- `§18.4` → PART_2_DOCUMENTATION.md — "Consent Fatigue Awareness"
+- `§18.6` → PART_2_DOCUMENTATION.md — "Operational Readiness Awareness"
 
 ## Do NOT
 

@@ -65,6 +65,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 #### Changed
 - **Anti-Pattern 3 (Context Blindness)** — Updated threshold from "stop at 85%" to "begin winding down at 50%, hard stop at 85%". Added sub-agent recommendation. Title count updated to "13 Mistakes."
 
+### Batch 9 Phase 2 — Verification & Governance (2026-03-17)
+
+#### Added
+- **AGENTS.md v1.0** — Multi-agent coordination protocol defining file ownership boundaries (segments, monoliths, shared files, skills), conflict resolution protocol, session handoff rules, and merge script ownership.
+- **`.claude/hooks/pre-write.sh`** — Pre-write hook that blocks direct edits to generated monolith files, enforcing the segment-first editing workflow.
+- **Cross-Reference Convention** — Documented in CLAUDE.md: preferred notation patterns (`NS Section X`, `MBF Category Y` over fragile `§` notation), verified § references with line numbers, and update rules after section renumbering.
+
+#### Verified
+- **Cross-Reference Audit (Task 6)** — All `§` references in editable files resolve correctly: `§14.6.1` → Hard Stops & Blast Radius Classification, `§18.4` → Consent Fatigue Awareness, `§18.6` → Operational Readiness Awareness. BRIDGE.md uses stable `NS Section`/`MBF Category` notation throughout — no stale references found. QUICK_START.md `§` references (§4, §37, §20-27, §43-45, §50-53) map to stable top-level sections.
+- **Upstream URL Verification (Task 4)** — All URLs in SKILLS_REGISTRY.md Section 2 tested via WebFetch. Results documented; broken links fixed, dates updated.
+- **Plugin Verification (Task 5)** — All recommended plugins in GLOBAL_IDE_RULES.md Section 6.1 verified via web search. Hallucinated entries removed, real entries annotated with installation methods.
+
 ---
 
 ## [v6.1] — 2026-03-11

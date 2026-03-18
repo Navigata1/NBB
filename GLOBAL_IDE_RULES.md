@@ -496,7 +496,7 @@ RECOMMENDED PLUGINS (install for all projects):
   • context7         — up-to-date API and library documentation via MCP
   • code-simplifier  — 20-30% token reduction on codebase bloat
   • frontend-design  — dramatically improves UI quality
-  • hookery          — browse/install pre-built hooks
+  • hookify          — browse/install pre-built hooks
 
 RECOMMENDED MCP SERVERS:
   • sequential-thinking — chain-of-thought reasoning for deeper analysis

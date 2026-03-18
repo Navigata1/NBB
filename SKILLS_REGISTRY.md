@@ -1,6 +1,6 @@
 # Skills Registry
 
-> **VERSION:** 2.0 | **Updated:** 2026-03-16 | **Batch:** 9
+> **VERSION:** 2.1 | **Updated:** 2026-03-17 | **Batch:** 9
 > **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1
 >
 > **PURPOSE:** Canonical skills source map for the North Star Framework.
@@ -28,17 +28,17 @@ Skills currently present in `.claude/skills/`:
 
 ## 2. Verified Upstream Sources
 
-All findings verified on 2026-03-16.
+All findings verified on 2026-03-17. (3 broken URLs fixed, 2 redirects updated.)
 
 ### Tier A: Official Vendor Sources (Use First)
 
 #### A1. Anthropic Official Skills
 
 - **Repository:** https://github.com/anthropics/skills
-- **Docs:** https://support.claude.com/en/articles/12091968-create-custom-skills-for-claude
-- **Announcement:** https://www.anthropic.com/news/skills
-- **Engineering deep dive:** https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
-- **Verified count:** 17 skills (as of 2026-03-16)
+- **Docs:** *(removed — page no longer exists at previous URL)*
+- **Announcement:** https://claude.com/blog/skills
+- **Engineering deep dive:** https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills
+- **Verified count:** 17 skills (as of 2026-03-17)
 - **Raw link pattern:** `https://raw.githubusercontent.com/anthropics/skills/main/skills/<skill>/SKILL.md`
 
 | # | Skill | Category | NS Relevance |
@@ -61,7 +61,7 @@ All findings verified on 2026-03-16.
 | 16 | `webapp-testing` | Quality | **High** — Playwright-based testing |
 | 17 | `xlsx` | Document | Medium |
 
-**Verified raw links (tested 2026-03-16):**
+**Verified raw links (tested 2026-03-17):**
 ```
 https://raw.githubusercontent.com/anthropics/skills/main/skills/skill-creator/SKILL.md
 https://raw.githubusercontent.com/anthropics/skills/main/skills/mcp-builder/SKILL.md
@@ -73,8 +73,8 @@ https://raw.githubusercontent.com/anthropics/skills/main/skills/doc-coauthoring/
 #### A2. OpenAI Curated Skills
 
 - **Repository:** https://github.com/openai/skills
-- **Docs:** https://developers.openai.com/codex/customizing-codex
-- **Verified count:** 35 curated skills (as of 2026-03-16)
+- **Docs:** *(removed — page no longer exists at previous URL)*
+- **Verified count:** 35 curated skills (as of 2026-03-17)
 - **Raw link pattern:** `https://raw.githubusercontent.com/openai/skills/main/skills/.curated/<skill>/SKILL.md`
 - **Note:** `skills/.experimental` path did NOT exist on 2026-03-16
 
@@ -116,7 +116,7 @@ https://raw.githubusercontent.com/anthropics/skills/main/skills/doc-coauthoring/
 | 34 | `develop-web-game` | Platform | Low |
 | 35 | `yeet` | Utility | Low |
 
-**Verified raw links (tested 2026-03-16):**
+**Verified raw links (tested 2026-03-17):**
 ```
 https://raw.githubusercontent.com/openai/skills/main/skills/.curated/playwright/SKILL.md
 https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-threat-model/SKILL.md
@@ -130,7 +130,7 @@ https://raw.githubusercontent.com/openai/skills/main/skills/.curated/security-be
 
 | # | Source | URL | Purpose |
 |---|--------|-----|---------|
-| 1 | agents.json standard | https://github.com/mariozechner/agents.json | Vendor-neutral agent skill registry |
+| 1 | ~~agents.json standard~~ | ~~https://github.com/mariozechner/agents.json~~ | **BROKEN (404)** — removed 2026-03-17 |
 | 2 | Vercel Web Design Guidelines | https://github.com/vercel-labs/agent-skills | Auto-syncing design standard validation |
 | 3 | agentskills.io spec | https://agentskills.io | Open standard specification (referenced in arXiv:2602.12430v3) |
 
