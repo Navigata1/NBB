@@ -1,162 +1,142 @@
 ---
 name: parallel-agent-orchestration
-version: 1.1
-description: >
-  Use when user wants to run multiple Claude Code sessions simultaneously,
-  work on multiple features in parallel, use git worktrees, or wants to
-  understand how to "multi-Claude". Triggers: "run in parallel", "multiple
-  agents", "work on two features at once", "git worktree", "multi-claude",
-  "parallel sessions", "conductor mode", "fleet of agents".
+description: Orchestrate multiple agents on independent work, either as an in-session dynamic workflow (orchestrator + schema-typed sub-agents with bounded fan-out and adversarial verification) or as parallel human-driven sessions (git worktrees / separate checkouts). Use for "run in parallel", "multiple agents", "fan out", "git worktree", "agent team", "multi-claude", "dynamic workflow", "orchestrate sub-agents".
+license: CC BY-NC-SA-4.0
+metadata:
+  version: "2.0"
+  nbb_wave: "v6.5"
+  modernized: "Opus 4.8 dynamic workflows / Ultra Code"
 ---
 
-# Parallel Agent Orchestration Skill
+# Parallel Agent Orchestration
 
-## When to Activate
-- User wants to work on multiple independent features simultaneously
-- User asks about git worktrees or parallel checkouts
-- User wants to maximize development throughput
-- User is managing 2+ agent sessions (Claude, Codex, or mixed)
-- User asks about subagent orchestration or agent teams
-- User mentions "conductor mode" or "fleet of agents"
+Two orchestration modes. Pick by who drives:
 
-## Core Principle
-Each parallel agent needs:
-1. Its own isolated git worktree (no shared file edits)
-2. A clear brief with files it OWNS and files it must NOT touch
-3. Measurable success criteria
-4. A test command it can run independently
-5. An AGENTS.md or instruction handoff document in its worktree root
+- **Mode A - Dynamic Workflow (in-session, agent-driven).** ONE orchestrator
+  runs a deterministic script that fans out schema-typed sub-agents, verifies
+  adversarially, and synthesizes. This is the modern default for work that fits
+  in one session. (Opus 4.8 dynamic workflows / Ultra Code.)
+- **Mode B - Parallel Sessions (human-driven).** Several full agent sessions run
+  in isolated git worktrees / checkouts, each owning a file scope. Use when work
+  exceeds one context or needs separate machines/clouds.
 
-## Orchestration Patterns
+---
 
-### Pattern 1: Worktree Isolation (Default)
-Best for: 2-5 parallel features on a single machine.
+## Mode A - Dynamic Workflow Orchestration (default)
 
-### Pattern 2: Separate Checkouts (Maximum Isolation)
-Best for: Sensitive features, maximum isolation, no shared state.
-Reference: Boris Cherny's pattern — separate full git checkouts per session.
+### Principle
+The orchestrator holds the PLAN in script variables, not in the model context.
+Sub-agents receive a typed brief, return a typed result, and are cheap to spawn
+and discard. Control flow (loops, fan-out, conditionals) is deterministic code,
+not model improvisation.
 
-### Pattern 3: Local + Remote Split
-Best for: Maximizing throughput across local and cloud sessions.
+### The bounded role fleet (start 5-10 sub-agents)
+| Role | Typed input | Typed output |
+|------|-------------|--------------|
+| explorer | target area, question | file map, findings, entry points |
+| patch-drafter | one bounded change spec | diff/edits + rationale |
+| test-writer | behavior under test | tests + how-to-run |
+| diff-reviewer | a draft diff | findings[] with severity + verdict |
+| doc-updater | what changed | doc edits |
+
+Spawn only the roles the task needs. Scale count to task size, not ego.
+
+### Typed I/O contract (mandatory)
+Every sub-agent call declares an output schema and is forced to return a
+validated object - no free-text parsing. Example shape:
 ```
-LOCAL (up to 5 sessions)          REMOTE (5-10 sessions)
-─────────────────────────         ──────────────────────
-Complex features                  Background tasks
-Needs testing/debugging           Fire-and-forget tasks
-Requires local tools              Review-later PRs
-Sensitive code                    Research/documentation
+schema = { findings: [{ file, line, severity, claim }], verdict: "pass|fail" }
 ```
+A sub-agent that dies returns null; filter nulls before use.
 
-### Pattern 4: Specialized Agent Teams
-Best for: Complex features requiring multiple specializations.
+### Adversarial verification BEFORE merge
+Never merge a draft on the strength of the drafter alone. For each candidate
+change, spawn N independent skeptics (prompted to REFUTE, default to rejecting
+if uncertain) or perspective-diverse judges (correctness / security / does-it-
+reproduce). Accept only on majority survival. This is the single biggest quality
+lever - it kills plausible-but-wrong output.
+
+### Concurrency and total caps (explicit)
+- Concurrent sub-agents: cap at min(16, cores-2); excess queue.
+- Total sub-agents per run: hard ceiling (e.g. 1000) as a runaway backstop.
+- Fan-out width per stage: keep bounded (typically 5-12 per stage).
+- Token budget: scale depth to budget; log anything dropped (no silent caps).
+
+### Canonical pipeline (pipeline by default, barrier only when needed)
 ```
-ORCHESTRATOR (1 agent)
-├── IMPLEMENTER (1-3 agents)  → Write code in assigned worktrees
-├── TESTER (1 agent)          → Run tests, report results
-├── REVIEWER (1 agent)        → Review PRs, suggest improvements
-└── RESEARCHER (1 agent)      → Gather docs, find examples
+1. SCOUT (1 explorer)            -> work-list (the items to fan out over)
+2. FAN OUT (pipeline over items) -> each item: draft -> self-verify
+3. ADVERSARIAL JUDGE (parallel)  -> confirm/reject each candidate
+4. SYNTHESIZE (orchestrator)     -> merge survivors; report rejected + why
 ```
+Use a barrier (collect ALL before next stage) only when a stage genuinely needs
+the full set (dedup, early-exit on zero, cross-item comparison). Otherwise
+pipeline so fast items are not blocked by slow ones.
 
-## Execution Protocol
+### Discipline
+- Keep the plan and long logs in script variables / files, NOT in chat context.
+- One concern per sub-agent; small typed contracts beat big vague ones.
+- Loop-until-dry for unknown-size discovery; loop-until-budget when a target is set.
+- The orchestrator is the ONLY writer of record for shared state.
 
-### Phase 1: Decomposition
-Help user identify which tasks are truly parallelizable:
+---
 
-Ask: "What features are you working on? I'll help identify which can run in parallel."
+## Mode B - Parallel Human Sessions (worktree isolation)
 
-PARALLEL (safe):
-  ✓ Features touching different file trees
-  ✓ Independent bug fixes
-  ✓ Documentation + feature work
-  ✓ Tests for existing features + new feature
-  ✓ Research tasks alongside implementation
+Use when work spans multiple contexts/machines. Each session needs: its own
+git worktree (no shared edits), a brief naming files it OWNS and must NOT touch,
+measurable success criteria, an independent test command, and an AGENTS.md in
+the worktree root.
 
-SEQUENTIAL (must wait):
-  ✗ Feature B depends on code Feature A will create
-  ✗ Shared database migrations
-  ✗ Shared configuration files
-  ✗ Features that need to coordinate on interfaces
+### Patterns
+1. **Worktree isolation (default)** - 2-5 features, one machine.
+2. **Separate checkouts (max isolation)** - full clones per session (Cherny pattern).
+3. **Local + remote split** - complex/needs-testing local; fire-and-forget/research remote.
+4. **Specialized teams** - orchestrator + implementer(s) + tester + reviewer + researcher.
 
-### Phase 2: Worktree Setup
-Provide the exact commands:
-
+### Setup
 ```bash
-# Check current worktrees
 git worktree list
-
-# Claude Code built-in (recommended)
-claude --worktree  # or claude -w
-
-# Manual worktree creation (if needed)
-git worktree add ../<project-name>-feature-a -b feature/feature-a
-git worktree add ../<project-name>-feature-b -b feature/feature-b
-
-# For maximum isolation (Cherny pattern)
-git clone <repo-url> ../<project-name>-isolated-a
+claude --worktree                       # built-in (or: claude -w)
+git worktree add ../proj-feat-a -b feature/feat-a
+git clone <repo-url> ../proj-isolated-a # max isolation
 ```
 
-### Phase 3: Agent Brief + AGENTS.md
-Generate a brief for each agent AND an AGENTS.md in the worktree root:
+### Per-worktree AGENTS.md (brief)
+Role; FILES YOU OWN; FILES YOU MUST NOT TOUCH; task + issue (`gh issue view N`);
+success criteria; when-done (test -> verify -> `gh pr create` -> report);
+escalation (if you must touch a file outside your boundary: STOP, report, await).
 
-```markdown
-# AGENTS.md — [Feature Name] Worktree
-## Agent Role: [IMPLEMENTER | TESTER | REVIEWER | RESEARCHER]
-## Ownership Boundary
-FILES YOU OWN:
-  [list files/directories]
+### Decompose: parallel-safe vs sequential
+PARALLEL: different file trees, independent fixes, docs+feature, tests+new feature.
+SEQUENTIAL: B depends on A's code; shared migrations; shared config; interface coordination.
 
-FILES YOU MUST NOT TOUCH:
-  [list files/directories]
+### Merge sequencing
+Merge in dependency order; full integration tests after each merge; on conflict
+escalate to human (never auto-resolve); `git worktree remove <path>`; run `retro`.
+Accept ~10-20% session abandonment as normal resource management, not failure.
 
-## Task
-Issue: #[number] (read via: gh issue view [number])
-Branch: feature/[name]
+---
 
-## Success Criteria
-  [ ] [Criterion 1]
-  [ ] [Criterion 2]
+## When NOT to use
+- A single linear task that fits one agent - orchestration overhead is pure cost.
+- Tasks with tight cross-file coupling that cannot be partitioned - you will spend
+  more on coordination than the work saves; do it sequentially.
+- Anything where you cannot define a typed success check per sub-unit - without
+  verification, fan-out just multiplies unverified output.
+- Letting EXTERNAL models (Codex/Gemini) write directly - use them for bounded
+  analysis/review only; a Claude orchestrator remains the writer.
 
-## When Done
-  1. Run: [test command]
-  2. Verify: [manual check]
-  3. Create PR: gh pr create --title "[title]" --body "Closes #[number]"
-  4. Report back: "Feature [name] complete. PR #[number] created."
+## Portability
+- Mode A maps to any harness with an orchestration/sub-agent primitive (Claude
+  Code dynamic workflows / Task tool; Codex and others via their agent APIs). The
+  ROLE contracts and adversarial-verify discipline are harness-agnostic.
+- Mode B (`git worktree`, `gh`) is fully portable; `claude --worktree` is a
+  Claude Code convenience - the manual `git worktree add` path works anywhere.
 
-## RPIT Loop
-Start with plan.md. Do not write code until plan is approved.
-
-## Escalation
-If you need to modify a file outside your ownership boundary:
-  → STOP
-  → Report the dependency to the orchestrator
-  → Await reassignment or coordination instruction
-```
-
-### Phase 4: Monitoring
-Recommend:
-- Desktop App for visual monitoring of all sessions
-- Context % in status line for each session
-- Each session should auto-commit after each step
-- Accept ~10-20% session abandonment as normal (not failure)
-- Use `--teleport` to move sessions between web and local
-
-### Phase 5: Merge Sequencing
-After all agents complete:
-1. Identify dependency order between PRs
-2. Merge in dependency order (independent PRs can merge in any order)
-3. Run full integration test suite after each merge
-4. If merge conflict: escalate to human orchestrator, do NOT auto-resolve
-5. Clean up worktrees: `git worktree remove <path>`
-6. Run retro skill to capture orchestration learnings
-
-## Session Abandonment Strategy
-- If unexpected scenario arises, abandon and restart with better context
-- This is efficient resource management, NOT failure
-- Log abandoned sessions for retro analysis
-
-## Anti-Patterns
-- Two agents editing the same file → guaranteed conflicts
-- Skipping AGENTS.md → agents drift outside their boundary
-- Auto-merging conflicts → silent correctness bugs
-- Running all agents at max autonomy → coordination chaos
-- Forgetting to clean up worktrees → disk bloat
+## Anti-patterns
+- Two writers on one file -> conflicts. One writer per file/scope, always.
+- Merging on the drafter's word alone -> plausible-but-wrong bugs ship.
+- Unbounded fan-out / no token budget -> cost blowups; cap and log drops.
+- Plan living in model context instead of script variables -> drift and bloat.
+- Auto-resolving merge conflicts -> silent correctness bugs.

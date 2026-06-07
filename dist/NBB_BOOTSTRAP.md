@@ -1,13 +1,6 @@
-# AGENTS.md
+# North Star - Distributable Bootstrap (NBB)
 <!-- GENERATED FILE - DO NOT EDIT. Source: bootstrap/NBB_CORE.md (sha256:962aa099).
      Regenerate: bash scripts/build_bootstrap.sh   Verify: bash scripts/build_bootstrap.sh --check -->
-
-> **Portable agent entry** (Codex, Cursor, Antigravity, OpenCode, Zed, Gemini
-> CLI, and any harness honoring the AGENTS.md convention). This is the same
-> contract as `CLAUDE.md`, generated from the same source. For multi-agent
-> ownership/locking rules see `docs/MULTI_AGENT_COORDINATION.md`. Harness
-> caveats (config-folder, agents-window, file-targeting): `docs/PORTABILITY.md`.
-
 
 # North Star — Portable Bootstrap (NBB)
 
@@ -168,3 +161,23 @@ workflow (RALPH-style loop) until a human has run it manually enough times.
 Use `NS Section <N>` and `MBF Category <N>` (stable). Use `NS Part <Roman>` for
 coarse pointers. Avoid bare subsection numbers in prose; include the title.
 BRIDGE.md is the canonical cross-reference map — update it when sections move.
+
+---
+
+## Appendix: install into a harness
+
+- **Claude Code / Desktop / Cowork:** place `CLAUDE.md` at the project (or repo)
+  root. Add the framework skill with `skills add` pointing at `SKILL.md`.
+- **Codex / Cursor / Antigravity / OpenCode / Zed:** place `AGENTS.md` at the
+  project root (Codex targets `AGENTS.md`; Cursor 3 reads it in the Agents
+  Window; Antigravity 2 uses its config folder - see `docs/PORTABILITY.md`).
+- **Skill marketplaces / `skills add`:** use `SKILL.md` (front-matter wrapper).
+- **Single-file drop-in:** this `dist/NBB_BOOTSTRAP.md` is self-contained; paste
+  it as a system/context file in any harness that lacks a convention file.
+
+## Appendix: load deeper on demand
+
+This bootstrap is Tier 1 (always resident). Load Tier 2/3 only when the router
+points there: `BRIDGE.md` (full navigation), `NORTH_STAR_BLUEPRINT_v6.5.md`
+(methodology), `MASTER_BUILD_FRAMEWORK_v2.5.md` (technology). Never load the
+Blueprint and MBF in full at the same time.

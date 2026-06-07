@@ -1,7 +1,8 @@
 # Skills Registry
 
-> **VERSION:** 2.2 | **Updated:** 2026-03-18 | **Batch:** 9
-> **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1
+> **VERSION:** 2.3 | **Updated:** 2026-06 (NBB wave) | **Batch:** 9 + NBB Batch 2
+> **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1 (framework
+> stamps bump to the .5 line in NBB Batch 6)
 >
 > **PURPOSE:** Canonical skills source map for the North Star Framework.
 > Referenced by `GLOBAL_IDE_RULES.md` and `.claude/skills/` discovery.
@@ -14,15 +15,27 @@ Skills currently present in `.claude/skills/`:
 
 | Skill | Version | Purpose | Triggers |
 |-------|---------|---------|----------|
-| `autoresearch` | 1.0 | Autonomous iteration loop (goal + metric + verify → keep/revert) | "autoresearch", "autonomous loop", "improve this metric", "run the loop" |
-| `design-taste` | 1.0 | Bias-corrected frontend design with 3-dial system and anti-slop rules | "build a UI", "design a page", "make it look premium", "redesign this" |
-| `mcp-builder` | 1.0 | MCP server creation lifecycle (research → implement → test → eval) | "build an MCP server", "MCP integration", "Model Context Protocol" |
-| `parallel-agent` | 1.1 | Multi-agent orchestration, git worktrees, subagent coordination | "run in parallel", "multiple agents", "git worktree", "fleet of agents" |
-| `plan-annotator` | 1.1 | Plan.md annotation workflow, human review gates | "annotate plan", "review plan", "I annotated plan.md" |
-| `research-report` | 1.1 | Structured research with source tiering and citation requirements | "research", "compare X and Y", "which should I use" |
-| `retro` | 1.1 | Session retrospectives with skill promotion pipeline | "retro", "retrospective", "what did we learn" |
-| `skill-creator` | 1.0 | Meta-skill for building, testing, and improving other skills | "create a skill", "build a skill", "improve this skill", "skill eval" |
-| `skill-supply-chain-review` | 1.0 | External skill trust evaluation, vendoring checklist, upstream diffs | "review this skill", "is this skill safe", "vendor this skill", "audit skill" |
+| `autoresearch` | 2.0 | Autonomous loop; VERIFY can be numeric OR computer-use behavioral smoke test | "autoresearch", "autonomous loop", "improve this metric", "smoke-test until it works" |
+| `computer-use-smoke` | 1.0 | NEW: drive the built app, assert observable state, screenshot, deterministic pass/fail | "smoke test", "does it actually work", "click through the app", "browser test" |
+| `context-compression` | 1.0 | NEW: compress tool output/logs/RAG before they hit context (Headroom layer) | "context is full", "too much output", "compress", "reduce tokens" |
+| `design-taste` | 1.1 | Bias-corrected frontend design; 3-dial system, anti-slop rules | "build a UI", "design a page", "make it premium", "redesign this" |
+| `mcp-builder` | 1.1 | MCP server lifecycle (research -> implement -> test -> eval) | "build an MCP server", "MCP integration", "Model Context Protocol" |
+| `parallel-agent` | 2.0 | Orchestration: dynamic workflows (typed sub-agents + adversarial verify) + worktrees | "run in parallel", "fan out", "dynamic workflow", "git worktree", "agent team" |
+| `plan-annotator` | 1.2 | Plan.md annotation workflow (TYPE A-E), human review gates | "annotate plan", "review plan", "I annotated plan.md" |
+| `research-report` | 1.2 | Structured research with source tiering (A-D) and citation requirements | "research", "compare X and Y", "which should I use" |
+| `retro` | 1.2 | Session retrospectives with skill promotion pipeline | "retro", "retrospective", "what did we learn" |
+| `skill-creator` | 1.1 | Meta-skill for building, testing, and improving other skills | "create a skill", "build a skill", "skill eval" |
+| `skill-supply-chain-review` | 1.1 | External skill trust evaluation, vendoring checklist, upstream diffs | "review this skill", "is this skill safe", "vendor this skill" |
+| `understand-first` | 1.0 | NEW: pre-build knowledge-graph comprehension map before changing code | "understand this first", "map the codebase", "how does this work" |
+
+> **NBB wave (v6.5) note:** 12 local skills (was 9). New: `computer-use-smoke`,
+> `context-compression`, `understand-first`. Major modernizations: `parallel-agent`
+> v1.1->2.0 (Opus 4.8 dynamic workflows), `autoresearch` v1.0->2.0 (computer-use
+> behavioral verification). All skills now use uniform front-matter
+> (name/description/license/metadata), a tightened trigger description, a
+> "When NOT to use" section, and a "Portability" note. New-skill upstreams
+> (`Lum1104/Understand-Anything`, `chopratejas/headroom`) are user-specified and
+> UNPINNED -- vendor via `skill-supply-chain-review` before adopting upstream code.
 
 ---
 

@@ -1,12 +1,11 @@
-# AGENTS.md
+# CLAUDE.md
 <!-- GENERATED FILE - DO NOT EDIT. Source: bootstrap/NBB_CORE.md (sha256:962aa099).
      Regenerate: bash scripts/build_bootstrap.sh   Verify: bash scripts/build_bootstrap.sh --check -->
 
-> **Portable agent entry** (Codex, Cursor, Antigravity, OpenCode, Zed, Gemini
-> CLI, and any harness honoring the AGENTS.md convention). This is the same
-> contract as `CLAUDE.md`, generated from the same source. For multi-agent
-> ownership/locking rules see `docs/MULTI_AGENT_COORDINATION.md`. Harness
-> caveats (config-folder, agents-window, file-targeting): `docs/PORTABILITY.md`.
+> **Anthropic harnesses** (Claude Code, Claude Desktop, Claude Cowork, Claude
+> Code web). Auto-loaded as project context. Skills live in `.claude/skills/`,
+> slash-commands in `.claude/commands/`, settings in `.claude/settings.json`.
+> Harness caveats: `docs/PORTABILITY.md`.
 
 
 # North Star — Portable Bootstrap (NBB)

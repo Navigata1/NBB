@@ -1,12 +1,13 @@
-# AGENTS.md
+---
+name: north-star
+description: AI-native software-development methodology (North Star / NBB). Use to bootstrap a new project, classify its tier, choose architecture/stack/tools, enforce quality gates, and route to the Blueprint (HOW), Master Build Framework (WHAT), or BRIDGE (navigate). Applies the safety floor (hard stops, blast-radius tiers, least-privilege permissions) and the load-balancing/tokenomics rules. Portable across Claude Code/Desktop, Codex, Cursor, and Antigravity. Do NOT use for unrelated one-off code edits that need no methodology.
+license: CC BY-NC-SA-4.0
+metadata:
+  source: bootstrap/NBB_CORE.md
+  sha256: 962aa099
+---
 <!-- GENERATED FILE - DO NOT EDIT. Source: bootstrap/NBB_CORE.md (sha256:962aa099).
      Regenerate: bash scripts/build_bootstrap.sh   Verify: bash scripts/build_bootstrap.sh --check -->
-
-> **Portable agent entry** (Codex, Cursor, Antigravity, OpenCode, Zed, Gemini
-> CLI, and any harness honoring the AGENTS.md convention). This is the same
-> contract as `CLAUDE.md`, generated from the same source. For multi-agent
-> ownership/locking rules see `docs/MULTI_AGENT_COORDINATION.md`. Harness
-> caveats (config-folder, agents-window, file-targeting): `docs/PORTABILITY.md`.
 
 
 # North Star — Portable Bootstrap (NBB)
