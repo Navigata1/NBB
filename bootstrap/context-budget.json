@@ -4,8 +4,8 @@
   "components": {
     "core_always_resident": {
       "path": "CLAUDE.md",
-      "bytes": 7942,
-      "est_tokens": 1977
+      "bytes": 8165,
+      "est_tokens": 2032
     },
     "bridge_navigation": {
       "path": "BRIDGE.md",
@@ -103,10 +103,10 @@
   "reference_build": {
     "task": "start a project",
     "before_load_all_tokens": 258340,
-    "after_tier1_core_tokens": 1977,
+    "after_tier1_core_tokens": 2032,
     "pct_of_window_before": 129.2,
-    "pct_of_window_after": 0.99,
-    "always_resident_reduction_pct": 99.23,
+    "pct_of_window_after": 1.02,
+    "always_resident_reduction_pct": 99.21,
     "full_exceeds_window": true
   }
 }

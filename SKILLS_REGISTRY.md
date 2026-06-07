@@ -38,6 +38,32 @@ Skills currently present in `.claude/skills/`:
 
 ---
 
+## 1b. Downloadable Skill Packs (NBB)
+
+Two tiered packs let you pick up many vetted skills at once — WITHOUT the
+wholesale-import risk this registry's S4 policy bans. A pack is a vetted manifest
++ a secure builder, not a blob:
+
+| Pack | Cap | Manifest |
+|------|-----|----------|
+| `core-100` | 100 | `packs/core-100.json` |
+| `extended-300` | 300 | `packs/extended-300.json` |
+
+- **Gate:** every skill passes `scripts/vet_skill.sh` (prompt-injection,
+  pipe-to-shell, reverse shell, exfil, obfuscation, destructive commands) before
+  inclusion. `scripts/build_skill_pack.py <tier>` fetches each at a **pinned SHA**,
+  gates it, and includes ONLY PASS — **default-deny** on unpinned / WARN / FAIL /
+  `license_pending`. Output: `dist/packs/<tier>/` (skills + `MANIFEST.json` +
+  `QUARANTINE.md`). CI: `.github/workflows/build-skill-pack.yml`.
+- **Honest cap:** counts are targets the gate fills, never inflated. A smoke build
+  (`--offline`) packs only the first-party skills that pass.
+- **ECC-Prime** (200+) is a `license_pending` source — default-denied until its
+  license is confirmed to permit redistribution.
+
+Full guide + pickup/routing: `packs/README.md`.
+
+---
+
 ## 2. Verified Upstream Sources
 
 All findings verified on 2026-03-17. (3 broken URLs fixed, 2 redirects updated.)

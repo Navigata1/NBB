@@ -272,5 +272,49 @@ correctly-preserved provenance ("v2.1 NEW" category-added tags, "added in
 v6.1 (ENH-NNN)" history, the "56+6=62" count math), NOT missed current stamps.
 Bumping them would falsify history; left as-is by design.
 
-**Boundary status:** Batch 6 build+verify complete. Remaining: commit, create
-`Navigata1/NBB`, push (final outward step).
+**Boundary status:** Batch 6 build+verify complete. Published to
+https://github.com/Navigata1/NBB (PUBLIC, default main).
+
+---
+
+## Addendum — Secure Downloadable Skill Packs (post-publish, user-requested)
+
+**Request:** downloadable skill pack(s) like the original intent, but updated and
+SECURE (every skill read/vetted, prompt-injection-safe), two tiers (~100 / ~300),
+highest-caliber-first, with routing/bootstrap docs. Decisions: secure builder +
+manifests; core-100 + extended-300; sources = official + reviewed community +
+ECC-Prime (license-gated) + first-party; quality > quantity.
+
+**Finding:** the original 5.0/NBB had NO bundled pack — only a registry of curl
+links + a policy that BANS wholesale pack imports. So a blob would violate the
+framework's own security posture (and I cannot truthfully pre-vet 100s of external
+skills here).
+
+**Built (the honest, secure system):**
+- `scripts/vet_skill.sh` - per-skill static security gate (auto-FAIL:
+  pipe-to-shell, base64->interp, reverse shell, fork bomb, rm -rf root/home,
+  cred reads, prompt-injection, dangerously-skip-permissions; WARN: outbound
+  POST, IPs, base64 blobs, chmod 777, rc writes, env-near-net, webhooks).
+- `scripts/build_skill_pack.py <tier>` - fetch-at-pinned-SHA, gate each, include
+  ONLY PASS; **default-deny** on unpinned/WARN/FAIL/license_pending; fills cap
+  highest-caliber-first; emits `dist/packs/<tier>/{skills,MANIFEST.json,QUARANTINE.md}`.
+- `packs/core-100.json` + `packs/extended-300.json` - 36 concrete entries
+  (12 first-party + 15 Anthropic@pinned-SHA + 9 OpenAI) + bulk sources;
+  ECC-Prime = `license_pending` (default-denied until license confirmed).
+- `packs/README.md` - security model + build + pickup/routing + license posture.
+- `.github/workflows/build-skill-pack.yml` - CI builds a pack as a downloadable
+  artifact via the same gate. `dist/packs/` gitignored (reproducible, not committed).
+- Wired into `bootstrap/NBB_CORE.md` S7 + `SKILLS_REGISTRY.md` S1b.
+
+**Verified (real, on actual files):**
+- Gate works: design-taste PASS(0); `skill-supply-chain-review` FAIL(1) on its own
+  defensive example text -> correctly routed to manual review, NOT silently shipped.
+- `--offline` core build: included 10/100 (the clean first-party skills),
+  quarantined 26 with reasons (2 gate verdicts + 24 offline/unpinned) - no
+  fabricated entries; cap honestly underfilled.
+- Manifests valid JSON; new files mojibake-clean; bootstrap/budget --check PASS.
+
+**Honest limits:** large-scale vetting of 100-300 external skills is a process the
+builder runs (with network + human review of WARN/FAIL), not something pre-baked
+here. ECC-Prime redistribution needs a license confirmation. Each external entry
+must be SHA-pinned before it can pass default-deny.

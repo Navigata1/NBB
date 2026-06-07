@@ -13,3 +13,6 @@ build/
 .DS_Store
 *.swp
 *~
+
+# Built skill packs (reproducible artifacts; build via scripts/build_skill_pack.py or CI)
+dist/packs/

@@ -1,5 +1,5 @@
 # AGENTS.md
-<!-- GENERATED FILE - DO NOT EDIT. Source: bootstrap/NBB_CORE.md (sha256:b1025e2b).
+<!-- GENERATED FILE - DO NOT EDIT. Source: bootstrap/NBB_CORE.md (sha256:f03b4e02).
      Regenerate: bash scripts/build_bootstrap.sh   Verify: bash scripts/build_bootstrap.sh --check -->
 
 > **Portable agent entry** (Codex, Cursor, Antigravity, OpenCode, Zed, Gemini
@@ -158,6 +158,7 @@ workflow (RALPH-style loop) until a human has run it manually enough times.
 - Navigation: `BRIDGE.md`.
 - Deep ignition reference: `NORTH_STAR_BOOTSTRAP.md`.
 - Skills: `.claude/skills/<name>/SKILL.md` (run `skill-supply-chain-review` before importing any external skill).
+- Skill packs (tiered, security-gated, reproducible): `packs/` — `core-100` / `extended-300` manifests + `scripts/build_skill_pack.py` (gate: `scripts/vet_skill.sh`). See `packs/README.md`. Default-deny on unpinned/FAIL.
 - Multi-agent coordination: `docs/MULTI_AGENT_COORDINATION.md`.
 - Governance & security: `docs/governance/` and Blueprint Part X.
 - Interop protocols (MCP/A2A/AG-UI/A2UI/ACP): `docs/protocols/`.

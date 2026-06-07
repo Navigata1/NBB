@@ -1,0 +1,44 @@
+# Builds a security-gated skill pack and uploads it as a downloadable artifact.
+# Same gate as local: scripts/build_skill_pack.py runs scripts/vet_skill.sh per
+# skill and default-denies anything unpinned / FAIL / license_pending.
+# NOTE: pin action refs to commit SHAs for production (supply-chain hygiene).
+name: Build Skill Pack
+on:
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: "Pack tier"
+        required: true
+        default: core-100
+        type: choice
+        options: [core-100, extended-300]
+      offline:
+        description: "First-party only (no external fetch)"
+        required: false
+        default: false
+        type: boolean
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Build pack (security-gated)
+        run: |
+          if [ "${{ inputs.offline }}" = "true" ]; then
+            python3 scripts/build_skill_pack.py "${{ inputs.tier }}" --offline
+          else
+            python3 scripts/build_skill_pack.py "${{ inputs.tier }}"
+          fi
+      - name: Summarize gate result
+        run: |
+          echo "### Pack ${{ inputs.tier }}" >> "$GITHUB_STEP_SUMMARY"
+          cat "dist/packs/${{ inputs.tier }}/QUARANTINE.md" >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nbb-skill-pack-${{ inputs.tier }}
+          path: dist/packs/${{ inputs.tier }}
