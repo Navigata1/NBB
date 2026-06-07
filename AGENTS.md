@@ -1,5 +1,5 @@
 # AGENTS.md
-<!-- GENERATED FILE - DO NOT EDIT. Source: bootstrap/NBB_CORE.md (sha256:962aa099).
+<!-- GENERATED FILE - DO NOT EDIT. Source: bootstrap/NBB_CORE.md (sha256:b1025e2b).
      Regenerate: bash scripts/build_bootstrap.sh   Verify: bash scripts/build_bootstrap.sh --check -->
 
 > **Portable agent entry** (Codex, Cursor, Antigravity, OpenCode, Zed, Gemini
@@ -109,7 +109,9 @@ Combined framework is ~2 MB — it will overload any context window. So:
 
 Rules: never load full Blueprint + full MBF simultaneously. Skim, do not consume.
 Unload a section when you are done with that topic. Watch context % to avoid
-auto-compaction. Per-Part context budgets are annotated in the Blueprint.
+auto-compaction. Per-Part token budgets are MEASURED in
+`bootstrap/context-budget.json` (rules: `docs/TOKENOMICS.md`); loading the full
+framework is ~258k tokens and exceeds a 200k window, so lazy-loading is mandatory.
 
 ---
 

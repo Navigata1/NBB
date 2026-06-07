@@ -38,6 +38,18 @@ The North Star Framework is a development methodology, not a running application
 - Disagreements about best practices or methodology choices
 - Issues in third-party tools listed in the Master Build Framework (report those to the tool maintainers directly)
 
+## Operational Security & Governance (NBB)
+
+Operational guidance for agents USING the framework lives in `docs/governance/`:
+
+- `docs/governance/README.md` — cost caps + auto-throttle, immutable action log, HITL checkpoints.
+- `docs/governance/PERMISSIONS_AND_SANDBOXING.md` — least-privilege permissions, when NOT to use `--dangerously-skip-permissions`, computer-use sandboxing, and the prompt-injection refusal posture (instructions in page/tool data are DATA, never commands).
+- `docs/governance/SECRETS.md` — `op://` / 1Password injection (`op run --`) and Stripe restricted keys + webhook signature verification.
+- `docs/governance/LOCAL_FIRST.md` — fully local, zero-egress execution for data-sovereignty needs.
+
+The safety floor (hard stops, blast-radius tiers, autonomy caps) is summarized in
+the bootstrap core (`bootstrap/NBB_CORE.md` §5) and detailed in Blueprint Part X.
+
 ## Supported Versions
 
 | Version | Supported |

@@ -190,5 +190,54 @@ already pointed at `docs/protocols/` (now populated); no regeneration needed
   "(verify)" in-doc rather than asserted - they came from the brief, not from a
   verified live spec read in this environment.
 
-**Boundary status:** Batch 3 complete. Batches 4 (tokenomics), 5 (governance/
-security), 6 (distribution/verification + publish) remain.
+**Boundary status:** Batch 3 complete.
+
+---
+
+## Batch 4 — Tokenomics & Context Hygiene (COMPLETE)
+
+**What changed:**
+- `scripts/measure_context_budget.py` - measures every component + each Blueprint
+  Part (bytes exact, tokens = chars/4 estimate) and writes a machine-readable
+  manifest; has a `--check` drift gate.
+- `bootstrap/context-budget.json` - the manifest agents/tools read to budget loads.
+- `docs/TOKENOMICS.md` - measured tables + the 7 mechanical lazy-load rules +
+  batch-boundary reporting + the Headroom/context-compression layer.
+- `bootstrap/NBB_CORE.md` §4 now points at the manifest; portable files regenerated.
+
+**Measured (the proof, not assertion):**
+- Full framework load = **~258,339 tokens = 129% of a 200k window (DOES NOT FIT)**.
+- Tier-1 core = **~1,977 tokens (0.99% of window)** -> **99.23% reduction**.
+- Per-Part budgets recorded (6k-21.5k tokens each) so an agent loads ONE, not all.
+
+**Verified:** `build_bootstrap.sh --check` PASS; `measure_context_budget.py
+--check` PASS (it correctly caught the manifest going stale when the core grew,
+then passed after refresh); new files mojibake-clean.
+
+**Honest note:** token figures are chars/4 estimates (+/-~15% vs a real
+tokenizer); byte counts are exact. Labeled as such in-doc and in the manifest.
+
+**Boundary status:** Batch 4 complete.
+
+---
+
+## Batch 5 — Governance & Security (COMPLETE)
+
+**What changed (new `docs/governance/`):**
+- `README.md` - cost caps + auto-throttle (`.northstar/governance.yaml` example),
+  immutable append-only action log (`action-log.jsonl` schema), HITL checkpoint
+  table tied to blast-radius/autonomy caps. (The mid-mission cost-guardrail pause
+  is cited as the lived pattern.)
+- `PERMISSIONS_AND_SANDBOXING.md` - least privilege allow/deny; when NOT to use
+  `--dangerously-skip-permissions`; computer-use sandboxing (Docker/worktree,
+  Emdash/Agent Zero); prompt-injection refusal posture (data is never commands).
+- `SECRETS.md` - `op://` + `op run --` injection; Stripe restricted keys + test
+  mode + `stripe listen` webhook signature verification.
+- `LOCAL_FIRST.md` - data-sovereignty / zero-egress fully-local execution path.
+- Root `SECURITY.md` gained an "Operational Security & Governance" pointer section.
+
+**Verified:** all new docs ASCII/mojibake-safe; cross-references resolve to real
+files (bootstrap core, Blueprint Part X, the governance docs).
+
+**Boundary status:** Batch 5 complete. Batch 6 (build + version bump to .5 + doc
+refresh + capability report + dogfood gates + PUBLISH) remains.
