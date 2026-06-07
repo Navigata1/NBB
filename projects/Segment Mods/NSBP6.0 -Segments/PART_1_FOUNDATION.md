@@ -1,13 +1,13 @@
-# NORTH STAR BLUEPRINT v6.1 — SEGMENT 1 of 7
+# NORTH STAR BLUEPRINT v6.5 — SEGMENT 1 of 7
 ## PART_1_FOUNDATION
 ### Contents: Front Matter (Section 0) + Part I (Sections 1-5) + Part II (Sections 6-9)
-### Lines: 1-3819 of original (expanded with v6.1 enhancements)
+### Lines: 1-3819 of original (expanded with v6.5 enhancements)
 ---
 > **SEGMENT NAVIGATION:** This is a development segment. For full Blueprint, merge all 7 parts.
 > For BRIDGE routing: Sections 0-9 are in this segment.
 ---
 
-# NORTH STAR BLUEPRINT v6.1
+# NORTH STAR BLUEPRINT v6.5
 
 ## The Comprehensive Development Framework
 
@@ -17,7 +17,7 @@
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                                                                              ║
 ║                         NORTH STAR BLUEPRINT                                 ║
-║                              v6.1                                            ║
+║                              v6.5                                            ║
 ║                                                                              ║
 ║                 The Comprehensive Development Framework                      ║
 ║                                                                              ║
@@ -40,7 +40,7 @@
 │  This document is ONE component of a three-part system:                     │
 │                                                                              │
 │  ┌─────────────┐     ┌─────────────────────┐     ┌─────────────────────┐    │
-│  │  BRIDGE.md  │────►│  NORTH STAR v6.1    │     │  MASTER BUILD v2.1  │    │
+│  │  BRIDGE.md  │────►│  NORTH STAR v6.5    │     │  MASTER BUILD v2.5  │    │
 │  │  Navigation │     │  (This Document)    │     │  Technology Matrix  │    │
 │  └─────────────┘     │                     │     │                     │    │
 │        │             │  HOW to build       │     │  WHAT to build with │    │
@@ -54,7 +54,7 @@
 │  2. NS Section 0 — Bootstrap protocol (you're here)                         │
 │  3. Reference NS or MBF on demand via BRIDGE.md routing                     │
 │                                                                              │
-│  For technology selection questions, consult Master Build Framework v2.1    │
+│  For technology selection questions, consult Master Build Framework v2.5    │
 │  For methodology and orchestration, stay in this North Star Blueprint       │
 │  For navigation between both, use BRIDGE.md                                 │
 │                                                                              │
@@ -81,7 +81,7 @@
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  YOU HAVE RECEIVED:                                                          │
-│  1. This North Star Blueprint v6.1 (comprehensive reference)                │
+│  1. This North Star Blueprint v6.5 (comprehensive reference)                │
 │  2. A project idea or task to build                                          │
 │                                                                              │
 │  YOUR FIRST ACTIONS (in order):                                              │
@@ -132,8 +132,8 @@ When starting any project with this blueprint, **immediately generate** a `claud
 > **READING ORDER:**
 > 1. You're reading this file (project-specific state)
 > 2. For navigation between frameworks → see **BRIDGE.md**
-> 3. For methodology (HOW) → see **North Star Blueprint v6.1**
-> 4. For technology options (WHAT) → see **Master Build Framework v2.1**
+> 3. For methodology (HOW) → see **North Star Blueprint v6.5**
+> 4. For technology options (WHAT) → see **Master Build Framework v2.5**
 
 > This file provides guidance for AI agents working on this project.
 > For comprehensive patterns, reference the documents above via BRIDGE.md routing.
@@ -157,7 +157,7 @@ When starting any project with this blueprint, **immediately generate** a `claud
 
 ## NORTH STAR REFERENCE
 
-This project follows the North Star Blueprint v6.1.
+This project follows the North Star Blueprint v6.5.
 
 **When uncertain, consult these sections:**
 - Architecture decisions → NS Part VIII (Sections 37-41)
@@ -2379,7 +2379,7 @@ OUTER LOOP: After RPIT completes, run the RETRO SKILL (see Part XII)
 │  • Loneliness Economy: Design for belonging                                  │
 │  • Complete positioning framework for every project                          │
 │                                                                              │
-│  THE RPIT LOOP (v6.1):                                                       │
+│  THE RPIT LOOP (v6.5):                                                       │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  The canonical feature development cycle:                                    │
 │  R = Research (optional, scale to complexity)                                │
@@ -4175,7 +4175,7 @@ PLAN.MD TEMPLATE
 │  • Prevention Workflow: Before/During/After every change                    │
 │  • Response Protocol: Detect → Respond → Rollback → Root Cause → Prevent   │
 │                                                                              │
-│  PLAN.MD ANNOTATION PROTOCOL (v6.1):                                         │
+│  PLAN.MD ANNOTATION PROTOCOL (v6.5):                                         │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  • Annotate Claude's plans inline before approving                           │
 │  • Four annotation types: Constraints, Domain Knowledge,                     │
@@ -4234,4 +4234,4 @@ DISCOVERY MECHANISM:
 
 ---
 
-*End of Segment 1 (Front Matter + Part I + Part II) — v6.1*
+*End of Segment 1 (Front Matter + Part I + Part II) — v6.5*

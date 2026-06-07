@@ -6,7 +6,7 @@
 > Project-specific rules in `claude.md` or `.cursorrules` override these defaults.
 >
 > **VERSION:** 1.1 | **Updated:** March 2026
-> **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1
+> **Compatible with:** Bootstrap v1.5 | Blueprint v6.5 | MBF v2.5
 >
 > **LOCATION:** Place in your global IDE config directory:
 > - Claude Code: `~/.claude/CLAUDE.md` or project root
@@ -22,7 +22,7 @@
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                                                                              ║
 ║                         GLOBAL IDE RULES                                     ║
-║                              v1.1                                            ║
+║                              v1.5                                            ║
 ║                                                                              ║
 ║              Universal Operating Principles for AI Agents                    ║
 ║                                                                              ║
@@ -889,12 +889,12 @@ UPDATING THESE GLOBAL RULES:
 │  Updated: March 2026                                                         │
 │                                                                              │
 │  COMPATIBLE WITH:                                                            │
-│  • North Star Bootstrap v1.4                                                 │
-│  • North Star Blueprint v6.1                                                 │
-│  • Master Build Framework v2.1                                               │
+│  • North Star Bootstrap v1.5                                                 │
+│  • North Star Blueprint v6.5                                                 │
+│  • Master Build Framework v2.5                                               │
 │                                                                              │
 │  CHANGELOG:                                                                  │
-│  v1.1 (March 2026) — Major update for Claude Code v6.1 era                 │
+│  v1.5 (March 2026) — Major update for Claude Code v6.1 era                 │
 │    • RPIT Loop as default feature development standard                       │
 │    • Hooks: mandatory stop hook + pre-write hook                             │
 │    • Multi-agent autonomy rules and worktree boundary enforcement            │
@@ -916,4 +916,4 @@ UPDATING THESE GLOBAL RULES:
 
 ---
 
-*End of GLOBAL_IDE_RULES.md v1.1*
+*End of GLOBAL_IDE_RULES.md v1.5*

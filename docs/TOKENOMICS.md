@@ -29,8 +29,8 @@ reduction** in always-resident footprint.
 | Core (always resident) | 7,797 | ~1,941 |
 | BRIDGE.md (full nav) | 61,632 | ~12,659 |
 | NORTH_STAR_BOOTSTRAP.md (deep) | 85,835 | ~16,330 |
-| Blueprint v6.1 (full) | 1,031,632 | ~189,482 |
-| MBF v2.1 (full) | 169,380 | ~39,868 |
+| Blueprint v6.5 (full) | 1,031,632 | ~189,482 |
+| MBF v2.5 (full) | 169,380 | ~39,868 |
 
 ## 3. Per-Part budget (Blueprint, measured) — load ONE, not all
 

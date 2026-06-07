@@ -1,4 +1,4 @@
-# NORTH STAR BLUEPRINT v6.1 — SEGMENT 7 of 7
+# NORTH STAR BLUEPRINT v6.5 — SEGMENT 7 of 7
 ## PART_7_ADVANCED
 ### Contents: Part XII (Sections 54-56) + Part XIII (Sections 57-59) + Part XIV + Back Matter
 ### Lines: 14428-16318 of original

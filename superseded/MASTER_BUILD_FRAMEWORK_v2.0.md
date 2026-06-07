@@ -7,7 +7,7 @@
 > For BRIDGE routing: Categories 1-14 are in this segment.
 ---
 
-# THE 56-PHASE MASTER BUILD FRAMEWORK
+# THE 62-CATEGORY MASTER BUILD FRAMEWORK
 ## v2.0 — January 2026
 
 ---

@@ -1,13 +1,13 @@
 # Multi-Agent Coordination Protocol
 
 > **VERSION:** 1.0 | **Updated:** 2026-03-17 | **Batch:** 9
-> **Compatible with:** Blueprint v6.1 | MBF v2.1 | Bootstrap v1.4
+> **Compatible with:** Blueprint v6.5 | MBF v2.5 | Bootstrap v1.5
 >
 > **NOTE (NBB wave):** This file was the repo's original root `AGENTS.md`. In the
 > NBB edition the root `AGENTS.md` is the GENERATED portable bootstrap (see
 > `bootstrap/NBB_CORE.md` + `scripts/build_bootstrap.sh`). The repo-development
 > coordination rules below were relocated here, unchanged, to free the portable
-> `AGENTS.md` slot. Version stamps in this file are bumped in Batch 6.
+> `AGENTS.md` slot. Compatibility stamps bumped to the .5 line in the NBB wave.
 
 ---
 
@@ -36,8 +36,8 @@ This file defines ownership boundaries and coordination rules when multiple agen
 
 | Path | Rule |
 |------|------|
-| `north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md` | Generated. Never edit directly. Protected by pre-write hook. |
-| `master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md` | Generated. Never edit directly. Protected by pre-write hook. |
+| `north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md` | Generated. Never edit directly. Protected by pre-write hook. |
+| `master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md` | Generated. Never edit directly. Protected by pre-write hook. |
 
 To update monoliths: edit segments → run `bash scripts/merge_nsb_segments.sh` or `bash scripts/merge_mbf_segments.sh`.
 
@@ -134,4 +134,4 @@ Only one agent should run merge scripts at a time. After running a merge:
 
 ---
 
-*End of AGENTS.md v1.0*
+*End of Multi-Agent Coordination Protocol v1.0 (relocated from AGENTS.md)*

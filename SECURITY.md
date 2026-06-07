@@ -54,9 +54,9 @@ the bootstrap core (`bootstrap/NBB_CORE.md` §5) and detailed in Blueprint Part 
 
 | Version | Supported |
 |---------|-----------|
-| v6.1 (current) | ✅ Active |
-| v6.0 | ⚠️ Critical fixes only |
-| v5.0 and earlier | ❌ No longer supported |
+| v6.5 (current) | ✅ Active |
+| v6.1 | ⚠️ Critical fixes only |
+| v6.0 and earlier | ❌ No longer supported |
 
 ---
 

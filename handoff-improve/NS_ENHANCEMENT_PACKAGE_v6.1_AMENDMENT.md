@@ -43,7 +43,7 @@
 | ENH-038 | 🟡 | QUICK_START.md v6.1 | Update: fix placeholder URLs, new paths, v6.1 component table | Medium |
 | ENH-039 | 🟢 | CONTRIBUTING.md v6.1 | Update: new categories, skills contribution guide, enhancement ID format | Low |
 | ENH-040 | 🔴 | NSB Part III / New Part | Memory Architecture integration: 3 Pillars + Memory Types Taxonomy | High |
-| ENH-041 | 🔴 | MBF v2.1 | New Category 62: Memory Infrastructure (Mem0, Zep, MemGPT, Letta) | High |
+| ENH-041 | 🔴 | MBF v2.5 | New Category 62: Memory Infrastructure (Mem0, Zep, MemGPT, Letta) | High |
 
 **Revised total: 41 enhancements across 6.1 upgrade cycle.**
 
@@ -79,7 +79,7 @@ The current Section 6.1 (Claude Code specific) says hooks are supported "if supp
 > Project-specific rules in `claude.md` or `.cursorrules` override these defaults.
 >
 > **VERSION:** 1.1 | **Updated:** March 2026
-> **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1
+> **Compatible with:** Bootstrap v1.5 | Blueprint v6.5 | MBF v2.5
 >
 > **LOCATION:** Place in your global IDE config directory:
 > - Claude Code: `~/.claude/CLAUDE.md` or project root
@@ -413,9 +413,9 @@ UPDATING THESE GLOBAL RULES:
 │  Updated: March 2026                                                         │
 │                                                                              │
 │  COMPATIBLE WITH:                                                            │
-│  • North Star Bootstrap v1.4                                                 │
-│  • North Star Blueprint v6.1                                                 │
-│  • Master Build Framework v2.1                                               │
+│  • North Star Bootstrap v1.5                                                 │
+│  • North Star Blueprint v6.5                                                 │
+│  • Master Build Framework v2.5                                               │
 │                                                                              │
 │  CHANGELOG:                                                                  │
 │  v1.1 (March 2026) — Major update for Claude Code v6.1 era                 │
@@ -627,10 +627,10 @@ NorthStarBuild_6.1/
 ├── GLOBAL_IDE_RULES.md                   ← Cross-project IDE rules (v1.1)
 │
 ├── north-star-blueprint/
-│   └── NORTH_STAR_BLUEPRINT_v6.1.md      ← HOW to build (59 sections)
+│   └── NORTH_STAR_BLUEPRINT_v6.5.md      ← HOW to build (59 sections)
 │
 └── master-build-framework/
-    └── MASTER_BUILD_FRAMEWORK_v2.1.md    ← WHAT to build with (62 categories)
+    └── MASTER_BUILD_FRAMEWORK_v2.5.md    ← WHAT to build with (62 categories)
 
 ---
 
@@ -657,14 +657,14 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/NORTH_STAR_B
 | **NORTH_STAR_BOOTSTRAP.md** v1.4 | Project ignition + multi-agent startup | ~70KB |
 | **BRIDGE.md** v1.2 | Navigation + routing + decision trees | ~55KB |
 | **GLOBAL_IDE_RULES.md** v1.1 | Universal agent operating principles | ~25KB |
-| **NORTH_STAR_BLUEPRINT_v6.1.md** | HOW to build — 59 sections, methodology | ~1MB+ |
-| **MASTER_BUILD_FRAMEWORK_v2.1.md** | WHAT to build with — 62 categories | ~200KB+ |
+| **NORTH_STAR_BLUEPRINT_v6.5.md** | HOW to build — 59 sections, methodology | ~1MB+ |
+| **MASTER_BUILD_FRAMEWORK_v2.5.md** | WHAT to build with — 62 categories | ~200KB+ |
 
 ---
 
 ## 🆕 Version 6.1 What's New
 
-### North Star Blueprint v6.1
+### North Star Blueprint v6.5
 - **RPIT Loop** — Canonical feature development cycle (Research → Plan → Implement → Test)
 - **Plan.md Annotation Protocol** — Human-in-the-loop planning before any code
 - **Hooks Architecture** — Determinism injection: stop hooks, pre-write hooks, audit trails
@@ -675,7 +675,7 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/NORTH_STAR_B
 - **Context Compaction Recovery** — Protocol for restoring sessions after compaction
 - **Agent Teams** — Coordinated specialized multi-agent roles
 
-### Master Build Framework v2.1
+### Master Build Framework v2.5
 - **Category 57**: Agent Orchestration Frameworks (CrewAI AMP, Google ADK, Strands, Agency Swarm)
 - **Category 58**: AI-Native IDEs & Coding Agents (Kiro, Zed+ACP, Antigravity, OpenCode, Cline)
 - **Category 59**: Prompt Orchestration & Evaluation (Vellum AI, Promptfoo, DeepEval)
@@ -689,7 +689,7 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/NORTH_STAR_B
 - **research-report** — Structured pre-build research
 - **plan-annotator** — Plan.md annotation workflow
 
-### Bootstrap v1.4 + BRIDGE v1.2 + GLOBAL_IDE_RULES v1.1
+### Bootstrap v1.5 + BRIDGE v1.5 + GLOBAL_IDE_RULES v1.1
 See individual file changelogs for details.
 
 ---
@@ -726,10 +726,10 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/GLOBAL_IDE_R
 
 # Core Framework Documents
 NORTH_STAR_BLUEPRINT_v6.1:
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md
 
 MASTER_BUILD_FRAMEWORK_v2.1:
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md
 
 ---
 
@@ -851,8 +851,8 @@ Save to: ~/.claude/CLAUDE.md (Claude Code)
 - `NORTH_STAR_BOOTSTRAP.md` v1.4 — Start here. Always.
 - `BRIDGE.md` v1.2 — Navigation. Routes queries to correct sections.
 - `GLOBAL_IDE_RULES.md` v1.1 — Universal IDE rules for all projects.
-- `NORTH_STAR_BLUEPRINT_v6.1.md` — 59 sections of methodology.
-- `MASTER_BUILD_FRAMEWORK_v2.1.md` — 62 categories of technology options.
+- `NORTH_STAR_BLUEPRINT_v6.5.md` — 59 sections of methodology.
+- `MASTER_BUILD_FRAMEWORK_v2.5.md` — 62 categories of technology options.
 ```
 
 ---
@@ -992,7 +992,7 @@ All references to Blueprint v5.0 → v6.1, MBF v1.1 → v2.1, Bootstrap v1.1 →
 **Replace existing MBF section:**
 
 ```markdown
-### Master Build Framework v2.1
+### Master Build Framework v2.5
 
 The MBF contains technology options by category. When contributing:
 
@@ -1049,7 +1049,7 @@ When suggesting improvements that align with the v6.1 enhancement system:
 
 Format: ENH-NNN — [Component] — [Topic] — [Priority]
 
-Example: ENH-042 — MBF v2.1 — New Category 63: WebAssembly Runtimes — 🟡 High
+Example: ENH-042 — MBF v2.5 — New Category 63: WebAssembly Runtimes — 🟡 High
 
 This helps maintainers evaluate and queue enhancements systematically.
 Include an Enhancement ID proposal in your issue or PR description.
@@ -1060,10 +1060,10 @@ Include an Enhancement ID proposal in your issue or PR description.
 ```markdown
 | Component | Style Notes |
 |-----------|-------------|
-| Blueprint v6.1 | Methodology-focused, platform-agnostic, section-numbered |
-| MBF v2.1 | Tool-specific, exhaustive options, quality gates per category |
-| Bootstrap v1.4 | Action-oriented, beginner-friendly, self-cleaning philosophy |
-| BRIDGE v1.2 | Navigation-focused, routing clarity, decision trees |
+| Blueprint v6.5 | Methodology-focused, platform-agnostic, section-numbered |
+| MBF v2.5 | Tool-specific, exhaustive options, quality gates per category |
+| Bootstrap v1.5 | Action-oriented, beginner-friendly, self-cleaning philosophy |
+| BRIDGE v1.5 | Navigation-focused, routing clarity, decision trees |
 | GLOBAL_IDE_RULES v1.1 | Universal principles, IDE-specific configs |
 | Skills | Description-first, trigger-accurate, specialized knowledge |
 ```
@@ -1480,8 +1480,8 @@ git mv NS_MEMORY_ARCHITECTURE_PROPOSAL.md \
        archive/NS_MEMORY_ARCHITECTURE_PROPOSAL_IMPLEMENTED_v6.1.md
 
 # Add to README note: 
-# "Memory Architecture Proposal — fully integrated into Blueprint v6.1 Part XIV
-#  and MBF v2.1 Category 62. See archive/ for original proposal document."
+# "Memory Architecture Proposal — fully integrated into Blueprint v6.5 Part XIV
+#  and MBF v2.5 Category 62. See archive/ for original proposal document."
 ```
 
 The proposal is too valuable to delete — it contains Richmond Alake source quotes,

@@ -58,13 +58,13 @@ This package synthesizes enhancements from four intelligence streams:
 
 | ID | Priority | Component | Topic | Complexity |
 |----|----------|-----------|-------|------------|
-| ENH-001 | 🔴 | Bootstrap v1.4 | Multi-agent native ignition sequence | Medium |
-| ENH-002 | 🔴 | Bootstrap v1.4 | OpenClaw async delegation bridge | Medium |
-| ENH-003 | 🟡 | Bootstrap v1.4 | Permission pre-configuration protocol | Low |
-| ENH-004 | 🟡 | Bootstrap v1.4 | Fetch URL updates for v6.1 | Low |
-| ENH-005 | 🔴 | BRIDGE v1.2 | New decision tree branches (async/spec/governance) | Medium |
-| ENH-006 | 🟡 | BRIDGE v1.2 | MBF routing for new categories (57-64) | Low |
-| ENH-007 | 🟡 | BRIDGE v1.2 | Boris Cherny parallel checkout pattern | Low |
+| ENH-001 | 🔴 | Bootstrap v1.5 | Multi-agent native ignition sequence | Medium |
+| ENH-002 | 🔴 | Bootstrap v1.5 | OpenClaw async delegation bridge | Medium |
+| ENH-003 | 🟡 | Bootstrap v1.5 | Permission pre-configuration protocol | Low |
+| ENH-004 | 🟡 | Bootstrap v1.5 | Fetch URL updates for v6.1 | Low |
+| ENH-005 | 🔴 | BRIDGE v1.5 | New decision tree branches (async/spec/governance) | Medium |
+| ENH-006 | 🟡 | BRIDGE v1.5 | MBF routing for new categories (57-64) | Low |
+| ENH-007 | 🟡 | BRIDGE v1.5 | Boris Cherny parallel checkout pattern | Low |
 | ENH-008 | 🔴 | NSB Part I | RPIT Loop — canonical feature development loop | High |
 | ENH-009 | 🔴 | NSB Part II | Plan.md Annotation Pattern (human-in-the-loop planning) | High |
 | ENH-010 | 🔴 | NSB Part II | Hooks Architecture — determinism injection system | High |
@@ -77,14 +77,14 @@ This package synthesizes enhancements from four intelligence streams:
 | ENH-017 | 🟡 | NSB Part III | Context compaction recovery protocol | Medium |
 | ENH-018 | 🟢 | NSB Part I | claude.md as living document — iterative improvement commands | Low |
 | ENH-019 | 🟢 | NSB Part I | Status line configuration for context-aware sessions | Low |
-| ENH-020 | 🔴 | MBF v2.1 | New Category 57: Agent Orchestration Frameworks | High |
-| ENH-021 | 🔴 | MBF v2.1 | New Category 58: AI-Native IDEs & Coding Agents | High |
-| ENH-022 | 🟡 | MBF v2.1 | New Category 59: Prompt Orchestration & Evaluation | Medium |
-| ENH-023 | 🟡 | MBF v2.1 | New Category 60: Life OS Agents (OpenClaw ecosystem) | Medium |
-| ENH-024 | 🟡 | MBF v2.1 | New Category 61: Enterprise Agent Governance | Medium |
-| ENH-025 | 🟡 | MBF v2.1 | Category 44 expansion: Data Pipeline + HITL (Prefect/Dagster) | Medium |
-| ENH-026 | 🟢 | MBF v2.1 | Category 29 expansion: Context Management Systems | Low |
-| ENH-027 | 🟢 | MBF v2.1 | Benchmark matrix update: SWE-bench / Terminal-Bench 2026 | Low |
+| ENH-020 | 🔴 | MBF v2.5 | New Category 57: Agent Orchestration Frameworks | High |
+| ENH-021 | 🔴 | MBF v2.5 | New Category 58: AI-Native IDEs & Coding Agents | High |
+| ENH-022 | 🟡 | MBF v2.5 | New Category 59: Prompt Orchestration & Evaluation | Medium |
+| ENH-023 | 🟡 | MBF v2.5 | New Category 60: Life OS Agents (OpenClaw ecosystem) | Medium |
+| ENH-024 | 🟡 | MBF v2.5 | New Category 61: Enterprise Agent Governance | Medium |
+| ENH-025 | 🟡 | MBF v2.5 | Category 44 expansion: Data Pipeline + HITL (Prefect/Dagster) | Medium |
+| ENH-026 | 🟢 | MBF v2.5 | Category 29 expansion: Context Management Systems | Low |
+| ENH-027 | 🟢 | MBF v2.5 | Benchmark matrix update: SWE-bench / Terminal-Bench 2026 | Low |
 | ENH-028 | 🔴 | Skills | New skill: retro-skill.md (post-RPIT feedback loop) | High |
 | ENH-029 | 🔴 | Skills | New skill: parallel-agent-orchestration.md | High |
 | ENH-030 | 🟡 | Skills | New skill: research-report.md | Medium |
@@ -272,11 +272,11 @@ MASTER BUILD FRAMEWORK v1.1 (Technology):
 https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v1.1.md
 
 # NEW
-NORTH STAR BLUEPRINT v6.1 (Methodology):
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md
+NORTH STAR BLUEPRINT v6.5 (Methodology):
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md
 
-MASTER BUILD FRAMEWORK v2.1 (Technology):
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md
+MASTER BUILD FRAMEWORK v2.5 (Technology):
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md
 ```
 
 Also update the Bootstrap header banner version from `v1.3` to `v1.4`.
@@ -285,7 +285,7 @@ Also update the Bootstrap header banner version from `v1.3` to `v1.4`.
 
 ---
 
-# SECTION B: BRIDGE v1.2 ENHANCEMENTS
+# SECTION B: BRIDGE v1.5 ENHANCEMENTS
 
 ---
 
@@ -348,8 +348,8 @@ Category 61 | Enterprise Agent Governance      | MBF_PART_4_FOUNDATION
 
 Also update the BRIDGE header table:
 ```
-| North Star Blueprint v6.1 | HOW to build | ~1MB+ | Methodology, process, quality gates |
-| Master Build Framework v2.1 | WHAT to build with | ~200KB+ | Technology selection, 61 categories |
+| North Star Blueprint v6.5 | HOW to build | ~1MB+ | Methodology, process, quality gates |
+| Master Build Framework v2.5 | WHAT to build with | ~200KB+ | Technology selection, 61 categories |
 ```
 
 ---
@@ -400,7 +400,7 @@ NS FRAMEWORK RECOMMENDATION:
 
 ---
 
-# SECTION C: NORTH STAR BLUEPRINT v6.1 ENHANCEMENTS
+# SECTION C: NORTH STAR BLUEPRINT v6.5 ENHANCEMENTS
 
 ---
 
@@ -1549,7 +1549,7 @@ DESKTOP APP ALTERNATIVE:
 
 ---
 
-# SECTION D: MASTER BUILD FRAMEWORK v2.1 NEW CATEGORIES
+# SECTION D: MASTER BUILD FRAMEWORK v2.5 NEW CATEGORIES
 
 ---
 

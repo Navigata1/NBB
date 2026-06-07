@@ -31,13 +31,13 @@ These continue to work without changes:
 https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/.../NORTH_STAR_BLUEPRINT_v5.0.md
 
 # New
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/.../NORTH_STAR_BLUEPRINT_v6.1.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/.../NORTH_STAR_BLUEPRINT_v6.5.md
 ```
 
 Similarly for MBF references:
 ```
 # Old: MASTER_BUILD_FRAMEWORK_v1.1.md
-# New: MASTER_BUILD_FRAMEWORK_v2.1.md
+# New: MASTER_BUILD_FRAMEWORK_v2.5.md
 ```
 
 ### 2. Project Context File Updates

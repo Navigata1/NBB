@@ -6,7 +6,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│                              BRIDGE.md v1.2                                  │
+│                              BRIDGE.md v1.5                                  │
 │                                                                              │
 │                    The Navigation Layer for North Star                       │
 │                                                                              │
@@ -15,7 +15,7 @@
 │           "Don't read everything. Navigate to what you need."                │
 │                                                                              │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  North Star Blueprint v6.1  ←——— BRIDGE.md ———→  Master Build v2.1 │    │
+│  │  North Star Blueprint v6.5  ←——— BRIDGE.md ———→  Master Build v2.5 │    │
 │  │       (HOW to build)        (Navigation)      (WHAT to build with)  │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
@@ -64,8 +64,8 @@ BRIDGE.md is the **navigation layer** between the two core framework documents. 
 
 | Document | Provides | Size | When to Reference |
 |----------|----------|------|-------------------|
-| **North Star Blueprint v6.1** | HOW to build | ~910KB | Methodology, process, quality gates |
-| **Master Build Framework v2.1** | WHAT to build with | ~158KB | Technology selection, tool matrices |
+| **North Star Blueprint v6.5** | HOW to build | ~910KB | Methodology, process, quality gates |
+| **Master Build Framework v2.5** | WHAT to build with | ~158KB | Technology selection, tool matrices |
 
 **Rule:** Reference on demand. Never load both fully into context simultaneously.
 
@@ -187,7 +187,7 @@ SELF-IMPROVEMENT / CONTINUOUS LEARNING
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    NORTH STAR BLUEPRINT v6.1                                 │
+│                    NORTH STAR BLUEPRINT v6.5                                 │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  STRUCTURE: 14 Parts, ~65 Sections                                          │
@@ -212,7 +212,7 @@ SELF-IMPROVEMENT / CONTINUOUS LEARNING
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    MASTER BUILD FRAMEWORK v2.1                               │
+│                    MASTER BUILD FRAMEWORK v2.5                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  STRUCTURE: 9 Tiers, 60+ Categories                                         │
@@ -693,7 +693,7 @@ PHASE 3: SAFETY & MONITORING
 │  4. Specific NS/MBF sections (on demand)                                    │
 │                                                                              │
 │  ANTI-PATTERN:                                                               │
-│  ✗ Loading NS v6.1 + MBF v2.1 + Bootstrap simultaneously                   │
+│  ✗ Loading NS v6.1 + MBF v2.5 + Bootstrap simultaneously                   │
 │  ✗ Reading entire framework before starting work                            │
 │  ✗ Keeping unused sections in context                                       │
 │                                                                              │
@@ -743,18 +743,18 @@ MAKING ARCHITECTURE DECISIONS
 │  Updated: March 2026                                                         │
 │                                                                              │
 │  COMPATIBLE WITH:                                                            │
-│  • North Star Blueprint v6.1                                                │
-│  • Master Build Framework v2.1                                              │
-│  • North Star Bootstrap v1.4                                                │
+│  • North Star Blueprint v6.5                                                │
+│  • Master Build Framework v2.5                                              │
+│  • North Star Bootstrap v1.5                                                │
 │                                                                              │
 │  CHANGELOG:                                                                  │
-│  v1.2 (March 2026)                                                          │
+│  v1.5 (March 2026)                                                          │
 │    • ENH-005: Added 6 new decision tree branches (async, spec-driven,       │
 │      multi-agent, tooling, self-improvement)                                │
 │    • ENH-006: Added MBF routing for new categories 57–62                    │
 │    • ENH-007: Added Section 12 — Creator-Proven Patterns (Boris Cherny)     │
 │    • ENH-034: Added OpenClaw Integration Guide addendum                     │
-│    • Updated version refs to Blueprint v6.1, MBF v2.1, Bootstrap v1.4      │
+│    • Updated version refs to Blueprint v6.5, MBF v2.5, Bootstrap v1.5      │
 │                                                                              │
 │  v2.0 (January 2026)                                                        │
 │    • Added routing for Category 44A (Kanban & HITL)                         │
@@ -1076,8 +1076,8 @@ For the ClawHub skill registry: clawhu.b.io (5,700+ community skills)
 │                                                                              │
 │  START HERE:           NORTH_STAR_BOOTSTRAP.md (ignition key)               │
 │  NAVIGATE WITH:        BRIDGE.md (this document)                            │
-│  HOW TO BUILD:         North Star Blueprint v6.1                            │
-│  WHAT TO BUILD WITH:   Master Build Framework v2.1                          │
+│  HOW TO BUILD:         North Star Blueprint v6.5                            │
+│  WHAT TO BUILD WITH:   Master Build Framework v2.5                          │
 │  PROJECT STATE:        claude.md (your project's file)                      │
 │                                                                              │
 │  ─────────────────────────────────────────────────────────────────────────  │
@@ -1102,4 +1102,4 @@ For the ClawHub skill registry: clawhu.b.io (5,700+ community skills)
 
 ---
 
-*End of BRIDGE.md v1.2*
+*End of BRIDGE.md v1.5*

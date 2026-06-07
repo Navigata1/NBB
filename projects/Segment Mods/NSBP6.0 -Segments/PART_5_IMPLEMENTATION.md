@@ -1,4 +1,4 @@
-# NORTH STAR BLUEPRINT v6.1 — SEGMENT 5 of 7
+# NORTH STAR BLUEPRINT v6.5 — SEGMENT 5 of 7
 ## PART_5_IMPLEMENTATION
 ### Contents: Part VIII (Sections 37-41) + Part IX (Sections 42-45)
 ### Lines: 10287-12378 of original (expanded with v6.1 enhancements)

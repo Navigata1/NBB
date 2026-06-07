@@ -62,10 +62,10 @@ NorthStarBuild_6.1/
 ├── GLOBAL_IDE_RULES.md                   ← Cross-project IDE rules (v1.1)
 │
 ├── north-star-blueprint/
-│   └── NORTH_STAR_BLUEPRINT_v6.1.md      ← HOW to build (59 sections)
+│   └── NORTH_STAR_BLUEPRINT_v6.5.md      ← HOW to build (59 sections)
 │
 └── master-build-framework/
-    └── MASTER_BUILD_FRAMEWORK_v2.1.md    ← WHAT to build with (63 categories)
+    └── MASTER_BUILD_FRAMEWORK_v2.5.md    ← WHAT to build with (63 categories)
 ```
 
 ---
@@ -95,14 +95,14 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/NORTH_STAR_B
 | **NORTH_STAR_BOOTSTRAP.md** v1.4 | Project ignition + multi-agent startup | ~70KB |
 | **BRIDGE.md** v1.2 | Navigation + routing + decision trees | ~55KB |
 | **GLOBAL_IDE_RULES.md** v1.1 | Universal agent operating principles | ~25KB |
-| **NORTH_STAR_BLUEPRINT_v6.1.md** | HOW to build — 59 sections, methodology | ~1MB+ |
-| **MASTER_BUILD_FRAMEWORK_v2.1.md** | WHAT to build with — 63 categories | ~200KB+ |
+| **NORTH_STAR_BLUEPRINT_v6.5.md** | HOW to build — 59 sections, methodology | ~1MB+ |
+| **MASTER_BUILD_FRAMEWORK_v2.5.md** | WHAT to build with — 63 categories | ~200KB+ |
 
 ---
 
 ## 🆕 Version 6.1 What's New
 
-### North Star Blueprint v6.1
+### North Star Blueprint v6.5
 - **RPIT Loop** — Canonical feature development cycle (Research → Plan → Implement → Test)
 - **Plan.md Annotation Protocol** — Human-in-the-loop planning before any code
 - **Hooks Architecture** — Determinism injection: stop hooks, pre-write hooks, audit trails
@@ -113,7 +113,7 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/NORTH_STAR_B
 - **Context Compaction Recovery** — Protocol for restoring sessions after compaction
 - **Agent Teams** — Coordinated specialized multi-agent roles
 
-### Master Build Framework v2.1
+### Master Build Framework v2.5
 - **Category 57**: Agent Orchestration Frameworks (CrewAI AMP, Google ADK, Strands, Agency Swarm)
 - **Category 58**: AI-Native IDEs & Coding Agents (Kiro, Zed+ACP, Antigravity, OpenCode, Cline)
 - **Category 59**: Prompt Orchestration & Evaluation (Vellum AI, Promptfoo, DeepEval)
@@ -128,7 +128,7 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/NORTH_STAR_B
 - **research-report** — Structured pre-build research
 - **plan-annotator** — Plan.md annotation workflow
 
-### Bootstrap v1.4 + BRIDGE v1.2 + GLOBAL_IDE_RULES v1.1
+### Bootstrap v1.5 + BRIDGE v1.5 + GLOBAL_IDE_RULES v1.1
 See individual file changelogs for details.
 
 ---
@@ -166,10 +166,10 @@ https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/GLOBAL_IDE_R
 
 # Core Framework Documents
 NORTH_STAR_BLUEPRINT_v6.1:
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md
 
 MASTER_BUILD_FRAMEWORK_v2.1:
-https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md
+https://raw.githubusercontent.com/Navigata1/NorthStarBuild_5.0/main/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md
 ```
 
 ---

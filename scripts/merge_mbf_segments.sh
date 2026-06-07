@@ -3,12 +3,12 @@
 # MASTER BUILD FRAMEWORK — Segment Merge Script
 #
 # Merges the 4 development segments into the monolith distribution file:
-# MASTER_BUILD_FRAMEWORK_v2.1.md
+# MASTER_BUILD_FRAMEWORK_v2.5.md
 #
 # Usage:
 #   ./scripts/merge_mbf_segments.sh [output_file] [source_dir]
 #
-# Default output: master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md
+# Default output: master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md
 # Default source: projects/Segment Mods/MBF2.0- Segments
 #
 # This script is for DEVELOPMENT OPERATIONS — not for end users.
@@ -22,7 +22,7 @@ set -euo pipefail
 # ── Configuration ──
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-OUTPUT_FILE="${1:-$REPO_ROOT/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md}"
+OUTPUT_FILE="${1:-$REPO_ROOT/master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md}"
 SOURCE_DIR="${2:-$REPO_ROOT/projects/Segment Mods/MBF2.0- Segments}"
 
 # Segment files in merge order
@@ -45,7 +45,7 @@ echo "╚═══════════════════════�
 echo ""
 
 if [ ! -d "$SOURCE_DIR" ]; then
-  echo "?O ERROR: Source directory not found: $SOURCE_DIR"
+  echo "ERROR: Source directory not found: $SOURCE_DIR"
   echo ""
   echo "   Usage: ./scripts/merge_mbf_segments.sh [output_file] [source_dir]"
   exit 1

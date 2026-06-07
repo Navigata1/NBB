@@ -1,4 +1,4 @@
-# MASTER BUILD FRAMEWORK v2.1 — SEGMENT 1 of 4
+# MASTER BUILD FRAMEWORK v2.5 — SEGMENT 1 of 4
 ## MBF_PART_1_CORE
 ### Contents: Front Matter + Tier 1 (Cat 1-7) + Tier 2 (Cat 8-14)
 ### Lines: 1-1113 of original
@@ -7,8 +7,8 @@
 > For BRIDGE routing: Categories 1-14 are in this segment.
 ---
 
-# THE 56-PHASE MASTER BUILD FRAMEWORK
-## v2.1 — March 2026
+# THE 62-CATEGORY MASTER BUILD FRAMEWORK
+## v2.5 — March 2026
 
 ---
 
@@ -20,7 +20,7 @@
 │  This document is ONE component of a three-part system:                     │
 │                                                                              │
 │  ┌─────────────┐     ┌─────────────────────┐     ┌─────────────────────┐    │
-│  │  BRIDGE.md  │────►│  NORTH STAR v6.1    │     │  MASTER BUILD v2.1  │    │
+│  │  BRIDGE.md  │────►│  NORTH STAR v6.5    │     │  MASTER BUILD v2.5  │    │
 │  │  Navigation │     │  Methodology        │     │  (This Document)    │    │
 │  └─────────────┘     │                     │     │                     │    │
 │        │             │  HOW to build       │     │  WHAT to build with │    │
@@ -30,7 +30,7 @@
 │        └─────────────┴─────────────────────┴─────┴─────────────────────┘    │
 │                                                                              │
 │  THIS DOCUMENT PROVIDES: Technology options, tool matrices, build patterns  │
-│  FOR ORCHESTRATION: See North Star Blueprint v6.1 (handoffs, confidence,    │
+│  FOR ORCHESTRATION: See North Star Blueprint v6.5 (handoffs, confidence,    │
 │                     context engineering, load balancing, quality gates)     │
 │  FOR NAVIGATION: See BRIDGE.md (routes you to the right document/section)   │
 │                                                                              │

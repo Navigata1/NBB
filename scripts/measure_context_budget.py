@@ -24,8 +24,8 @@ COMPONENTS = {
     "core_always_resident": "CLAUDE.md",
     "bridge_navigation": "BRIDGE.md",
     "bootstrap_deep": "NORTH_STAR_BOOTSTRAP.md",
-    "blueprint_full": "north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md",
-    "mbf_full": "master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md",
+    "blueprint_full": "north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md",
+    "mbf_full": "master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md",
 }
 
 def measure(path):

@@ -1,4 +1,4 @@
-# NORTH STAR BLUEPRINT v6.1 — SEGMENT 2 of 7
+# NORTH STAR BLUEPRINT v6.5 — SEGMENT 2 of 7
 ## PART_2_DOCUMENTATION
 ### Contents: Part III (Sections 9-12) + Part IV (Sections 13-19)
 ### Lines: 3820-7150 of original (expanded with v6.1 enhancements)

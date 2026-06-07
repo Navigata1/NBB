@@ -17,6 +17,47 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [6.5 — NBB / Northstar Boot-strap edition] — 2026-06-07
+
+Published as `Navigata1/NBB`. Versions bumped to the .5 line: Blueprint
+v6.1->v6.5, MBF v2.1->v2.5, Bootstrap v1.4->v1.5, BRIDGE v1.2->v1.5, Global IDE
+Rules v1.1->v1.5. Source: `NorthStarBuild_5.0@1002696`.
+
+### Added
+- **Portable low-bloat bootstrap.** `bootstrap/NBB_CORE.md` (single source of
+  truth) -> generated `CLAUDE.md`, `AGENTS.md`, `SKILL.md`, `dist/NBB_BOOTSTRAP.md`
+  via `scripts/build_bootstrap.sh` (deterministic; `--check` anti-drift gate).
+  Always-resident footprint measured at ~2k tokens (~99% reduction).
+- **Mechanical tokenomics.** `scripts/measure_context_budget.py` +
+  `bootstrap/context-budget.json` (per-Part token budgets) + `docs/TOKENOMICS.md`.
+  Measured: full framework ~258k tokens (exceeds a 200k window).
+- **3 new skills:** `computer-use-smoke`, `context-compression`, `understand-first`.
+- **Interop protocols** as optional layers: `docs/protocols/README.md`
+  (MCP/A2A/AG-UI/A2UI/ACP) + `docs/protocols/MEMORY_BACKEND.md` (swappable
+  cross-harness memory backend interface).
+- **Governance layer:** `docs/governance/` (cost caps + auto-throttle, immutable
+  action log, HITL gates, permissions + sandboxing + prompt-injection refusal,
+  `op://`/Stripe-RAK secrets, fully-local path).
+- **`docs/PORTABILITY.md`** (per-harness load matrix), `RECONCILIATION.md`
+  (evidence-cited baseline), `docs/modernization/MODERNIZATION_LOG.md` (batch log).
+
+### Changed
+- **Skills 9 -> 12.** `parallel-agent` v1.1->2.0 (Opus 4.8 dynamic workflows);
+  `autoresearch` v1.0->2.0 (computer-use behavioral verification); all skills now
+  use uniform front-matter + "When NOT to use" + "Portability"; lineage/SHAs preserved.
+- Root `AGENTS.md` (coordination protocol) relocated to
+  `docs/MULTI_AGENT_COORDINATION.md`; `claude.md` -> `docs/NS_PROJECT_CONTEXT.md`
+  (also avoids macOS `claude.md`/`CLAUDE.md` case collision). Root `AGENTS.md`/
+  `CLAUDE.md` are now the generated portable bootstrap.
+
+### Fixed
+- README refreshed from stale v6.0/v2.0/60-cat state to v6.5/v2.5/62-cat.
+- QUICK_START "63 categories" -> 62; version table bumped.
+- MBF title "56-PHASE" -> "62-CATEGORY" (matched the 62-category body).
+- `scripts/merge_mbf_segments.sh:48` mojibake artifact (`?O`) -> `ERROR`.
+- Em-dash mojibake in `projects/Segment Mods/CONTRIBUTING.md` (11 occurrences).
+- Superseded v6.0/v2.0 monoliths relocated to `superseded/` (provenance only).
+
 ## [Unreleased]
 
 *Items under consideration for future releases. Submit proposals via [Enhancement Request](.github/ISSUE_TEMPLATE/enhancement_request.md).*

@@ -3,7 +3,7 @@
 # NORTH STAR BLUEPRINT — Segment Merge Script (Consolidated)
 #
 # Merges the 7 PART_* development segments into the monolith distribution file:
-#   NORTH_STAR_BLUEPRINT_v6.1.md
+#   NORTH_STAR_BLUEPRINT_v6.5.md
 #
 # CONSOLIDATION NOTE (2026-03-18):
 #   This script was rewritten to source from the 7-file PART_* scheme, which
@@ -14,7 +14,7 @@
 # Usage:
 #   ./scripts/merge_nsb_segments.sh [output_file] [source_dir]
 #
-# Default output: north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md
+# Default output: north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md
 # Default source: projects/Segment Mods/NSBP6.0 -Segments
 #
 # This script is for DEVELOPMENT OPERATIONS — not for end users.
@@ -28,7 +28,7 @@ set -euo pipefail
 # ── Configuration ──
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-OUTPUT_FILE="${1:-$REPO_ROOT/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md}"
+OUTPUT_FILE="${1:-$REPO_ROOT/north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md}"
 SOURCE_DIR="${2:-$REPO_ROOT/projects/Segment Mods/NSBP6.0 -Segments}"
 
 # The 7 PART_* files in merge order (sole source of truth)
@@ -43,7 +43,7 @@ SEGMENTS=(
 )
 
 # Each segment has an 8-line navigation header to strip:
-#   Line 1: # NORTH STAR BLUEPRINT v6.1 — SEGMENT N of 7
+#   Line 1: # NORTH STAR BLUEPRINT v6.5 — SEGMENT N of 7
 #   Line 2: ## PART_N_NAME
 #   Line 3: ### Contents: ...
 #   Line 4: ### Lines: ...

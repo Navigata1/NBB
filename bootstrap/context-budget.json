@@ -18,14 +18,14 @@
       "est_tokens": 16330
     },
     "blueprint_full": {
-      "path": "north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md",
+      "path": "north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md",
       "bytes": 1031632,
       "est_tokens": 189482
     },
     "mbf_full": {
-      "path": "master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md",
-      "bytes": 169380,
-      "est_tokens": 39868
+      "path": "master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md",
+      "bytes": 169383,
+      "est_tokens": 39869
     }
   },
   "blueprint_parts": [
@@ -102,7 +102,7 @@
   ],
   "reference_build": {
     "task": "start a project",
-    "before_load_all_tokens": 258339,
+    "before_load_all_tokens": 258340,
     "after_tier1_core_tokens": 1977,
     "pct_of_window_before": 129.2,
     "pct_of_window_after": 0.99,

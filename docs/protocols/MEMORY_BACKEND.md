@@ -11,8 +11,8 @@
 This settles the drift recorded in `RECONCILIATION.md` (sections 4, 11) and the
 modernization log:
 
-- **Part XIV = "Human-Agent Collaboration"** in Blueprint v6.1
-  (`NORTH_STAR_BLUEPRINT_v6.1.md:17384`). It is NOT the memory architecture. The
+- **Part XIV = "Human-Agent Collaboration"** in Blueprint v6.5
+  (`NORTH_STAR_BLUEPRINT_v6.5.md:17384`). It is NOT the memory architecture. The
   mission brief's label "Part XIV (memory architecture)" was incorrect for the
   live repo; this is the correction.
 - **Memory architecture is already INTEGRATED**, not a proposal. It lives at:

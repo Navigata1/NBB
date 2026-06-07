@@ -239,5 +239,38 @@ tokenizer); byte counts are exact. Labeled as such in-doc and in the manifest.
 **Verified:** all new docs ASCII/mojibake-safe; cross-references resolve to real
 files (bootstrap core, Blueprint Part X, the governance docs).
 
-**Boundary status:** Batch 5 complete. Batch 6 (build + version bump to .5 + doc
-refresh + capability report + dogfood gates + PUBLISH) remains.
+**Boundary status:** Batch 5 complete.
+
+---
+
+## Batch 6 — Distribution & Verification (COMPLETE, pre-publish)
+
+**What changed:**
+- Renamed monoliths -> `..._v6.5.md` / `..._v2.5.md`; repointed 13 files; bumped
+  segment stamps + re-merged (zero drift); bumped Bootstrap v1.5 / BRIDGE v1.5 /
+  IDE Rules v1.5 across docs.
+- README fully rewritten as the NBB front door (v6.5/v2.5/62-cat, low-bloat
+  bootstrap headline, NBB raw URLs, license/attribution preserved).
+- QUICK_START fixed (62 categories; version table -> .5). SECURITY supported-
+  versions table -> v6.5. SKILLS_REGISTRY + MULTI_AGENT compat notes resolved.
+- MBF title "56-PHASE" -> "62-CATEGORY"; `merge_mbf_segments.sh:48` `?O` -> `ERROR`.
+- Em-dash mojibake fixed in `Segment Mods/CONTRIBUTING.md` (11). Superseded
+  v6.0/v2.0 monoliths relocated to `superseded/` + README.
+- CHANGELOG `[6.5 - NBB]` release entry added. `CAPABILITY_ASSESSMENT.md` authored.
+
+**Dogfood gates (all green):**
+- `build_bootstrap.sh --check` PASS; `measure_context_budget.py --check` PASS;
+  segment->monolith merge drift = 0/0.
+- Mojibake (canonical surface, excl superseded/archived): CLEAN; U+FFFD = 0.
+- Front-door/always-loaded files: 0 residual current-stamp v6.1/v2.1.
+- Doc consistency: old repo name in canonical docs = 0.
+- License = CC BY-NC-SA 4.0; @NavigatingTruth + design-taste<-leonxlnx lineage present.
+- Secret scan: none; no `.env` tracked.
+
+**Honest residual:** 23 files still contain `v6.1`/`v2.1` strings -- ALL are
+correctly-preserved provenance ("v2.1 NEW" category-added tags, "added in
+v6.1 (ENH-NNN)" history, the "56+6=62" count math), NOT missed current stamps.
+Bumping them would falsify history; left as-is by design.
+
+**Boundary status:** Batch 6 build+verify complete. Remaining: commit, create
+`Navigata1/NBB`, push (final outward step).

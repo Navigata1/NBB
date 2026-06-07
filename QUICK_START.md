@@ -90,19 +90,21 @@ The framework operates in layers:
 
 | Component | Version | Purpose | When You Need It |
 |-----------|---------|---------|------------------|
-| **Bootstrap** | v1.4 | Entry point + ignition | Starting any project |
-| **BRIDGE** | v1.2 | Navigation + routing + decision trees | Finding specific guidance |
-| **GLOBAL_IDE_RULES** | v1.1 | Universal agent operating principles | Cross-project consistency |
-| **Blueprint** | v6.1 | HOW to build — 59 sections | Methodology and process |
-| **MBF** | v2.1 | WHAT to build with — 63 categories | Technology selection |
+| **Portable core** | NBB | Tiny always-resident bootstrap (CLAUDE.md/AGENTS.md/SKILL.md) | Every session — load first |
+| **Bootstrap** | v1.5 | Deep ignition reference | Starting any project |
+| **BRIDGE** | v1.5 | Navigation + routing + decision trees | Finding specific guidance |
+| **GLOBAL_IDE_RULES** | v1.5 | Universal agent operating principles | Cross-project consistency |
+| **Blueprint** | v6.5 | HOW to build — 14 Parts / 59 sections | Methodology and process |
+| **MBF** | v2.5 | WHAT to build with — 62 categories | Technology selection |
 
 ### File Purposes
 
-- `NORTH_STAR_BOOTSTRAP.md` v1.4 — Start here. Always.
-- `BRIDGE.md` v1.2 — Navigation. Routes queries to correct sections.
-- `GLOBAL_IDE_RULES.md` v1.1 — Universal IDE rules for all projects.
-- `NORTH_STAR_BLUEPRINT_v6.1.md` — 59 sections of methodology.
-- `MASTER_BUILD_FRAMEWORK_v2.1.md` — 63 categories of technology options.
+- `CLAUDE.md` / `AGENTS.md` / `SKILL.md` — the portable core (generated from `bootstrap/NBB_CORE.md`). Tier 1, always resident (~2k tokens).
+- `NORTH_STAR_BOOTSTRAP.md` v1.5 — Deep ignition reference (load on demand).
+- `BRIDGE.md` v1.5 — Navigation. Routes queries to correct sections.
+- `GLOBAL_IDE_RULES.md` v1.5 — Universal IDE rules for all projects.
+- `NORTH_STAR_BLUEPRINT_v6.5.md` — 14 Parts / 59 sections of methodology.
+- `MASTER_BUILD_FRAMEWORK_v2.5.md` — 62 categories of technology options.
 
 ---
 

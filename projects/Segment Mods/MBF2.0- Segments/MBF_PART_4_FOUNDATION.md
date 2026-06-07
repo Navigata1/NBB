@@ -1,4 +1,4 @@
-# MASTER BUILD FRAMEWORK v2.1 — SEGMENT 4 of 4
+# MASTER BUILD FRAMEWORK v2.5 — SEGMENT 4 of 4
 ## MBF_PART_4_FOUNDATION
 ### Contents: Tier 8 (Cat 50-56) + Usage Guide + Appendix + Addendum (Skills, RLM, Prompt Architecture)
 ### Lines: 3075-4935 of original
@@ -2008,7 +2008,7 @@ The following sections are designed as **extension points** where custom framewo
 
 ## North Star Blueprint Integration
 
-This Master Build Framework pairs with the **North Star Blueprint v6.1** for complete coverage:
+This Master Build Framework pairs with the **North Star Blueprint v6.5** for complete coverage:
 
 | This Framework Provides | North Star Provides |
 |-------------------------|---------------------|

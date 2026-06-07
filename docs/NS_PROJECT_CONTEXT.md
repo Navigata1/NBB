@@ -10,8 +10,8 @@ You are working on the North Star Framework itself — an AI-native development 
 |-----------|------|------|
 | Blueprint Segments | `projects/Segment Mods/NSBP6.0 -Segments/PART_1` through `PART_7` | **Source of truth** for North Star Blueprint |
 | MBF Segments | `projects/Segment Mods/MBF2.0- Segments/MBF_PART_1` through `MBF_PART_4` | **Source of truth** for Master Build Framework |
-| Blueprint Monolith | `north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.1.md` | Generated — do not edit directly |
-| MBF Monolith | `master-build-framework/MASTER_BUILD_FRAMEWORK_v2.1.md` | Generated — do not edit directly |
+| Blueprint Monolith | `north-star-blueprint/NORTH_STAR_BLUEPRINT_v6.5.md` | Generated — do not edit directly |
+| MBF Monolith | `master-build-framework/MASTER_BUILD_FRAMEWORK_v2.5.md` | Generated — do not edit directly |
 | BRIDGE.md | Root | Cross-reference routing between Blueprint and MBF |
 | NORTH_STAR_BOOTSTRAP.md | Root | Project scaffolding ignition key (v1.4) |
 | GLOBAL_IDE_RULES.md | Root | Cross-project IDE defaults |
@@ -49,7 +49,7 @@ Development happens in numbered batches with multiple passes. Each pass has a sp
 ## Current State
 
 - **Phase:** Batch 9 — Skills Integration & Safety Enhancements
-- **Versions:** NSB v6.1 | MBF v2.1 | Bootstrap v1.4 | BRIDGE v1.2 | IDE Rules v1.1
+- **Versions:** NSB v6.1 | MBF v2.5 | Bootstrap v1.5 | BRIDGE v1.5 | IDE Rules v1.5
 - **License:** CC BY-NC-SA 4.0 | Author: @NavigatingTruth
 
 ## Skills Available

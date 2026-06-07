@@ -1,8 +1,7 @@
 # Skills Registry
 
 > **VERSION:** 2.3 | **Updated:** 2026-06 (NBB wave) | **Batch:** 9 + NBB Batch 2
-> **Compatible with:** Bootstrap v1.4 | Blueprint v6.1 | MBF v2.1 (framework
-> stamps bump to the .5 line in NBB Batch 6)
+> **Compatible with:** Bootstrap v1.5 | Blueprint v6.5 | MBF v2.5
 >
 > **PURPOSE:** Canonical skills source map for the North Star Framework.
 > Referenced by `GLOBAL_IDE_RULES.md` and `.claude/skills/` discovery.

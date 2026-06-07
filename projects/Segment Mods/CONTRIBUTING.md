@@ -9,9 +9,9 @@ Thank you for your interest in contributing to the North Star Framework! This do
 > "Build with intention. Ship with confidence."
 
 We welcome contributions that align with our core principles:
-- **Load Balancing vs Token Burning** â€” Efficiency matters
-- **Confidence Calibration vs Runaway Execution** â€” Quality over speed
-- **Methodology-First vs Tool-First** â€” Process defines tools, not vice versa
+- **Load Balancing vs Token Burning** — Efficiency matters
+- **Confidence Calibration vs Runaway Execution** — Quality over speed
+- **Methodology-First vs Tool-First** — Process defines tools, not vice versa
 
 ---
 
@@ -31,10 +31,10 @@ We welcome contributions that align with our core principles:
 
 This project adheres to a code of conduct that all contributors are expected to follow:
 
-- **Be Respectful** â€” Treat everyone with respect and consideration
-- **Be Constructive** â€” Provide helpful feedback and suggestions
-- **Be Collaborative** â€” Work together toward shared goals
-- **Be Patient** â€” Remember that maintainers are volunteers
+- **Be Respectful** — Treat everyone with respect and consideration
+- **Be Constructive** — Provide helpful feedback and suggestions
+- **Be Collaborative** — Work together toward shared goals
+- **Be Patient** — Remember that maintainers are volunteers
 
 ---
 
@@ -59,7 +59,7 @@ Have an idea to make the framework better?
 1. **Check existing issues/discussions** for similar suggestions
 2. **Describe the problem** your enhancement solves
 3. **Explain your proposed solution**
-4. **Consider the scope** â€” Does this fit the framework's philosophy?
+4. **Consider the scope** — Does this fit the framework's philosophy?
 
 ### ðŸ“ Documentation Improvements
 
@@ -185,9 +185,9 @@ BRIDGE handles routing. When contributing:
 
 ### Getting Help
 
-- **Issues** â€” For bugs and feature requests
-- **Discussions** â€” For questions and ideas
-- **Twitter** â€” [@NavigatingTruth](https://twitter.com/NavigatingTruth)
+- **Issues** — For bugs and feature requests
+- **Discussions** — For questions and ideas
+- **Twitter** — [@NavigatingTruth](https://twitter.com/NavigatingTruth)
 
 ### Recognition
 

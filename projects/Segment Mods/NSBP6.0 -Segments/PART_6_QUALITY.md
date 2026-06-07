@@ -1,4 +1,4 @@
-# NORTH STAR BLUEPRINT v6.1 — SEGMENT 6 of 7
+# NORTH STAR BLUEPRINT v6.5 — SEGMENT 6 of 7
 ## PART_6_QUALITY
 ### Contents: Part X (Sections 46-49) + Part XI (Sections 50-53)
 ### Lines: 12379-14427 of original (expanded with v6.1 enhancements)
