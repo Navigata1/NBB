@@ -1,0 +1,15 @@
+# Runtime / scaffolding (never commit)
+.northstar/
+build/
+.ccg/
+
+# Local secrets (committable .env holds op:// references ONLY; never values)
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+*.swp
+*~

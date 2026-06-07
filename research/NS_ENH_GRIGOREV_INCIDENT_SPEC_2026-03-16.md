@@ -966,4 +966,4 @@ This enhancement specification is derived from:
 
 *Document version: 1.0 — March 16, 2026*
 *Author: Claude (analysis and specification) for Jon @NavigatingTruth*
-*Framework: North Star Blueprint v6.1 / MBF v2.1*
+*Framework: North Star Blueprint v6.5 / MBF v2.5*

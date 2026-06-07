@@ -122,10 +122,10 @@ Ready to contribute code or content?
 
 | Component | Style Notes |
 |-----------|-------------|
-| Blueprint v6.1 | Methodology-focused, platform-agnostic, section-numbered |
-| MBF v2.1 | Tool-specific, exhaustive options, quality gates per category |
-| Bootstrap v1.4 | Action-oriented, beginner-friendly, self-cleaning philosophy |
-| BRIDGE v1.2 | Navigation-focused, routing clarity, decision trees |
+| Blueprint v6.5 | Methodology-focused, platform-agnostic, section-numbered |
+| MBF v2.5 | Tool-specific, exhaustive options, quality gates per category |
+| Bootstrap v1.5 | Action-oriented, beginner-friendly, self-cleaning philosophy |
+| BRIDGE v1.5 | Navigation-focused, routing clarity, decision trees |
 | GLOBAL_IDE_RULES v1.1 | Universal principles, IDE-specific configs |
 | Skills | Description-first, trigger-accurate, specialized knowledge |
 
@@ -155,7 +155,7 @@ The Blueprint contains methodology and orchestration patterns. When contributing
 - Follow the Documentation Hierarchy (Layer 1-5)
 - Include quality gates where appropriate
 
-### Master Build Framework v2.1
+### Master Build Framework v2.5
 
 The MBF contains technology options by category. When contributing:
 
@@ -221,7 +221,7 @@ When suggesting improvements that align with the v6.1 enhancement system:
 
 **Format:** `ENH-NNN — [Component] — [Topic] — [Priority]`
 
-**Example:** `ENH-042 — MBF v2.1 — New Category 64: WebAssembly Runtimes — 🟡 High`
+**Example:** `ENH-042 — MBF v2.5 — New Category 64: WebAssembly Runtimes — 🟡 High`
 
 This helps maintainers evaluate and queue enhancements systematically.
 Include an Enhancement ID proposal in your issue or PR description.
