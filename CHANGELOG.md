@@ -58,6 +58,19 @@ Rules v1.1->v1.5. Source: `NorthStarBuild_5.0@1002696`.
 - Em-dash mojibake in `projects/Segment Mods/CONTRIBUTING.md` (11 occurrences).
 - Superseded v6.0/v2.0 monoliths relocated to `superseded/` (provenance only).
 
+### Skill packs + ECC-Prime + hardening
+- **Secure skill-pack system:** `packs/core-100.json` + `packs/extended-300.json`
+  manifests, `scripts/vet_skill.sh` (per-skill security gate, v2 context-aware),
+  `scripts/build_skill_pack.py` (fetch-at-SHA, default-deny, PASS-only), CI
+  `.github/workflows/build-skill-pack.yml`. A pack = vetted manifest + builder.
+- **ECC-Prime (MIT) adopted** as a pinned source @ `7113b5bf`: 251 canonical
+  skills reviewed -> **234 PASS adopted**, 17 WARN + 0 FAIL held. Referenced (not
+  vendored); MIT in `THIRD_PARTY_NOTICES.md`; audit in `packs/ECC_PRIME_VET_REPORT.md`.
+- **Full build:** core-100 = 27/100, extended-300 = 261/300 (honest, unpadded).
+- **Hooks made non-blocking + robust:** NBB `pre-write.sh` (stdin-JSON, warn-not-
+  block, wired into settings.json); example hooks guard missing tools and never
+  spurious-error; `NBB_STRICT_HOOKS=1` opts into enforcement.
+
 ## [Unreleased]
 
 *Items under consideration for future releases. Submit proposals via [Enhancement Request](.github/ISSUE_TEMPLATE/enhancement_request.md).*

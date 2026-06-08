@@ -10,7 +10,8 @@
       "Write(SKILLS_REGISTRY.md)",
       "Write(HARD_STOPS.md)",
       "Write(HANDOFF.md)",
-      "Write(claude.md)",
+      "Write(packs/**)",
+      "Write(bootstrap/**)",
       "Execute(git status)",
       "Execute(git diff **)",
       "Execute(git log *)",
@@ -23,6 +24,16 @@
       "Execute(rm -rf *)",
       "Execute(git reset --hard *)",
       "Execute(git checkout -- *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/pre-write.sh" }
+        ]
+      }
     ]
   }
 }
