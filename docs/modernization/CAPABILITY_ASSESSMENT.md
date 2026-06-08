@@ -79,3 +79,22 @@ gaps are (a) live multi-harness auto-load testing, which needs those harnesses,
 and (b) treating documented governance/protocol layers as guidance rather than
 runtime enforcement. Nothing here claims a capability that was not built; nothing
 verified-by-assertion is presented as verified-by-behavior.
+
+## 6. ECC-Prime upstream integration (bounded, MIT-confirmed)
+
+- **ADOPTED:** 218 canonical ECC-Prime skills that PASSED `vet_skill.sh`, added as
+  **pinned** entries (SHA `7113b5bf...`, MIT) to `packs/extended-300.json`
+  (36 curated + 218 = 254 concrete; cap 300 NOT padded).
+- **HELD:** 30 WARN + 3 FAIL (default-denied). The 3 FAILs (`perl-security`,
+  `security-bounty-hunter`, `security-scan`) are DEFENSIVE security-education
+  skills the conservative gate flagged on their own example text — held for manual
+  review, not deleted, not auto-included.
+- **HONEST dedup:** 792 `SKILL.md` files reduced to 251 canonical skills (the rest
+  are `docs/ja-JP`, `docs/zh-CN`, `.agents`, `.kiro`, `.cursor` locale copies) — so
+  counts are not inflated by translations.
+- **License posture:** MIT preserved in `THIRD_PARTY_NOTICES.md`; ECC skills are
+  REFERENCED (pinned + fetched-at-SHA by the builder), NOT vendored into the tree
+  and NOT blended into NBB methodology prose. CC BY-NC-SA / MIT kept separated.
+- **Limit:** PASS = passed the STATIC gate at this SHA (necessary, not sufficient;
+  no per-skill behavioral sandbox was run). Re-pin + re-vet on any new ECC commit.
+  Full report: `packs/ECC_PRIME_VET_REPORT.md`.
