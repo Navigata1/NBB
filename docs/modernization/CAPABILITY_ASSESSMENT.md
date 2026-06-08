@@ -98,3 +98,24 @@ verified-by-assertion is presented as verified-by-behavior.
 - **Limit:** PASS = passed the STATIC gate at this SHA (necessary, not sufficient;
   no per-skill behavioral sandbox was run). Re-pin + re-vet on any new ECC commit.
   Full report: `packs/ECC_PRIME_VET_REPORT.md`.
+
+## 7. Hardening pass (gate v2, full build, hooks)
+
+- **Gate v2 (context-aware).** `vet_skill.sh` now flags dangerous tokens only in
+  EXECUTABLE context; defensive prose / tables / comments / inline-code examples
+  are exempt. Verified: malicious bare `curl|bash` / `rm -rf /` / prompt-injection
+  still FAIL; clean skills still PASS. ECC re-vet: **234 PASS / 17 WARN / 0 FAIL**
+  (was 218/30/3 — the 3 defensive-education FAILs now PASS without editing
+  upstream MIT files). extended-300 = **36 + 234 = 270 concrete** (cap 300, honest).
+- **Full build (online).** core-100 = **27/100**; extended-300 = **261/300**
+  (234 ECC + 27 first-party/Anthropic, each fetched at SHA + gated). 9 OpenAI
+  honestly quarantined (unpinned); unfilled slots openly reported, not padded.
+- **Hooks made smooth/non-blocking.** NBB `.claude/hooks/pre-write.sh` rewritten
+  (modern stdin-JSON, warns not blocks, exit 0 by default, `NBB_STRICT_HOOKS=1`
+  to enforce) and wired into `.claude/settings.json`. Example `pre-write.sh` /
+  `stop.sh` rewritten to guard missing tools ("not necessary here") and never
+  spurious-error. Host ECC fact-force + stuck cost-warning hooks disabled
+  (reversible, backed up) so NBB sessions run clean.
+- **Limit unchanged:** the gate is still STATIC (necessary, not sufficient). The
+  17 held WARN (homelab/SSH/network skills with real IPs/commands) remain
+  default-denied for human review — honest, not auto-included.

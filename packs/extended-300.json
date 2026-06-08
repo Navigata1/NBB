@@ -533,6 +533,18 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-agentic-os",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/agentic-os/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-ai-first-engineering",
       "category": "ecc",
       "caliber": 3,
@@ -581,6 +593,18 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-api-connector-builder",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/api-connector-builder/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-api-design",
       "category": "ecc",
       "caliber": 3,
@@ -613,6 +637,18 @@
       "repo": "Navigata1/ECC-Prime",
       "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
       "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/article-writing/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-automation-audit-ops",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/automation-audit-ops/SKILL.md",
       "license": "MIT",
       "vetting_status": "pinned-passed"
     },
@@ -721,6 +757,18 @@
       "repo": "Navigata1/ECC-Prime",
       "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
       "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/bun-runtime/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-canary-watch",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/canary-watch/SKILL.md",
       "license": "MIT",
       "vetting_status": "pinned-passed"
     },
@@ -1145,6 +1193,18 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-django-security",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/django-security/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-django-tdd",
       "category": "ecc",
       "caliber": 3,
@@ -1225,6 +1285,18 @@
       "repo": "Navigata1/ECC-Prime",
       "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
       "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/ecc-guide/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-ecc-tools-cost-audit",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/ecc-tools-cost-audit/SKILL.md",
       "license": "MIT",
       "vetting_status": "pinned-passed"
     },
@@ -1829,6 +1901,18 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-laravel-patterns",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/laravel-patterns/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-laravel-plugin-discovery",
       "category": "ecc",
       "caliber": 3,
@@ -1909,6 +1993,18 @@
       "repo": "Navigata1/ECC-Prime",
       "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
       "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/liquid-glass-design/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-llm-trading-agent-security",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/llm-trading-agent-security/SKILL.md",
       "license": "MIT",
       "vetting_status": "pinned-passed"
     },
@@ -2213,6 +2309,18 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-perl-security",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/perl-security/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-perl-testing",
       "category": "ecc",
       "caliber": 3,
@@ -2317,6 +2425,18 @@
       "repo": "Navigata1/ECC-Prime",
       "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
       "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/product-lens/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-production-audit",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/production-audit/SKILL.md",
       "license": "MIT",
       "vetting_status": "pinned-passed"
     },
@@ -2717,6 +2837,18 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-security-bounty-hunter",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/security-bounty-hunter/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-security-review",
       "category": "ecc",
       "caliber": 3,
@@ -2725,6 +2857,18 @@
       "repo": "Navigata1/ECC-Prime",
       "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
       "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/security-review/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-security-scan",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/security-scan/SKILL.md",
       "license": "MIT",
       "vetting_status": "pinned-passed"
     },
@@ -2957,6 +3101,18 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-tinystruct-patterns",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/tinystruct-patterns/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-token-budget-advisor",
       "category": "ecc",
       "caliber": 3,
@@ -2981,6 +3137,30 @@
       "vetting_status": "pinned-passed"
     },
     {
+      "name": "ecc-uncloud",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/uncloud/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-unified-notifications-ops",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/unified-notifications-ops/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
       "name": "ecc-verification-loop",
       "category": "ecc",
       "caliber": 3,
@@ -3001,6 +3181,18 @@
       "repo": "Navigata1/ECC-Prime",
       "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
       "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/video-editing/SKILL.md",
+      "license": "MIT",
+      "vetting_status": "pinned-passed"
+    },
+    {
+      "name": "ecc-videodb",
+      "category": "ecc",
+      "caliber": 3,
+      "trust_tier": "C-MIT",
+      "source_type": "vendor",
+      "repo": "Navigata1/ECC-Prime",
+      "sha": "7113b5bf63694b716f8b2413c5919824a82fc095",
+      "raw_url": "https://raw.githubusercontent.com/Navigata1/ECC-Prime/<sha>/skills/videodb/SKILL.md",
       "license": "MIT",
       "vetting_status": "pinned-passed"
     },
@@ -3089,7 +3281,7 @@
       "trust_tier": "C-MIT",
       "license": "MIT",
       "status": "enumerable",
-      "note": "MIT, pinned 7113b5bf6369. Canonical review @ this SHA: 218 PASS, 30 WARN (held), 3 FAIL (held, all defensive security-education false-positives). 218 PASS adopted as pinned entries; full set enumerable at SHA, gate-each. See packs/ECC_PRIME_VET_REPORT.md."
+      "note": "MIT, pinned 7113b5bf6369. Hardened-gate review @ SHA: 234 PASS, 17 WARN (held), 0 FAIL (held). 234 adopted. See packs/ECC_PRIME_VET_REPORT.md."
     }
   ]
 }

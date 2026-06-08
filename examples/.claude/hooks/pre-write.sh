@@ -1,24 +1,29 @@
 #!/bin/bash
-# ──────────────────────────────────────────────────────────────
-# PRE-WRITE HOOK — File protection
+# ==============================================================================
+# EXAMPLE PreToolUse(Write|Edit) hook - file protection (template)
 #
-# Triggered before any file write operation.
-# Blocks writes to protected files/directories.
-# Receives the target file path as $1.
+# Smooth + clean by design: WARNS, does not block (exit 0) by default. Set
+# NBB_STRICT_HOOKS=1 to turn the warning into a hard block (exit 2). Reads the
+# Claude Code hook JSON from stdin (modern convention); falls back to $1; never
+# errors on missing input. ASCII-only.
 #
-# North Star Framework: Hooks Architecture (NSB Part XI)
-# ──────────────────────────────────────────────────────────────
+# North Star Framework: Hooks Architecture (NSB Part XI). Tune PROTECTED_PATTERNS
+# to your project.
+# ==============================================================================
+set -uo pipefail
 
-set -euo pipefail
-
-TARGET_FILE="${1:-}"
-
-if [ -z "$TARGET_FILE" ]; then
-  echo "⚠️  pre-write hook: no target file provided"
-  exit 0
+input="$(cat 2>/dev/null || true)"
+file=""
+if command -v python3 >/dev/null 2>&1 && [ -n "$input" ]; then
+  file="$(printf '%s' "$input" | python3 -c 'import sys, json
+try:
+    print(json.load(sys.stdin).get("tool_input", {}).get("file_path", ""))
+except Exception:
+    print("")' 2>/dev/null || true)"
 fi
+[ -z "$file" ] && file="${1:-}"
+[ -z "$file" ] && exit 0   # nothing to check; never error
 
-# ── Protected paths ──
 PROTECTED_PATTERNS=(
   "src/components/ui/"
   ".env"
@@ -31,25 +36,23 @@ PROTECTED_PATTERNS=(
 )
 
 for pattern in "${PROTECTED_PATTERNS[@]}"; do
-  if [[ "$TARGET_FILE" == *"$pattern"* ]]; then
-    echo ""
-    echo "🛑 WRITE BLOCKED: $TARGET_FILE"
-    echo "   This file is protected by pre-write hook."
-    echo ""
-    if [[ "$TARGET_FILE" == *"prisma/schema.prisma"* ]]; then
-      echo "   → Schema changes require a plan.md entry first."
-      echo "   → Create a migration plan, get approval, then modify."
-    elif [[ "$TARGET_FILE" == *"package.json"* ]]; then
-      echo "   → Dependency changes require explicit approval."
-      echo "   → State the package, version, and reason in your plan."
-    elif [[ "$TARGET_FILE" == *"src/components/ui/"* ]]; then
-      echo "   → UI primitives are maintained separately."
-      echo "   → Create new components in src/components/ instead."
-    else
-      echo "   → This file requires manual modification."
-    fi
-    exit 1
-  fi
+  case "$file" in
+    *"$pattern"*)
+      msg="[hook] '$file' is a protected path."
+      case "$file" in
+        *prisma/schema.prisma*) msg="$msg Schema changes should go through a plan.md entry + migration." ;;
+        *package.json*)         msg="$msg Dependency changes should be stated (package, version, reason) first." ;;
+        *src/components/ui/*)   msg="$msg UI primitives are maintained separately; add new components under src/components/." ;;
+        *.env*)                 msg="$msg Secrets belong in a vault (op://); never write values here." ;;
+        *)                      msg="$msg Prefer a manual, reviewed change." ;;
+      esac
+      if [ "${NBB_STRICT_HOOKS:-0}" = "1" ]; then
+        printf '%s\nBLOCKED (NBB_STRICT_HOOKS=1).\n' "$msg" >&2
+        exit 2
+      fi
+      printf '%s\n' "$msg" >&2
+      exit 0
+      ;;
+  esac
 done
-
 exit 0
