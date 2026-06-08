@@ -87,10 +87,12 @@ runs the same builder and uploads the pack as a downloadable release artifact.
 
 Each external skill keeps its OWN upstream license (recorded per entry). A pack
 you publish must respect those terms. NBB's first-party skills are CC BY-NC-SA
-4.0. The `ecc-prime` bulk source is marked **`license_pending`** and is
-default-denied: do NOT copy ECC-Prime skills into a public CC BY-NC-SA repo until
-its license is confirmed to permit redistribution — point the manifest at it and
-gate each skill on adoption.
+4.0. **ECC-Prime is MIT** (Copyright (c) 2026 Affaan Mustafa) — license confirmed,
+pinned at SHA `7113b5bf...`, and recorded in `THIRD_PARTY_NOTICES.md`. ECC-Prime
+skill files are NOT blended into NBB methodology prose and are NOT vendored into
+this tree; they are referenced by pinned manifest entries and fetched at the SHA
+at build time, carrying the MIT notice in the built pack's `MANIFEST.json`. The
+two licenses are kept clearly separated.
 
 ## Sources (extended-300 `bulk_sources`)
 
@@ -99,6 +101,6 @@ gate each skill on adoption.
 | `anthropics/skills` @ pinned SHA | A | enumerable + gate-each |
 | `openai/skills` (.curated) | A | pin a SHA, then gate-each |
 | Reviewed community (Tier C) | C | adapt locally + pin; never raw-import |
-| ECC-Prime (user-owned, 200+) | user | **license_pending** — confirm license first |
+| ECC-Prime (`Navigata1/ECC-Prime`, **MIT**) | C-MIT | **adopted** — 218/251 canonical PASS, pinned @ `7113b5bf`; 33 held (30 WARN, 3 FAIL). See `packs/ECC_PRIME_VET_REPORT.md` + `THIRD_PARTY_NOTICES.md` |
 
 Higher-caliber sources preempt lower ones when filling the cap.

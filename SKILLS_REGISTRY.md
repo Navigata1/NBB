@@ -57,8 +57,11 @@ wholesale-import risk this registry's S4 policy bans. A pack is a vetted manifes
   `QUARANTINE.md`). CI: `.github/workflows/build-skill-pack.yml`.
 - **Honest cap:** counts are targets the gate fills, never inflated. A smoke build
   (`--offline`) packs only the first-party skills that pass.
-- **ECC-Prime** (200+) is a `license_pending` source — default-denied until its
-  license is confirmed to permit redistribution.
+- **ECC-Prime** (`Navigata1/ECC-Prime`, **MIT**) — license confirmed; pinned at
+  SHA `7113b5bf63694b716f8b2413c5919824a82fc095`. Canonical review at that SHA:
+  **218 PASS adopted**, 30 WARN + 3 FAIL held (the 3 FAILs are defensive
+  security-education false-positives). Skills are referenced (not vendored into
+  the tree). See `packs/ECC_PRIME_VET_REPORT.md` and `THIRD_PARTY_NOTICES.md`.
 
 Full guide + pickup/routing: `packs/README.md`.
 
